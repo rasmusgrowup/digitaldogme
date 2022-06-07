@@ -1,0 +1,57 @@
+@import 'core.scss';
+
+.main {
+  background-color: var(--main);
+  color: var(--bg);
+  padding: 2rem;
+}
+
+.tagline {
+  color: var(--bg);
+  font-size: 2.6rem;
+  font-weight: bold;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  text-transform: uppercase;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  color: var(--bg);
+  display: inline-block;
+  margin-right: 0.25em;
+  text-transform: uppercase;
+
+  .digital {
+    display: inline-block;
+    margin-right: 0.25em;
+  }
+}
+
+.info {
+  color: var(--bg);
+  font-weight: bold;
+  font-size: 0.9em;
+  flex: 3;
+}
+
+.socials,
+.policies {
+  flex: 1;
+
+  a:first-of-type::after {
+    color: var(--bg) !important;
+    content: '/';
+    margin-inline: 0.5rem;
+  }
+
+  a:hover {
+    color: var(--red);
+  }
+}

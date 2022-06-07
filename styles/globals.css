@@ -19,7 +19,7 @@
 
 html,
 body {
-  background-color: var(--bg);
+  background-color: var(--main);
   color: var(--main);
   font-family:
     'Manrope',
@@ -36,7 +36,6 @@ body {
     sans-serif;
   font-size: 18px;
   margin: 0;
-  min-height: 300vh;
   padding: 0;
 }
 
