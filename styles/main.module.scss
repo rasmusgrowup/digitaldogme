@@ -1,0 +1,62 @@
+.container {
+  align-items: center;
+  display: flex;
+  font-size: 3.6rem;
+  font-weight: bold;
+  height: 100vh;
+  justify-content: center;
+  line-height: 0.8;
+  text-transform: uppercase;
+  position: relative;
+  width: 100vw;
+
+  .inner {
+    align-items: center;
+    display: flex;
+    height: 100px;
+  }
+
+  .sentence,
+  .animatedSentenceContainer {
+    display: inline-block;
+    margin-right: 1rem;
+    position: relative;
+  }
+
+  .animatedSentenceContainer {
+    content: '';
+    min-width: 555px;
+  }
+
+  .animatedSentenceContainer::before {
+    color: var(--red);
+    content: '[';
+  }
+
+  .animatedSentenceContainer::after {
+    color: var(--red);
+    content: ']';
+    position: absolute;
+    right: 0;
+  }
+
+  .animatedSentence {
+    height: 52px;
+    left: 2rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    min-width: 500px;
+  }
+
+  .word {
+    top: 0;
+    position: absolute;
+    transform: translateY(52px);
+    width: 400px;
+  }
+
+  .word {
+    display: block;
+  }
+}

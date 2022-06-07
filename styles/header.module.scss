@@ -1,0 +1,30 @@
+@import 'core.scss';
+
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+
+  .inner {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 100%;
+  }
+}
+
+.logo {
+  line-height: 0.8;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  .digital {
+    letter-spacing: -0.042em;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

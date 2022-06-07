@@ -1,0 +1,17 @@
+@import 'core.scss';
+
+.button {
+  background-color: var(--main);
+  border: none;
+  border-radius: 1rem;
+  color: var(--bg);
+  font-size: 0.7em;
+  height: 2rem;
+  padding-inline: 1rem;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: var(--red);
+    cursor: pointer;
+  }
+}
