@@ -1,11 +1,17 @@
 // Default imports
 import Link from "next/link"
+import { useState, useRef, useEffect } from 'react'
 
 // SCSS Styling
 import styles from '../styles/footer.module.scss'
 
+//GSAP
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
+
 const itStyle = {
-  color: 'var(--red)',
+  color: 'var(--peach)',
 }
 
 function Digital() {
@@ -60,20 +66,55 @@ function Policies() {
   )
 }
 
+function Contact() {
+  return (
+    <div className={styles.contact}>
+      <p className={styles.titel}>Kontakt os på</p>
+      <Link href='https://twitter.com'>
+        <a className={styles.mail}>kontakt@digitaldogme.dk</a>
+      </Link>
+      <p className={styles.p}>Vi svarer man-fredag fra 8.00 - 16.30</p>
+    </div>
+  )
+}
+
 export default function Footer() {
+  const outer = useRef();
+  const inner = useRef();
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    gsap.fromTo(inner.current, {
+      yPercent: -75
+    },
+    {
+      yPercent: 0,
+      ease: 'none',
+      scrollTrigger: {
+        scrub: true,
+        markers: true,
+        trigger: outer.current,
+        start: 'top bottom',
+        end: 'bottom bottom'
+      }
+    })
+  }, [])
+
   return (
     <>
-      <footer className={styles.main}>
-        <div className={styles.tagline}>
-          Vær med til at gøre Danmark til digital frontløber
-        </div>
-        <div className={styles.top}>
-
-        </div>
-        <div className={styles.bottom}>
-          <Info />
-          <Socials />
-          <Policies />
+      <footer className={styles.main} ref={outer}>
+        <div className={styles.inner} ref={inner}>
+          <div className={styles.tagline}>
+            Vær med til at gøre Danmark til digital frontløber
+          </div>
+          <div className={styles.top}>
+            <Contact />
+          </div>
+          <div className={styles.bottom}>
+            <Info />
+            <Socials />
+            <Policies />
+          </div>
         </div>
       </footer>
     </>

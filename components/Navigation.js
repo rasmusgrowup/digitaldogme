@@ -46,8 +46,6 @@ export default function Navigation() {
   if (error) return <div>Der skete en fejl</div>
   if (!data) return <div>Indlæser...</div>
 
-  console.log(data)
-
   return (
     <>
       <nav className={styles.nav}>
