@@ -10,7 +10,6 @@ import FeatherIcon from 'feather-icons-react';
 
 export default function Menupunkt({ slug, title, icon, arr }) {
   const [ visible, setVisible ] = useState(false)
-
   const toggle = () => {
     setVisible(!visible)
   }

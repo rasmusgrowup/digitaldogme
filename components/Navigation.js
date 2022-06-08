@@ -1,3 +1,6 @@
+// Default imports
+import { useRouter } from 'next/router'
+
 // SCSS styles
 import styles from '../styles/nav.module.scss'
 
@@ -12,9 +15,9 @@ import useSWR from 'swr'
 const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl41227n82mr701xjefvp5ghq/master', query)
 
 export default function Navigation() {
-
+  const router = useRouter()
   const { data, error } = useSWR(`
-    query MyQuery {
+    query fetchMenuPunkter {
       menu(where: {placering: header}) {
         punkter {
           ... on Menupunkt {
@@ -51,7 +54,7 @@ export default function Navigation() {
       <nav className={styles.nav}>
         <ul className={styles.ul}>
           { data.menu.punkter.map((punkt) => (
-            <li className={styles.li} key={punkt.id}>
+            <li className={`${styles.li} ${ router.pathname === punkt.link.adresse ? `${styles.active}` : '' }`} key={punkt.id}>
               <Menupunkt
                 title={punkt.titel}
                 slug={punkt.link.adresse}

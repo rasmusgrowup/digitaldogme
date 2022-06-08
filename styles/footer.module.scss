@@ -63,6 +63,23 @@
   }
 }
 
+.navigation {
+  flex: 1;
+
+  .ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .active {
+    color: var(--red);
+  }
+}
+
+.address {
+  flex: 1;
+}
+
 .logo {
   color: var(--bg);
   display: inline-block;

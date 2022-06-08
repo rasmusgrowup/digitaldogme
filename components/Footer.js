@@ -1,14 +1,23 @@
 // Default imports
 import Link from "next/link"
+import { useRouter } from 'next/router'
 import { useState, useRef, useEffect } from 'react'
 
 // SCSS Styling
 import styles from '../styles/footer.module.scss'
 
+//Components
+import Menupunkt from '../components/Menupunkt'
+
 //GSAP
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
+// GraphCMS
+import { gql, request } from 'graphql-request';
+import useSWR from 'swr'
+
+const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl41227n82mr701xjefvp5ghq/master', query)
 
 const itStyle = {
   color: 'var(--peach)',
@@ -35,6 +44,90 @@ function Logo() {
     <div className={styles.logo}>
       <Digital />
       <Dogme />
+    </div>
+  )
+}
+
+function Contact() {
+  return (
+    <div className={styles.contact}>
+      <p className={styles.titel}>Kontakt os på</p>
+      <Link href='https://twitter.com'>
+        <a className={styles.mail}>kontakt@digitaldogme.dk</a>
+      </Link>
+      <p className={styles.p}>Vi svarer man-fredag fra 8.00 - 16.30</p>
+    </div>
+  )
+}
+
+function Navigation() {
+  const router = useRouter()
+  const { data, error } = useSWR(`
+    query fetchMenuPunkter {
+      menu(where: {placering: footer}) {
+        punkter {
+          ... on Menupunkt {
+            id
+            dropdownLinks {
+              adresse
+              icon
+              id
+              titel
+            }
+            link {
+              adresse
+              icon
+              titel
+              id
+            }
+            titel
+          }
+        }
+        knapper {
+          adresse
+          id
+          label
+        }
+      }
+    }
+`, fetcher)
+
+  if (error) return <div>Der skete en fejl</div>
+  if (!data) return <div>Indlæser...</div>
+
+  return (
+    <div className={styles.navigation}>
+      <ul className={styles.ul}>
+        { data.menu.punkter.map((punkt) => (
+          <li className={`${styles.li} ${ router.pathname === punkt.link.adresse ? `${styles.active}` : '' }`} key={punkt.id}>
+            <Menupunkt
+              title={punkt.titel}
+              slug={punkt.link.adresse}
+              icon={punkt.link.icon}
+              arr={punkt.dropdownLinks}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function Address() {
+  return (
+    <div className={styles.address}>
+      <p>
+        Att.: Digital Dogme<br/>
+        c/o Netcompany
+      </p>
+      <p>
+        Rued Langgardsvej 8<br/>
+        DK-2300 København
+      </p>
+      <p>
+        CVR 40984909<br/>
+        EAN 5797200039583
+      </p>
     </div>
   )
 }
@@ -66,49 +159,18 @@ function Policies() {
   )
 }
 
-function Contact() {
-  return (
-    <div className={styles.contact}>
-      <p className={styles.titel}>Kontakt os på</p>
-      <Link href='https://twitter.com'>
-        <a className={styles.mail}>kontakt@digitaldogme.dk</a>
-      </Link>
-      <p className={styles.p}>Vi svarer man-fredag fra 8.00 - 16.30</p>
-    </div>
-  )
-}
-
 export default function Footer() {
-  const outer = useRef();
-  const inner = useRef();
-  gsap.registerPlugin(ScrollTrigger);
-
-  useEffect(() => {
-    gsap.fromTo(inner.current, {
-      yPercent: -75
-    },
-    {
-      yPercent: 0,
-      ease: 'none',
-      scrollTrigger: {
-        scrub: true,
-        markers: true,
-        trigger: outer.current,
-        start: 'top bottom',
-        end: 'bottom bottom'
-      }
-    })
-  }, [])
-
   return (
     <>
-      <footer className={styles.main} ref={outer}>
-        <div className={styles.inner} ref={inner}>
+      <footer className={styles.main}>
+        <div className={styles.inner}>
           <div className={styles.tagline}>
             Vær med til at gøre Danmark til digital frontløber
           </div>
           <div className={styles.top}>
             <Contact />
+            <Navigation />
+            <Address />
           </div>
           <div className={styles.bottom}>
             <Info />
