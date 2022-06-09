@@ -1,3 +1,4 @@
+// Deafult imports
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -69,7 +70,6 @@ export async function getStaticProps() {
 }
 
 function Content({ blokke }) {
-
   return (
     <>
       { blokke.map((blok, i) => (
