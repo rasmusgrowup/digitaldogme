@@ -76,7 +76,7 @@ function Navigation() {
             }
             dropdownLinks {
               adresse
-              icon
+              ikon
               id
               titel
             }
@@ -84,6 +84,7 @@ function Navigation() {
         }
         knapper {
           adresse
+          ikon
           id
           label
         }

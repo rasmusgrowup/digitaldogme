@@ -12,6 +12,12 @@
 
   &:hover {
     background-color: var(--red);
+    color: var(--bg);
     cursor: pointer;
   }
+}
+
+.light {
+  background-color: var(--bg);
+  color: var(--main);
 }

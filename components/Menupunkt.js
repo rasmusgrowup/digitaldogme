@@ -8,7 +8,7 @@ import styles from '../styles/link.module.scss'
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
 
-export default function Menupunkt({ slug, title, icon, arr }) {
+export default function Menupunkt({ slug, title, ikon, arr }) {
   const [ visible, setVisible ] = useState(false)
   const toggle = () => {
     setVisible(!visible)
@@ -22,7 +22,7 @@ export default function Menupunkt({ slug, title, icon, arr }) {
             {title}
             <div className={styles.icon}>
               <FeatherIcon
-                icon={icon}
+                icon={ikon}
                 size={15}
                 style={{ color: 'var(--main)' }}
               />
@@ -38,7 +38,7 @@ export default function Menupunkt({ slug, title, icon, arr }) {
                         <span>{a.titel}</span>
                         <div className={styles.icon}>
                           <FeatherIcon
-                            icon={a.icon}
+                            icon={a.ikon}
                             size={15}
                             style={{ color: 'var(--main)' }}
                           />
@@ -57,12 +57,12 @@ export default function Menupunkt({ slug, title, icon, arr }) {
         <>
           <Link href={slug}>
             <a className={styles.link}>
-              { icon ?
+              { ikon ?
                 <>
                   <span>{title}</span>
                   <div className={styles.icon}>
                     <FeatherIcon
-                      icon={icon}
+                      icon={ikon}
                       size={15}
                       style={{ color: 'var(--main)' }}
                     />

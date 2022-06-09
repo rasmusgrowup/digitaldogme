@@ -2,6 +2,7 @@
 
 .nav {
   align-items: center;
+  color: var(--bg);
   display: flex;
   font-weight: normal;
 
@@ -22,7 +23,8 @@
   }
 
   .active {
-    color: var(--red);
+    //color: var(--red);
+    text-decoration: underline;
   }
 
   .li span {

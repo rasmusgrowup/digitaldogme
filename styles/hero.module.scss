@@ -1,0 +1,66 @@
+@import 'core.scss';
+
+.hero {
+  background-color: var(--black);
+  color: var(--bg);
+  height: min(100vh, 70vw);
+  position: relative;
+
+  &::before {
+    top: 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+    content: '';
+    left: 0;
+    height: 20%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &::after {
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    content: '';
+    left: 0;
+    height: 50%;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+  }
+}
+
+.image {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.content {
+  left: 50%;
+  position: absolute;
+  bottom: 15%;
+  transform: translate(-50%, 15%);
+  text-align: center;
+  padding: 2rem;
+  width: min(100vw, $l);
+  z-index: 1;
+
+  .wrapper {
+    line-height: 1;
+    overflow: hidden;
+  }
+
+  .h1 {
+    font-size: max(3.6rem, 21px);
+    margin: 1rem;
+    text-transform: uppercase;
+  }
+
+  .h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+}

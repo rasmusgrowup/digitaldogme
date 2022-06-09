@@ -30,7 +30,7 @@ export default function Navigation() {
             }
             dropdownLinks {
               adresse
-              icon
+              ikon
               id
               titel
             }
@@ -38,6 +38,7 @@ export default function Navigation() {
         }
         knapper {
           adresse
+          ikon
           id
           label
         }
@@ -67,7 +68,7 @@ export default function Navigation() {
           ))}
         </ul>
         { data.menu.knapper.map((knap) => (
-          <Button label={knap.label} href={knap.adresse} key={knap.id}/>
+          <Button theme='light' label={knap.label} href={knap.adresse} key={knap.id}/>
         ))}
       </nav>
     </>

@@ -10,7 +10,7 @@ import styles from '../styles/header.module.scss'
 import Navigation from '../components/Navigation'
 
 const itStyle = {
-  color: 'var(--red)',
+  color: 'var(--pink)',
 }
 
 function Digital() {
