@@ -3,14 +3,15 @@ import Image from "next/image"
 import Link from "next/link"
 
 // Framer motion
-import { motion, useViewportScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // SCSS Styling
 import styles from '../styles/hero.module.scss'
 
-export default function Hero({ url, overskrift, tekst }) {
-  const { scrollYProgress} = useViewportScroll()
+// Feather icons
+import FeatherIcon from 'feather-icons-react';
 
+export default function Hero({ url, overskrift, tekst }) {
   return (
     <>
       <section className={styles.hero}>
@@ -29,6 +30,8 @@ export default function Hero({ url, overskrift, tekst }) {
             layout='fill'
             objectFit='cover'
             objectPosition='center'
+            quality='100'
+            priority='true'
           />
         </motion.div>
         <div className={styles.content}>
@@ -60,6 +63,22 @@ export default function Hero({ url, overskrift, tekst }) {
                 {tekst}
               </motion.h2>
           </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{
+              duration: 4,
+              delay: 4,
+              ease: [0.22, 1, 0.36, 1]
+            }}
+            className={styles.mere}>
+            <div>Læs mere</div>
+            <FeatherIcon
+              icon='arrow-down'
+              size={21}
+              style={{ color: 'var(--bg)' }}
+            />
+          </motion.div>
         </div>
       </section>
     </>

@@ -40,8 +40,8 @@
 .content {
   left: 50%;
   position: absolute;
-  bottom: 15%;
-  transform: translate(-50%, 15%);
+  bottom: 6%;
+  transform: translate(-50%, 6%);
   text-align: center;
   padding: 2rem;
   width: min(100vw, $l);
@@ -63,4 +63,11 @@
     font-weight: normal;
     line-height: 1.5;
   }
+}
+
+.mere {
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  opacity: 0.25;
+  text-transform: uppercase;
 }

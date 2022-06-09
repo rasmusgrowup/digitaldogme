@@ -167,7 +167,7 @@ export default function Footer() {
     <>
       <footer className={styles.main}>
         <div className={styles.inner}>
-          <div className={styles.tagline}>
+          <div className={styles.tagline} style={{ display: 'none' }}>
             Vær med til at gøre Danmark til digital frontløber
           </div>
           <div className={styles.top}>

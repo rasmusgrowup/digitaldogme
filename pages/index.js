@@ -25,6 +25,8 @@ export async function getStaticProps() {
           ... on Hero {
             id
             billede {
+              caption
+              alt
               height
               url
               width
@@ -38,11 +40,15 @@ export async function getStaticProps() {
           ... on Sektion {
             id
             billede {
+              alt
+              caption
               id
               url
               width
               height
             }
+            baggrundsfarve
+            align
             titel
             tekst {
               html
@@ -72,13 +78,15 @@ export async function getStaticProps() {
 function Content({ blokke }) {
   return (
     <>
+      <div className={styles.content}>
       { blokke.map((blok, i) => (
           blok.__typename === 'Sektion' ?
-          <Sektion arr={blok} /> :
+          <Sektion arr={blok} key={i}/> :
           blok.__typename === 'USP' ?
           <></> :
           <></>
         )) }
+      </div>
     </>
   )
 }
