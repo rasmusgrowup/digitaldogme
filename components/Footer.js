@@ -20,7 +20,7 @@ import useSWR from 'swr'
 const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl41227n82mr701xjefvp5ghq/master', query)
 
 const itStyle = {
-  color: 'var(--peach)',
+  color: 'var(--red)',
 }
 
 function Digital() {
@@ -64,23 +64,22 @@ function Navigation() {
   const router = useRouter()
   const { data, error } = useSWR(`
     query fetchMenuPunkter {
-      menu(where: {placering: footer}) {
+      menu(where: {placering: header}) {
         punkter {
           ... on Menupunkt {
             id
+            titel
+            link {
+              slug
+              titel
+              type
+            }
             dropdownLinks {
               adresse
               icon
               id
               titel
             }
-            link {
-              adresse
-              icon
-              titel
-              id
-            }
-            titel
           }
         }
         knapper {
@@ -99,11 +98,14 @@ function Navigation() {
     <div className={styles.navigation}>
       <ul className={styles.ul}>
         { data.menu.punkter.map((punkt) => (
-          <li className={`${styles.li} ${ router.pathname === punkt.link.adresse ? `${styles.active}` : '' }`} key={punkt.id}>
+          <li className={`
+            ${styles.li}
+            ${ router.pathname  === punkt.link.slug && `${styles.active}`}
+            ${ router.pathname === '/' && punkt.link.type === 'forside' && `${styles.active}`}`}
+            key={punkt.id}>
             <Menupunkt
               title={punkt.titel}
-              slug={punkt.link.adresse}
-              icon={punkt.link.icon}
+              slug={punkt.link.slug}
               arr={punkt.dropdownLinks}
             />
           </li>

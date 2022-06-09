@@ -14,8 +14,6 @@ export default function Menupunkt({ slug, title, icon, arr }) {
     setVisible(!visible)
   }
 
-  console.log({arr})
-
   return (
     <>
       { arr.length !== 0 ?

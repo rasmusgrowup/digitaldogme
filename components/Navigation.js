@@ -22,19 +22,18 @@ export default function Navigation() {
         punkter {
           ... on Menupunkt {
             id
+            titel
+            link {
+              slug
+              titel
+              type
+            }
             dropdownLinks {
               adresse
               icon
               id
               titel
             }
-            link {
-              adresse
-              icon
-              titel
-              id
-            }
-            titel
           }
         }
         knapper {
@@ -54,11 +53,14 @@ export default function Navigation() {
       <nav className={styles.nav}>
         <ul className={styles.ul}>
           { data.menu.punkter.map((punkt) => (
-            <li className={`${styles.li} ${ router.pathname === punkt.link.adresse ? `${styles.active}` : '' }`} key={punkt.id}>
+            <li className={`
+              ${styles.li}
+              ${ router.pathname  === punkt.link.slug && `${styles.active}`}
+              ${ router.pathname === '/' && punkt.link.type === 'forside' && `${styles.active}`}`}
+              key={punkt.id}>
               <Menupunkt
                 title={punkt.titel}
-                slug={punkt.link.adresse}
-                icon={punkt.link.icon}
+                slug={`${ punkt.link.type === 'forside' ? '' : `${punkt.link.slug}`}`}
                 arr={punkt.dropdownLinks}
               />
             </li>
