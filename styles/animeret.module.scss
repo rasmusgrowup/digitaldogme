@@ -1,64 +1,43 @@
 @import 'core.scss';
 
-.sektion {
+.animeret {
   align-items: center;
   display: flex;
   justify-content: center;
   padding: 5rem 2rem;
 }
 
-.col {
-  padding: 0 1rem;
+.dark {
+  color: var(--bg);
 }
 
 .inner {
-  align-items: center;
-  display: flex;
   max-width: $l;
-
-  .col {
-    flex: 1;
-    width: 50%;
-  }
+  width: 100%;
 }
 
-.leftAligned {
-  flex-direction: row;
-}
-
-.rightAligned {
-  flex-direction: row-reverse;
-}
-
-.centerAligned {
-  flex-direction: column;
-  text-align: center;
-
-  .col {
-    width: 100%;
-  }
-
-  .cta {
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-  }
-}
-
-.col .h2 {
+.inner .h2 {
   font-size: max(2rem, 30px);
-  //line-height: 1;
   margin-top: 0;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.col .p {
-  line-height: 1.5;
+.container {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+
+  .item {
+    flex: 1;
+    width: 33%;
+    text-align: center;
+  }
 }
 
-.col .caption {
-  font-size: 0.8em;
-  opacity: 0.5;
+.tal {
+  font-size: 6em;
+  font-weight: bold;
 }
 
 .cta {
@@ -67,7 +46,9 @@
   display: flex;
   font-size: 14px;
   font-weight: bold;
-  margin-top: 2rem;
+  margin: 0 auto;
+  margin-bottom: 0;
+  margin-top: 4rem;
   text-transform: uppercase;
   width: fit-content;
 
@@ -88,14 +69,5 @@
     .icon {
       background-color: var(--red);
     }
-  }
-}
-
-.center {
-  text-align: center;
-
-  .cta {
-    margin: 0 auto;
-    margin-top: 2rem;
   }
 }

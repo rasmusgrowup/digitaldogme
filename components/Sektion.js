@@ -30,8 +30,6 @@ const variants = {
 
 export default function Sektion({ arr }) {
   const router = useRouter()
-
-  console.log({ arr })
   return (
     <>
       <section
@@ -48,20 +46,21 @@ export default function Sektion({ arr }) {
               arr.baggrundsfarve === 'Groen' ? 'var(--green)' :
               arr.baggrundsfarve === 'Blaa' ? 'var(--main)' :
               arr.baggrundsfarve === 'Sort' ? 'var(--black)' :
-              ''
+              arr.baggrundsfarve === null ? 'var(--bg)' :
+              'var(--bg)'
             }`
         }}
         >
-        <div className={`
+        <motion.div
+          initial='initial'
+          whileInView='whileInView'
+          variants={variants}
+          viewport={{ once: true }}
+          className={`
           ${styles.inner}
           ${ arr.align === 'left' ? `${styles.leftAligned}` : arr.align === 'right' ? `${styles.rightAligned}` : `${styles.centerAligned}`}
         `}>
-          <motion.div
-            initial='initial'
-            whileInView='whileInView'
-            variants={variants}
-            viewport={{ once: true }}
-            className={styles.col}>
+          <div className={styles.col}>
             <h2
               className={styles.h2}>
               {arr.titel}
@@ -85,14 +84,9 @@ export default function Sektion({ arr }) {
                   <span>{arr.cta.label}</span>
                 </div>
               }
-          </motion.div>
+          </div>
           { arr.billede != null &&
-            <motion.div
-            initial='initial'
-            whileInView='whileInView'
-            variants={variants}
-            viewport={{ once: true }}
-            className={styles.col}>
+            <div className={styles.col}>
             <div className={styles.wrapper}>
               { arr.align != 'center' ?
               <Image
@@ -119,8 +113,8 @@ export default function Sektion({ arr }) {
             { arr.billede.caption &&
               <p className={styles.caption}>{arr.billede.caption}</p>
             }
-          </motion.div> }
-        </div>
+          </div> }
+        </motion.div>
       </section>
     </>
   )

@@ -5,6 +5,8 @@ import Image from 'next/image'
 //Components
 import Hero from '../components/Hero'
 import Sektion from '../components/Sektion'
+import Karussel from '../components/Karussel'
+import Animeret from '../components/Animeret'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
@@ -61,7 +63,46 @@ export async function getStaticProps() {
           }
           ... on USP {
             id
-            overskrift
+            overskriftUSP
+          }
+          ... on Karussel {
+            id
+            overskriftKarussel
+            baggrundsfarve
+            publikationer(where: {kategori: Cases}, first: 3) {
+              billede {
+                height
+                id
+                url
+                width
+              }
+              dato
+              id
+              resume
+              slug
+              titel
+            }
+            cta {
+              id
+              ikon
+              label
+            }
+          }
+          ... on Animeret {
+            id
+            baggrundsfarve
+            overskriftAnimeret
+            tekstAnimeret
+            tal {
+              betydning
+              id
+              tal
+            }
+            cta {
+              id
+              ikon
+              label
+            }
           }
         }
       }
@@ -81,10 +122,14 @@ function Content({ blokke }) {
       <div className={styles.content}>
       { blokke.map((blok, i) => (
           blok.__typename === 'Sektion' ?
-          <Sektion arr={blok} key={i}/> :
+          <Sektion arr={blok} key={blok.id}/> :
+          blok.__typename === 'Animeret' ?
+          <Animeret arr={blok} key={blok.id}/> :
+          blok.__typename === 'Karussel' ?
+          <Karussel arr={blok} key={blok.id}/> :
           blok.__typename === 'USP' ?
           <></> :
-          <></>
+          null
         )) }
       </div>
     </>
