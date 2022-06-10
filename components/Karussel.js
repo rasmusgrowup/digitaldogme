@@ -62,28 +62,30 @@ export default function Karussel({ arr }) {
           <div
             className={styles.container}>
             { arr.publikationer.map((publikation, i) => (
-              <div key={i}>
-                <div className={styles.wrapper}>
-                  <Image
-                    src={publikation.billede.url}
-                    height='500'
-                    width='400'
-                    objectFit='cover'
-                    objectPosition='center'
-                    quality='100'
-                    layout='responsive'
-                  />
-                </div>
-                <span className={styles.dato}>{publikation.dato}</span>
-                <h3 className={styles.titel}>{publikation.titel}</h3>
-                <p className={styles.resume}>{publikation.resume}</p>
-              </div>
+              <Link href={`/viden/${publikation.slug}`} key={i}>
+                <a>
+                  <div className={styles.wrapper}>
+                    <Image
+                      src={publikation.billede.url}
+                      height='440'
+                      width='400'
+                      objectFit='cover'
+                      objectPosition='center'
+                      quality='100'
+                      layout='responsive'
+                    />
+                  </div>
+                  <span className={styles.dato}>{publikation.dato}</span>
+                  <h3 className={styles.titel}>{publikation.titel}</h3>
+                  <p className={styles.resume}>{publikation.resume}</p>
+                </a>
+              </Link>
             ))}
           </div>
           { arr.cta &&
             <div
               className={styles.cta}
-              onClick={() => router.push('/')}
+              onClick={() => router.push(`${arr.cta.link}`)}
               >
               <span className={styles.icon}>
                 <FeatherIcon

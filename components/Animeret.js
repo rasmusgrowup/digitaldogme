@@ -72,11 +72,12 @@ export default function Animeret({ arr }) {
                     partialVisibility
                     offset={{ bottom: 30 }}>
                     {({ isVisible }) => (
-                      <div>
-                        {isVisible ? <CountUp end={item.tal} duration={4} /> : '0'}
+                      <div className={styles.countup}>
+                        {isVisible ? <CountUp end={item.tal} duration={2.5} /> : '0'}
                       </div>
                     )}
                   </VisibilitySensor>
+                  <span className={styles.enhed}>{item.enhed}</span>
                 </div>
                 <div className={styles.betydning}>
                   {item.betydning}
@@ -87,7 +88,7 @@ export default function Animeret({ arr }) {
           { arr.cta &&
             <div
               className={styles.cta}
-              onClick={() => router.push('/')}
+              onClick={() => router.push(`${arr.cta.link}`)}
               >
               <span className={styles.icon}>
                 <FeatherIcon

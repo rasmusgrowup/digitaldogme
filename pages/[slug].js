@@ -6,10 +6,10 @@ import Blocks from '../components/Blocks'
 import { GraphQLClient, gql } from 'graphql-request';
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
   const { side } = await graphcms.request(`
-    query forside {
-      side(where: {slug: "forside"}) {
+    query forside($slug: String!) {
+      side(where: {slug: $slug}) {
         id
         slug
         titel
@@ -80,6 +80,7 @@ export async function getStaticProps() {
               ikon
               label
               link
+              link
             }
           }
           ... on Animeret {
@@ -103,7 +104,9 @@ export async function getStaticProps() {
         }
       }
     }
-  `);
+  `, {
+    slug: params.slug
+  });
 
   return {
     props: {
@@ -112,7 +115,26 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ side }) {
+export async function getStaticPaths() {
+  const { sider } = await graphcms.request(`
+    query sider {
+      sider(where: {type: landingsside}) {
+        id
+        slug
+      }
+    }
+  `)
+
+  return {
+    paths: sider.map(({ slug }) => ({
+      params: { slug },
+    })),
+    fallback: false,
+  }
+}
+
+export default function Landingsside({ side }) {
+  console.log({ side })
   return (
     <>
       <Hero

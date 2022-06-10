@@ -4,6 +4,18 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.sektion:first-of-type {
+  padding-top: 5rem;
+}
+
+.sektion:last-of-type {
+  padding-bottom: 5rem;
+}
+
+.medBaggrundsfarve {
   padding: 5rem 2rem;
 }
 

@@ -47,21 +47,17 @@ export default function Navigation() {
 `, fetcher)
 
   if (error) return <div>Der skete en fejl</div>
-  if (!data) return <div>Indlæser...</div>
+  if (!data) return <div className={styles.loading}><Button theme='light' label='... indlæser' href='/' /></div>
 
   return (
     <>
       <nav className={styles.nav}>
         <ul className={styles.ul}>
           { data.menu.punkter.map((punkt) => (
-            <li className={`
-              ${styles.li}
-              ${ router.pathname  === punkt.link.slug && `${styles.active}`}
-              ${ router.pathname === '/' && punkt.link.type === 'forside' && `${styles.active}`}`}
-              key={punkt.id}>
+            <li className={styles.li} key={punkt.id}>
               <Menupunkt
                 title={punkt.titel}
-                slug={`${ punkt.link.type === 'forside' ? '' : `${punkt.link.slug}`}`}
+                slug={`${ punkt.link.type === 'forside' ? '/' : `${punkt.link.slug}`}`}
                 arr={punkt.dropdownLinks}
               />
             </li>

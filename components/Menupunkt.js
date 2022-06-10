@@ -31,7 +31,7 @@ export default function Menupunkt({ slug, title, ikon, arr }) {
           <ul className={styles.dropdownList} style={{ display: `${visible ? 'block' : 'none' }`}}>
             { arr.map((a, i) => (
               <li key={i} className={styles.li}>
-                <Link href={a.adresse}>
+                <Link href={`/${a.adresse}`}>
                   <a className={styles.link}>
                     { a.icon ?
                       <>
@@ -55,7 +55,7 @@ export default function Menupunkt({ slug, title, ikon, arr }) {
         </>
         :
         <>
-          <Link href={slug}>
+          <Link href={`/${slug}`}>
             <a className={styles.link}>
               { ikon ?
                 <>

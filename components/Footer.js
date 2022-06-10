@@ -64,7 +64,7 @@ function Navigation() {
   const router = useRouter()
   const { data, error } = useSWR(`
     query fetchMenuPunkter {
-      menu(where: {placering: header}) {
+      menu(where: {placering: footer}) {
         punkter {
           ... on Menupunkt {
             id

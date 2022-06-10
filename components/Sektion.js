@@ -33,7 +33,7 @@ export default function Sektion({ arr }) {
   return (
     <>
       <section
-        className={styles.sektion}
+        className={`${styles.sektion} ${ arr.baggrundsfarve ? `${styles.medBaggrundsfarve}` : '' }`}
         style={{
           backgroundColor:
             `${
@@ -72,7 +72,7 @@ export default function Sektion({ arr }) {
               { arr.cta &&
                 <div
                   className={styles.cta}
-                  onClick={() => router.push('/')}
+                  onClick={() => router.push(`${arr.cta.link}`)}
                   >
                   <span className={styles.icon}>
                     <FeatherIcon

@@ -1,0 +1,124 @@
+@import 'core.scss';
+
+.publikationer,
+.richWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 5rem 2rem;
+}
+
+.inner {
+  max-width: $l;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2em;
+}
+
+.wrapper {
+  margin-bottom: 0.2em;
+}
+
+.dato {
+  font-size: 0.6em;
+  margin: 0;
+}
+
+.titel {
+  font-size: 1.2em;
+  //font-weight: normal;
+  margin: 0;
+  margin-top: 0.5em;
+  padding-right: 1rem;
+  text-transform: uppercase;
+}
+
+.resume {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.show {
+  display: inherit;
+}
+
+.hide {
+  display: none;
+}
+
+.p {
+  display: block;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.filter {
+  justify-content: center;
+  display: flex;
+  font-size: 0.9em;
+  margin-bottom: 2rem;
+}
+
+.kategori {
+  background-color: var(--main);
+  border: none;
+  border-radius: 1rem;
+  color: var(--bg);
+  font-size: 0.7em;
+  height: 2rem;
+  padding: 0 1rem;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: var(--red);
+    color: var(--bg);
+    cursor: pointer;
+  }
+}
+
+.selected {
+  background-color: var(--red);
+}
+
+// Styling af enkelte publikationer
+
+.richInner {
+  max-width: $m;
+  width: 100%;
+}
+
+.rich {
+  line-height: 1.75;
+}
+
+.info {
+  color: var(--red);
+  font-size: 0.8em;
+  margin-bottom: 2rem;
+  opacity: 0.5;
+
+  span {
+    margin-right: 0.5rem;
+  }
+
+  span::after {
+    content: ':';
+    margin-left: 0.5rem;
+  }
+
+  span:last-of-type::after {
+    content: '';
+  }
+
+  span .ikon {
+    margin-right: 0.2em;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

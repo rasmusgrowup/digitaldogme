@@ -3,7 +3,7 @@
 .hero {
   background-color: var(--black);
   color: var(--bg);
-  height: min(100vh, 70vw);
+  height: 640px;
   position: relative;
 
   &::before {
@@ -31,6 +31,11 @@
   }
 }
 
+.fullHeight {
+  height: min(100vh, 66vw);
+  min-height: 700px;
+}
+
 .image {
   height: 100%;
   position: relative;
@@ -49,7 +54,6 @@
 
   .wrapper {
     line-height: 1;
-    overflow: hidden;
   }
 
   .h1 {
