@@ -1,6 +1,6 @@
 //Components
 import Hero from '../../components/Hero'
-import Publikationer from '../../components/Publikationer'
+import Publikationer from '../../components/Publikationer/index'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
@@ -69,6 +69,7 @@ export default function Viden({ side, publikationer, __type }) {
         url={side.topSektion.billede.url}
         overskrift={side.topSektion.overskrift}
         tekst={side.topSektion.tekst}
+        alt={side.topSektion.billede.alt}
       />
       <Publikationer arr={publikationer} types={__type}/>
     </>

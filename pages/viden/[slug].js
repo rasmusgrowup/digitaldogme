@@ -24,6 +24,7 @@ export async function getStaticProps({ params }) {
         titel
         resume
         billede {
+          alt
           url
         }
         dato
@@ -69,6 +70,7 @@ export default function Publikation({ publikation }) {
         url={publikation.billede.url}
         overskrift={publikation.titel}
         tekst={publikation.resume}
+        alt={publikation.billede.alt}
       />
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>

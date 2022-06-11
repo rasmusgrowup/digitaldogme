@@ -142,6 +142,7 @@ export default function Landingsside({ side }) {
         url={side.topSektion.billede.url}
         overskrift={side.topSektion.overskrift}
         tekst={side.topSektion.tekst}
+        alt={side.topSektion.billede.alt}
       />
       <Blocks blokke={side.blokke}/>
     </>

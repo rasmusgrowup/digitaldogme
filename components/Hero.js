@@ -11,7 +11,7 @@ import styles from '../styles/hero.module.scss'
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
 
-export default function Hero({ height, url, overskrift, tekst }) {
+export default function Hero({ height, url, overskrift, tekst, alt }) {
   return (
     <>
       <section className={`
@@ -35,6 +35,7 @@ export default function Hero({ height, url, overskrift, tekst }) {
             objectPosition='center'
             quality='100'
             priority='true'
+            alt={alt}
           />
         </motion.div>
         <div className={styles.content}>
