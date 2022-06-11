@@ -1,6 +1,6 @@
 //Components
 import Hero from '../../components/Hero'
-import Publikationer from '../../components/Publikationer/index'
+import Publikationer from '../../components/Publikationer'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';

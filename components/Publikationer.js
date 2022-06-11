@@ -4,10 +4,10 @@ import Link from "next/link"
 import { useState } from 'react'
 
 // Components
-import Button from '../../components/Button'
+import Button from '../components/Button'
 
 // SCSS Styling
-import styles from '../../styles/publikationer.module.scss'
+import styles from '../styles/publikationer.module.scss'
 
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
