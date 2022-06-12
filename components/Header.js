@@ -2,6 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 // SCSS Styling
 import styles from '../styles/header.module.scss'
@@ -10,6 +11,7 @@ import styles from '../styles/header.module.scss'
 import Navigation from '../components/Navigation'
 import React, { useContext } from 'react'
 import { MenuContext } from "../lib/menuContext"
+import useScrollListener from '../lib/useScroll'
 
 const itStyle = {
   color: 'var(--red)',
@@ -31,11 +33,16 @@ function Dogme() {
   )
 }
 
-function Logo() {
+function Logo({ scrolling }) {
   const router = useRouter()
   const { toggle, toggleFunction } = useContext(MenuContext);
   return (
-    <div className={`${styles.logo} ${ toggle ? `${styles.menuOpened}` : '' }`} onClick={() => router.push('/')}>
+    <div className={`
+      ${styles.logo}
+      ${ toggle ? `${styles.menuOpened}` : '' }
+      ${ scrolling ? `${styles.isScrolling}` : '' }
+      `}
+      onClick={() => router.push('/')}>
       <Digital />
       <Dogme />
     </div>
@@ -43,12 +50,37 @@ function Logo() {
 }
 
 export default function Header() {
+  const router = useRouter()
+  const [navClassList, setNavClassList] = useState([]);
+  const [ scrolling, setScrolling ] = useState(false);
+  const scroll = useScrollListener();
+  const { toggle, toggleFunction } = useContext(MenuContext);
+
+  useEffect(() => {
+      const _classList = [];
+
+      if (scroll.y < 50) {
+        _classList.push(`${styles.atTop}`)
+        setScrolling(false)
+      }
+      else {
+          _classList.push(`${styles.whiteHeader}`);
+        setScrolling(true)
+      }
+
+      if (scroll.y > 100 && scroll.y - scroll.lastY > 0 && toggle != true)
+        _classList.push(`${styles.hideHeader}`)
+
+      setNavClassList(_classList);
+
+    }, [scroll.y]);
+
   return (
     <>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${navClassList.join(' ')}`}>
         <div className={styles.inner}>
-          <Logo />
-          <Navigation />
+          <Logo scrolling={scrolling} />
+          <Navigation scrolling={scrolling} />
         </div>
       </header>
     </>

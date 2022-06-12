@@ -43,6 +43,10 @@
   }
 }
 
+.scrolling {
+  color: var(--main);
+}
+
 @media (min-width: $m) {
   .menuButton {
     display: none;
@@ -143,4 +147,9 @@
     height: 2.4rem;
     //width: 100%;
   }
+}
+
+.scrolling .buttonWrapper button {
+  background-color: var(--main);
+  color: var(--bg);
 }

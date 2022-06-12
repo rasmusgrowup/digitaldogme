@@ -20,7 +20,7 @@ import useSWR from 'swr'
 
 const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl41227n82mr701xjefvp5ghq/master', query)
 
-function MenuButton() {
+function MenuButton({ scrolling }) {
   const { toggle, toggleFunction } = useContext(MenuContext);
 
   return (
@@ -35,7 +35,7 @@ function MenuButton() {
   )
 }
 
-export default function Navigation() {
+export default function Navigation({ scrolling }) {
   const { toggle, toggleFunction } = useContext(MenuContext);
   const router = useRouter()
 
@@ -77,6 +77,7 @@ export default function Navigation() {
       <nav className={`
         ${styles.nav}
         ${ toggle ? `${styles.openMenu}` : `${styles.closeMenu}`}
+        ${ scrolling ? `${styles.scrolling}` : '' }
         `}>
         <ul className={styles.ul}>
           { data.menu.punkter.map((punkt) => (
