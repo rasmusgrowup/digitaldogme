@@ -6,6 +6,10 @@
   padding: 4rem 2rem 2rem;
   position: relative;
   z-index: 0;
+
+  @media (max-width: $m) {
+    padding: 3rem 1rem;
+  }
 }
 
 .inner {
@@ -27,10 +31,22 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: $m) {
+    flex-direction: column;
+  }
 }
 
-.top {
-  margin: 0 auto 4rem;
+@media (max-width: $m) {
+  .bottom {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: $m) {
+  .top {
+    margin: 0 auto 4rem;
+  }
 }
 
 .contact {
@@ -49,7 +65,6 @@
     font-weight: bold;
     margin: 0;
     text-decoration: underline;
-    text-transform: uppercase;
   }
 
   .mail:hover {
@@ -106,6 +121,10 @@
   font-weight: bold;
   font-size: 0.9em;
   flex: 3;
+
+  @media (max-width: $m) {
+    margin-top: 3rem;
+  }
 }
 
 .socials,
@@ -120,5 +139,13 @@
 
   a:hover {
     color: var(--red);
+  }
+}
+
+@media (max-width: $m) {
+  .contact,
+  .navigation,
+  .address {
+    margin-bottom: 3rem;
   }
 }

@@ -5,6 +5,10 @@
   display: flex;
   justify-content: center;
   padding: 5rem 2rem;
+
+  @media (max-width: $m) {
+    padding: 3rem 1rem;
+  }
 }
 
 .dark {
@@ -17,10 +21,15 @@
 }
 
 .inner .h2 {
-  font-size: max(2rem, 30px);
+  font-size: 2rem;
   margin-top: 0;
   text-align: center;
   text-transform: uppercase;
+
+  @media (max-width: $m) {
+    font-size: 27px;
+    line-height: 1.2;
+  }
 }
 
 .container {
@@ -28,16 +37,29 @@
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: $m) {
+    flex-direction: column;
+  }
+
   .item {
     flex: 1;
     width: 33%;
     text-align: center;
+
+    @media (max-width: $m) {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
   }
 }
 
 .tal {
   font-size: 6em;
   font-weight: bold;
+
+  @media (max-width: $m) {
+    font-size: 4em;
+  }
 }
 
 .countup {
@@ -60,6 +82,10 @@
   margin-top: 4rem;
   text-transform: uppercase;
   width: fit-content;
+
+  @media (max-width: $m) {
+    margin-top: 2rem;
+  }
 
   .icon {
     align-items: center;

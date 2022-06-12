@@ -8,6 +8,8 @@ import styles from '../styles/header.module.scss'
 
 // Components
 import Navigation from '../components/Navigation'
+import React, { useContext } from 'react'
+import { MenuContext } from "../lib/menuContext"
 
 const itStyle = {
   color: 'var(--red)',
@@ -31,9 +33,9 @@ function Dogme() {
 
 function Logo() {
   const router = useRouter()
-
+  const { toggle, toggleFunction } = useContext(MenuContext);
   return (
-    <div className={styles.logo} onClick={() => router.push('/')}>
+    <div className={`${styles.logo} ${ toggle ? `${styles.menuOpened}` : '' }`} onClick={() => router.push('/')}>
       <Digital />
       <Dogme />
     </div>

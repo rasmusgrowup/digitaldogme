@@ -72,7 +72,7 @@ export default function Hero({ height, url, overskrift, tekst, alt }) {
             animate={{ opacity: 0.5 }}
             transition={{
               duration: 4,
-              delay: 4,
+              delay: 2,
               ease: [0.22, 1, 0.36, 1]
             }}
             className={styles.mere}>

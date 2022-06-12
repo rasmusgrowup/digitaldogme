@@ -48,28 +48,30 @@ export default function Publikationer({ arr, types }) {
           </div>
           <div className={styles.grid}>
             { arr.map((publikation, i) => (
-            <Link href={`/viden/${publikation.slug}`} key={i}><a>
-              <div
-                className={`
-                  ${ filter === kategorier || publikation.kategori === filter ? `${styles.show}` : `${styles.hide}`}
-                `}
-                key={i}>
-                <div className={styles.wrapper}>
-                  <Image
-                    src={publikation.billede.url}
-                    height='440'
-                    width='400'
-                    objectFit='cover'
-                    objectPosition='center'
-                    quality='100'
-                    layout='responsive'
-                  />
+            <Link href={`/viden/${publikation.slug}`} key={i}>
+              <a className={styles.publikation}>
+                <div
+                  className={`
+                    ${ filter === kategorier || publikation.kategori === filter ? `${styles.show}` : `${styles.hide}`}
+                  `}
+                  key={i}>
+                  <div className={styles.wrapper}>
+                    <Image
+                      src={publikation.billede.url}
+                      height='440'
+                      width='400'
+                      objectFit='cover'
+                      objectPosition='center'
+                      quality='100'
+                      layout='responsive'
+                    />
+                  </div>
+                  <span className={styles.dato}>{publikation.dato}</span>
+                  <h3 className={styles.titel}>{publikation.titel}</h3>
+                  <p className={styles.resume}>{publikation.resume}</p>
                 </div>
-                <span className={styles.dato}>{publikation.dato}</span>
-                <h3 className={styles.titel}>{publikation.titel}</h3>
-                <p className={styles.resume}>{publikation.resume}</p>
-              </div>
-            </a></Link>
+              </a>
+            </Link>
             ))}
           </div>
         </div>

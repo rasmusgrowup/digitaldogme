@@ -1,6 +1,7 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
+import { useRef } from 'react'
 
 // SCSS Styling
 import styles from '../styles/animeret.module.scss'
@@ -31,7 +32,8 @@ const variants = {
 }
 
 export default function Animeret({ arr }) {
-  console.log({ arr })
+  const countUpRef = useRef(null)
+
   return (
     <>
       <section
@@ -73,7 +75,18 @@ export default function Animeret({ arr }) {
                     offset={{ bottom: 30 }}>
                     {({ isVisible }) => (
                       <div className={styles.countup}>
-                        {isVisible ? <CountUp end={item.tal} duration={2.5} /> : '0'}
+                        {isVisible ?
+                          <CountUp
+                          useEasing='true'
+                          end={item.tal}
+                          duration={2.5}
+                          >
+                          {({ countUpRef }) => (
+                            <span ref={countUpRef} />
+                          )}
+                          </CountUp>
+                          :
+                          '0'}
                       </div>
                     )}
                   </VisibilitySensor>

@@ -11,6 +11,10 @@
     justify-content: space-between;
     padding: 2rem;
     width: 100%;
+
+    @media (max-width: $m) {
+      padding: 1rem;
+    }
   }
 }
 
@@ -20,6 +24,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
+  z-index: 1;
 
   .digital {
     letter-spacing: -0.042em;
@@ -27,5 +32,11 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+@media (max-width: $m) {
+  .menuOpened {
+    color: var(--main);
   }
 }

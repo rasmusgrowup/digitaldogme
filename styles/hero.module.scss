@@ -9,13 +9,17 @@
   &::before {
     top: 0;
     background: rgb(0, 0, 0);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
     content: '';
     left: 0;
     height: 20%;
     position: absolute;
     width: 100%;
     z-index: 1;
+
+    @media (max-width: $m) {
+      height: 25%;
+    }
   }
 
   &::after {
@@ -28,12 +32,24 @@
     position: absolute;
     width: 100%;
     z-index: 0;
+
+    @media (max-width: $m) {
+      height: 75%;
+    }
   }
 }
 
 .fullHeight {
-  height: min(100vh, 66vw);
+  height: min(100vh, 67vw);
   min-height: 700px;
+}
+
+@media (max-width: $m) {
+  .fullHeight,
+  .hero {
+    height: 500px;
+    min-height: auto;
+  }
 }
 
 .image {
@@ -52,26 +68,42 @@
   width: min(100vw, $l);
   z-index: 1;
 
+  @media (max-width: $m) {
+    padding: 1rem;
+  }
+
   .wrapper {
     line-height: 1;
   }
 
   .h1 {
-    font-size: max(3.6rem, 21px);
+    font-size: 3.6rem;
     margin: 1rem;
     text-transform: uppercase;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+
+    @media (max-width: $m) {
+      font-size: 36px;
+    }
   }
 
   .h2 {
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 1.5;
+
+    @media (max-width: $m) {
+      font-size: 16px;
+    }
   }
 }
 
 .mere {
   font-size: 0.8rem;
   margin-top: 2rem;
-  opacity: 0.25;
+  //opacity: 0.25;
   text-transform: uppercase;
 }

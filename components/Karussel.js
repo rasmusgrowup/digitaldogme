@@ -62,24 +62,26 @@ export default function Karussel({ arr }) {
           <div
             className={styles.container}>
             { arr.publikationer.map((publikation, i) => (
-              <Link href={`/viden/${publikation.slug}`} key={i}>
-                <a>
-                  <div className={styles.wrapper}>
-                    <Image
-                      src={publikation.billede.url}
-                      height='440'
-                      width='400'
-                      objectFit='cover'
-                      objectPosition='center'
-                      quality='100'
-                      layout='responsive'
-                    />
-                  </div>
-                  <span className={styles.dato}>{publikation.dato}</span>
-                  <h3 className={styles.titel}>{publikation.titel}</h3>
-                  <p className={styles.resume}>{publikation.resume}</p>
-                </a>
-              </Link>
+              <div className={styles.publikation} key={i}>
+                <Link href={`/viden/${publikation.slug}`}>
+                  <a>
+                    <div className={styles.wrapper}>
+                      <Image
+                        src={publikation.billede.url}
+                        height='440'
+                        width='400'
+                        objectFit='cover'
+                        objectPosition='center'
+                        quality='100'
+                        layout='responsive'
+                      />
+                    </div>
+                    <span className={styles.dato}>{publikation.dato}</span>
+                    <h3 className={styles.titel}>{publikation.titel}</h3>
+                    <p className={styles.resume}>{publikation.resume}</p>
+                  </a>
+                </Link>
+              </div>
             ))}
           </div>
           { arr.cta &&

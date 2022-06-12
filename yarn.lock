@@ -58,6 +58,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@mpth/react-in-view@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@mpth/react-in-view/-/react-in-view-1.0.3.tgz#ff0b0279a9e5713d307295a352766eb762ca8cf2"
+  integrity sha512-KvQ86nDxjjUHYHRqefNKQXNKuoXwewWjQYL+8mAwlcXRse+jUjLow+klNt1VbutG17+zwnOup9RY2R4vxyd7Cg==
+
 "@next/env@12.1.6":
   version "12.1.6"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.1.6.tgz#5f44823a78335355f00f1687cfc4f1dafa3eca08"
@@ -1562,6 +1567,11 @@ react-dom@18.1.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.22.0"
+
+react-intersection-observer@^9.2.2:
+  version "9.2.2"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.2.2.tgz#4f72487e2e9c62b6a6f55f38c5b0b6b7dc6c196d"
+  integrity sha512-xrFOWo5DbDzayAuDn6WpLrXfw73mvfx4WjuAjjy7dY7jWeTTle5+18nGtvMlR7q0npJanmmh6/CaSaSg4JxTJQ==
 
 react-is@^16.13.1:
   version "16.13.1"

@@ -6,6 +6,10 @@
   display: flex;
   justify-content: center;
   padding: 4rem 2rem;
+
+  @media (max-width: $m) {
+    padding: 3rem 1rem;
+  }
 }
 
 .inner {
@@ -13,10 +17,22 @@
   width: 100%;
 }
 
+.publikation {
+  display: block;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 2em;
+
+  @media (max-width: $m) {
+    display: block;
+
+    .publikation {
+      margin-bottom: 2rem;
+    }
+  }
 }
 
 .wrapper {
@@ -93,6 +109,17 @@
 
 .rich {
   line-height: 1.75;
+}
+
+.tilbage {
+  color: var(--red);
+  font-size: 0.8em;
+  opacity: 0.5;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .info {

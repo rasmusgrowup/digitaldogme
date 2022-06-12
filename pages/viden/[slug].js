@@ -74,18 +74,18 @@ export default function Publikation({ publikation }) {
       />
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>
+          <span className={styles.tilbage}>
+            <Link href='/viden'>
+              <a>
+                <FeatherIcon
+                  className={styles.ikon}
+                  icon='chevron-left'
+                  size={10} style={{ color: 'red' }} />
+                Tilbage til oversigten
+              </a>
+            </Link>
+          </span>
           <div className={styles.info}>
-            <span>
-              <Link href='/viden'>
-                <a>
-                  <FeatherIcon
-                    className={styles.ikon}
-                    icon='chevron-left'
-                    size={10} style={{ color: 'red' }} />
-                  til oversigten
-                </a>
-              </Link>
-            </span>
             <span>{publikation.dato}</span>
             <span>{publikation.kategori}</span>
             <span>{publikation.titel}</span>
