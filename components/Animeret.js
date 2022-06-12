@@ -32,8 +32,6 @@ const variants = {
 }
 
 export default function Animeret({ arr }) {
-  const countUpRef = useRef(null)
-
   return (
     <>
       <section
@@ -80,11 +78,8 @@ export default function Animeret({ arr }) {
                           useEasing='true'
                           end={item.tal}
                           duration={2.5}
-                          >
-                          {({ countUpRef }) => (
-                            <span ref={countUpRef} />
-                          )}
-                          </CountUp>
+                          delay={0.5}
+                          />
                           :
                           '0'}
                       </div>
