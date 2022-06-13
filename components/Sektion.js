@@ -33,7 +33,11 @@ export default function Sektion({ arr }) {
   return (
     <>
       <section
-        className={`${styles.sektion} ${ arr.baggrundsfarve ? `${styles.medBaggrundsfarve}` : '' }`}
+        className={`
+          section
+          ${styles.sektion}
+          ${ arr.baggrundsfarve ?
+            `${styles.medBaggrundsfarve}` : '' }`}
         style={{
           backgroundColor:
             `${

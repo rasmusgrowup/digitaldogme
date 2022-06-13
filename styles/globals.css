@@ -48,6 +48,24 @@ a {
   box-sizing: border-box;
 }
 
+.section:first-of-type {
+  padding-top: 4rem;
+}
+
+.section:last-of-type {
+  padding-bottom: 4rem;
+}
+
+@media (min-width: $m) {
+  .section:first-of-type {
+    padding-top: 4rem;
+  }
+
+  .section:last-of-type {
+    padding-bottom: 4rem;
+  }
+}
+
 :root {
   --bg: #FAF8F2;
   --light: #FFEAB7;
@@ -58,7 +76,7 @@ a {
   --red: #E04624;
   --peach: #FF6E62;
   --pink: #F9C3D3;
-  --turkis: #B1E7EB;
+  --turkis: #B8DFE2;
   --green: #0E7279;
   --blue: #082140;
   --main: #082140;

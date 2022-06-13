@@ -54,6 +54,30 @@ export async function getStaticProps() {
               link
             }
           }
+          ... on Partner {
+            id
+            callToAction {
+              id
+              ikon
+              label
+              link
+            }
+            overskrift
+            tekstPartner {
+              html
+            }
+            partnere {
+              virksomhed
+              website
+              id
+              billede {
+                height
+                alt
+                url
+                width
+              }
+            }
+          }
           ... on USP {
             id
             overskriftUSP

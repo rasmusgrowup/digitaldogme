@@ -57,6 +57,7 @@ export default function Animeret({ arr }) {
           backgroundSize: 'cover'
       }}
       className={`
+        section
         ${styles.animeret}
         ${ arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Blaa' || arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Groen' || arr.baggrundsfarve === 'Sort' || arr.baggrundsbillede ? `${styles.dark}` : ''}
       `}>
