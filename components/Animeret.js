@@ -32,6 +32,7 @@ const variants = {
 }
 
 export default function Animeret({ arr }) {
+  console.log({ arr })
   return (
     <>
       <section
@@ -47,13 +48,17 @@ export default function Animeret({ arr }) {
             arr.baggrundsfarve === 'Groen' ? 'var(--green)' :
             arr.baggrundsfarve === 'Blaa' ? 'var(--main)' :
             arr.baggrundsfarve === 'Sort' ? 'var(--black)' :
+            arr.baggrundsfarve === 'Turkis' ? 'var(--turkis)' :
             arr.baggrundsfarve === null ? 'var(--bg)' :
             'var(--bg)'
-          }`
+          }`,
+          backgroundImage: `url(${arr.baggrundsbillede.url})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
       }}
       className={`
         ${styles.animeret}
-        ${ arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Blaa' || arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Groen' || arr.baggrundsfarve === 'Sort' ? `${styles.dark}` : ''}
+        ${ arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Blaa' || arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Groen' || arr.baggrundsfarve === 'Sort' || arr.baggrundsbillede ? `${styles.dark}` : ''}
       `}>
         <motion.div
           initial='initial'
@@ -102,7 +107,7 @@ export default function Animeret({ arr }) {
                 <FeatherIcon
                   icon={arr.cta.ikon}
                   size={15}
-                  style={{ color: 'var(--bg)' }}
+                  style={ arr.baggrundsbillede ? {color: 'var(--main)'} : {color: 'var(--bg)' }}
                 />
               </span>
               <span>{arr.cta.label}</span>

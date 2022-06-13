@@ -99,6 +99,12 @@ export async function getStaticProps() {
               label
               link
             }
+            baggrundsbillede {
+              id
+              url
+              height
+              width
+            }
           }
         }
       }

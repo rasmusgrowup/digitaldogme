@@ -73,7 +73,7 @@ export default function Header() {
 
       setNavClassList(_classList);
 
-    }, [scroll.y]);
+    }, [scroll.y, router]);
 
   return (
     <>
