@@ -1,0 +1,56 @@
+@import 'core.scss';
+
+.team {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: relative;
+
+  @media (max-width: $m) {
+    padding: 3rem 1rem;
+  }
+}
+
+.inner {
+  max-width: $l;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.person {
+  margin: 0 1rem;
+  position: relative;
+  min-width: 33%;
+
+  .image {
+    display: inline-flex;
+    border-radius: 200px;
+    overflow: hidden;
+  }
+
+  .h4 {
+    font-size: 1em;
+    margin: 0.5rem auto 0;
+  }
+
+  .p,
+  a {
+    display: block;
+    font-size: 0.8em;
+    margin: 0;
+  }
+
+  .p {
+    margin-bottom: 0.5rem;
+  }
+
+  a:hover {
+    color: var(--red);
+  }
+}

@@ -1,0 +1,72 @@
+@import 'core.scss';
+
+.usp {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: relative;
+
+  @media (max-width: $m) {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (min-width: $m) {
+  .medBaggrundsfarve {
+    padding: 4rem 2rem;
+  }
+}
+
+.inner {
+  max-width: $l;
+  text-align: center;
+}
+
+.h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  text-transform: uppercase;
+
+  @media (max-width: $m) {
+    font-size: 27px;
+    line-height: 1.2;
+  }
+}
+
+.p {
+  line-height: 1.5;
+
+  @media (max-width: $m) {
+    font-size: 16px;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+
+  .point {
+    display: block;
+    margin-bottom: 2rem;
+    max-width: 25%;
+    padding: 0 1rem;
+
+    .p {
+      font-size: 0.8em;
+    }
+  }
+
+  .icon {
+    align-items: center;
+    background-color: var(--yellow);
+    border-radius: 1.5em;
+    display: inline-flex;
+    height: 3em;
+    justify-content: center;
+    margin-right: 0.5em;
+    width: 3em;
+  }
+}

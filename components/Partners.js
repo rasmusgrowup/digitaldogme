@@ -41,7 +41,6 @@ const item = {
 }
 
 export default function Partners({ arr }) {
-  console.log({ arr })
   return (
     <>
       <section className={`

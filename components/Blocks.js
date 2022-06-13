@@ -6,6 +6,8 @@ import Sektion from '../components/Sektion'
 import Karussel from '../components/Karussel'
 import Animeret from '../components/Animeret'
 import Partners from '../components/Partners'
+import Team from '../components/Team'
+import Usp from '../components/Usp'
 
 export default function Blocks({ blokke }) {
   return (
@@ -20,8 +22,10 @@ export default function Blocks({ blokke }) {
           <Partners arr={blok} key={blok.id}/> :
           blok.__typename === 'Karussel' ?
           <Karussel arr={blok} key={blok.id}/> :
+          blok.__typename === 'Team' ?
+          <Team arr={blok} key={blok.id}/> :
           blok.__typename === 'USP' ?
-          <></> :
+          <Usp arr={blok} key={blok.id}/> :
           null
         )) }
       </div>

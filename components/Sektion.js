@@ -73,7 +73,7 @@ export default function Sektion({ arr }) {
             <div
               className={styles.p}
               dangerouslySetInnerHTML={{ __html: `${arr.tekst.html}` }}
-              ></div>
+              />
               { arr.cta &&
                 <div
                   className={styles.cta}

@@ -78,9 +78,39 @@ export async function getStaticProps() {
               }
             }
           }
+          ... on Team {
+            id
+            overskriftTeam
+            tekstTeam {
+              html
+            }
+            personer {
+              billedePerson {
+                height
+                width
+                url
+              }
+              id
+              jobtitel
+              mailadresse
+              navn
+              telefonnummer
+            }
+          }
           ... on USP {
             id
             overskriftUSP
+            tekstUSP {
+              html
+            }
+            sellingPoint {
+              id
+              ikon
+              titel
+              tekst {
+                html
+              }
+            }
           }
           ... on Karussel {
             id
