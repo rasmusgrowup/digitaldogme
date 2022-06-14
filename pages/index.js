@@ -95,6 +95,7 @@ export async function getStaticProps() {
               mailadresse
               navn
               telefonnummer
+              linkedIn
             }
           }
           ... on USP {

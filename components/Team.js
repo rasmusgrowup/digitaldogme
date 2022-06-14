@@ -64,6 +64,14 @@ export default function Team({ arr }) {
                     <a>+45 {person.telefonnummer}</a>
                   </Link>
                 }
+                { person.linkedIn &&
+                  <Link href={person.linkedIn}>
+                    <a className={styles.linkedin}>
+                      <FeatherIcon icon='linkedin' size={17} style={{ color: 'var(--main)' }} />
+                      <span>LinkedIn</span>
+                    </a>
+                  </Link>
+                }
               </div>
             ))}
           </div>

@@ -53,4 +53,15 @@
   a:hover {
     color: var(--red);
   }
+
+  .linkedin {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.75rem;
+
+    span {
+      margin-left: 0.5em;
+    }
+  }
 }
