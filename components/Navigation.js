@@ -83,7 +83,7 @@ export default function Navigation({ scrolling }) {
         <ul className={styles.ul}>
           { data.menu.punkter.map((punkt) => (
             <li
-              onClick={ isMobile ? toggleFunction : null}
+              onClick={ isMobile ? toggleFunction : null }
               className={styles.li}
               key={punkt.id}>
               <Menupunkt
@@ -96,11 +96,16 @@ export default function Navigation({ scrolling }) {
         </ul>
         { data.menu.knapper.map((knap, i) => (
           <div className={styles.buttonWrapper} key={i}>
-            <Button
-            theme='light'
-            label={knap.label}
-            href={knap.adresse}
-            key={knap.id}/>
+            <Link href={`/${knap.adresse}`}>
+              <a onClick={toggleFunction}>
+                <Button
+                theme='light'
+                label={knap.label}
+                key={knap.id}
+                onClick={toggleFunction}
+                />
+              </a>
+            </Link>
           </div>
         ))}
         <div className={styles.socials}>
