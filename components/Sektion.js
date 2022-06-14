@@ -92,7 +92,7 @@ export default function Sektion({ arr }) {
           </div>
           { arr.billede != null &&
             <div className={styles.col}>
-            <div className={styles.wrapper}>
+            <div className={`${styles.wrapper} ${ arr.align === 'center' ? `${styles.centered}` : '' }`}>
               { arr.align != 'center' ?
               <Image
                 src={arr.billede.url}
