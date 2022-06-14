@@ -11,6 +11,7 @@ import Button from '../components/Button'
 import React, { useContext } from 'react'
 import { MenuContext } from "../lib/menuContext"
 import { isMobileOnly } from 'react-device-detect';
+import { useMediaQuery } from 'react-responsive'
 
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
@@ -39,6 +40,9 @@ function MenuButton({ scrolling }) {
 export default function Navigation({ scrolling }) {
   const { toggle, toggleFunction } = useContext(MenuContext);
   const router = useRouter()
+  const isSmall = useMediaQuery({
+    query: '(max-width: 834px)'
+  })
 
   const { data, error } = useSWR(`
     query fetchMenuPunkter {
@@ -83,7 +87,7 @@ export default function Navigation({ scrolling }) {
         <ul className={styles.ul}>
           { data.menu.punkter.map((punkt) => (
             <li
-              onClick={ isMobileOnly ? toggleFunction : null }
+              onClick={ isSmall ? toggleFunction : null }
               className={styles.li}
               key={punkt.id}>
               <Menupunkt
@@ -97,7 +101,7 @@ export default function Navigation({ scrolling }) {
         { data.menu.knapper.map((knap, i) => (
           <div className={styles.buttonWrapper} key={i}>
             <Link href={`/${knap.adresse}`}>
-              <a onClick={ isMobileOnly ? toggleFunction : null }>
+              <a onClick={ isSmall ? toggleFunction : null }>
                 <Button
                 theme='light'
                 label={knap.label}
