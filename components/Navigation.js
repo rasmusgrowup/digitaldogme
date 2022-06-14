@@ -97,7 +97,7 @@ export default function Navigation({ scrolling }) {
         { data.menu.knapper.map((knap, i) => (
           <div className={styles.buttonWrapper} key={i}>
             <Link href={`/${knap.adresse}`}>
-              <a onClick={toggleFunction}>
+              <a onClick={ isMobile ? toggleFunction : null }>
                 <Button
                 theme='light'
                 label={knap.label}
