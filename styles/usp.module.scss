@@ -43,9 +43,10 @@
 }
 
 .grid {
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 4rem;
 
   @media (max-width: $m) {
@@ -55,7 +56,7 @@
   .point {
     display: block;
     margin-bottom: 2rem;
-    max-width: 25%;
+    max-width: 240px;
     padding: 0 1rem;
 
     @media (max-width: $m) {
@@ -69,12 +70,43 @@
 
   .icon {
     align-items: center;
-    background-color: var(--yellow);
+    background-color: var(--red);
     border-radius: 1.5em;
     display: inline-flex;
     height: 3em;
     justify-content: center;
     margin-right: 0.5em;
     width: 3em;
+  }
+}
+
+.cta {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  width: fit-content;
+
+  .icon {
+    align-items: center;
+    background-color: var(--main);
+    border-radius: 1.25em;
+    display: inline-flex;
+    height: 2.5em;
+    justify-content: center;
+    margin-right: 0.5em;
+    width: 2.5em;
+  }
+
+  &:hover {
+    color: var(--red);
+
+    .icon {
+      background-color: var(--red);
+    }
   }
 }

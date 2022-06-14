@@ -88,7 +88,7 @@ console.log({ arr })
                   <FeatherIcon
                     icon={point.ikon}
                     size={25}
-                    style={{ color: 'var(--main)' }}
+                    style={{ color: 'var(--bg)' }}
                   />
                 </div>}
                 <div
@@ -98,6 +98,21 @@ console.log({ arr })
               </motion.div>
             ))}
           </motion.div>
+          { arr.callToAction &&
+            <div
+              className={styles.cta}
+              onClick={() => router.push(`${arr.callToAction.link}`)}
+              >
+              <span className={styles.icon}>
+                <FeatherIcon
+                  icon={arr.callToAction.ikon}
+                  size={15}
+                  style={{ color: 'var(--bg)' }}
+                />
+              </span>
+              <span>{arr.callToAction.label}</span>
+            </div>
+          }
         </motion.div>
       </section>
     </>

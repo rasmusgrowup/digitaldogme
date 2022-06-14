@@ -111,6 +111,12 @@ export async function getStaticProps() {
                 html
               }
             }
+            callToAction {
+              id
+              ikon
+              label
+              link
+            }
           }
           ... on Karussel {
             id
