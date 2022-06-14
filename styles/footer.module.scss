@@ -59,6 +59,10 @@
   max-width: 50%;
   text-transform: uppercase;
 
+  @media (max-width: $m) {
+    max-width: none;
+  }
+
   .digital {
     display: inline-block;
     margin-right: 0.25em;
@@ -68,6 +72,10 @@
 .navigation {
   flex: 1;
   max-width: 25%;
+
+  @media (max-width: $m) {
+    max-width: none;
+  }
 
   .ul {
     line-height: 1.75;
@@ -89,6 +97,10 @@
   flex: 1;
   max-width: 25%;
 
+  @media (max-width: $m) {
+    max-width: none;
+  }
+
   p:first-of-type {
     margin-top: 0;
   }
@@ -102,6 +114,7 @@
 
   @media (max-width: $m) {
     margin-top: 3rem;
+    max-width: none;
   }
 }
 
@@ -109,6 +122,10 @@
 .policies {
   flex: 1;
   max-width: 25%;
+
+  @media (max-width: $m) {
+    max-width: none;
+  }
 
   a {
     align-items: center;
@@ -126,12 +143,16 @@
   }
 }
 
+.policies {
+  margin-bottom: 0.5em;
+}
+
 .socials span {
   margin-left: 0.3em;
 }
 
 @media (max-width: $m) {
-  .contact,
+  .logo,
   .navigation,
   .address {
     margin-bottom: 3rem;

@@ -10,7 +10,7 @@ import Menupunkt from '../components/Menupunkt'
 import Button from '../components/Button'
 import React, { useContext } from 'react'
 import { MenuContext } from "../lib/menuContext"
-import { isMobile } from 'react-device-detect';
+import { isMobileOnly } from 'react-device-detect';
 
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
@@ -83,7 +83,7 @@ export default function Navigation({ scrolling }) {
         <ul className={styles.ul}>
           { data.menu.punkter.map((punkt) => (
             <li
-              onClick={ isMobile ? toggleFunction : null }
+              onClick={ isMobileOnly ? toggleFunction : null }
               className={styles.li}
               key={punkt.id}>
               <Menupunkt
@@ -97,7 +97,7 @@ export default function Navigation({ scrolling }) {
         { data.menu.knapper.map((knap, i) => (
           <div className={styles.buttonWrapper} key={i}>
             <Link href={`/${knap.adresse}`}>
-              <a onClick={ isMobile ? toggleFunction : null }>
+              <a onClick={ isMobileOnly ? toggleFunction : null }>
                 <Button
                 theme='light'
                 label={knap.label}
