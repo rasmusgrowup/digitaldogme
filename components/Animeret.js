@@ -52,7 +52,7 @@ export default function Animeret({ arr }) {
             arr.baggrundsfarve === null ? 'var(--bg)' :
             'var(--bg)'
           }`,
-          backgroundImage: `url(${arr.baggrundsbillede.url})`,
+          backgroundImage: `${ arr.baggrundsbillede ? `url(${arr.baggrundsbillede.url})` : '' }`,
           backgroundPosition: 'center',
           backgroundSize: 'cover'
       }}
