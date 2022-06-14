@@ -2,6 +2,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from 'react'
+import Moment from 'react-moment'
+import 'moment/locale/da';
 
 // Components
 import Button from '../components/Button'
@@ -48,13 +50,14 @@ export default function Publikationer({ arr, types }) {
           </div>
           <div className={styles.grid}>
             { arr.map((publikation, i) => (
-            <Link href={`/viden/${publikation.slug}`} key={i}>
-              <a className={styles.publikation}>
-                <div
-                  className={`
-                    ${ filter === kategorier || publikation.kategori === filter ? `${styles.show}` : `${styles.hide}`}
-                  `}
-                  key={i}>
+            <div
+              className={`
+                ${styles.publikation}
+                ${ filter === kategorier || publikation.kategori === filter ? `${styles.show}` : `${styles.hide}`}
+              `}
+              key={i}>
+              <Link href={`/viden/${publikation.slug}`} key={i}>
+                <a>
                   <div className={styles.wrapper}>
                     <Image
                       src={publikation.billede.url}
@@ -66,12 +69,16 @@ export default function Publikationer({ arr, types }) {
                       layout='responsive'
                     />
                   </div>
-                  <span className={styles.dato}>{publikation.dato}</span>
+                  <span className={styles.dato}>
+                    <Moment locale='da' format='ll'>
+                        {publikation.dato.toString()}
+                    </Moment>
+                  </span>
                   <h3 className={styles.titel}>{publikation.titel}</h3>
                   <p className={styles.resume}>{publikation.resume}</p>
-                </div>
-              </a>
-            </Link>
+                </a>
+              </Link>
+            </div>
             ))}
           </div>
         </div>

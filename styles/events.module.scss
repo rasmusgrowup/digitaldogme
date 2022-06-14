@@ -1,6 +1,7 @@
 @import 'core.scss';
 
-.publikationer,
+// Styling bliver ikke brugt pt //
+
 .events,
 .richWrapper {
   align-items: center;
@@ -18,7 +19,7 @@
   width: 100%;
 }
 
-.publikation {
+.event {
   display: block;
 }
 
@@ -26,12 +27,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 2em;
-  row-gap: 3rem;
 
   @media (max-width: $m) {
     display: block;
 
-    .publikation {
+    .event {
       margin-bottom: 2rem;
     }
   }
@@ -47,17 +47,16 @@
 }
 
 .titel {
-  font-size: 1em;
+  font-size: 1.1em;
   //font-weight: normal;
   margin: 0;
   margin-top: 0.5em;
   padding-right: 1rem;
-  //text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .resume {
   font-size: 0.8em;
-  margin: 0;
   margin-top: 0.5rem;
 }
 
@@ -67,12 +66,17 @@
 
 .hide {
   display: none;
+  visibility: hidden;
 }
 
 .p {
   display: block;
   font-size: 0.8em;
   text-align: center;
+}
+
+.event .p {
+  text-align: left;
 }
 
 .filter {
@@ -122,15 +126,12 @@
 
 .tilbage {
   color: var(--red);
-  display: block;
   font-size: 0.8em;
-  margin-bottom: 0.5rem;
-  opacity: 0.75;
+  opacity: 0.5;
   text-transform: uppercase;
 
   &:hover {
     text-decoration: underline;
-    opacity: 1;
   }
 }
 
@@ -138,7 +139,7 @@
   color: var(--red);
   font-size: 0.8em;
   margin-bottom: 2rem;
-  opacity: 0.75;
+  opacity: 0.5;
 
   span {
     margin-right: 0.5rem;

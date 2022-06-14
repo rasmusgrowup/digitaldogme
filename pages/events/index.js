@@ -30,7 +30,7 @@ export async function getStaticProps() {
           }
         }
       }
-      events {
+      events(orderBy: createdAt_DESC) {
         id
         billede {
           id
@@ -41,6 +41,8 @@ export async function getStaticProps() {
         type
         dato
         titel
+        resume
+        lokation
         beskrivelse {
           html
         }

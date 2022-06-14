@@ -73,6 +73,10 @@ export default function Header() {
 
       setNavClassList(_classList);
 
+      return () => {
+        _classList.push(`${styles.atTop}`)
+        setScrolling(false)
+      }
     }, [scroll.y, router]);
 
   return (

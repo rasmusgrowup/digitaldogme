@@ -1,7 +1,9 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Moment from 'react-moment'
+import 'moment/locale/da';
 
 // Components
 import Button from '../components/Button'
@@ -21,7 +23,7 @@ export default function Events({ arr, types }) {
 
   return (
     <>
-      <section className={styles.publikationer}>
+      <section className={styles.events}>
         <div className={styles.inner}>
           <p className={styles.p}>Filtrér i publikationerne</p>
           <div className={styles.filter}>
@@ -47,34 +49,35 @@ export default function Events({ arr, types }) {
             )) }
           </div>
           <div className={styles.grid}>
-            { arr.map((publikation, i) => (
-            <Link href='/' key={i}>
-              <a className={styles.publikation}>
-                <div
-                  className={`
-                    ${ filter === kategorier || publikation.type === filter ? `${styles.show}` : `${styles.hide}`}
-                  `}
-                  key={i}>
-                  <div className={styles.wrapper}>
-                    <Image
-                      src={publikation.billede.url}
-                      height='440'
-                      width='400'
-                      objectFit='cover'
-                      objectPosition='center'
-                      quality='100'
-                      layout='responsive'
-                    />
-                  </div>
-                  <span className={styles.dato}>{publikation.dato}</span>
-                  <h3 className={styles.titel}>{publikation.titel}</h3>
-                  <div
-                    className={styles.p}
-                    dangerouslySetInnerHTML={{ __html: `${publikation.beskrivelse.html}` }}
-                    />
-                </div>
-              </a>
+            { arr.map((event, i) => (
+              <div  className={`
+                ${styles.event}
+                ${ filter === kategorier || event.type === filter ?
+                  `${styles.show}` : `${styles.hide}`}
+                `} key={i}>
+              <Link href={`/events/${event.slug}`}>
+                <a>
+                    <div className={styles.wrapper}>
+                      <Image
+                        src={event.billede.url}
+                        height='440'
+                        width='400'
+                        objectFit='cover'
+                        objectPosition='center'
+                        quality='100'
+                        layout='responsive'
+                      />
+                    </div>
+                    <span className={styles.dato}>
+                      <Moment locale='da' format='lll'>
+                          {event.dato.toString()}
+                      </Moment>
+                    </span>
+                    <h3 className={styles.titel}>{event.titel}</h3>
+                    <p className={styles.resume}>{event.resume}</p>
+                </a>
             </Link>
+          </div>
             ))}
           </div>
         </div>

@@ -188,7 +188,13 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const { sider } = await graphcms.request(`
     query sider {
-      sider(where: {type: landingsside}) {
+      sider(where: {
+        type: landingsside,
+        AND: [
+          {slug_not: "events"}
+          {slug_not: "viden"}
+        ]
+      }) {
         id
         slug
       }

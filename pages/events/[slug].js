@@ -18,22 +18,23 @@ import { GraphQLClient, gql } from 'graphql-request';
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
-  const { publikation } = await graphcms.request(`
-    query publikation($slug: String!) {
-      publikation(where: {slug: $slug}) {
+  const { event } = await graphcms.request(`
+    query event($slug: String!) {
+      event(where: {slug: $slug}) {
         id
         slug
         titel
         resume
+        lokation
         billede {
           alt
           url
         }
         dato
-        indhold {
+        beskrivelse {
           html
         }
-        kategori
+        type
       }
     }
   `, {
@@ -42,66 +43,68 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      publikation
+      event
     }
   }
 }
 
 export async function getStaticPaths() {
-  const { publikationer } = await graphcms.request(`
+  const { events } = await graphcms.request(`
     {
-      publikationer {
+      events {
         slug
       }
     }
   `);
 
   return {
-    paths: publikationer.map(({ slug }) => ({
+    paths: events.map(({ slug }) => ({
       params: { slug },
     })),
     fallback: false,
   }
 }
 
-export default function Publikation({ publikation }) {
+export default function event({ event }) {
+  console.log({ event })
   return (
     <>
       <Hero
         height={false}
-        url={publikation.billede.url}
-        overskrift={publikation.titel}
-        tekst={publikation.resume}
-        alt={publikation.billede.alt}
+        url={event.billede.url}
+        overskrift={event.titel}
+        tekst={event.resume}
+        alt={event.billede.alt}
       />
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>
           <span className={styles.tilbage}>
-            <Link href='/viden'>
+            <Link href='/events'>
               <a>
                 <FeatherIcon
                   className={styles.ikon}
                   icon='chevron-left'
                   size={10} style={{ color: 'red' }} />
-                Tilbage til oversigten
+                Tilbage til events
               </a>
             </Link>
           </span>
           <div className={styles.info}>
             <span>
-              <Moment locale='da' format='ll'>
-                {publikation.dato.toString()}
+              <Moment locale='da' format='lll'>
+                {event.dato.toString()}
               </Moment>
             </span>
-            <span>{publikation.kategori}</span>
-            <span>{publikation.titel}</span>
+            <span>{event.type}</span>
+            <span>{event.lokation}</span>
+            <span>{event.titel}</span>
           </div>
           <h2>
-            {publikation.resume}
+            {event.resume}
           </h2>
           <div
             className={styles.rich}
-            dangerouslySetInnerHTML={{ __html: `${publikation.indhold.html}` }}
+            dangerouslySetInnerHTML={{ __html: `${event.beskrivelse.html}` }}
           >
           </div>
         </div>

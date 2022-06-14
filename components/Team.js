@@ -11,12 +11,33 @@ import { motion } from 'framer-motion';
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
 
+const variants = {
+  initial: {
+    opacity: 0,
+    y: 50
+  },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 3,
+      delay: 0.5,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+}
+
 export default function Team({ arr }) {
   console.log({ arr })
   return (
     <>
       <section className={styles.team}>
-        <div className={styles.inner}>
+        <motion.div
+        initial='initial'
+        whileInView='whileInView'
+        variants={variants}
+        viewport={{ once: true }}
+        className={styles.inner}>
           <h3>{arr.overskriftTeam}</h3>
           <div className={styles.wrapper}>
             { arr.personer.map((person, i) => (
@@ -46,7 +67,7 @@ export default function Team({ arr }) {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
     </>
   )
