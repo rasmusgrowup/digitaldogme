@@ -34,10 +34,18 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 2rem auto;
+
+  @media (max-width: $s) {
+    flex-direction: column;
+  }
 }
 
 .partner {
   max-width: 150px;
+
+  @media (max-width: $s) {
+    margin: 0.5rem auto;
+  }
 }
 
 .cta {
