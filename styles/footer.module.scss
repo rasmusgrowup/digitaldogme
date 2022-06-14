@@ -49,37 +49,25 @@
   }
 }
 
-.contact {
-  flex: 3;
+.logo {
+  color: var(--bg);
+  display: inline-block;
+  flex: 2;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-right: 0.25em;
+  max-width: 50%;
+  text-transform: uppercase;
 
-  .titel {
-    display: none;
-    font-size: 0.9em;
-    margin: 0;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-  }
-
-  .mail {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
-    text-decoration: underline;
-  }
-
-  .mail:hover {
-    color: var(--red);
-  }
-
-  .p {
-    font-size: 0.9rem;
-    margin: 0;
-    margin-top: 0.5rem;
+  .digital {
+    display: inline-block;
+    margin-right: 0.25em;
   }
 }
 
 .navigation {
   flex: 1;
+  max-width: 25%;
 
   .ul {
     line-height: 1.75;
@@ -99,28 +87,18 @@
 
 .address {
   flex: 1;
+  max-width: 25%;
 
   p:first-of-type {
     margin-top: 0;
   }
 }
 
-.logo {
-  color: var(--bg);
-  display: inline-block;
-  margin-right: 0.25em;
-  text-transform: uppercase;
-
-  .digital {
-    display: inline-block;
-    margin-right: 0.25em;
-  }
-}
-
 .info {
   font-weight: bold;
   font-size: 0.9em;
-  flex: 3;
+  flex: 2;
+  max-width: 50%;
 
   @media (max-width: $m) {
     margin-top: 3rem;
@@ -130,16 +108,26 @@
 .socials,
 .policies {
   flex: 1;
+  max-width: 25%;
+
+  a {
+    align-items: center;
+    display: inline-flex;
+  }
 
   a:first-of-type::after {
     color: var(--bg) !important;
     content: '/';
-    margin-inline: 0.5rem;
+    margin: 0 0.5rem;
   }
 
   a:hover {
     color: var(--red);
   }
+}
+
+.socials span {
+  margin-left: 0.3em;
 }
 
 @media (max-width: $m) {

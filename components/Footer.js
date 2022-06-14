@@ -9,9 +9,8 @@ import styles from '../styles/footer.module.scss'
 //Components
 import Menupunkt from '../components/Menupunkt'
 
-//GSAP
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+// Feather icons
+import FeatherIcon from 'feather-icons-react';
 
 // GraphCMS
 import { gql, request } from 'graphql-request';
@@ -44,18 +43,6 @@ function Logo() {
     <div className={styles.logo}>
       <Digital />
       <Dogme />
-    </div>
-  )
-}
-
-function Contact() {
-  return (
-    <div className={styles.contact}>
-      <p className={styles.titel}>Kontakt os på</p>
-      <Link href='https://twitter.com'>
-        <a className={styles.mail}>kontakt@digitaldogme.dk</a>
-      </Link>
-      <p className={styles.p}>Vi svarer man-fredag fra 8.00 - 16.30</p>
     </div>
   )
 }
@@ -138,8 +125,7 @@ function Address() {
 function Info() {
   return (
     <div className={styles.info}>
-      <Logo />
-      <span className={styles.copyright}>©{new Date().getFullYear()}</span>
+      <span className={styles.copyright}>©{new Date().getFullYear()} Digital Dogme</span>
     </div>
   )
 }
@@ -147,8 +133,26 @@ function Info() {
 function Socials() {
   return (
     <div className={styles.socials}>
-      <Link href='https://twitter.com'><a>Twitter</a></Link>
-      <Link href='https://linkedin.com'><a>LinkedIn</a></Link>
+      <Link href='https://twitter.com'>
+        <a>
+          <FeatherIcon
+            icon='twitter'
+            size={17}
+            style={{ color: 'var(--bg)' }}
+          />
+          <span>Twitter</span>
+        </a>
+      </Link>
+      <Link href='https://linkedin.com'>
+        <a>
+          <FeatherIcon
+            icon='linkedin'
+            size={17}
+            style={{ color: 'var(--bg)' }}
+          />
+          <span>LinkedIn</span>
+        </a>
+      </Link>
     </div>
   )
 }
@@ -171,7 +175,7 @@ export default function Footer() {
             Vær med til at gøre Danmark til digital frontløber
           </div>
           <div className={styles.top}>
-            <Contact />
+            <Logo />
             <Navigation />
             <Address />
           </div>
