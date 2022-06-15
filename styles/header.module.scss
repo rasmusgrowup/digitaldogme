@@ -38,6 +38,8 @@
 @media (max-width: $m) {
   .menuOpened {
     color: var(--main);
+    transition-delay: 0.3s;
+    transition-property: color;
   }
 }
 

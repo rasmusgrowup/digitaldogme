@@ -36,13 +36,20 @@ function Dogme() {
 function Logo({ scrolling }) {
   const router = useRouter()
   const { toggle, toggleFunction } = useContext(MenuContext);
+
+  const click = () => {
+    router.push('/')
+    if (toggle === true) {
+      toggleFunction()
+    }
+  }
   return (
     <div className={`
       ${styles.logo}
       ${ toggle ? `${styles.menuOpened}` : '' }
       ${ scrolling ? `${styles.isScrolling}` : '' }
       `}
-      onClick={() => router.push('/')}>
+      onClick={click}>
       <Digital />
       <Dogme />
     </div>
