@@ -77,7 +77,7 @@ export default function Header() {
         _classList.push(`${styles.atTop}`)
         setScrolling(false)
       }
-    }, [scroll.y, router]);
+    }, [scroll.y]);
 
   return (
     <>

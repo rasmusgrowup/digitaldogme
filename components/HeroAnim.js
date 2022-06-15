@@ -31,7 +31,7 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
   const tl = useRef()
 
   useEffect(() => {
-    master.current = gsap.timeline({ repeat: -1, repaetRefresh: true})
+    master.current = gsap.timeline({ repeat: -1, repaetRefresh: true, delay: 1})
 
     gsap.set(a('.word'), { yPercent: 100})
 

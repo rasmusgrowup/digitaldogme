@@ -79,6 +79,11 @@
     width: 100%;
   }
 
+  .h2,
+  .p {
+    max-width: $m;
+  }
+
   .cta {
     margin: 0 auto;
     margin-bottom: 2rem;

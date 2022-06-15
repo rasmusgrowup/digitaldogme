@@ -40,7 +40,8 @@ export default function Animeret({ arr }) {
         backgroundColor:
           `${
             arr.baggrundsfarve === 'Lys' ? 'var(--bg)' :
-            arr.baggrundsfarve === 'Sand' ? 'var(--light)' :
+            arr.baggrundsfarve === 'Sand' ? 'var(--sand)' :
+            arr.baggrundsfarve === 'Karry' ? 'var(--curry)' :
             arr.baggrundsfarve === 'Gul' ? 'var(--yellow)' :
             arr.baggrundsfarve === 'Pink' ? 'var(--pink)' :
             arr.baggrundsfarve === 'Fersken' ? 'var(--peach)' :

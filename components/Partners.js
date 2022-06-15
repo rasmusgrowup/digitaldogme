@@ -49,7 +49,25 @@ export default function Partners({ arr }) {
       <section className={`
         section
         ${styles.partners}
-        `}>
+        `}
+        style={{
+          backgroundColor:
+            `${
+              arr.baggrundsfarve === 'Lys' ? 'var(--bg)' :
+              arr.baggrundsfarve === 'Sand' ? 'var(--sand)' :
+              arr.baggrundsfarve === 'Gul' ? 'var(--yellow)' :
+              arr.baggrundsfarve === 'Pink' ? 'var(--pink)' :
+              arr.baggrundsfarve === 'Fersken' ? 'var(--peach)' :
+              arr.baggrundsfarve === 'Roed' ? 'var(--red)' :
+              arr.baggrundsfarve === 'Groen' ? 'var(--green)' :
+              arr.baggrundsfarve === 'Blaa' ? 'var(--main)' :
+              arr.baggrundsfarve === 'Sort' ? 'var(--black)' :
+              arr.baggrundsfarve === 'Turkis' ? 'var(--turkis)' :
+              arr.baggrundsfarve === null ? 'var(--bg)' :
+              'var(--bg)'
+            }`
+        }}
+        >
         <motion.div
           initial='initial'
           whileInView='whileInView'

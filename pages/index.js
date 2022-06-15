@@ -56,6 +56,7 @@ export async function getStaticProps() {
           }
           ... on Partner {
             id
+            baggrundsfarve
             callToAction {
               id
               ikon

@@ -54,7 +54,7 @@ console.log({ arr })
         backgroundColor:
           `${
             arr.baggrundsfarve === 'Lys' ? 'var(--bg)' :
-            arr.baggrundsfarve === 'Sand' ? 'var(--light)' :
+            arr.baggrundsfarve === 'Sand' ? 'var(--sand)' :
             arr.baggrundsfarve === 'Gul' ? 'var(--yellow)' :
             arr.baggrundsfarve === 'Pink' ? 'var(--pink)' :
             arr.baggrundsfarve === 'Fersken' ? 'var(--peach)' :

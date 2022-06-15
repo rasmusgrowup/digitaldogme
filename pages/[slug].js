@@ -56,6 +56,7 @@ export async function getStaticProps({ params }) {
           }
           ... on Partner {
             id
+            baggrundsfarve
             overskrift
             partnere {
               virksomhed
