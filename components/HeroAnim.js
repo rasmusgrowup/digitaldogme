@@ -41,17 +41,21 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
       child
       .to(element, {
         yPercent: 0,
-        duration: 0.6,
+        duration: 0.4,
         ease: 'Power3.easeOut'
       })
       .to(element, {
         yPercent: 100,
-        duration: 0.6,
+        duration: 0.4,
         ease: 'Power3.easeIn',
-        delay: 2,
+        delay: 1.6,
       });
       master.current.add(child)
     })
+
+    return () => {
+      master.current.kill()
+    }
   }, [])
 
   return (
