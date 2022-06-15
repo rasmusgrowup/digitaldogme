@@ -1,6 +1,7 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from 'next/router'
 
 // SCSS Styling
 import styles from '../styles/partners.module.scss'
@@ -41,6 +42,8 @@ const item = {
 }
 
 export default function Partners({ arr }) {
+  const router = useRouter()
+
   return (
     <>
       <section className={`

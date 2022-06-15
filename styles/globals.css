@@ -49,20 +49,20 @@ a {
 }
 
 .section:first-of-type {
-  padding-top: 4rem;
+  padding-top: 5rem;
 }
 
 .section:last-of-type {
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: $m) {
   .section:first-of-type {
-    padding-top: 4rem;
+    padding-top: 5rem;
   }
 
   .section:last-of-type {
-    padding-bottom: 4rem;
+    padding-bottom: 5rem;
   }
 }
 
