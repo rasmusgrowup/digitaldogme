@@ -1,5 +1,5 @@
 //Components
-import Hero from '../components/Hero'
+import Hero from '../components/HeroAnim'
 import Blocks from '../components/Blocks'
 
 //GraphCMS

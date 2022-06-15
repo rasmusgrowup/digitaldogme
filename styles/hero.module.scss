@@ -107,3 +107,25 @@
   //opacity: 0.25;
   text-transform: uppercase;
 }
+
+.animatedH1 {
+  text-transform: uppercase;
+  font-size: 4em;
+
+  @media (max-width: $m) {
+    font-size: 2.5em;
+  }
+
+  .dynamicWords {
+    display: block;
+    height: 1em;
+    overflow: hidden;
+    position: relative;
+
+    .wordWrapper {
+      position: absolute;
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
+}
