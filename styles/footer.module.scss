@@ -118,6 +118,8 @@
   }
 }
 
+// Aktivér, hvis policies er inkluderet i footeren //
+/*
 .socials,
 .policies {
   flex: 1;
@@ -145,6 +147,27 @@
 
 .policies {
   margin-bottom: 0.5em;
+} */
+
+.socials {
+  a {
+    align-items: center;
+    display: inline-flex;
+  }
+
+  a:first-of-type::after {
+    color: var(--bg) !important;
+    margin: 0 0.5rem;
+  }
+
+  a:hover svg path {
+    fill: var(--red);
+  }
+
+  svg {
+    margin-right: 0.5rem;
+    width: 1.5rem;
+  }
 }
 
 .socials span {

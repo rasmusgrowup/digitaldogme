@@ -2,12 +2,15 @@
 import Link from "next/link"
 import { useRouter } from 'next/router'
 import { useState, useRef, useEffect } from 'react'
+import { TWITTER, LINKEDIN} from '../lib/constants.js'
 
 // SCSS Styling
 import styles from '../styles/footer.module.scss'
 
 //Components
 import Menupunkt from '../components/Menupunkt'
+import LinkedIn from '../components/icons/LinkedIn'
+import Twitter from '../components/icons/Twitter'
 
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
@@ -103,7 +106,7 @@ function Navigation() {
   )
 }
 
-function Address() {
+function Address({ children }) {
   return (
     <div className={styles.address}>
       <p>
@@ -114,10 +117,7 @@ function Address() {
         Rued Langgardsvej 8<br/>
         DK-2300 København
       </p>
-      <p>
-        CVR 40984909<br/>
-        EAN 5797200039583
-      </p>
+      {children}
     </div>
   )
 }
@@ -133,24 +133,14 @@ function Info() {
 function Socials() {
   return (
     <div className={styles.socials}>
-      <Link href='https://twitter.com'>
+      <Link href={TWITTER}>
         <a>
-          <FeatherIcon
-            icon='twitter'
-            size={17}
-            style={{ color: 'var(--bg)' }}
-          />
-          <span>Twitter</span>
+          <Twitter />
         </a>
       </Link>
-      <Link href='https://linkedin.com'>
+      <Link href={LINKEDIN}>
         <a>
-          <FeatherIcon
-            icon='linkedin'
-            size={17}
-            style={{ color: 'var(--bg)' }}
-          />
-          <span>LinkedIn</span>
+          <LinkedIn />
         </a>
       </Link>
     </div>
@@ -182,7 +172,6 @@ export default function Footer() {
           <div className={styles.bottom}>
             <Info />
             <Socials />
-            <Policies />
           </div>
         </div>
       </footer>
