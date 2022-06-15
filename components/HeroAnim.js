@@ -101,7 +101,7 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
                 </span>
                 <span className={styles.dynamicWords} ref={ref}>
                   { words.map((word, i) => (
-                    <div className={`word ${styles.wordWrapper}`} key={i}>
+                    <div className={`word ${styles.wordWrapper}`} key={i} style={{ color : 'var(--red)' }}>
                       {word}
                     </div>
                   ))}
