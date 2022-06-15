@@ -133,12 +133,12 @@ function Info() {
 function Socials() {
   return (
     <div className={styles.socials}>
-      <Link href={TWITTER}>
+      <Link href={TWITTER} passHref>
         <a>
           <Twitter />
         </a>
       </Link>
-      <Link href={LINKEDIN}>
+      <Link href={LINKEDIN} passHref>
         <a>
           <LinkedIn />
         </a>

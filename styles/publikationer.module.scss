@@ -18,7 +18,8 @@
   width: 100%;
 }
 
-.publikation {
+.publikation,
+.event {
   display: block;
 }
 
@@ -31,7 +32,8 @@
   @media (max-width: $m) {
     display: block;
 
-    .publikation {
+    .publikation,
+    .event {
       margin-bottom: 2rem;
     }
   }

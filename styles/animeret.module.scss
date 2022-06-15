@@ -70,14 +70,16 @@
     font-size: 4em;
   }
 
-  &::after {
-    color: var(--red);
-    content: '/';
-    display: inline-block;
-    font-weight: normal;
-    margin-left: 1rem;
-    position: absolute;
-    right: 0;
+  @media (min-width: $m) {
+    &::after {
+      color: var(--red);
+      content: '/';
+      display: inline-block;
+      font-weight: normal;
+      margin-left: 1rem;
+      position: absolute;
+      right: 0;
+    }
   }
 }
 

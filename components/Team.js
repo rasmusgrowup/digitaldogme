@@ -65,7 +65,7 @@ export default function Team({ arr }) {
                   </Link>
                 }
                 { person.linkedIn &&
-                  <Link href={person.linkedIn}>
+                  <Link href={person.linkedIn} passHref>
                     <a className={styles.linkedin}>
                       <FeatherIcon icon='linkedin' size={17} style={{ color: 'var(--main)' }} />
                       <span>LinkedIn</span>

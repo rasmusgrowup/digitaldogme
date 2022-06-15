@@ -56,7 +56,7 @@ export default function Publikationer({ arr, types }) {
                 ${ filter === kategorier || publikation.kategori === filter ? `${styles.show}` : `${styles.hide}`}
               `}
               key={i}>
-              <Link href={`/viden/${publikation.slug}`} key={i}>
+              <Link href={`/viden/${publikation.slug}`} key={i} passHref>
                 <a>
                   <div className={styles.wrapper}>
                     <Image

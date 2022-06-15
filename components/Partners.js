@@ -103,7 +103,7 @@ export default function Partners({ arr }) {
                   variants={item}
                   className={styles.partner}
                   key={i}>
-                  <Link href={partner.website}>
+                  <Link href={partner.website} passHref>
                     <a target='_blank'>
                       <Image
                         src={partner.billede.url}

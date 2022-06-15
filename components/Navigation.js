@@ -12,6 +12,7 @@ import React, { useContext } from 'react'
 import { MenuContext } from "../lib/menuContext"
 import { isMobileOnly } from 'react-device-detect';
 import { useMediaQuery } from 'react-responsive'
+import ActiveLink from '../components/ActiveLink'
 
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
@@ -88,7 +89,13 @@ export default function Navigation({ scrolling }) {
           { data.menu.punkter.map((punkt) => (
             <li
               onClick={ isSmall ? toggleFunction : null }
-              className={styles.li}
+              className={`
+                ${styles.li}
+                ${ router.asPath === `/${punkt.link.slug}`
+                  ? `${styles.active}`
+                  : ''
+                }
+                `}
               key={punkt.id}>
               <Menupunkt
                 title={punkt.titel}
@@ -100,7 +107,7 @@ export default function Navigation({ scrolling }) {
         </ul>
         { data.menu.knapper.map((knap, i) => (
           <div className={styles.buttonWrapper} key={i}>
-            <Link href={`/${knap.adresse}`}>
+            <Link href={`/${knap.adresse}`} passHref>
               <a onClick={ isSmall ? toggleFunction : null }>
                 <Button
                 theme='light'
@@ -113,7 +120,7 @@ export default function Navigation({ scrolling }) {
           </div>
         ))}
         <div className={styles.socials}>
-          <Link href='https://twitter.com'>
+          <Link href='https://twitter.com' passHref>
             <a>
               <FeatherIcon
                 icon='twitter'
@@ -123,7 +130,7 @@ export default function Navigation({ scrolling }) {
               <span>Twitter</span>
             </a>
           </Link>
-          <Link href='https://linkedin.com'>
+          <Link href='https://linkedin.com' passHref>
             <a>
               <FeatherIcon
                 icon='linkedin'

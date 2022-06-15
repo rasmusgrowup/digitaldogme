@@ -55,7 +55,7 @@ export default function Events({ arr, types }) {
                 ${ filter === kategorier || event.type === filter ?
                   `${styles.show}` : `${styles.hide}`}
                 `} key={i}>
-              <Link href={`/events/${event.slug}`}>
+              <Link href={`/events/${event.slug}`} passHref>
                 <a>
                     <div className={styles.wrapper}>
                       <Image

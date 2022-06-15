@@ -63,7 +63,7 @@ export default function Karussel({ arr }) {
             className={styles.container}>
             { arr.publikationer.map((publikation, i) => (
               <div className={styles.publikation} key={i}>
-                <Link href={`/viden/${publikation.slug}`}>
+                <Link href={`/viden/${publikation.slug}`} passHref>
                   <a>
                     <div className={styles.wrapper}>
                       <Image
