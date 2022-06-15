@@ -97,7 +97,7 @@ export default function Sektion({ arr }) {
               <Image
                 src={arr.billede.url}
                 layout='responsive'
-                height='440'
+                height='460'
                 width='400'
                 objectFit='cover'
                 objectPosition='center'
