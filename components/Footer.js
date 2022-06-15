@@ -91,8 +91,11 @@ function Navigation() {
         { data.menu.punkter.map((punkt) => (
           <li className={`
             ${styles.li}
-            ${ router.pathname  === punkt.link.slug && `${styles.active}`}
-            ${ router.pathname === '/' && punkt.link.type === 'forside' && `${styles.active}`}`}
+            ${ router.asPath === `/${punkt.link.slug}`
+              ? `${styles.active}`
+              : ''
+            }
+            `}
             key={punkt.id}>
             <Menupunkt
               title={punkt.titel}

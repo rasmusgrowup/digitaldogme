@@ -46,10 +46,16 @@
     font-size: 0.8rem;
     margin: 0 1em;
     text-transform: uppercase;
+  }
 
-    &:hover {
-      color: var(--red);
-    }
+  .li:hover::after {
+    background-color: var(--red);
+    border-radius: 4px;
+    content: '';
+    height: 8px;
+    position: absolute;
+    left: 4px;
+    width: 8px;
   }
 }
 
