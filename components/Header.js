@@ -66,7 +66,7 @@ export default function Header() {
   useEffect(() => {
       const _classList = [];
 
-      if (scroll.y < 50) {
+      if (scroll.y < 1) {
         _classList.push(`${styles.atTop}`)
         setScrolling(false)
       }

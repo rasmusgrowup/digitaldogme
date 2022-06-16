@@ -140,7 +140,7 @@ export default function Navigation({ scrolling }) {
             </a>
           </Link>
         </div>
-        <div className={styles.legals}>
+        <div className={styles.legals} style={{ display: 'none' }}>
           <Link href='https://twitter.com'><a>Handelsbetingelser</a></Link>
           <Link href='https://linkedin.com'><a>GDPR</a></Link>
         </div>
