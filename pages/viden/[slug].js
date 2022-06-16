@@ -114,7 +114,7 @@ export default function Publikation({ publikation }) {
           >
           </div>
           { publikation.pdf.map((pdf, i) => (
-            <Link href={pdf.url} passHref>
+            <Link href={pdf.url} passHref key={i}>
               <a target='_blank'>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
