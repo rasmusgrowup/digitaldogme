@@ -21,6 +21,8 @@ export default function Publikationer({ arr, types }) {
   const [ kategorier, setKategorier ] = useState(types.enumValues);
   const [ filter, setFilter ] = useState(kategorier);
 
+  console.log({ arr })
+
   return (
     <>
       <section className={styles.publikationer}>
@@ -29,7 +31,7 @@ export default function Publikationer({ arr, types }) {
           <div className={styles.filter}>
             <button
               className={`
-              ${styles.kategori}
+              ${styles.kategoriBtn}
               ${ filter === kategorier && `${styles.selected}`}`}
               onClick={() => setFilter(kategorier)}
             >
@@ -39,12 +41,21 @@ export default function Publikationer({ arr, types }) {
               <button
                 key={i}
                 className={`
-                  ${styles.kategori}
+                  ${styles.kategoriBtn}
                   ${ kategori.name === filter && `${styles.selected}`}
                   `}
                 onClick={() => setFilter(kategori.name)}
               >
-                {kategori.name}
+                {
+                  kategori.name === 'Case' ?
+                  'Casehistorier' :
+                  kategori.name === 'Nyhed' ?
+                  'Nyheder' :
+                  kategori.name === 'Whitepaper' ?
+                  'Whitepapers' :
+                  kategori.name === 'Analyse' ?
+                  'Analyser' : null
+                }
               </button>
             )) }
           </div>
@@ -73,6 +84,9 @@ export default function Publikationer({ arr, types }) {
                     <Moment locale='da' format='ll'>
                         {publikation.dato.toString()}
                     </Moment>
+                  </span>
+                  <span className={styles.kategori}>
+                    {publikation.kategori}
                   </span>
                   <h3 className={styles.titel}>{publikation.titel}</h3>
                   <p className={styles.resume}>{publikation.resume}</p>

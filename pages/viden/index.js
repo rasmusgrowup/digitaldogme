@@ -62,6 +62,7 @@ export async function getStaticProps() {
 }
 
 export default function Viden({ side, publikationer, __type }) {
+
   return (
     <>
       <Hero

@@ -13,6 +13,9 @@ import FeatherIcon from 'feather-icons-react';
 // SCSS Styling
 import styles from '../../styles/publikationer.module.scss'
 
+// Framer motion
+import { motion } from 'framer-motion';
+
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
@@ -34,6 +37,10 @@ export async function getStaticProps({ params }) {
           html
         }
         kategori
+        pdf {
+          url
+          fileName
+        }
       }
     }
   `, {
@@ -65,6 +72,8 @@ export async function getStaticPaths() {
 }
 
 export default function Publikation({ publikation }) {
+  console.log({ publikation })
+
   return (
     <>
       <Hero
@@ -104,6 +113,19 @@ export default function Publikation({ publikation }) {
             dangerouslySetInnerHTML={{ __html: `${publikation.indhold.html}` }}
           >
           </div>
+          { publikation.pdf.map((pdf, i) => (
+            <Link href={pdf.url} passHref>
+              <a target='_blank'>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98}}
+                  className={styles.pdfLink}>
+                  <span>{pdf.fileName}</span>
+                  <span>Læs</span>
+                </motion.div>
+              </a>
+            </Link>
+          ))}
         </div>
       </section>
     </>

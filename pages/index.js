@@ -124,7 +124,7 @@ export async function getStaticProps() {
             id
             overskriftKarussel
             baggrundsfarve
-            publikationer(where: {kategori: Cases}, first: 3) {
+            publikationer(where: {kategori: Case}, first: 3) {
               billede {
                 height
                 id

@@ -43,9 +43,16 @@
   margin-bottom: 0.2em;
 }
 
-.dato {
+.dato,
+.kategori {
   font-size: 0.6em;
   margin: 0;
+  margin-right: 0.5rem;
+}
+
+.dato::after {
+  content: ':';
+  margin-left: 0.5rem;
 }
 
 .titel {
@@ -85,7 +92,7 @@
   margin-bottom: 2rem;
 }
 
-.kategori {
+.kategoriBtn {
   background-color: var(--main);
   border: none;
   border-radius: 1rem;
@@ -162,4 +169,15 @@
   a:hover {
     text-decoration: underline;
   }
+}
+
+.pdfLink {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid #ededed;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding: 1rem 1.2rem;
 }

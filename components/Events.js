@@ -29,7 +29,7 @@ export default function Events({ arr, types }) {
           <div className={styles.filter}>
             <button
               className={`
-              ${styles.kategori}
+              ${styles.kategoriBtn}
               ${ filter === kategorier && `${styles.selected}`}`}
               onClick={() => setFilter(kategorier)}
             >
@@ -39,7 +39,7 @@ export default function Events({ arr, types }) {
               <button
                 key={i}
                 className={`
-                  ${styles.kategori}
+                  ${styles.kategoriBtn}
                   ${ kategori.name === filter && `${styles.selected}`}
                   `}
                 onClick={() => setFilter(kategori.name)}

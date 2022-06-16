@@ -57,21 +57,6 @@ export async function getStaticProps({ params }) {
           ... on Partner {
             id
             baggrundsfarve
-            overskrift
-            partnere {
-              virksomhed
-              website
-              id
-              billede {
-                height
-                alt
-                url
-                width
-              }
-            }
-          }
-          ... on Partner {
-            id
             callToAction {
               id
               ikon
@@ -140,7 +125,7 @@ export async function getStaticProps({ params }) {
             id
             overskriftKarussel
             baggrundsfarve
-            publikationer(where: {kategori: Cases}, first: 3) {
+            publikationer(where: {kategori: Case}, first: 3) {
               billede {
                 height
                 id

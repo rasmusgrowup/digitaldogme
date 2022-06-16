@@ -113,8 +113,7 @@ function Address({ children }) {
   return (
     <div className={styles.address}>
       <p>
-        Att.: Digital Dogme<br/>
-        c/o Netcompany
+        Digital Dogme<br/>
       </p>
       <p>
         Grønningen 17<br/>
