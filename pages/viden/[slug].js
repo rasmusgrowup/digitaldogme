@@ -77,7 +77,7 @@ export default function Publikation({ publikation }) {
   return (
     <>
       <Hero
-        height={false}
+        height={true}
         url={publikation.billede.url}
         overskrift={publikation.titel}
         tekst={publikation.resume}

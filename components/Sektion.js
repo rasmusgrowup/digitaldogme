@@ -51,6 +51,7 @@ export default function Sektion({ arr }) {
               arr.baggrundsfarve === 'Blaa' ? 'var(--main)' :
               arr.baggrundsfarve === 'Sort' ? 'var(--black)' :
               arr.baggrundsfarve === 'Turkis' ? 'var(--turkis)' :
+              arr.baggrundsfarve === 'Karry' ? 'var(--curry)' :
               arr.baggrundsfarve === null ? 'var(--bg)' :
               'var(--bg)'
             }`
