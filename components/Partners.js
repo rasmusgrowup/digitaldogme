@@ -79,21 +79,6 @@ export default function Partners({ arr }) {
             className={styles.p}
             dangerouslySetInnerHTML={{ __html: `${arr.tekstPartner.html}` }}
             ></div>
-            { arr.callToAction &&
-              <div
-                className={styles.cta}
-                onClick={() => router.push(`${arr.callToAction.link}`)}
-                >
-                <span className={styles.icon}>
-                  <FeatherIcon
-                    icon={arr.callToAction.ikon}
-                    size={15}
-                    style={{ color: 'var(--bg)' }}
-                  />
-                </span>
-                <span>{arr.callToAction.label}</span>
-              </div>
-            }
             <motion.div
               className={styles.grid}>
               { arr.partnere.map((partner, i) => (
@@ -116,6 +101,21 @@ export default function Partners({ arr }) {
                 </motion.div>
               ))}
             </motion.div>
+            { arr.callToAction &&
+              <div
+                className={styles.cta}
+                onClick={() => router.push(`${arr.callToAction.link}`)}
+                >
+                <span className={styles.icon}>
+                  <FeatherIcon
+                    icon={arr.callToAction.ikon}
+                    size={15}
+                    style={{ color: 'var(--bg)' }}
+                  />
+                </span>
+                <span>{arr.callToAction.label}</span>
+              </div>
+            }
         </motion.div>
       </section>
     </>
