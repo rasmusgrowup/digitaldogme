@@ -1,6 +1,7 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from 'next/router'
 
 // SCSS Styling
 import styles from '../styles/karussel.module.scss'
@@ -28,6 +29,7 @@ const variants = {
 }
 
 export default function Karussel({ arr }) {
+  const router = useRouter()
   return (
     <>
       <section

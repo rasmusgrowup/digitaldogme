@@ -12,7 +12,6 @@ import React, { useContext } from 'react'
 import { MenuContext } from "../lib/menuContext"
 import { isMobileOnly } from 'react-device-detect';
 import { useMediaQuery } from 'react-responsive'
-import ActiveLink from '../components/ActiveLink'
 
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
