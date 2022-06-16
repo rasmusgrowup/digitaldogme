@@ -33,7 +33,12 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
   useEffect(() => {
     master.current = gsap.timeline({ repeat: -1, repaetRefresh: true, delay: 1})
 
-    gsap.set(a('.word'), { yPercent: 100})
+    gsap.set(a('.word'), {
+      xPercent: 50,
+      yPercent: 100,
+      x: 0,
+      y: 0,
+    })
 
     var el = gsap.utils.toArray('.word');
     el.forEach((element) => {
