@@ -32,7 +32,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 2rem auto 3rem;
 
   @media (max-width: $s) {
@@ -42,7 +42,7 @@
 
 .partner {
   max-width: 150px;
-  margin: 0 1rem;
+  margin: 0 2rem;
 
   @media (max-width: $s) {
     margin: 0.5rem auto;
