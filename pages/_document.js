@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang="da">
         <Head>
-          <link rel="icon" href="favicon2.ico" />
+          <link rel="icon" href="https://digitaldogme.dk/favicon.ico?v=2" />
         </Head>
         <body>
           <Main />
