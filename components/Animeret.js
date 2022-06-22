@@ -32,7 +32,7 @@ const variants = {
 }
 
 export default function Animeret({ arr }) {
-
+  console.log({ arr })
   return (
     <>
       <section
@@ -72,10 +72,11 @@ export default function Animeret({ arr }) {
             {arr.overskriftAnimeret}
           </h2>
           <div className={styles.container}>
-            { arr.tal.map((item, i) => (
+            { arr.animeredeTal.map((item, i) => (
               <div className={styles.item} key={i}>
                 <div className={styles.tal}>
-                  <VisibilitySensor
+                  { item.__typename === 'Number'
+                  ? <VisibilitySensor
                     partialVisibility
                     offset={{ bottom: 30 }}>
                     {({ isVisible }) => (
@@ -93,10 +94,37 @@ export default function Animeret({ arr }) {
                       </div>
                     )}
                   </VisibilitySensor>
-                  <span className={styles.enhed}>{item.enhed}</span>
+                  :
+                  <VisibilitySensor
+                    partialVisibility
+                    offset={{ bottom: 30 }}>
+                    {({ isVisible }) => (
+                      <div className={styles.countup}>
+                        {isVisible ?
+                          <span>
+                            <CountUp
+                            useEasing='true'
+                            separator='.'
+                            end={item.naevner}
+                            duration={2.5}
+                            delay={0.5}
+                            />
+                            /{item.taeller}
+                          </span>
+                          :
+                          '0'}
+                      </div>
+                    )}
+                  </VisibilitySensor>
+                }
+                  <span className={styles.enhed}>
+                    {item.enhed}
+                  </span>
                 </div>
                 <div className={styles.betydning}>
-                  {item.betydning}
+                  { item.__typename === 'Number' ?
+                  `${item.betydning}`: `${item.beskrivelse}`
+                  }
                 </div>
               </div>
             ))}

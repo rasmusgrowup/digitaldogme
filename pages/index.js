@@ -150,11 +150,20 @@ export async function getStaticProps() {
             baggrundsfarve
             overskriftAnimeret
             tekstAnimeret
-            tal {
-              betydning
-              enhed
-              id
-              tal
+            animeredeTal {
+              __typename
+              ... on Fraction {
+                id
+                beskrivelse
+                naevner
+                taeller
+              }
+              ... on Number {
+                id
+                betydning
+                enhed
+                tal
+              }
             }
             cta {
               id
