@@ -56,12 +56,18 @@
 
     @media (max-width: $m) {
       margin-bottom: 1rem;
+      padding: 0;
       width: 100%;
     }
 
     &:last-of-type .tal::after {
       content: '';
     }
+  }
+
+  .betydning {
+    margin: 0 auto;
+    max-width: 300px;
   }
 }
 
@@ -70,7 +76,7 @@
   font-weight: bold;
 
   @media (max-width: $m) {
-    font-size: 4em;
+    font-size: 2.5em;
   }
 
   @media (min-width: $m) {
