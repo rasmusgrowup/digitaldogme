@@ -67,10 +67,13 @@ export default function Sektion({ arr }) {
           ${ arr.align === 'left' ? `${styles.leftAligned}` : arr.align === 'right' ? `${styles.rightAligned}` : `${styles.centerAligned}`}
         `}>
           <div className={styles.col}>
-            <h2
-              className={styles.h2}>
-              {arr.titel}
-            </h2>
+            { arr.titel ?
+              <h2
+                className={styles.h2}>
+                {arr.titel}
+              </h2>
+              : <></>
+            }
             <div
               className={styles.p}
               dangerouslySetInnerHTML={{ __html: `${arr.tekst.html}` }}
