@@ -66,6 +66,17 @@ a {
   }
 }
 
+.line::before {
+  background-color: var(--red);
+  content: '';
+  display: block;
+  height: 0.33em;
+  margin: 0 auto;
+  margin-bottom: -0.5rem;
+  margin-top: 5rem;
+  width: 4em;
+}
+
 :root {
   --bg: #FAF8F2;
   --light: #FFDD91;
@@ -81,5 +92,6 @@ a {
   --main: #082140;
   --black: #000410;
   --white: #fff;
+  --link: #00CCBC;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
 }

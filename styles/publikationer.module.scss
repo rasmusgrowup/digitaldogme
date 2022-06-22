@@ -127,6 +127,10 @@
   @media (max-width: $m) {
     font-size: 0.9em;
   }
+
+  a {
+    color: var(--link);
+  }
 }
 
 .tilbage {

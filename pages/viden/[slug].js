@@ -72,7 +72,6 @@ export async function getStaticPaths() {
 }
 
 export default function Publikation({ publikation }) {
-  console.log({ publikation })
 
   return (
     <>

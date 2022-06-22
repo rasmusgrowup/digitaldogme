@@ -93,7 +93,14 @@ export default function Sektion({ arr }) {
           </div>
           { arr.billede != null &&
             <div className={styles.col}>
-            <div className={`${styles.wrapper} ${ arr.align === 'center' ? `${styles.centered}` : '' }`}>
+            <div
+            style={{ maxWidth: `${ arr.maxBredde ? `${arr.maxBredde}px` : '100%' }`}}
+            className={`
+              ${styles.wrapper}
+              ${ arr.align === 'center'
+              ? `${styles.centered}`
+              : '' }
+              `}>
               { arr.align != 'center' ?
               <Image
                 src={arr.billede.url}
@@ -107,7 +114,6 @@ export default function Sektion({ arr }) {
                 :
                 <Image
                   src={arr.billede.url}
-                  layout='responsive'
                   height={arr.billede.height}
                   width={arr.billede.width}
                   objectFit='cover'

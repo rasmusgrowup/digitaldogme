@@ -20,7 +20,7 @@
 }
 
 .inner {
-  max-width: $l;
+  //max-width: $l;
   width: 100%;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .tal {
-  font-size: 6em;
+  font-size: 5vw;
   font-weight: bold;
 
   @media (max-width: $m) {

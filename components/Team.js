@@ -28,7 +28,7 @@ const variants = {
 }
 
 export default function Team({ arr }) {
-  console.log({ arr })
+
   return (
     <>
       <section className={styles.team}>

@@ -41,7 +41,6 @@ const item = {
 }
 
 export default function Usp({ arr }) {
-console.log({ arr })
 
   return (
     <>

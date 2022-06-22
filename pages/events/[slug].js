@@ -66,7 +66,7 @@ export async function getStaticPaths() {
 }
 
 export default function event({ event }) {
-  console.log({ event })
+
   return (
     <>
       <Hero

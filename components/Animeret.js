@@ -1,7 +1,7 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 
 // SCSS Styling
 import styles from '../styles/animeret.module.scss'
@@ -32,7 +32,7 @@ const variants = {
 }
 
 export default function Animeret({ arr }) {
-  console.log({ arr })
+
   return (
     <>
       <section
@@ -83,6 +83,7 @@ export default function Animeret({ arr }) {
                         {isVisible ?
                           <CountUp
                           useEasing='true'
+                          separator='.'
                           end={item.tal}
                           duration={2.5}
                           delay={0.5}

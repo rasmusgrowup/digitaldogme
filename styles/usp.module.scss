@@ -36,6 +36,8 @@
 
 .p {
   line-height: 1.5;
+  margin: 0 auto;
+  max-width: 843px;
 
   @media (max-width: $m) {
     font-size: 16px;

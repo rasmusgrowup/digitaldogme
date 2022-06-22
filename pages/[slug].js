@@ -41,6 +41,7 @@ export async function getStaticProps({ params }) {
               width
               height
             }
+            maxBredde
             baggrundsfarve
             align
             titel

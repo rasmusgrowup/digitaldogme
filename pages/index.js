@@ -41,6 +41,7 @@ export async function getStaticProps() {
               width
               height
             }
+            maxBredde
             baggrundsfarve
             align
             titel
@@ -124,7 +125,7 @@ export async function getStaticProps() {
             id
             overskriftKarussel
             baggrundsfarve
-            publikationer(where: {kategori: Case}, first: 3) {
+            publikationer {
               billede {
                 height
                 id
