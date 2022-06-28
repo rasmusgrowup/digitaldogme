@@ -52,7 +52,9 @@ export default function Publikationer({ arr, types }) {
                   kategori.name === 'Whitepaper' ?
                   'Whitepapers' :
                   kategori.name === 'Analyse' ?
-                  'Analyser' : null
+                  'Analyser' :
+                  kategori.name === 'Debat' ?
+                  'Debatindlæg' : null
                 }
               </button>
             )) }

@@ -129,7 +129,11 @@
   }
 
   a {
-    color: var(--link);
+    color: blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
