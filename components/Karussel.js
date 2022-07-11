@@ -2,6 +2,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from 'next/router'
+import Moment from 'react-moment'
+import 'moment/locale/da';
 
 // SCSS Styling
 import styles from '../styles/karussel.module.scss'
@@ -78,7 +80,11 @@ export default function Karussel({ arr }) {
                         layout='responsive'
                       />
                     </div>
-                    <span className={styles.dato}>{publikation.dato}</span>
+                    <span className={styles.dato}>
+                      <Moment locale='da' format='ll'>
+                          {publikation.dato.toString()}
+                      </Moment>
+                    </span>
                     <h3 className={styles.titel}>{publikation.titel}</h3>
                     <p className={styles.resume}>{publikation.resume}</p>
                   </a>

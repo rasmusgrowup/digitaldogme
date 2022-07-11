@@ -72,22 +72,24 @@ export default function Publikationer({ arr, types }) {
                   <div className={styles.wrapper}>
                     <Image
                       src={publikation.billede.url}
-                      height='440'
+                      height='340'
                       width='400'
                       objectFit='cover'
                       objectPosition='center'
                       quality='100'
                       layout='responsive'
                     />
+                    <div className={styles.specifics}>
+                      <span className={styles.dato}>
+                        <Moment locale='da' format='ll'>
+                            {publikation.dato.toString()}
+                        </Moment>
+                      </span>
+                      <span className={styles.kategori}>
+                        {publikation.kategori}
+                      </span>
+                    </div>
                   </div>
-                  <span className={styles.dato}>
-                    <Moment locale='da' format='ll'>
-                        {publikation.dato.toString()}
-                    </Moment>
-                  </span>
-                  <span className={styles.kategori}>
-                    {publikation.kategori}
-                  </span>
                   <h3 className={styles.titel}>{publikation.titel}</h3>
                   <p className={styles.resume}>{publikation.resume}</p>
                 </a>

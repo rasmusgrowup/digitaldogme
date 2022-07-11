@@ -44,7 +44,18 @@ export default function Events({ arr, types }) {
                   `}
                 onClick={() => setFilter(kategori.name)}
               >
-                {kategori.name}
+              {
+                kategori.name === 'Workshop' ?
+                'Workshops' :
+                kategori.name === 'Konference' ?
+                'Konferencer' :
+                kategori.name === 'Medlemsevent' ?
+                'Medlemsevents' :
+                kategori.name === 'Seminar' ?
+                'Seminarer' :
+                kategori.name === 'Morgenmoede' ?
+                'Morgenmøder' : null
+              }
               </button>
             )) }
           </div>
@@ -60,19 +71,27 @@ export default function Events({ arr, types }) {
                     <div className={styles.wrapper}>
                       <Image
                         src={event.billede.url}
-                        height='440'
+                        height='340'
                         width='400'
                         objectFit='cover'
                         objectPosition='center'
                         quality='100'
                         layout='responsive'
                       />
+                      <div className={styles.specifics}>
+                        <span className={styles.dato}>
+                          <Moment locale='da' format='ll'>
+                              {event.dato.toString()}
+                          </Moment>
+                        </span>
+                        <span className={styles.time}>
+                        {event.tidspunktSlut
+                          ? <>{event.tidspunktStart}-{event.tidspunktSlut}</>
+                          : <>{event.tidspunktStart}</>
+                        }
+                        </span>
+                      </div>
                     </div>
-                    <span className={styles.dato}>
-                      <Moment locale='da' format='lll'>
-                          {event.dato.toString()}
-                      </Moment>
-                    </span>
                     <h3 className={styles.titel}>{event.titel}</h3>
                     <p className={styles.resume}>{event.resume}</p>
                 </a>

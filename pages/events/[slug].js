@@ -31,6 +31,8 @@ export async function getStaticProps({ params }) {
           url
         }
         dato
+        tidspunktStart
+        tidspunktSlut
         beskrivelse {
           html
         }
@@ -91,13 +93,17 @@ export default function event({ event }) {
           </span>
           <div className={styles.info}>
             <span>
-              <Moment locale='da' format='lll'>
+              <Moment locale='da' format='ll'>
                 {event.dato.toString()}
               </Moment>
             </span>
-            <span>{event.type}</span>
+            <span>
+            {event.tidspunktSlut
+              ? <>{event.tidspunktStart}-{event.tidspunktSlut}</>
+              : <>{event.tidspunktStart}</>
+            }
+            </span>
             <span>{event.lokation}</span>
-            <span>{event.titel}</span>
           </div>
           <h2>
             {event.resume}

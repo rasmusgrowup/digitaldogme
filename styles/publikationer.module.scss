@@ -21,6 +21,7 @@
 .publikation,
 .event {
   display: block;
+  position: relative;
 }
 
 .grid {
@@ -41,12 +42,30 @@
 
 .wrapper {
   margin-bottom: 0.2em;
+  overflow: hidden;
+  position: relative;
+}
+
+.specifics {
+  align-items: center;
+  background-color: var(--white);
+  top: 0.3em;
+  display: flex;
+  right: 0.3em;
+  height: 2.2em;
+  padding: 0.5em 0.75em;
+  position: absolute;
+  z-index: 99;
 }
 
 .dato,
-.kategori {
-  font-size: 0.6em;
+.kategori,
+.time {
+  font-size: 0.7em;
   margin: 0;
+}
+
+.dato {
   margin-right: 0.5rem;
 }
 
@@ -57,11 +76,9 @@
 
 .titel {
   font-size: 1em;
-  //font-weight: normal;
   margin: 0;
   margin-top: 0.5em;
   padding-right: 1rem;
-  //text-transform: uppercase;
 }
 
 .resume {

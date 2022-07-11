@@ -40,6 +40,8 @@ export async function getStaticProps() {
         }
         type
         dato
+        tidspunktStart
+        tidspunktSlut
         titel
         resume
         lokation
