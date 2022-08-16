@@ -32,7 +32,6 @@ const variants = {
 }
 
 export default function Animeret({ arr }) {
-  console.log({ arr })
   return (
     <>
       <section
