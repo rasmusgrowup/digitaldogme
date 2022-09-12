@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const { publikationer } = await graphcms.request(`
     {
-      publikationer(where: {NOT: {kategori: Case}}) {
+      publikationer(where: {kategori: Case}) {
         slug
       }
     }
@@ -85,7 +85,7 @@ export default function Publikation({ publikation }) {
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>
           <span className={styles.tilbage}>
-            <Link href='/viden'>
+            <Link href={'/cases'}>
               <a>
                 <FeatherIcon
                   className={styles.ikon}

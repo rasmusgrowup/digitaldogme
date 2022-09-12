@@ -25,8 +25,10 @@ export default function Publikationer({ arr, types }) {
     <>
       <section className={styles.publikationer}>
         <div className={styles.inner}>
-          <p className={styles.p}>Filtrér i publikationerne</p>
-          <div className={styles.filter}>
+          { kategorier && (
+            <>
+            <p className={styles.p}>Filtrér i publikationerne</p>
+            <div className={styles.filter}>
             <button
               className={`
               ${styles.kategoriBtn}
@@ -36,29 +38,33 @@ export default function Publikationer({ arr, types }) {
               Alle
             </button>
             { kategorier.map((kategori, i) => (
-              <button
-                key={i}
-                className={`
-                  ${styles.kategoriBtn}
-                  ${ kategori.name === filter && `${styles.selected}`}
-                  `}
-                onClick={() => setFilter(kategori.name)}
-              >
-                {
-                  kategori.name === 'Case' ?
-                  'Casehistorier' :
-                  kategori.name === 'Nyhed' ?
-                  'Nyheder' :
-                  kategori.name === 'Whitepaper' ?
-                  'Whitepapers' :
-                  kategori.name === 'Analyse' ?
-                  'Analyser' :
-                  kategori.name === 'Debat' ?
-                  'Debatindlæg' : null
-                }
-              </button>
+              <>
+              { kategori.name != 'Case' &&
+                <button
+                  key={i}
+                  className={`
+                    ${styles.kategoriBtn}
+                    ${ kategori.name === filter && `${styles.selected}`}
+                    `}
+                  onClick={() => setFilter(kategori.name)}
+                >
+                  { 
+                    kategori.name === 'Case' ?
+                    'Casehistorier' :
+                    kategori.name === 'Nyhed' ?
+                    'Nyheder' :
+                    kategori.name === 'Whitepaper' ?
+                    'Whitepapers' :
+                    kategori.name === 'Analyse' ?
+                    'Analyser' :
+                    kategori.name === 'Debat' ?
+                    'Debatindlæg' : null
+                  }
+                </button>
+              }</>
             )) }
           </div>
+            </>)}
           <div className={styles.grid}>
             { arr.map((publikation, i) => (
             <div
@@ -67,7 +73,11 @@ export default function Publikationer({ arr, types }) {
                 ${ filter === kategorier || publikation.kategori === filter ? `${styles.show}` : `${styles.hide}`}
               `}
               key={i}>
-              <Link href={`/viden/${publikation.slug}`} key={i} passHref>
+              <Link href={ publikation.kategori === 'Case' ?
+                  `${`/cases/${publikation.slug}`}` : `${`/viden/${publikation.slug}`}`
+                }
+                key={i}
+                passHref>
                 <a>
                   <div className={styles.wrapper}>
                     <Image

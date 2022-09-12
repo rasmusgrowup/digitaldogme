@@ -55,6 +55,26 @@ const nextConfig = {
         source: '/generalforsamlinger',
         destination: '/om-os',
         permanent: true,
+      },
+      {
+        source: '/viden/tryg-gar-efter-skyen-og-medarbejderne-skal-med',
+        destination: '/cases/tryg-gar-efter-skyen-og-medarbejderne-skal-med',
+        permanent: true,
+      },
+      {
+        source: '/viden/opkvalificering-bor-tages-seriost',
+        destination: '/cases/opkvalificering-bor-tages-seriost',
+        permanent: true,
+      },
+      {
+        source: '/viden/koncern-it',
+        destination: '/cases/koncern-it',
+        permanent: true,
+      },
+      {
+        source: '/viden/kobenhavns-lufthavn',
+        destination: '/cases/kobenhavns-lufthavn',
+        permanent: true,
       }
     ]
   }
