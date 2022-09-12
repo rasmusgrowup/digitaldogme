@@ -190,6 +190,7 @@ export async function getStaticPaths() {
         AND: [
           {slug_not: "events"}
           {slug_not: "viden"}
+          {slug_not: "cases"}
         ]
       }) {
         id

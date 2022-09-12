@@ -85,7 +85,7 @@ export default function Publikation({ publikation }) {
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>
           <span className={styles.tilbage}>
-            <Link href={'/cases'}>
+            <Link href='/cases'>
               <a>
                 <FeatherIcon
                   className={styles.ikon}
