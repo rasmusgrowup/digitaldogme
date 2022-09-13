@@ -1,8 +1,9 @@
 // Default imports
-import Image from "next/image"
-import Link from "next/link"
-import Moment from 'react-moment'
+import Image from "next/image";
+import Link from "next/link";
+import Moment from 'react-moment';
 import 'moment/locale/da';
+import React, {useState} from 'react';
 
 //Components
 import Hero from '../../components/Hero'
@@ -21,9 +22,9 @@ import { GraphQLClient, gql } from 'graphql-request';
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
-  const { publikation } = await graphcms.request(`
-    query publikation($slug: String!) {
-      publikation(where: {slug: $slug}) {
+  const data = await graphcms.request(`
+    query case($slug: String!) {
+      case(where: {slug: $slug}) {
         id
         slug
         titel
@@ -36,11 +37,6 @@ export async function getStaticProps({ params }) {
         indhold {
           html
         }
-        kategori
-        pdf {
-          url
-          fileName
-        }
       }
     }
   `, {
@@ -49,38 +45,39 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      publikation
+      data
     }
   }
 }
 
 export async function getStaticPaths() {
-  const { publikationer } = await graphcms.request(`
+  const { cases } = await graphcms.request(`
     {
-      publikationer(where: {kategori: Case}) {
+      cases {
         slug
       }
     }
   `);
 
   return {
-    paths: publikationer.map(({ slug }) => ({
+    paths: cases.map(({ slug }) => ({
       params: { slug },
     })),
     fallback: false,
   }
 }
 
-export default function Publikation({ publikation }) {
+export default function Case({data}) {
+  console.log(data)
 
   return (
     <>
       <Hero
         height={true}
-        url={publikation.billede.url}
-        overskrift={publikation.titel}
-        tekst={publikation.resume}
-        alt={publikation.billede.alt}
+        url={data.case.billede.url}
+        overskrift={data.case.titel}
+        tekst={data.case.resume}
+        alt={data.case.billede.alt}
       />
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>
@@ -98,33 +95,20 @@ export default function Publikation({ publikation }) {
           <div className={styles.info}>
             <span>
               <Moment locale='da' format='ll'>
-                {publikation.dato.toString()}
+                {data.case.dato.toString()}
               </Moment>
             </span>
-            <span>{publikation.kategori}</span>
-            <span>{publikation.titel}</span>
+            <span>{data.case.kategori}</span>
+            <span>{data.case.titel}</span>
           </div>
           <h2>
-            {publikation.resume}
+            {data.case.resume}
           </h2>
           <div
             className={styles.rich}
-            dangerouslySetInnerHTML={{ __html: `${publikation.indhold.html}` }}
+            dangerouslySetInnerHTML={{ __html: `${data.case.indhold.html}` }}
           >
           </div>
-          { publikation.pdf.map((pdf, i) => (
-            <Link href={pdf.url} passHref key={i}>
-              <a target='_blank'>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98}}
-                  className={styles.pdfLink}>
-                  <span>{pdf.fileName}</span>
-                  <span>Læs</span>
-                </motion.div>
-              </a>
-            </Link>
-          ))}
         </div>
       </section>
     </>

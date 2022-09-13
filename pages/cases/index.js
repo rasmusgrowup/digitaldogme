@@ -7,7 +7,7 @@ import { GraphQLClient, gql } from 'graphql-request';
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps() {
-  const { side, publikationer } = await graphcms.request(`
+  const { side, cases } = await graphcms.request(`
     query viden {
       side(where: {slug: "cases"}) {
         id
@@ -30,8 +30,7 @@ export async function getStaticProps() {
           }
         }
       }
-      publikationer(
-        where: { kategori: Case }
+      cases(
         orderBy: dato_DESC
       ) {
         id
@@ -42,7 +41,6 @@ export async function getStaticProps() {
           width
         }
         dato
-        kategori
         resume
         slug
         titel
@@ -53,12 +51,12 @@ export async function getStaticProps() {
   return {
     props: {
       side,
-      publikationer
+      cases
     }
   }
 }
 
-export default function Cases({ side, publikationer }) {
+export default function Cases({ side, cases }) {
 
   return (
     <>
@@ -69,7 +67,7 @@ export default function Cases({ side, publikationer }) {
         tekst={side.topSektion.tekst}
         alt={side.topSektion.billede.alt}
       />
-      <Publikationer arr={publikationer} types="null"/>
+      <Publikationer arr={cases} types="null"/>
     </>
   )
 }
