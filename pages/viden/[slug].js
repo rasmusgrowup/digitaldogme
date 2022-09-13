@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const { publikationer } = await graphcms.request(`
     {
-      publikationer(where: {NOT: {kategori: Case}}) {
+      publikationer {
         slug
       }
     }

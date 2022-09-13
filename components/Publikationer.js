@@ -38,30 +38,25 @@ export default function Publikationer({ arr, types }) {
               Alle
             </button>
             { kategorier.map((kategori, i) => (
-              <>
-              { kategori.name != 'Case' &&
-                <button
-                  key={i}
-                  className={`
-                    ${styles.kategoriBtn}
-                    ${ kategori.name === filter && `${styles.selected}`}
-                    `}
-                  onClick={() => setFilter(kategori.name)}
-                >
-                  { 
-                    kategori.name === 'Case' ?
-                    'Casehistorier' :
-                    kategori.name === 'Nyhed' ?
-                    'Nyheder' :
-                    kategori.name === 'Whitepaper' ?
-                    'Whitepapers' :
-                    kategori.name === 'Analyse' ?
-                    'Analyser' :
-                    kategori.name === 'Debat' ?
-                    'Debatindlæg' : null
-                  }
-                </button>
-              }</>
+              <button
+                key={i}
+                className={`
+                  ${styles.kategoriBtn}
+                  ${ kategori.name === filter && `${styles.selected}`}
+                  `}
+                onClick={() => setFilter(kategori.name)}
+              >
+                { 
+                  kategori.name === 'Nyhed' ?
+                  'Nyheder' :
+                  kategori.name === 'Whitepaper' ?
+                  'Whitepapers' :
+                  kategori.name === 'Analyse' ?
+                  'Analyser' :
+                  kategori.name === 'Debat' ?
+                  'Debatindlæg' : null
+                }
+              </button>
             )) }
           </div>
             </>)}

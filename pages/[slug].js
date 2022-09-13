@@ -126,24 +126,40 @@ export async function getStaticProps({ params }) {
             id
             overskriftKarussel
             baggrundsfarve
-            publikationer(where: {kategori: Case}, first: 3) {
-              billede {
-                height
+            items {
+              ... on Case {
+                __typename
+                billede {
+                  height
+                  id
+                  url
+                  width
+                }
+                dato
                 id
-                url
-                width
+                resume
+                slug
+                titel
               }
-              dato
-              id
-              resume
-              slug
-              titel
+              ... on Publikation {
+                __typename
+                billede {
+                  height
+                  id
+                  url
+                  width
+                }
+                dato
+                id
+                resume
+                slug
+                titel
+              }
             }
             cta {
               id
               ikon
               label
-              link
               link
             }
           }

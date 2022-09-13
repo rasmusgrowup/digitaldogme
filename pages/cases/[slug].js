@@ -68,7 +68,6 @@ export async function getStaticPaths() {
 }
 
 export default function Case({data}) {
-  console.log(data)
 
   return (
     <>

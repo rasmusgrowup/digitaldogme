@@ -32,6 +32,7 @@ const variants = {
 
 export default function Karussel({ arr }) {
   const router = useRouter()
+
   return (
     <>
       <section
@@ -65,13 +66,17 @@ export default function Karussel({ arr }) {
           </h2>
           <div
             className={styles.container}>
-            { arr.publikationer.map((publikation, i) => (
+            { arr.items.map((item, i) => (
               <div className={styles.publikation} key={i}>
-                <Link href={`/viden/${publikation.slug}`} passHref>
+                <Link href={ item.__typename == "Publikation" ? 
+                  `${`/viden/${item.slug}`}` :
+                  `${`/cases/${item.slug}`}`
+                }
+                passHref>
                   <a>
                     <div className={styles.wrapper}>
                       <Image
-                        src={publikation.billede.url}
+                        src={item.billede.url}
                         height='440'
                         width='400'
                         objectFit='cover'
@@ -82,11 +87,11 @@ export default function Karussel({ arr }) {
                     </div>
                     <span className={styles.dato}>
                       <Moment locale='da' format='ll'>
-                          {publikation.dato.toString()}
+                          {item.dato.toString()}
                       </Moment>
                     </span>
-                    <h3 className={styles.titel}>{publikation.titel}</h3>
-                    <p className={styles.resume}>{publikation.resume}</p>
+                    <h3 className={styles.titel}>{item.titel}</h3>
+                    <p className={styles.resume}>{item.resume}</p>
                   </a>
                 </Link>
               </div>

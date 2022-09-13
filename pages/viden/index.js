@@ -31,7 +31,6 @@ export async function getStaticProps() {
         }
       }
       publikationer(
-        where: {NOT: {kategori: Case}}
         orderBy: dato_DESC
       ) {
         id
