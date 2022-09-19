@@ -21,12 +21,20 @@
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+
+  @media (max-width: $m) {
+    flex-direction: column;
+  }
 }
 
 .person {
   margin: 0 1rem;
   position: relative;
   min-width: 33%;
+
+  @media (max-width: $m) {
+    margin-bottom: 2rem;
+  }
 
   .image {
     display: inline-flex;
@@ -39,8 +47,7 @@
     margin: 0.5rem auto 0;
   }
 
-  .p,
-  a {
+  .p, a {
     display: block;
     font-size: 0.8em;
     margin: 0;
