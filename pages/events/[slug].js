@@ -6,6 +6,7 @@ import 'moment/locale/da';
 
 //Components
 import Hero from '../../components/Hero'
+import Sektion from '../../components/Sektion'
 
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
@@ -37,6 +38,30 @@ export async function getStaticProps({ params }) {
           html
         }
         type
+        sektioner {
+          id
+          billede {
+            alt
+            caption
+            id
+            url
+            width
+            height
+          }
+          maxBredde
+          baggrundsfarve
+          align
+          titel
+          tekst {
+            html
+          }
+          cta {
+            id
+            ikon
+            label
+            link
+          }
+        }
       }
     }
   `, {
@@ -72,7 +97,7 @@ export default function event({ event }) {
   return (
     <>
       <Hero
-        height={false}
+        height={true}
         url={event.billede.url}
         overskrift={event.titel}
         tekst={event.resume}
@@ -115,6 +140,9 @@ export default function event({ event }) {
           </div>
         </div>
       </section>
+      { event.sektioner.map((sektion, i) => (
+          <Sektion arr={sektion} key={i} />
+      ))}
     </>
   )
 }

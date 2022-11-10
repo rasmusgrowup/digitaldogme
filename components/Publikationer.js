@@ -21,7 +21,7 @@ export default function Publikationer({ arr, types }) {
   const [ kategorier, setKategorier ] = useState(types.enumValues);
   const [ filter, setFilter ] = useState(kategorier);
 
-  console.log(arr[0].kategori)
+  console.log(arr)
   return (
     <>
       <section className={styles.publikationer}>

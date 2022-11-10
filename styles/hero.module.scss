@@ -29,7 +29,7 @@
 @media (max-width: $m) {
   .fullHeight,
   .hero {
-    height: 480px;
+    height: $s * 1.4;
     min-height: auto;
   }
 }

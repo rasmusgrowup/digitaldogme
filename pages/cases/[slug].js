@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Moment from 'react-moment';
 import 'moment/locale/da';
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 //Components
 import Hero from '../../components/Hero'
@@ -34,6 +34,12 @@ export async function getStaticProps({ params }) {
           url
         }
         dato
+        faktabox {
+          titel
+          tekst {
+            html
+          }
+        }
         indhold {
           html
         }
@@ -68,6 +74,11 @@ export async function getStaticPaths() {
 }
 
 export default function Case({data}) {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setLoaded(true)
+  }, [])
 
   return (
     <>
@@ -108,6 +119,12 @@ export default function Case({data}) {
             dangerouslySetInnerHTML={{ __html: `${data.case.indhold.html}` }}
           >
           </div>
+          { data.case.faktabox &&
+              <div className={styles.factWrapper}>
+                <h3>{data.case.faktabox.titel}</h3>
+                {loaded && <div dangerouslySetInnerHTML={{ __html: `${data.case.faktabox.tekst.html}` }} />}
+              </div>
+          }
         </div>
       </section>
     </>
