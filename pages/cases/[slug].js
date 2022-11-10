@@ -29,6 +29,7 @@ export async function getStaticProps({ params }) {
         slug
         titel
         resume
+        resumeTest
         billede {
           alt
           url
@@ -111,7 +112,7 @@ export default function Case({data}) {
             <span>{data.case.kategori}</span>
             <span>{data.case.titel}</span>
           </div>
-          <h2>
+          <h2 className={styles.h2}>
             {data.case.resume}
           </h2>
           <div
