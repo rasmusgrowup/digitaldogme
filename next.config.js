@@ -4,10 +4,10 @@ const nextConfig = {
   images: {
     domains: ['media.graphassets.com', 'media.graphcms.com']
   },
-  experimental: {
-    workerThreads: false,
-    cpus: 1
-  },
+  //experimental: {
+  //  workerThreads: false,
+  //  cpus: 1
+  //},
   async redirects() {
     return [
       {
