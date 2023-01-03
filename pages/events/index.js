@@ -30,7 +30,7 @@ export async function getStaticProps() {
           }
         }
       }
-      events(orderBy: createdAt_DESC) {
+      events(orderBy: dato_DESC) {
         id
         billede {
           id

@@ -25,7 +25,7 @@ export default function Events({ arr, types }) {
     <>
       <section className={styles.events}>
         <div className={styles.inner}>
-          <p className={styles.p}>Filtrér i publikationerne</p>
+          <p className={styles.p}>Filtrér i events</p>
           <div className={styles.filter}>
             <button
               className={`
