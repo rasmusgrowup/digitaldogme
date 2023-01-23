@@ -79,6 +79,11 @@ const nextConfig = {
         source: '/viden/kobenhavns-lufthavn',
         destination: '/cases/kobenhavns-lufthavn',
         permanent: true
+      },
+      {
+        source: 'viden/det-digitale-kompetencebarometer',
+        destination: '/',
+        permanent: true
       }
     ]
   }
