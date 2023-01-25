@@ -81,9 +81,9 @@ const nextConfig = {
         permanent: true
       },
       {
-        source: 'viden/det-digitale-kompetencebarometer',
+        source: '/viden/det-digitale-kompetencebarometer',
         destination: '/',
-        permanent: true
+        permanent: false
       }
     ]
   }
