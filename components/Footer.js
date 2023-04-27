@@ -117,8 +117,8 @@ function Address({ children }) {
         C/O Netcompany
       </p>
       <p>
-        Grønningen 17<br/>
-        1270 København K.
+        Strandgade 3<br/>
+        1401 København K.
       </p>
       {children}
     </div>
