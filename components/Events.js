@@ -70,6 +70,7 @@ export default function Events({ arr, types }) {
                 <a>
                     <div className={styles.wrapper}>
                       <Image
+                          alt={event.billede.alt}
                         src={event.billede.url}
                         height='340'
                         width='400'

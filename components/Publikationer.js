@@ -21,7 +21,6 @@ export default function Publikationer({ arr, types }) {
   const [ kategorier, setKategorier ] = useState(types.enumValues);
   const [ filter, setFilter ] = useState(kategorier);
 
-  console.log(arr)
   return (
     <>
       <section className={styles.publikationer}>
@@ -77,6 +76,7 @@ export default function Publikationer({ arr, types }) {
                 <a>
                   <div className={styles.wrapper}>
                     <Image
+                        alt={publikation.billede.alt}
                       src={publikation.billede.url}
                       height='340'
                       width='400'

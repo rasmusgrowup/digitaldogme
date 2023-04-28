@@ -44,6 +44,7 @@ export default function Team({ arr }) {
               <div className={styles.person} key={i}>
                 <div className={styles.image}>
                   <Image
+                      alt={person.billedePerson.alt}
                     src={person.billedePerson.url}
                     height='200'
                     width='200'
