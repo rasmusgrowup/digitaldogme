@@ -1,6 +1,5 @@
 // Default imports
 import Image from "next/image"
-import Link from "next/link"
 import { useState, useEffect, useRef } from 'react'
 
 // Framer motion
@@ -114,7 +113,7 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
               </motion.h1>
           </div>
           <div className={styles.wrapper}>
-            <motion.h2
+            <motion.p
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -122,10 +121,10 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
                 delay: 1,
                 ease: [0.22, 1, 0.36, 1]
               }}
-              className={styles.h2}
+              className={styles.p}
               >
                 {tekst}
-              </motion.h2>
+              </motion.p>
           </div>
           <motion.div
             initial={{ opacity: 0 }}

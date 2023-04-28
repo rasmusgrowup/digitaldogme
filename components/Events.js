@@ -1,21 +1,13 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Moment from 'react-moment'
 import 'moment/locale/da';
 
-// Components
-import Button from '../components/Button'
 
 // SCSS Styling
 import styles from '../styles/publikationer.module.scss'
-
-// Feather icons
-import FeatherIcon from 'feather-icons-react';
-
-// Framer motion
-import { motion } from 'framer-motion';
 
 export default function Events({ arr, types }) {
   const [ kategorier, setKategorier ] = useState(types.enumValues);

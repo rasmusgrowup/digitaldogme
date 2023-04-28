@@ -9,13 +9,15 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-    padding: 2rem;
+    margin: 0 auto;
+    padding: 1.25rem 0;
     transform: translateY(0);
     transition-delay: 0.05s; 
-    width: 100%;
+    width: calc(100% - 3rem);
 
     @media (max-width: $m) {
       padding: 1rem;
+      width: 100%;
     }
   }
 }
@@ -40,8 +42,6 @@
 @media (max-width: $m) {
   .menuOpened {
     color: var(--main);
-    transition-delay: 0.3s;
-    transition-property: color;
   }
 }
 
@@ -65,8 +65,10 @@
   transition: 0.2s;
 }
 
+/*
 .hideHeader {
   transform: translateY(-100%);
   transition: 0.6s;
   transition-delay: 0.1s;
 }
+*/

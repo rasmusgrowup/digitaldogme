@@ -74,14 +74,20 @@
     }
   }
 
-  .h2 {
-    font-size: 1.2rem;
+  .h2,
+  .p {
+    font-size: 1.1rem;
     font-weight: normal;
     line-height: 1.5;
 
     @media (max-width: $m) {
       font-size: 16px;
     }
+  }
+
+  .p {
+    font-weight: 300;
+    letter-spacing: 0.02em;
   }
 }
 

@@ -1,6 +1,4 @@
 // Default imports
-import Image from "next/image"
-import Link from "next/link"
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -75,8 +73,8 @@ export default function Header() {
         setScrolling(true)
       }
 
-      if (scroll.y > 100 && scroll.y - scroll.lastY > 0 && toggle != true)
-        _classList.push(`${styles.hideHeader}`)
+      //if (scroll.y > 100 && scroll.y - scroll.lastY > 0 && toggle != true)
+      //  _classList.push(`${styles.hideHeader}`)
 
       setNavClassList(_classList);
 
@@ -85,6 +83,12 @@ export default function Header() {
         setScrolling(false)
       }
     }, [scroll.y]);
+
+    useEffect(() => {
+        toggle
+            ? (document.body.style.overflow = 'hidden')
+            : (document.body.style.overflow = 'auto');
+    }, [toggle]);
 
   return (
     <>
