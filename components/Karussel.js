@@ -68,7 +68,7 @@ export default function Karussel({ arr }) {
             className={styles.container}>
             { arr.items.map((item, i) => (
               <div className={styles.publikation} key={i}>
-                <Link href={ item.__typename == "Publikation" ? 
+                <Link href={ item.__typename === "Publikation" ?
                   `${`/viden/${item.slug}`}` :
                   `${`/cases/${item.slug}`}`
                 }
@@ -76,6 +76,7 @@ export default function Karussel({ arr }) {
                   <a>
                     <div className={styles.wrapper}>
                       <Image
+                          alt={item.billede.alt}
                         src={item.billede.url}
                         height='440'
                         width='400'
