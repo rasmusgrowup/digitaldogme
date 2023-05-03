@@ -194,6 +194,13 @@
     max-width: 100%;
     height: auto;
   }
+
+  blockquote {
+    color: var(--linkBlue);
+    font-family: 'Lora', serif;
+    font-size: 1.5em;
+    font-weight: 300;
+  }
 }
 
 .tilbage {

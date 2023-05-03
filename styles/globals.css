@@ -6,6 +6,12 @@
   font-variant-ligatures: normal;
 }
 
+@font-face {
+  font-family: 'Lora';
+  font-weight: 100 1000;
+  src: url('/Lora-VariableFont_wght.ttf') format('truetype');
+}
+
 html,
 body {
   background-color: var(--main);
@@ -105,5 +111,6 @@ a {
   --black: #000410;
   --white: #fff;
   --link: #00CCBC;
+  --linkBlue: blue;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
 }

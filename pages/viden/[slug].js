@@ -23,7 +23,9 @@ const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 export async function getStaticProps({ params }) {
   const { publikation } = await graphcms.request(`
     query publikation($slug: String!) {
-      publikation(where: {slug: $slug}) {
+      publikation(
+        where: {slug: $slug}
+        ) {
         id
         slug
         titel
