@@ -12,6 +12,12 @@
   src: url('/Lora-VariableFont_wght.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Lora';
+  font-weight: 100 1000;
+  src: url('/Lora-VariableFont_wght.ttf') format('truetype');
+}
+
 html,
 body {
   background-color: black;
@@ -114,6 +120,7 @@ a {
   --green: #0E7279;
   --blue: #082140;
   --main: #082140;
+  --black: #000410;
   --black: #000410;
   --white: #fff;
   --link: #00CCBC;
