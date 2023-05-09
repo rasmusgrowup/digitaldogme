@@ -19,6 +19,7 @@ import { getCases, getAllCasesWithSlug } from "../../lib/hygraph";
 import { useRouter } from "next/router";
 
 
+
 export default function Case({ data, preview }) {
   const [loaded, setLoaded] = useState(false)
   const router = useRouter()
