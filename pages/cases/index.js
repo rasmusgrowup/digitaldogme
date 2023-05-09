@@ -4,7 +4,7 @@ import Publikationer from '../../components/Publikationer'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
-const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
+const graphcms = new GraphQLClient(process.env.HYGRAPH_ENDPOINT)
 
 export async function getStaticProps() {
   const { side, cases } = await graphcms.request(`

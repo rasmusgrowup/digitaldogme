@@ -4,7 +4,7 @@ import Blocks from '../components/Blocks'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
-const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
+const graphcms = new GraphQLClient(process.env.HYGRAPH_ENDPOINT)
 
 export async function getStaticProps() {
   const { side } = await graphcms.request(`

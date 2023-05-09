@@ -1,5 +1,5 @@
 // Default imports
-import Image from "next/image";
+import ErrorPage from 'next/error'
 import Link from "next/link";
 import Moment from 'react-moment';
 import 'moment/locale/da';
@@ -14,72 +14,22 @@ import FeatherIcon from 'feather-icons-react';
 // SCSS Styling
 import styles from '../../styles/publikationer.module.scss'
 
-// Framer motion
-import { motion } from 'framer-motion';
+//Hygraph
+import { getCases, getAllCasesWithSlug } from "../../lib/hygraph";
+import { useRouter } from "next/router";
 
-//GraphCMS
-import { GraphQLClient, gql } from 'graphql-request';
-const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
-export async function getStaticProps({ params }) {
-  const data = await graphcms.request(`
-    query case($slug: String!) {
-      case(where: {slug: $slug}) {
-        id
-        slug
-        titel
-        resume
-        resumeTest
-        billede {
-          alt
-          url
-        }
-        dato
-        faktabox {
-          titel
-          tekst {
-            html
-          }
-        }
-        indhold {
-          html
-        }
-      }
-    }
-  `, {
-    slug: params.slug
-  });
-
-  return {
-    props: {
-      data
-    }
-  }
-}
-
-export async function getStaticPaths() {
-  const { cases } = await graphcms.request(`
-    {
-      cases {
-        slug
-      }
-    }
-  `);
-
-  return {
-    paths: cases.map(({ slug }) => ({
-      params: { slug },
-    })),
-    fallback: false,
-  }
-}
-
-export default function Case({data}) {
+export default function Case({ data, preview }) {
   const [loaded, setLoaded] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     setLoaded(true)
   }, [])
+
+  if (!router.isFallback && !data.case?.slug) {
+    return <ErrorPage statusCode={404} />
+  }
 
   return (
     <>
@@ -130,4 +80,24 @@ export default function Case({data}) {
       </section>
     </>
   )
+}
+
+export async function getStaticProps({ params, preview = false }) {
+  const data = await getCases(params.slug, preview)
+  return {
+    props: {
+      preview,
+      data
+    },
+  }
+}
+
+export async function getStaticPaths() {
+  const cases = await getAllCasesWithSlug()
+  return {
+    paths: cases.map(({ slug }) => ({
+      params: { slug },
+    })),
+    fallback: true,
+  }
 }
