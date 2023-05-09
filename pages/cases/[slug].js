@@ -29,7 +29,6 @@ export async function getStaticProps({ params }) {
         slug
         titel
         resume
-        resumeTest
         billede {
           alt
           url
