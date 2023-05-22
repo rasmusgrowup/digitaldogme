@@ -4,6 +4,7 @@ import Blocks from '../components/Blocks'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
+import Layout from "../components/Layout";
 const graphcms = new GraphQLClient(process.env.HYGRAPH_ENDPOINT)
 
 export async function getStaticProps() {
@@ -209,7 +210,7 @@ export async function getStaticProps() {
 
 export default function Home({ side }) {
   return (
-    <>
+    <Layout preview={'undefined'}>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}
@@ -218,6 +219,6 @@ export default function Home({ side }) {
         alt={side.topSektion.billede.alt}
       />
       <Blocks blokke={side.blokke}/>
-    </>
+    </Layout>
   )
 }
