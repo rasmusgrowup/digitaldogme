@@ -11,6 +11,6 @@ export default async function handler(req, res) {
 
     // Redirect to the path from the fetched post
     // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-    res.redirect(307, { Location: `/` })
+    res.redirect(307, '/')
     res.end()
 }
