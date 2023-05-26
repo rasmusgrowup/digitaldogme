@@ -15,19 +15,6 @@ export default function Layout({children, preview}) {
             <Header/>
             <main className={styles.main}>
                 {children}
-                { !preview ? (
-                    <div className={styles.endPreviewBtn}>
-                        <Link href='/api/preview-all?secret=aLittleSecret' prefetch={false}>
-                            <a>Start preview</a>
-                        </Link>
-                    </div>
-                ) :
-                    <div className={styles.endPreviewBtn}>
-                        <Link href='/api/end-preview' prefetch={false}>
-                            <a>End preview</a>
-                        </Link>
-                    </div>
-                }
             </main>
             <Footer/>
         </>
