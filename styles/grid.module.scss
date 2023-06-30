@@ -1,0 +1,28 @@
+@import 'core.scss';
+
+.inner {
+  margin: 0 auto;
+  max-width: $l;
+  padding: 1rem;
+  width: 100%;
+}
+
+.heading {
+  border-bottom: 1px solid var(--main);
+  line-height: 2;
+  font-weight: normal;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.column {
+  width: calc(25% - 1.5rem);
+}
+
+.imageDescription {
+  font-size: 15px;
+}

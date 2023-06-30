@@ -8,6 +8,7 @@ import Animeret from '../components/Animeret'
 import Partners from '../components/Partners'
 import Team from '../components/Team'
 import Usp from '../components/Usp'
+import Grid from "./Grid";
 
 export default function Blocks({ blokke }) {
   return (
@@ -26,6 +27,8 @@ export default function Blocks({ blokke }) {
           <Team arr={blok} key={blok.id}/> :
           blok.__typename === 'USP' ?
           <Usp arr={blok} key={blok.id}/> :
+          blok.__typename === 'Grid' ?
+          <Grid props={blok} key={blok.id}/> :
           null
         )) }
       </div>
