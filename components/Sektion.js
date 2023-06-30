@@ -80,7 +80,7 @@ export default function Sektion({ arr }) {
                     {arr.cta.label}
                     <FeatherIcon
                       icon={arr.cta.ikon}
-                      size={17}
+                      size={21}
                       style={{ color: 'var(--main)', marginBottom: '-1px', marginLeft: '0.2rem' }}
                     />
                   </a>

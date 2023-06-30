@@ -13,8 +13,8 @@ export default function Grid({props}) {
                     <div className={styles.columns}>
                         {props.columns && props.columns.map((column, i) => (
                             <div key={i} className={props.columns.length === 1 ? `${styles.column} ${styles.singleColumn}` : `${styles.column}`}>
-                                <div className={styles.imageContainer}
-                                     style={column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
+                                { column.columnImage && <div className={styles.imageContainer}
+                                     style={column.columnImage && column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
                                     <Image
                                         src={column.columnImage.url}
                                         alt={column.columnImage.alt}
@@ -22,7 +22,7 @@ export default function Grid({props}) {
                                         width='400'
                                         objectFit='cover'
                                     />
-                                </div>
+                                </div> }
                                 { column.title && <p className={styles.columnTitle}>{column.title}</p>}
                                 { column.columnText && <p className={styles.columnText}>{column.columnText}</p>}
                                 { column.columnButton &&
