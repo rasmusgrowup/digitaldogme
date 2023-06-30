@@ -1,5 +1,8 @@
 import styles from '../styles/grid.module.scss'
 import Image from "next/image";
+import Button from "./Button";
+import FeatherIcon from "feather-icons-react";
+import Link from "next/link";
 
 export default function Grid({props}) {
     return (
@@ -9,17 +12,29 @@ export default function Grid({props}) {
                     <h2 className={styles.heading}>{props.gridHeading}</h2>
                     <div className={styles.columns}>
                         {props.columns && props.columns.map((column, i) => (
-                            <div key={i} className={styles.column}>
+                            <div key={i} className={props.columns.length === 1 ? `${styles.column} ${styles.singleColumn}` : `${styles.column}`}>
                                 <div className={styles.imageContainer}
-                                     style={{backgroundColor: column.columnImage.backgroundColor.css}}>
+                                     style={column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
                                     <Image
                                         src={column.columnImage.url}
                                         alt={column.columnImage.alt}
-                                        height={column.columnImage.height}
-                                        width={column.columnImage.width}
+                                        height='500'
+                                        width='400'
+                                        objectFit='cover'
                                     />
                                 </div>
-                                <p className={styles.imageDescription}>{column.imageDescription}</p>
+                                { column.title && <p className={styles.columnTitle}>{column.title}</p>}
+                                { column.columnText && <p className={styles.columnText}>{column.columnText}</p>}
+                                { column.columnButton &&
+                                    <>
+                                        <Link href={column.columnButton.adresse}>
+                                            <a target='_blank' className={styles.icon}>
+                                                {column.columnButton.label}
+                                                <FeatherIcon icon={column.columnButton.ikon} size={18} style={{ color: 'var(--main)', marginLeft: '0.2rem' }}/>
+                                            </a>
+                                        </Link>
+                                    </>
+                                }
                             </div>
                         ))}
                     </div>

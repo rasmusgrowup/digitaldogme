@@ -36,7 +36,8 @@ export async function getStaticProps({ params }) {
             gridHeading
             columns {
               id
-              imageDescription
+              title
+              columnText
               columnImage {
                 id
                 height
@@ -47,6 +48,12 @@ export async function getStaticProps({ params }) {
                   hex
                   css
                 }
+              }
+              columnButton {
+                id
+                label
+                ikon
+                adresse
               }
             }
           }

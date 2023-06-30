@@ -57,11 +57,7 @@ export default function Sektion({ arr }) {
             }`
         }}
         >
-        <motion.div
-          initial='initial'
-          whileInView='whileInView'
-          variants={variants}
-          viewport={{ once: true }}
+        <div
           className={`
           ${styles.inner}
           ${ arr.align === 'left' ? `${styles.leftAligned}` : arr.align === 'right' ? `${styles.rightAligned}` : `${styles.centerAligned}`}
@@ -79,19 +75,16 @@ export default function Sektion({ arr }) {
               dangerouslySetInnerHTML={{ __html: `${arr.tekst.html}` }}
               />
               { arr.cta &&
-                <div
-                  className={styles.cta}
-                  onClick={() => router.push(`${arr.cta.link}`)}
-                  >
-                  <span className={styles.icon}>
+                <Link className={styles.cta} href={arr.cta.link}>
+                  <a className={styles.icon}>
+                    {arr.cta.label}
                     <FeatherIcon
                       icon={arr.cta.ikon}
-                      size={15}
-                      style={{ color: 'var(--bg)' }}
+                      size={17}
+                      style={{ color: 'var(--main)', marginBottom: '-1px', marginLeft: '0.2rem' }}
                     />
-                  </span>
-                  <span>{arr.cta.label}</span>
-                </div>
+                  </a>
+                </Link>
               }
           </div>
           { arr.billede != null &&
@@ -108,7 +101,7 @@ export default function Sektion({ arr }) {
               <Image
                 src={arr.billede.url}
                 layout='responsive'
-                height='460'
+                height='400'
                 width='400'
                 objectFit='cover'
                 objectPosition='center'
@@ -129,7 +122,7 @@ export default function Sektion({ arr }) {
               <p className={styles.caption}>{arr.billede.caption}</p>
             }
           </div> }
-        </motion.div>
+        </div>
       </section>
     </>
   )
