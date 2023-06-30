@@ -84,6 +84,11 @@ const nextConfig = {
         source: '/viden/det-digitale-kompetencebarometer',
         destination: '/',
         permanent: false
+      },
+      {
+        source: '/community',
+        destination: '/partnere',
+        permanent: true
       }
     ]
   }

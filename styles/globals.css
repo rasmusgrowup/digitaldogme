@@ -15,7 +15,7 @@
 @font-face {
   font-family: 'Lora';
   font-weight: 100 1000;
-  src: url('/Lora-VariableFont_wght.ttf') format('truetype');
+  font-variant-ligatures: normal;
 }
 
 html,
