@@ -1,0 +1,76 @@
+@import 'core.scss';
+
+.inner {
+  margin: 2rem auto;
+  max-width: $l;
+  padding: 1rem;
+  width: 100%;
+}
+
+.heading {
+  border-bottom: 1px solid var(--main);
+  line-height: 2;
+  font-weight: normal;
+}
+
+.imageContainer {
+  display: flex;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  @media (max-width: $s) {
+    gap: 1rem;
+  }
+}
+
+.column {
+  width: calc(25% - 1.5rem);
+
+  @media (max-width: $m) {
+    width: calc(34% - 1.66rem);
+  }
+
+  @media (max-width: $s) {
+    width: calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: $s) {
+  .column.singleColumn {
+    width: 100%;
+  }
+}
+
+.columnTitle {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.columnText {
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 0;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.icon {
+  align-items: flex-end;
+  border-bottom: 1px solid transparent;
+  display: inline-flex;
+  font-size: 15px;
+
+  svg {
+    margin-bottom: -1px;
+  }
+
+  &:hover {
+    border-bottom: 1px solid var(--main);
+  }
+}

@@ -4,6 +4,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  font-weight: 300;
   padding: 3rem 2rem;
   position: relative;
 
@@ -23,7 +24,7 @@
 }
 
 .inner {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   max-width: $l;
   width: 100%;
@@ -34,18 +35,19 @@
   }
 }
 
+/*
 .cta {
   align-items: center;
   cursor: pointer;
   display: flex;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 400;
   margin-top: 2rem;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   width: fit-content;
 
   .icon {
-    align-items: center;
+    align-items: flex-end;
     background-color: var(--main);
     border-radius: 1.25em;
     display: inline-flex;
@@ -61,6 +63,19 @@
     .icon {
       background-color: var(--red);
     }
+  }
+}
+*/
+
+.icon {
+  align-items: flex-end;
+  border-bottom: 1px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  margin-right: 0.5em;
+
+  &:hover {
+    border-bottom: 1px solid var(--main);
   }
 }
 
@@ -110,10 +125,11 @@
 }
 
 .col .h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 500;
   line-height: 1.1;
   margin-top: 0;
-  text-transform: uppercase;
+  //text-transform: uppercase;
 
   @media (max-width: $m) {
     font-size: 27px;
@@ -125,7 +141,7 @@
   line-height: 1.5;
 
   @media (max-width: $m) {
-    font-size: 16px;
+    //font-size: 16px;
   }
 }
 

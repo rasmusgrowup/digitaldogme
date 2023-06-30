@@ -9,7 +9,7 @@ const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 export async function getStaticProps({ params }) {
   const { side } = await graphcms.request(`
     query forside($slug: String!) {
-      side(where: {slug: $slug}) {
+      side(where: {slug: $slug}, stage: DRAFT) {
         id
         slug
         titel
@@ -31,6 +31,32 @@ export async function getStaticProps({ params }) {
         }
         blokke {
           __typename
+          ... on Grid {
+            id
+            gridHeading
+            columns {
+              id
+              title
+              columnText
+              columnImage {
+                id
+                height
+                width
+                url
+                alt
+                backgroundColor {
+                  hex
+                  css
+                }
+              }
+              columnButton {
+                id
+                label
+                ikon
+                adresse
+              }
+            }
+          }
           ... on Sektion {
             id
             billede {

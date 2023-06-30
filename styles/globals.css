@@ -1,26 +1,9 @@
 @font-face {
   font-family: 'Manrope';
-  font-weight: normal;
-  src: url('/Manrope-Medium.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Manrope';
-  font-style: italic;
-  font-weight: normal;
-  src: url('/Manrope-MediumItalic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Manrope';
-  font-weight: bold;
-  src: url('/Manrope-ExtraBold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Lora';
+  src: url('/Manrope[wght].woff2') format('woff2') tech('variations'),
+  url('/Manrope[wght].woff2') format('woff2-variations');
   font-weight: 100 1000;
-  src: url('/Lora-VariableFont_wght.ttf') format('truetype');
+  font-variant-ligatures: normal;
 }
 
 html,
