@@ -2,8 +2,8 @@
 
 .inner {
   margin: 2rem auto;
-  max-width: $l;
-  padding: 1rem;
+  //max-width: $l;
+  padding: 1.5rem;
   width: 100%;
 }
 
@@ -47,13 +47,13 @@
 }
 
 .columnTitle {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   margin-bottom: 4px;
 }
 
 .columnText {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 300;
   margin-top: 0;
   word-break: break-word;
@@ -64,7 +64,7 @@
   align-items: flex-end;
   border-bottom: 1px solid transparent;
   display: inline-flex;
-  font-size: 15px;
+  font-size: 17px;
 
   svg {
     margin-bottom: -1px;

@@ -4,6 +4,7 @@ import Blocks from '../components/Blocks'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
+import Layout from "../components/Layout";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
@@ -252,7 +253,7 @@ export async function getStaticPaths() {
 export default function Landingsside({ side }) {
 
   return (
-    <>
+    <Layout preview={'undefined'}>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}
@@ -261,6 +262,6 @@ export default function Landingsside({ side }) {
         alt={side.topSektion.billede.alt}
       />
       <Blocks blokke={side.blokke}/>
-    </>
+    </Layout>
   )
 }
