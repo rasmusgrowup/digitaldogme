@@ -12,7 +12,9 @@ export default function Grid({props}) {
                     <h2 className={styles.heading}>{props.gridHeading}</h2>
                     <div className={styles.columns}>
                         {props.columns && props.columns.map((column, i) => (
-                            <div key={i} className={props.columns.length === 1 ? `${styles.column} ${styles.singleColumn}` : `${styles.column}`}>
+                            <div key={i} className={
+                                props.columns.length === 1 || !column.columnImage ? `${styles.column} ${styles.singleColumn}` : `${styles.column}`
+                            }>
                                 { column.columnImage && <div className={styles.imageContainer}
                                      style={column.columnImage && column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
                                     <Image
