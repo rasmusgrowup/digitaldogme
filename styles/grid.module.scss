@@ -5,6 +5,10 @@
   //max-width: $l;
   padding: 1.5rem;
   width: 100%;
+
+  @media (max-width: $m) {
+    padding: 1rem;
+  }
 }
 
 .heading {
@@ -15,6 +19,7 @@
 
 .imageContainer {
   display: flex;
+  margin-bottom: 1rem;
 }
 
 .columns {
@@ -50,11 +55,13 @@
   font-size: 17px;
   font-weight: 500;
   margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 .columnText {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 300;
+  line-height: 1.5;
   margin-top: 0;
   word-break: break-word;
   hyphens: auto;
@@ -66,9 +73,9 @@
   display: inline-flex;
   font-size: 17px;
 
-  svg {
-    margin-bottom: -1px;
-  }
+//  svg {
+//    margin-bottom: -1px;
+//  }
 
   &:hover {
     border-bottom: 1px solid var(--main);

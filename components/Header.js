@@ -1,6 +1,8 @@
 // Default imports
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import WhiteLogo from '/public/AltLogo_White.png'
+import DarkLogo from '/public/AltLogo_Dark.png'
 
 // SCSS Styling
 import styles from '../styles/header.module.scss'
@@ -10,6 +12,7 @@ import Navigation from '../components/Navigation'
 import React, { useContext } from 'react'
 import { MenuContext } from "../lib/menuContext"
 import useScrollListener from '../lib/useScroll'
+import Image from "next/image";
 
 const itStyle = {
   color: 'var(--red)',
@@ -52,6 +55,16 @@ function Logo({ scrolling }) {
       <Dogme />
     </div>
   )
+}
+
+function AltLogo({ scrolling }) {
+    const { toggle } = useContext(MenuContext);
+
+    return (
+        <div className={styles.altLogo}>
+            { !scrolling && !toggle ? <Image src={WhiteLogo} /> : toggle ? <Image src={DarkLogo} /> : <Image src={DarkLogo} />}
+        </div>
+    )
 }
 
 export default function Header() {

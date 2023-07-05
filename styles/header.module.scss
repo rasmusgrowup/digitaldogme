@@ -16,17 +16,26 @@
     width: calc(100% - 3rem);
 
     @media (max-width: $m) {
-      padding: 1rem;
+      padding: 1rem 1rem 0.25rem;
       width: 100%;
     }
+  }
+}
+
+.altLogo {
+  width: 5rem;
+  z-index: 1;
+
+  @media (max-width: $m) {
+    width: 4.5rem;
   }
 }
 
 .logo {
   color: var(--white);
   line-height: 0.8;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 800;
   text-transform: uppercase;
   z-index: 1;
 
