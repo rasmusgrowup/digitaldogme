@@ -97,6 +97,7 @@ export async function getStaticProps({params, preview = false}) {
 
 export async function getStaticPaths() {
     const cases = await getAllCasesWithSlug()
+    console.log(cases)
     return {
         paths: cases.map(({slug}) => ({
             params: {slug},

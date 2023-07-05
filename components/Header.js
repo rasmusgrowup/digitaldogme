@@ -107,7 +107,7 @@ export default function Header() {
     <>
       <header className={`${styles.header} ${navClassList.join(' ')}`}>
         <div className={styles.inner}>
-          <Logo scrolling={scrolling} />
+            { !process.env.development ? <AltLogo scrolling={scrolling}/> : <Logo scrolling={scrolling} />}
           <Navigation scrolling={scrolling} />
         </div>
       </header>
