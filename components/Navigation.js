@@ -87,6 +87,17 @@ export default function Navigation({scrolling}) {
               ikon
               id
               titel
+              scrollToSection {
+                ... on Grid {
+                    id
+                }
+                ... on Section {
+                    id
+                }
+                ... on Sektion {
+                    id
+                }
+              }
             }
           }
         }

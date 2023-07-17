@@ -9,28 +9,29 @@ import Partners from '../components/Partners'
 import Team from '../components/Team'
 import Usp from '../components/Usp'
 import Grid from "./Grid";
+import Section from "./Section";
+import Testimonial from "../components/Testimonial";
+import CallToAction from "./CallToAction";
 
 export default function Blocks({ blokke }) {
   return (
     <>
       <div className={styles.content}>
-      { blokke.map((blok, i) => (
-          blok.__typename === 'Sektion' ?
-          <Sektion arr={blok} key={blok.id}/> :
-          blok.__typename === 'Animeret' ?
-          <Animeret arr={blok} key={blok.id}/> :
-          blok.__typename === 'Partner' ?
-          <Partners arr={blok} key={blok.id}/> :
-          blok.__typename === 'Karussel' ?
-          <Karussel arr={blok} key={blok.id}/> :
-          blok.__typename === 'Team' ?
-          <Team arr={blok} key={blok.id}/> :
-          blok.__typename === 'USP' ?
-          <Usp arr={blok} key={blok.id}/> :
-          blok.__typename === 'Grid' ?
-          <Grid props={blok} key={blok.id}/> :
-          null
-        )) }
+          { blokke && blokke.map((blok, i) => {
+              switch (blok.__typename) {
+                  case 'Sektion': return <Sektion arr={blok} key={blok.id}/>
+                  case 'Animeret': return <Animeret arr={blok} key={blok.id}/>
+                  case 'Partner': return <Partners arr={blok} index={i} key={blok.id}/>
+                  case 'Karussel': return <Karussel arr={blok} key={blok.id}/>
+                  case 'Team': return <Team arr={blok} key={blok.id}/>
+                  case 'USP': return <Usp arr={blok} key={blok.id}/>
+                  case 'Grid': return <Grid props={blok} index={i} key={blok.id}/>
+                  case 'Section': return <Section section={blok} index={i} key={blok.id}/>
+                  case 'Testimonial': return <Testimonial section={blok} index={i} key={blok.id}/>
+                  case 'CallToAction': return <CallToAction section={blok} index={i} key={blok.id}/>
+                  default: return <></>
+              }
+          })}
       </div>
     </>
   )

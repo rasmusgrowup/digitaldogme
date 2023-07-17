@@ -35,7 +35,9 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 375;
+  line-height: 1.33;
   margin: 0;
   min-height: 100%;
   padding: 0;
@@ -53,6 +55,27 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  font-weight: 400;
+  letter-spacing: -0.05rem;
+}
+
+@media (max-width: 440px) {
+  h2,
+  h3 {
+    font-weight: 500;
+  }
+}
+
+p {
+  letter-spacing: -0.033rem;
 }
 
 .section:first-of-type {
@@ -107,6 +130,7 @@ a {
 :root {
   --bg: #FAF8F2;
   /*--bg: #fAf8f4;*/
+  --grey: #e8e8e8;
   --light: #FFDD91;
   --sand: #F4EDDC;
   --yellow: #FFC63C;

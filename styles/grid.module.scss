@@ -1,9 +1,9 @@
 @import 'core.scss';
 
 .inner {
-  margin: 2rem auto;
+  margin: 0 auto;
   //max-width: $l;
-  padding: 1.5rem;
+  padding: 3.5rem 1.5rem;
   width: 100%;
 
   @media (max-width: $m) {
@@ -11,10 +11,45 @@
   }
 }
 
+.dark {
+  background-color: var(--black);
+  color: var(--bg);
+  padding: 1.5rem 0;
+
+  .inner .columns {
+    margin: 0;
+  }
+
+  .heading {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+.grey {
+  background-color: var(--grey);
+  padding: 1.5rem 0;
+
+  .inner .columns {
+    margin: 0;
+  }
+
+  .heading {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+}
+
 .heading {
-  border-bottom: 1px solid var(--main);
-  line-height: 2;
-  font-weight: normal;
+  font-size: 2.66em;
+  margin: 0;
+  margin-top: 1rem;
+  //font-weight: normal;
+
+  @media (max-width: $m) {
+    font-size: 1.75em;
+    margin-bottom: 1rem;
+  }
 }
 
 .imageContainer {
@@ -23,61 +58,82 @@
 }
 
 .columns {
-  display: flex;
-  flex-wrap: wrap;
+  //display: flex;
+  //flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   margin-top: 2rem;
 
   @media (max-width: $s) {
-    gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 2rem;
   }
 }
 
-.column {
-  width: calc(25% - 1.5rem);
+.columns.stretch {
+  grid-template-columns: repeat(auto-fit, minmax(calc(25% - 2rem), 1fr));
+}
 
+
+.columns {
   @media (max-width: $m) {
-    width: calc(34% - 1.66rem);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: $s) {
-    width: calc(50% - 0.5rem);
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.columns.stretch {
+  @media (max-width: $m) {
+    grid-template-columns: repeat(auto-fit, minmax(calc(33% - 2rem), 1fr));
+  }
+
+  @media (max-width: $s) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column.singleColumn {
+  grid-column-end: span 1;
 }
 
 @media (max-width: $s) {
   .column.singleColumn {
-    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: span 2;
   }
 }
 
 .columnTitle {
-  font-size: 17px;
+  font-size: 1.1em;
   font-weight: 500;
   margin-bottom: 4px;
   margin-top: 4px;
 }
 
 .columnText {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.5;
   margin-top: 0;
   word-break: break-word;
   hyphens: auto;
+  white-space: pre-wrap;
 }
 
 .icon {
   align-items: flex-end;
-  border-bottom: 1px solid transparent;
   display: inline-flex;
   font-size: 17px;
+  margin-top: 1rem;
+  text-decoration-line: underline;
+  text-underline-offset: 0.33em;
 
 //  svg {
 //    margin-bottom: -1px;
 //  }
 
   &:hover {
-    border-bottom: 1px solid var(--main);
+    text-decoration-line: none;
   }
 }

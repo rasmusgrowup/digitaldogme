@@ -49,7 +49,7 @@
       align-content: center;
       border-bottom: 1px solid transparent;
       display: flex;
-      font-size: 0.9rem;
+      //font-size: 0.9rem;
       margin: 0 1.25em;
       letter-spacing: 0.02em;
     }
@@ -119,7 +119,7 @@
     align-self: center;
     display: inline-flex;
     height: 28px;
-    margin-right: 0.75em;
+    //margin-right: 0.75em;
   }
 
   &:after {
@@ -313,7 +313,7 @@
   left: 0;
   list-style: none;
   min-width: 100%;
-  padding: 0;
+  padding: 0.5rem 0;
   position: absolute;
   transition: 0.2s;
   top: 100%;

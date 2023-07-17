@@ -1,53 +1,54 @@
 @import 'core.scss';
 
-.partners {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding: 5rem 2rem 3rem;
+.section {
+  padding: 4rem 1.5rem 2rem;
   position: relative;
+  width: 100%;
 
   @media (max-width: $m) {
     padding: 3rem 1rem;
   }
 }
 
-.inner {
-  max-width: $l;
-  text-align: center;
-}
+.header {
+  display: flex;
+  //margin-bottom: 3rem;
+  padding-top: 1rem;
+  width: 100%;
 
-.h2 {
-  font-size: 2rem;
-  margin-top: 0;
-  text-transform: uppercase;
+  .h2,
+  .p {
+    margin: 0;
+    width: 50%;
+  }
 
-  @media (max-width: $m) {
-    font-size: 27px;
-    line-height: 1.2;
+  .p p {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+    padding: 0 0.8rem;
+  }
+
+  .h2 {
+    font-size: 2.66em;
   }
 }
 
 .grid {
   align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 2rem auto 3rem;
-
-  @media (max-width: $s) {
-    grid-template-columns: auto;
-    row-gap: 2em;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  gap: 6rem;
+  margin: 3rem auto;
+  padding: 4rem;
 }
 
-.partner {
-  width: 175px;
-  margin: 2em;
-
-  @media (max-width: $s) {
-    margin: 0.5rem auto;
-  }
+.partner a {
+  display: block;
+  filter: grayscale(1) contrast(2);
+  max-height: 100px;
+  mix-blend-mode: multiply;
 }
 
 .cta {

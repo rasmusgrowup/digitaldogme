@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .main {
-  background-color: var(--main);
+  background-color: var(--black);
   color: var(--bg);
   padding: 4rem 2rem 2rem;
   position: relative;
@@ -47,6 +47,10 @@
   .top {
     margin: 0 auto 4rem;
   }
+}
+
+.altLogo {
+  width: 6rem;
 }
 
 .logo {
