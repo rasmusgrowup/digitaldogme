@@ -58,10 +58,18 @@ function Logo({scrolling}) {
 }
 
 function AltLogo({scrolling}) {
-    const {toggle} = useContext(MenuContext);
+    const router = useRouter()
+    const {toggle, toggleFunction} = useContext(MenuContext);
+
+    const click = () => {
+        router.push('/')
+        if (toggle) {
+            toggleFunction()
+        }
+    }
 
     return (
-        <div className={styles.altLogo}>
+        <div className={styles.altLogo} onClick={click}>
             {!scrolling && !toggle ? <Image src={WhiteLogo}/> : toggle ? <Image src={DarkLogo}/> :
                 <Image src={DarkLogo}/>}
         </div>

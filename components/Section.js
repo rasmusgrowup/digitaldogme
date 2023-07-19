@@ -4,7 +4,7 @@ import Karussel from "../components/Karussel";
 
 export default function Section({section, index}) {
     const isDark = section.colorTheme === 'Dark';
-    console.log(section)
+
     return (
         <section className={isDark ? `${styles.darkSection}` : `${styles.section}`}>
             {(section.sectionHeader.paragraph || section.richText) && section.sectionHeader ?

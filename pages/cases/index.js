@@ -3,12 +3,12 @@ import Hero from '../../components/Hero'
 import Publikationer from '../../components/Publikationer'
 
 //GraphCMS
-import {getAllCases, getPageTopSection} from "../../lib/hygraph";
+import {getAllCases, getMenu, getPageTopSection} from "../../lib/hygraph";
 import Layout from "../../components/Layout";
 
-export default function Cases({cases, page, preview}) {
+export default function Cases({cases, page, menu}) {
     return (
-        <Layout preview={preview}>
+        <Layout menu={menu}>
             <Hero
                 height={page.topSektion.height}
                 url={page.topSektion.billede.url}
@@ -21,14 +21,16 @@ export default function Cases({cases, page, preview}) {
     )
 }
 
-export async function getStaticProps({preview = false}) {
-    const cases = (await getAllCases(preview)) || []
-    const page = await getPageTopSection("cases", preview)
+export async function getStaticProps() {
+    const cases = (await getAllCases()) || []
+    const page = await getPageTopSection("cases")
+    const menu = await getMenu("dev")
+
     return {
         props: {
-            preview,
             cases,
-            page
+            page,
+            menu
         },
     }
 }

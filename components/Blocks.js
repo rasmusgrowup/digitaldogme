@@ -19,8 +19,8 @@ export default function Blocks({ blokke }) {
       <div className={styles.content}>
           { blokke && blokke.map((blok, i) => {
               switch (blok.__typename) {
-                  case 'Sektion': return <Sektion arr={blok} key={blok.id}/>
-                  case 'Animeret': return <Animeret arr={blok} key={blok.id}/>
+                  case 'Sektion': return <Sektion arr={blok} key={blok.id} index={i}/>
+                  case 'Animeret': return <Animeret arr={blok} key={blok.id} index={i}/>
                   case 'Partner': return <Partners arr={blok} index={i} key={blok.id}/>
                   case 'Karussel': return <Karussel arr={blok} key={blok.id}/>
                   case 'Team': return <Team arr={blok} key={blok.id}/>

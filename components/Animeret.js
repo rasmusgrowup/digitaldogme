@@ -1,150 +1,85 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
-import React, { useRef } from 'react'
+import React, {useRef} from 'react'
 
 // SCSS Styling
 import styles from '../styles/animeret.module.scss'
 
-// Feather icons
-import FeatherIcon from 'feather-icons-react';
-
-// Countup
-import CountUp from 'react-countup';
-import VisibilitySensor from 'react-visibility-sensor';
-
 // Framer motion
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
+
 const variants = {
-  initial: {
-    opacity: 0,
-    y: 50
-  },
-  whileInView: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 3,
-      delay: 0.5,
-      ease: [0.22, 1, 0.36, 1]
+    hidden: {
+        y: 0,
+    },
+    visible: {
+        y: 0,
+        transition: {
+            //delayChildren: 1,
+            staggerChildren: 0.1
+        }
     }
-  }
 }
 
-export default function Animeret({ arr }) {
-  return (
-    <>
-      <section
-        style={{
-        backgroundColor:
-          `${
-            arr.baggrundsfarve === 'Lys' ? 'var(--bg)' :
-            arr.baggrundsfarve === 'Sand' ? 'var(--sand)' :
-            arr.baggrundsfarve === 'Karry' ? 'var(--curry)' :
-            arr.baggrundsfarve === 'Gul' ? 'var(--yellow)' :
-            arr.baggrundsfarve === 'Pink' ? 'var(--pink)' :
-            arr.baggrundsfarve === 'Fersken' ? 'var(--peach)' :
-            arr.baggrundsfarve === 'Roed' ? 'var(--red)' :
-            arr.baggrundsfarve === 'Groen' ? 'var(--green)' :
-            arr.baggrundsfarve === 'Blaa' ? 'var(--main)' :
-            arr.baggrundsfarve === 'Sort' ? 'var(--black)' :
-            arr.baggrundsfarve === 'Turkis' ? 'var(--turkis)' :
-            arr.baggrundsfarve === null ? 'var(--bg)' :
-            'var(--bg)'
-          }`,
-          backgroundImage: `${ arr.baggrundsbillede ? `url(${arr.baggrundsbillede.url})` : '' }`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
-      }}
-      className={`
-        section
-        ${styles.animeret}
-        ${ arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Blaa' || arr.baggrundsfarve === 'Roed' || arr.baggrundsfarve === 'Groen' || arr.baggrundsfarve === 'Sort' || arr.baggrundsbillede ? `${styles.dark}` : ''}
-      `}>
-        <motion.div
-          initial='initial'
-          whileInView='whileInView'
-          variants={variants}
-          viewport={{ once: true }}
-          className={styles.inner}>
-          <h2 className={styles.h2}>
-            {arr.overskriftAnimeret}
-          </h2>
-          <div className={styles.container}>
-            { arr.animeredeTal.map((item, i) => (
-              <div className={styles.item} key={i}>
-                <div className={styles.tal}>
-                  { item.__typename === 'Number'
-                  ? <VisibilitySensor
-                    partialVisibility
-                    offset={{ bottom: 30 }}>
-                    {({ isVisible }) => (
-                      <div className={styles.countup}>
-                        {isVisible ?
-                          <CountUp
-                          useEasing='true'
-                          separator='.'
-                          end={item.tal}
-                          duration={2.5}
-                          delay={0.5}
-                          />
-                          :
-                          '0'}
-                      </div>
-                    )}
-                  </VisibilitySensor>
-                  :
-                  <VisibilitySensor
-                    partialVisibility
-                    offset={{ bottom: 30 }}>
-                    {({ isVisible }) => (
-                      <div className={styles.countup}>
-                        {isVisible ?
-                          <span>
-                            <CountUp
-                            useEasing='true'
-                            separator='.'
-                            end={item.naevner}
-                            duration={2.5}
-                            delay={0.5}
-                            />
-                            /{item.taeller}
-                          </span>
-                          :
-                          '0'}
-                      </div>
-                    )}
-                  </VisibilitySensor>
-                }
-                  <span className={styles.enhed}>
-                    {item.enhed}
-                  </span>
-                </div>
-                <div className={styles.betydning}>
-                  { item.__typename === 'Number' ?
-                  `${item.betydning}`: `${item.beskrivelse}`
-                  }
-                </div>
-              </div>
+const items = {
+    hidden: {
+        y: '120%',
+    },
+    visible: {
+        y: 0,
+        transition: {
+            duration: 2.5,
+            ease: [0.22, 1, 0.36, 1]
+        }
+    }
+}
+
+function NumberArrayMapping({item}) {
+    const digitArray = item.tal.toString().split('');
+
+    return (
+        <motion.div className={styles.talWrapper} whileInView='visible' variants={variants} initial='hidden'
+                    viewport={{once: true, amount: "all"}}>
+            {digitArray.map((digit, index) => (
+                <motion.span className={styles.digit} variants={items} key={index}>{digit}</motion.span>
             ))}
-          </div>
-          { arr.cta &&
-            <div
-              className={styles.cta}
-              onClick={() => router.push(`${arr.cta.link}`)}
-              >
-              <span className={styles.icon}>
-                <FeatherIcon
-                  icon={arr.cta.ikon}
-                  size={15}
-                  style={ arr.baggrundsbillede ? {color: 'var(--main)'} : {color: 'var(--bg)' }}
-                />
-              </span>
-              <span>{arr.cta.label}</span>
-            </div>
-          }
+            {item.enhed && <motion.span variants={items} className={styles.enhed}>{item.enhed}</motion.span>
+            }
         </motion.div>
-      </section>
-    </>
-  )
+    );
+}
+
+export default function Animeret({arr, index}) {
+    return (
+        <>
+            <section className={styles.section}>
+                <div className={styles.inner}
+                     style={index === 0 ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+                    <div className={styles.column}>
+                        <div className={styles.innerColumn}>
+                            <h2 className={styles.h2}>
+                                {arr.overskriftAnimeret}
+                            </h2>
+                            <p className={styles.p}>{arr.tekstAnimeret}</p>
+                        </div>
+                    </div>
+                    <div className={styles.container}>
+                        {arr.animeredeTal.map((item, i) => (
+                            <div className={styles.item} key={i}>
+                                <div className={styles.tal}>
+                                    {item && <NumberArrayMapping item={item}/>}
+                                </div>
+                                <div className={styles.betydning}>
+                                    {item.__typename === 'Number' ?
+                                        `${item.betydning}` : `${item.beskrivelse}`
+                                    }
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </>
+    )
 }

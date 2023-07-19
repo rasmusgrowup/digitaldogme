@@ -61,6 +61,7 @@ h1 {
   font-weight: 700;
 }
 
+
 h2,
 h3 {
   font-weight: 400;
@@ -137,6 +138,7 @@ p {
   --curry: #FFDD91;
   --red: #FF6E62;
   --peach: #FF6E62;
+  --strong-red: #E04624;
   --pink: #F9C3D3;
   --turkis: #B8DFE2;
   --green: #0E7279;

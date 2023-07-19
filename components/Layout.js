@@ -5,10 +5,8 @@ import styles from '../styles/layout.module.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Meta from '../components/Meta'
-import Link from "next/link";
 
-export default function Layout({children, preview}) {
-    console.log(preview)
+export default function Layout({ children, menu }) {
     return (
         <>
             <Meta/>
@@ -16,7 +14,7 @@ export default function Layout({children, preview}) {
             <main className={styles.main}>
                 {children}
             </main>
-            <Footer/>
+            <Footer menu={menu}/>
         </>
     )
 }

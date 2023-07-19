@@ -25,7 +25,7 @@ export default function Karussel({arr}) {
                             <a>
                                 <div className={styles.wrapper}>
                                     <Image
-                                        alt={item.billede.alt}
+                                        alt={item.billede.alt ? item.billede.alt : ''}
                                         src={item.billede.url}
                                         height='400'
                                         width='400'
@@ -37,10 +37,10 @@ export default function Karussel({arr}) {
                                 </div>
                                 <h3 className={styles.titel}>{item.titel}</h3>
                                 <span className={styles.dato}>
-                      <Moment locale='da' format='ll'>
-                          {item.dato.toString()}
-                      </Moment>
-                    </span>
+                                  <Moment locale='da' format='ll'>
+                                      {item.dato.toString()}
+                                  </Moment>
+                                </span>
                             </a>
                         </Link>
                     </div>

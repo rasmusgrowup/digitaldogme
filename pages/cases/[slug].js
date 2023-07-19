@@ -15,11 +15,11 @@ import FeatherIcon from 'feather-icons-react';
 import styles from '../../styles/publikationer.module.scss'
 
 //Hygraph
-import {getCaseBySlug, getAllCasesWithSlug} from "../../lib/hygraph";
+import {getCaseBySlug, getAllCasesWithSlug, getMenu} from "../../lib/hygraph";
 import {useRouter} from "next/router";
 import Layout from "../../components/Layout";
 
-export default function Case({data, preview}) {
+export default function Case({data, menu}) {
     const [loaded, setLoaded] = useState(false)
     const router = useRouter()
 
@@ -33,7 +33,7 @@ export default function Case({data, preview}) {
 
     return (
         <>
-            {data && <Layout preview={preview}>
+            {data && <Layout menu={menu}>
                 <Hero
                     height={true}
                     url={data.case.billede.url}
@@ -87,17 +87,19 @@ export default function Case({data, preview}) {
 
 export async function getStaticProps({params, preview = false}) {
     const data = await getCaseBySlug(params.slug, preview)
+    const menu = await getMenu("dev")
+
     return {
         props: {
             preview,
-            data
+            data,
+            menu
         },
     }
 }
 
 export async function getStaticPaths() {
     const cases = await getAllCasesWithSlug()
-    console.log(cases)
     return {
         paths: cases.map(({slug}) => ({
             params: {slug},

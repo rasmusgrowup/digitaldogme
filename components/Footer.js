@@ -1,7 +1,6 @@
 // Default imports
 import Link from "next/link"
 import {useRouter} from 'next/router'
-import {useState, useRef, useEffect} from 'react'
 import {TWITTER, LINKEDIN} from '../lib/constants.js'
 
 // SCSS Styling
@@ -12,17 +11,7 @@ import Menupunkt from '../components/Menupunkt'
 import LinkedIn from '../components/icons/LinkedIn'
 import Twitter from '../components/icons/Twitter'
 import WhiteLogo from "../public/AltLogo_White.png";
-
-// Feather icons
-import FeatherIcon from 'feather-icons-react';
-
-// GraphCMS
-import {gql, request} from 'graphql-request';
-import useSWR from 'swr'
-import {MenuContext} from "../lib/menuContext";
 import Image from "next/image";
-
-const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl41227n82mr701xjefvp5ghq/master', query)
 
 const itStyle = {
     color: 'var(--red)',
@@ -61,61 +50,25 @@ function AltLogo() {
     )
 }
 
-function Navigation() {
+function Navigation({menu}) {
     const router = useRouter()
-    const {data, error} = useSWR(`
-    query fetchMenuPunkter {
-      menu(where: {placering: footer}) {
-        punkter {
-          ... on Menupunkt {
-            id
-            titel
-            link {
-              slug
-              titel
-              type
-            }
-            dropdownLinks {
-              adresse
-              ikon
-              id
-              titel
-            }
-          }
-        }
-        knapper {
-          adresse
-          ikon
-          id
-          label
-        }
-      }
-    }
-`, fetcher)
-
-    if (error) return <div>Der skete en fejl</div>
-    if (!data) return <div>Indlæser...</div>
+    console.log(menu)
 
     return (
         <div className={styles.navigation}>
-            <ul className={styles.ul}>
-                {data.menu.punkter.map((punkt) => (
-                    <li className={`
-            ${styles.li}
-            ${router.asPath === `/${punkt.link.slug}`
-                        ? `${styles.active}`
-                        : ''
+            { menu.punkter.map((punkt, i) => (
+                <ul key={i} className={styles.ul}>
+                    <div className={styles.titel}>{punkt.titel}</div>
+                    { punkt.dropdownLinks.length === 0 ?
+                        <li>Overblik</li> :
+                        <ul className={styles.li} key={i}>
+                            {punkt.dropdownLinks.map((dropdown, i) => (
+                                <li key={i}>{dropdown.titel}</li>
+                            ))}
+                        </ul>
                     }
-            `}
-                        key={punkt.id}>
-                        <Menupunkt
-                            title={punkt.titel}
-                            slug={punkt.link.slug}
-                            arr={punkt.dropdownLinks}
-                        />
-                    </li>
-                ))}
-            </ul>
+                </ul>
+            ))}
         </div>
     )
 }
@@ -149,12 +102,12 @@ function Socials() {
         <div className={styles.socials}>
             <Link href={TWITTER} passHref>
                 <a>
-                    <Twitter/>
+                    Twitter
                 </a>
             </Link>
             <Link href={LINKEDIN} passHref>
                 <a>
-                    <LinkedIn/>
+                    LinkedIn
                 </a>
             </Link>
         </div>
@@ -164,14 +117,15 @@ function Socials() {
 function Policies() {
     return (
         <div className={styles.policies}>
-            <Link href='https://twitter.com'><a>Handelsbetingelser</a></Link>
-            <Link href='https://linkedin.com'><a>GDPR</a></Link>
+            <Link href='/'><a>Datapolitik</a></Link>
+            <Link href='/'><a>Presse-kit</a></Link>
         </div>
     )
 }
 
-export default function Footer() {
+export default function Footer({menu}) {
     const isDevelopment = process.env.NODE_ENV === 'development';
+
     return (
         <>
             <footer className={styles.main}>
@@ -181,12 +135,17 @@ export default function Footer() {
                     </div>
                     <div className={styles.top}>
                         {isDevelopment ? <AltLogo/> : <Logo/>}
-                        <Navigation/>
-                        <Address/>
+                        <div className={styles.bar}>
+                            <Navigation menu={menu}/>
+                            <Address/>
+                        </div>
                     </div>
                     <div className={styles.bottom}>
                         <Info/>
-                        <Socials/>
+                        <div className={styles.bottomBar}>
+                            <Socials/>
+                            <Policies />
+                        </div>
                     </div>
                 </div>
             </footer>
