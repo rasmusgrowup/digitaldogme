@@ -16,6 +16,7 @@ import styles from '../../styles/publikationer.module.scss'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
+import {motion} from "framer-motion";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
@@ -38,6 +39,10 @@ export async function getStaticProps({ params }) {
           html
         }
         type
+        attachedMedia {
+          url
+          fileName
+        }
         sektioner {
           id
           billede {
@@ -138,6 +143,19 @@ export default function event({ event }) {
             dangerouslySetInnerHTML={{ __html: `${event.beskrivelse.html}` }}
           >
           </div>
+          { event.attachedMedia &&
+              <Link href={event.attachedMedia.url} passHref>
+                <a target='_blank'>
+                  <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98}}
+                      className={styles.pdfLink}>
+                    <span>{event.attachedMedia.fileName}</span>
+                    <span>Læs</span>
+                  </motion.div>
+                </a>
+              </Link>
+          }
         </div>
       </section>
       { event.sektioner.map((sektion, i) => (
