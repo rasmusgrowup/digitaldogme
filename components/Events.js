@@ -47,6 +47,8 @@ export default function Events({ arr, types }) {
               {
                 kategori.name === 'Workshop' ?
                 'Workshops' :
+                kategori.name === 'Network' ?
+                'Netværk' :
                 kategori.name === 'Konference' ?
                 'Konferencer' :
                 kategori.name === 'Medlemsevent' ?
