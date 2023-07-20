@@ -76,27 +76,28 @@ function AltLogo({scrolling}) {
     )
 }
 
-export default function Header() {
+export default function Header({ hasHero }) {
     const router = useRouter()
     const [navClassList, setNavClassList] = useState([]);
     const [scrolling, setScrolling] = useState(false);
     const scroll = useScrollListener();
-    const {toggle, toggleFunction} = useContext(MenuContext);
+    const {toggle} = useContext(MenuContext);
     const isDevelopment = process.env.NODE_ENV === 'development';
 
     useEffect(() => {
         const _classList = [];
 
-        if (scroll.y < 1) {
+        if (scroll.y < 1 && hasHero) {
             _classList.push(`${styles.atTop}`)
             setScrolling(false)
-        } else {
+        } else if (!hasHero) {
             _classList.push(`${styles.whiteHeader}`);
             setScrolling(true)
         }
-
-        //if (scroll.y > 100 && scroll.y - scroll.lastY > 0 && toggle != true)
-        //  _classList.push(`${styles.hideHeader}`)
+        else {
+            _classList.push(`${styles.whiteHeader}`);
+            setScrolling(true)
+        }
 
         setNavClassList(_classList);
 

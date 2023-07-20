@@ -21,7 +21,7 @@ export async function getStaticProps() {
 export default function Home({side, menu}) {
 
     return (
-        <Layout preview={'undefined'} menu={menu}>
+        <Layout preview={'undefined'} menu={menu} hasHero='true'>
             <Hero
                 height={side.topSektion.height}
                 url={side.topSektion.billede.url}

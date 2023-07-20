@@ -2,11 +2,12 @@ import styles from '../styles/section.module.scss';
 import Link from "next/link";
 import Karussel from "../components/Karussel";
 
-export default function Section({section, index}) {
+export default function Section({section, topSection, index}) {
     const isDark = section.colorTheme === 'Dark';
+    console.log(topSection)
 
     return (
-        <section className={isDark ? `${styles.darkSection}` : `${styles.section}`}>
+        <section className={isDark ? `${styles.darkSection}` : `${styles.section}`} style={topSection ? {paddingTop: '0'} : {}}>
             {(section.sectionHeader.paragraph || section.richText) && section.sectionHeader ?
                 <header className={styles.header}
                         style={index === 0 || isDark ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>

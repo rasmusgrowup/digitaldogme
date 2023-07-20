@@ -6,11 +6,11 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Meta from '../components/Meta'
 
-export default function Layout({ children, menu }) {
+export default function Layout({ children, menu, hasHero }) {
     return (
         <>
             <Meta/>
-            <Header/>
+            <Header hasHero={hasHero}/>
             <main className={styles.main}>
                 {children}
             </main>
