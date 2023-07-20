@@ -10,7 +10,7 @@ import styles from '../styles/karussel.module.scss'
 
 export default function Karussel({arr}) {
     const router = useRouter()
-    console.log(arr)
+
     return (
         <>
             <div
