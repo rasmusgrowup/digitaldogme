@@ -60,10 +60,12 @@ function Navigation({menu}) {
                 <ul key={i} className={styles.ul}>
                     <div className={styles.titel}>{punkt.titel}</div>
                     { punkt.dropdownLinks.length === 0 ?
-                        <li>Overblik</li> :
+                        <li>
+                            <Link href={punkt.link.slug}>Overblik</Link>
+                        </li> :
                         <ul className={styles.li} key={i}>
                             {punkt.dropdownLinks.map((dropdown, i) => (
-                                <li key={i}>{dropdown.titel}</li>
+                                <li key={i}><Link href={dropdown.scrollToSection ? `/${dropdown.adresse}#${dropdown.scrollToSection.id}` : `/${dropdown.adresse}`}>{dropdown.titel}</Link></li>
                             ))}
                         </ul>
                     }
@@ -101,12 +103,12 @@ function Socials() {
     return (
         <div className={styles.socials}>
             <Link href={TWITTER} passHref>
-                <a>
+                <a target='_blank'>
                     Twitter
                 </a>
             </Link>
             <Link href={LINKEDIN} passHref>
-                <a>
+                <a target='_blank'>
                     LinkedIn
                 </a>
             </Link>

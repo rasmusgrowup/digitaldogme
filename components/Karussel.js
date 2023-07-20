@@ -10,16 +10,17 @@ import styles from '../styles/karussel.module.scss'
 
 export default function Karussel({arr}) {
     const router = useRouter()
-
+    console.log(arr)
     return (
         <>
             <div
                 className={styles.container}>
                 {arr.items.map((item, i) => (
                     <div className={styles.publikation} key={i}>
-                        <Link href={item.__typename === "Publikation" ?
-                            `${`/viden/${item.slug}`}` :
-                            `${`/cases/${item.slug}`}`
+                        <Link href={
+                            item.__typename === "Publikation" ? `${`/viden/${item.slug}`}` :
+                            item.__typename === "Case" ? `${`/cases/${item.slug}`}` :
+                            item.__typename === "Event" ? `${`/events/${item.slug}`}` : null
                         }
                               passHref>
                             <a>

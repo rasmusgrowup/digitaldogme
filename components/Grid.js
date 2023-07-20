@@ -36,11 +36,20 @@ export default function Grid({props, index}) {
                                 {column.columnButton &&
                                     <>
                                         <Link href={column.columnButton.adresse}>
-                                            <a target='_blank' className={styles.icon}>
-                                                {column.columnButton.label}
-                                                <FeatherIcon icon={column.columnButton.ikon} size={18}
-                                                             style={{color: 'var(--main)', marginLeft: '0.2rem'}}/>
-                                            </a>
+                                            {column.columnButton.adresse.includes('https://') ?
+                                                <a target='_blank' rel="noopener noreferrer" className={styles.icon}>
+                                                    {column.columnButton.label}
+                                                    {column.columnButton.ikon &&
+                                                        <FeatherIcon icon={column.columnButton.ikon} size={18} style={{color: 'var(--main)', marginLeft: '0.2rem'}}/>
+                                                    }
+                                                </a> :
+                                                <a className={styles.icon}>
+                                                    {column.columnButton.label}
+                                                    {column.columnButton.ikon &&
+                                                        <FeatherIcon icon={column.columnButton.ikon} size={18} style={{color: 'var(--main)', marginLeft: '0.2rem'}}/>
+                                                    }
+                                                </a>
+                                            }
                                         </Link>
                                     </>
                                 }

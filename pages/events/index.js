@@ -4,6 +4,8 @@ import Events from '../../components/Events'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
+import Layout from "../../components/Layout";
+import {getMenu} from "../../lib/hygraph";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps() {
@@ -57,19 +59,21 @@ export async function getStaticProps() {
       }
     }
   `);
+  const menu = await getMenu("dev")
 
   return {
     props: {
       side,
       events,
-      __type
+      __type,
+      menu
     }
   }
 }
 
-export default function Viden({ side, events, __type }) {
+export default function Viden({ side, events, __type, menu }) {
   return (
-    <>
+    <Layout menu={menu}>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}
@@ -78,6 +82,6 @@ export default function Viden({ side, events, __type }) {
         alt={side.topSektion.billede.alt}
       />
       <Events arr={events} types={__type}/>
-    </>
+    </Layout>
   )
 }

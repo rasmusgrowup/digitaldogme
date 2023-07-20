@@ -17,6 +17,8 @@ import styles from '../../styles/publikationer.module.scss'
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
 import {motion} from "framer-motion";
+import Layout from "../../components/Layout";
+import {getMenu} from "../../lib/hygraph";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
@@ -72,10 +74,12 @@ export async function getStaticProps({ params }) {
   `, {
     slug: params.slug
   });
+  const menu = await getMenu("dev")
 
   return {
     props: {
-      event
+      event,
+      menu
     }
   }
 }
@@ -97,10 +101,10 @@ export async function getStaticPaths() {
   }
 }
 
-export default function event({ event }) {
+export default function event({ event, menu }) {
 
   return (
-    <>
+    <Layout menu={menu}>
       <Hero
         height={true}
         url={event.billede.url}
@@ -161,6 +165,6 @@ export default function event({ event }) {
       { event.sektioner.map((sektion, i) => (
           <Sektion arr={sektion} key={i} />
       ))}
-    </>
+    </Layout>
   )
 }

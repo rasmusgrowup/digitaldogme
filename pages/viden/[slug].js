@@ -18,6 +18,8 @@ import { motion } from 'framer-motion';
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
+import {getMenu} from "../../lib/hygraph";
+import Layout from "../../components/Layout";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
@@ -48,10 +50,12 @@ export async function getStaticProps({ params }) {
   `, {
     slug: params.slug
   });
+  const menu = await getMenu("dev")
 
   return {
     props: {
-      publikation
+      publikation,
+      menu
     }
   }
 }
@@ -73,10 +77,10 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Publikation({ publikation }) {
+export default function Publikation({ publikation, menu }) {
 
   return (
-    <>
+    <Layout menu={menu}>
       <Hero
         height={true}
         url={publikation.billede.url}
@@ -129,6 +133,6 @@ export default function Publikation({ publikation }) {
           ))}
         </div>
       </section>
-    </>
+    </Layout>
   )
 }

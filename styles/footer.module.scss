@@ -125,6 +125,10 @@
       min-width: 50%;
     }
 
+    a:hover {
+      color: var(--red);
+    }
+
     .titel {
       font-weight: 600;
     }
@@ -175,61 +179,22 @@
     margin-right: 1rem;
   }
 
+  a:hover {
+    color: var(--red);
+  }
+
   @media (max-width: $m) {
     margin-left: 0;
   }
 }
 
-// Aktivér, hvis policies er inkluderet i footeren //
-/*
-.socials,
-.policies {
-  flex: 1;
-  max-width: 25%;
+.socials a {
+  align-items: center;
+  display: inline-flex;
+  margin-right: 1rem;
 
-  @media (max-width: $m) {
-    max-width: none;
-  }
-
-  a {
-    align-items: center;
-    display: inline-flex;
-  }
-
-  a:first-of-type::after {
-    color: var(--bg) !important;
-    content: '/';
-    margin: 0 0.5rem;
-  }
-
-  a:hover {
+  &:hover {
     color: var(--red);
-  }
-}
-
-.policies {
-  margin-bottom: 0.5em;
-} */
-
-.socials {
-  a {
-    align-items: center;
-    display: inline-flex;
-    margin-right: 1rem;
-  }
-
-  a:first-of-type::after {
-    color: var(--bg) !important;
-    margin: 0 0.5rem;
-  }
-
-  a:hover svg path {
-    fill: var(--red);
-  }
-
-  svg {
-    margin-right: 0.5rem;
-    width: 1.5rem;
   }
 }
 

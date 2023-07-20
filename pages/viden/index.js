@@ -4,6 +4,8 @@ import Publikationer from '../../components/Publikationer'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
+import {getMenu} from "../../lib/hygraph";
+import Layout from "../../components/Layout";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps() {
@@ -55,20 +57,22 @@ export async function getStaticProps() {
       }
     }
   `);
+    const menu = await getMenu("dev")
 
   return {
     props: {
       side,
       publikationer,
-      __type
+      __type,
+        menu
     }
   }
 }
 
-export default function Viden({ side, publikationer, __type }) {
+export default function Viden({ side, publikationer, __type, menu }) {
 
   return (
-    <>
+    <Layout menu={menu}>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}
@@ -77,6 +81,6 @@ export default function Viden({ side, publikationer, __type }) {
         alt={side.topSektion.billede.alt}
       />
       <Publikationer arr={publikationer} types={__type}/>
-    </>
+    </Layout>
   )
 }
