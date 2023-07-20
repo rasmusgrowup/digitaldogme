@@ -7,9 +7,6 @@ import {TWITTER, LINKEDIN} from '../lib/constants.js'
 import styles from '../styles/footer.module.scss'
 
 //Components
-import Menupunkt from '../components/Menupunkt'
-import LinkedIn from '../components/icons/LinkedIn'
-import Twitter from '../components/icons/Twitter'
 import WhiteLogo from "../public/AltLogo_White.png";
 import Image from "next/image";
 
@@ -52,7 +49,6 @@ function AltLogo() {
 
 function Navigation({menu}) {
     const router = useRouter()
-    console.log(menu)
 
     return (
         <div className={styles.navigation}>
