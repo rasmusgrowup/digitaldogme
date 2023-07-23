@@ -104,7 +104,7 @@ export async function getStaticPaths() {
 export default function event({ event, menu }) {
 
   return (
-    <Layout menu={menu}>
+    <Layout menu={menu} hasHero='true' key={event.id}>
       <Hero
         height={true}
         url={event.billede.url}

@@ -33,7 +33,7 @@ export default function Case({data, menu}) {
 
     return (
         <>
-            {data && <Layout menu={menu}>
+            {data && <Layout menu={menu} hasHero='true' key={data.id}>
                 <Hero
                     height={true}
                     url={data.case.billede.url}

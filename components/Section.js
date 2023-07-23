@@ -1,10 +1,11 @@
 import styles from '../styles/section.module.scss';
 import Link from "next/link";
 import Karussel from "../components/Karussel";
+import Image from "next/image";
+import FeatherIcon from "feather-icons-react";
 
 export default function Section({section, topSection, index}) {
     const isDark = section.colorTheme === 'Dark';
-    console.log(topSection)
 
     return (
         <section className={isDark ? `${styles.darkSection}` : `${styles.section}`} style={topSection ? {paddingTop: '0'} : {}}>
@@ -20,6 +21,18 @@ export default function Section({section, topSection, index}) {
                         {section.sectionLink &&
                             <div className={styles.link}>
                                 <Link href={section.sectionLink.adresse}>{section.sectionLink.titel}</Link>
+                            </div>
+                        }
+                        {section.downloadableAsset &&
+                            <div className={styles.downloadAsset}>
+                                {section.downloadableAsset.preview &&
+                                    <Image src={section.downloadableAsset.preview.url} width={section.downloadableAsset.preview.width} height={section.downloadableAsset.preview.height}/>
+                                }
+                                {section.downloadableAsset.assetTitel && <p><b>{section.downloadableAsset.assetTitel}</b></p>}
+                                {section.downloadableAsset.description && <p>{section.downloadableAsset.description}</p>}
+                                <Link href={section.downloadableAsset.asset.url} passHref>
+                                    <a className={styles.downloadLink} download>Download {section.downloadableAsset.assetTitel} <FeatherIcon icon='arrow-up-right' size={20} strokeWidth={1}/></a>
+                                </Link>
                             </div>
                         }
                     </div>

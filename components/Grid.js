@@ -19,18 +19,20 @@ export default function Grid({props, index}) {
                             <div key={i} className={
                                 props.columns.length === 1 || !column.columnImage ? `${styles.column} ${styles.singleColumn}` : `${styles.column}`
                             }>
-                                {column.columnImage && <div className={styles.imageContainer}
-                                                            style={column.columnImage && column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
-                                    <Image
-                                        src={column.columnImage.url}
-                                        alt={column.columnImage.alt}
-                                        height='400'
-                                        width='400'
-                                        objectFit='cover'
-                                        objectPosition='top'
-                                        quality='100'
-                                    />
-                                </div>}
+                                {column.columnImage &&
+                                    <div className={styles.imageContainer}
+                                                                style={column.columnImage && column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
+                                        <Image
+                                            src={column.columnImage.url}
+                                            alt={column.columnImage.alt}
+                                            height={ column.keepAspectRatio ? column.columnImage.height : '400'}
+                                            width={ column.keepAspectRatio ? column.columnImage.width :'400'}
+                                            objectFit='cover'
+                                            objectPosition='top'
+                                            quality='100'
+                                        />
+                                    </div>
+                                }
                                 {column.title && <h3 className={styles.columnTitle}>{column.title}</h3>}
                                 {column.columnText && <p className={styles.columnText}>{column.columnText}</p>}
                                 {column.columnButton &&

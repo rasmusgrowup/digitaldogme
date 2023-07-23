@@ -9,9 +9,13 @@
 }
 
 .h1 {
-  border-bottom: 1px solid var(--black);
   font-size: 5em;
   font-weight: 450;
   margin: 0;
   padding-bottom: 6rem;
+}
+
+.date {
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 1rem;
 }

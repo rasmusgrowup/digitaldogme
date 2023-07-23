@@ -73,7 +73,7 @@ export async function getStaticProps() {
 
 export default function Viden({ side, events, __type, menu }) {
   return (
-    <Layout menu={menu}>
+    <Layout menu={menu} hasHero='true' key={side.id}>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}

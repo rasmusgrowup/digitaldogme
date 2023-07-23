@@ -72,6 +72,16 @@
 .richText {
   font-size: 1.1em;
   margin-bottom: 2rem;
+
+  a {
+    color: var(--linkBlue);
+    text-decoration: underline;
+    text-underline-offset: 0.33rem;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .link a {
@@ -90,5 +100,23 @@
 
   .link {
     margin-top: 1rem;
+  }
+}
+
+.downloadAsset {
+  margin-top: 2rem;
+  max-width: $s;
+}
+
+.downloadLink {
+  align-items: center;
+  border: 1px solid var(--black);
+  display: flex;
+  padding: 0.75rem;
+  width: fit-content;
+
+  &:hover {
+    border-color: var(--linkBlue);
+    color: var(--linkBlue);
   }
 }

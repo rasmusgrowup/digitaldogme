@@ -116,7 +116,7 @@ function Policies() {
     return (
         <div className={styles.policies}>
             <Link href='/datapolitik'><a>Datapolitik</a></Link>
-            <Link href='/'><a>Presse-kit</a></Link>
+            <Link href='/presse-kit-guidelines'><a>Presse-kit & guidelines</a></Link>
         </div>
     )
 }

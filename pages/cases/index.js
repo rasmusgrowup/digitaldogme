@@ -8,7 +8,7 @@ import Layout from "../../components/Layout";
 
 export default function Cases({cases, page, menu}) {
     return (
-        <Layout menu={menu}>
+        <Layout menu={menu} hasHero='true' key={page.id}>
             <Hero
                 height={page.topSektion.height}
                 url={page.topSektion.billede.url}

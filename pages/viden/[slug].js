@@ -80,7 +80,7 @@ export async function getStaticPaths() {
 export default function Publikation({ publikation, menu }) {
 
   return (
-    <Layout menu={menu}>
+    <Layout menu={menu} hasHero='true' key={publikation.id}>
       <Hero
         height={true}
         url={publikation.billede.url}
