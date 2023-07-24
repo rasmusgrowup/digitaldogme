@@ -89,6 +89,7 @@
   width: 80%;
 
   @media (max-width: $m) {
+    display: block;
     width: 100%;
   }
 }
@@ -184,6 +185,7 @@
   }
 
   @media (max-width: $m) {
+    margin-top: 0.66rem;
     margin-left: 0;
   }
 }

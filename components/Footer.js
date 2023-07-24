@@ -7,7 +7,7 @@ import {TWITTER, LINKEDIN} from '../lib/constants.js'
 import styles from '../styles/footer.module.scss'
 
 //Components
-import WhiteLogo from "../public/AltLogo_White.png";
+import WhiteLogo from "../public/AltLogo_White_red.png";
 import Image from "next/image";
 
 const itStyle = {

@@ -1,8 +1,8 @@
 // Default imports
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
-import WhiteLogo from '/public/AltLogo_White.png'
-import DarkLogo from '/public/AltLogo_Dark.png'
+import WhiteLogo from '/public/AltLogo_White_red.png'
+import DarkLogo from '/public/AltLogo_Dark_red.png'
 
 // SCSS Styling
 import styles from '../styles/header.module.scss'

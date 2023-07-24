@@ -6,6 +6,10 @@
 
 .titel {
   padding: 10rem 1.6rem 0;
+
+  @media (max-width: $m) {
+    padding: 6rem 1rem 0;
+  }
 }
 
 .h1 {
@@ -13,6 +17,11 @@
   font-weight: 450;
   margin: 0;
   padding-bottom: 6rem;
+
+  @media (max-width: $m) {
+    font-size: 2.5em;
+    padding-bottom: 3rem;
+  }
 }
 
 .date {
