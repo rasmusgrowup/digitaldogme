@@ -46,6 +46,10 @@
   margin-top: 1rem;
   //font-weight: normal;
 
+  .redPunctuation {
+    color: var(--red);
+  }
+
   @media (max-width: $m) {
     font-size: 1.75em;
     margin-bottom: 1rem;

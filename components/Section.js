@@ -4,15 +4,45 @@ import Karussel from "../components/Karussel";
 import Image from "next/image";
 import FeatherIcon from "feather-icons-react";
 
+function Heading({overskrift}) {
+    const punctuationMarks = ['.', '?'];
+
+    // Function to escape special characters in a regular expression
+    const escapeRegExp = (str) => {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape all special characters
+    };
+
+    const splitStringWithPunctuation = (str) => {
+        const regex = new RegExp(
+            `(${punctuationMarks.map((mark) => escapeRegExp(mark)).join('|')})`
+        );
+        return str.split(regex);
+    };
+
+    return (
+        <h2 className={styles.h2}>
+            {splitStringWithPunctuation(overskrift).map((word, index) => {
+                // Check if the word is a punctuation mark
+                if (punctuationMarks.includes(word)) {
+                    return (<span key={index} className={styles.redPunctuation}>{word}</span>);
+                } else {
+                    return word;
+                }
+            })}
+        </h2>
+    );
+}
+
 export default function Section({section, topSection, index}) {
     const isDark = section.colorTheme === 'Dark';
+    const endsWithDot = section.sectionHeader.heading;
 
     return (
         <section className={isDark ? `${styles.darkSection}` : `${styles.section}`} style={topSection ? {paddingTop: '0'} : {}}>
             {(section.sectionHeader.paragraph || section.richText) && section.sectionHeader ?
                 <header className={styles.header}
                         style={index === 0 || isDark ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
-                    <h2 className={styles.h2}>{section.sectionHeader.heading}</h2>
+                    <Heading overskrift={section.sectionHeader.heading}/>
                     <div className={styles.column}>
                         {section.sectionHeader.paragraph && <p className={styles.p}>{section.sectionHeader.paragraph}</p>}
                         {section.richText &&

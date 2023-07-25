@@ -23,7 +23,7 @@ export default function Home({side, menu}) {
 
     return (
         <Layout preview={'undefined'} menu={menu} hasHero='true'>
-            <HeroAnim
+            <Hero
                 height={side.topSektion.height}
                 url={side.topSektion.billede.url}
                 overskrift={side.topSektion.overskrift}

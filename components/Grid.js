@@ -4,6 +4,36 @@ import Button from "./Button";
 import FeatherIcon from "feather-icons-react";
 import Link from "next/link";
 
+function Heading({overskrift, index}) {
+    const punctuationMarks = ['.', '?'];
+
+    // Function to escape special characters in a regular expression
+    const escapeRegExp = (str) => {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape all special characters
+    };
+
+    const splitStringWithPunctuation = (str) => {
+        const regex = new RegExp(
+            `(${punctuationMarks.map((mark) => escapeRegExp(mark)).join('|')})`
+        );
+        return str.split(regex);
+    };
+
+    return (
+        <h2 className={styles.heading}
+            style={index === 0 || !lightTheme ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+            {splitStringWithPunctuation(overskrift).map((word, index) => {
+                // Check if the word is a punctuation mark
+                if (punctuationMarks.includes(word)) {
+                    return (<span key={index} className={styles.redPunctuation}>{word}</span>);
+                } else {
+                    return word;
+                }
+            })}
+        </h2>
+    );
+}
+
 export default function Grid({props, index}) {
     const lightTheme = props.colorTheme === 'Light';
 
@@ -12,8 +42,7 @@ export default function Grid({props, index}) {
             <section className={props.colorTheme === 'Dark' ? `${styles.dark}` : props.colorTheme === 'Grey' ? `${styles.grey}` : ''} id={props.id}
                      style={{scrollMarginTop: '50px'}}>
                 <div className={styles.inner}>
-                    {props.gridHeading && <h2 className={styles.heading}
-                                              style={index === 0 || !lightTheme ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>{props.gridHeading}</h2>}
+                    {props.gridHeading && <Heading overskrift={props.gridHeading} index={index}/>}
                     <div className={props.stretchColumns ? `${styles.columns} ${styles.stretch}` : `${styles.columns}`}>
                         {props.columns && props.columns.map((column, i) => (
                             <div key={i} className={
