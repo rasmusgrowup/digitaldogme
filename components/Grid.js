@@ -4,7 +4,7 @@ import Button from "./Button";
 import FeatherIcon from "feather-icons-react";
 import Link from "next/link";
 
-function Heading({overskrift, index}) {
+function Heading({overskrift, lightTheme, index}) {
     const punctuationMarks = ['.', '?'];
 
     // Function to escape special characters in a regular expression
@@ -42,7 +42,7 @@ export default function Grid({props, index}) {
             <section className={props.colorTheme === 'Dark' ? `${styles.dark}` : props.colorTheme === 'Grey' ? `${styles.grey}` : ''} id={props.id}
                      style={{scrollMarginTop: '50px'}}>
                 <div className={styles.inner}>
-                    {props.gridHeading && <Heading overskrift={props.gridHeading} index={index}/>}
+                    {props.gridHeading && <Heading overskrift={props.gridHeading} index={index} lightTheme={lightTheme}/>}
                     <div className={props.stretchColumns ? `${styles.columns} ${styles.stretch}` : `${styles.columns}`}>
                         {props.columns && props.columns.map((column, i) => (
                             <div key={i} className={
