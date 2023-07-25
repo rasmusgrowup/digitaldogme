@@ -26,43 +26,32 @@ export default function Menupunkt({ slug, title, ikon, arr, isSmall }) {
   return (
     <>
       { arr.length !== 0 ?
-        <>
-          <span className={visible ? `${styles.container} ${styles.minus}` : `${styles.container} ${styles.plus}`} onClick={toggleDropdown}>
-            {title}
-            { !isSmall &&
-                <div className={styles.icon}>
-                  <FeatherIcon
-                      icon={visible ? 'chevron-up' : 'chevron-down'}
-                      size={15}
-                  />
-                </div>
-            }
-          </span>
-          <ul className={styles.dropdownList} style={{ display: `${visible ? 'block' : 'none' }`}}>
-            { arr.map((a, i) => (
-              <li key={a.id} className={styles.li} onClick={() => {toggleDropdown(); isSmall? toggleMenu() : null}}>
-                <Link href={a.scrollToSection ? `/${a.adresse}#${a.scrollToSection.id}` : `/${a.adresse}`} passHref>
-                  <a className={router.asPath === `/${a.adresse}` && !a.scrollToSection ? `${styles.active}` : ``}>
-                    { a.icon ?
-                      <>
+        <ul>
+          <li>
+            <span className={visible ? `${styles.container} ${styles.minus}` : `${styles.container} ${styles.plus}`} onClick={toggleDropdown}>
+              {title}
+              <div className={styles.icon}>
+                <FeatherIcon
+                    icon={visible ? 'chevron-up' : 'chevron-down'}
+                    size={15}
+                />
+              </div>
+            </span>
+          </li>
+          <li>
+            <ul className={styles.dropdownList} style={{ display: `${visible ? 'block' : 'none' }`}}>
+              { arr && arr.map((a, i) => (
+                  <li key={a.id} className={styles.li} onClick={() => {toggleDropdown(); isSmall? toggleMenu() : null}}>
+                    <Link href={a.scrollToSection ? `/${a.adresse}#${a.scrollToSection.id}` : `/${a.adresse}`} passHref>
+                      <a className={router.asPath === `/${a.adresse}` && !a.scrollToSection ? `${styles.active}` : ``}>
                         <span>{a.titel}</span>
-                        <div className={styles.icon}>
-                          <FeatherIcon
-                            icon={a.ikon}
-                            size={15}
-                            style={{ color: 'var(--main)' }}
-                          />
-                        </div>
-                      </>
-                      :
-                      <><span>{a.titel}</span></>
-                    }
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
+                      </a>
+                    </Link>
+                  </li>
+              ))}
+            </ul>
+          </li>
+        </ul>
         :
         <>
           <Link href={`/${slug}`} passHref>

@@ -2,7 +2,6 @@
 import '../styles/globals.css'
 
 // Components
-import Layout from '../components/Layout'
 import {MenuProvider} from "../lib/menuContext"
 import {Analytics} from '@vercel/analytics/react';
 

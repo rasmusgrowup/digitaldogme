@@ -10,7 +10,7 @@ export default function Layout({ children, menu, hasHero }) {
     return (
         <>
             <Meta/>
-            <Header hasHero={hasHero}/>
+            <Header menu={menu} hasHero={hasHero}/>
             <main className={styles.main}>
                 {children}
             </main>

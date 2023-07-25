@@ -63,56 +63,12 @@ function DropdownLink({punkt, isSmall}) {
     )
 }
 
-export default function Navigation({scrolling}) {
+export default function Navigation({scrolling, menu}) {
     const {toggle, toggleFunction} = useContext(MenuContext);
     const router = useRouter()
     const isSmall = useMediaQuery({
         query: '(max-width: 834px)'
     })
-
-    const {data, error} = useSWR(`
-    query fetchMenuPunkter {
-      menu(where: {placering: dev}) {
-        punkter {
-          ... on Menupunkt {
-            id
-            titel
-            link {
-              slug
-              titel
-              type
-            }
-            dropdownLinks {
-              adresse
-              ikon
-              id
-              titel
-              scrollToSection {
-                ... on Grid {
-                    id
-                }
-                ... on Section {
-                    id
-                }
-                ... on Sektion {
-                    id
-                }
-              }
-            }
-          }
-        }
-        knapper {
-          adresse
-          ikon
-          id
-          label
-        }
-      }
-    }
-`, fetcher)
-
-    if (error) return <div>Der skete en fejl</div>
-    if (!data) return <div></div>
 
     //console.log(data)
 
@@ -124,14 +80,14 @@ export default function Navigation({scrolling}) {
                 ${scrolling ? `${styles.scrolling}` : ''}
                 `}>
                 <div className={styles.inner}>
-                    <ul className={styles.ul}>
-                        {data.menu.punkter.map((punkt) => {
+                    { menu && <ul className={styles.ul}>
+                        {menu.punkter.map((punkt) => {
                             return punkt.dropdownLinks.length > 1 ?
                                 <DropdownLink key={punkt.id} punkt={punkt} router={router} isSmall={isSmall}/> :
                                 <RegularLink key={punkt.id} punkt={punkt} router={router} isSmall={isSmall}/>
                         })}
-                    </ul>
-                    {data.menu.knapper.map((knap) => (
+                    </ul>}
+                    {menu && menu.knapper.map((knap) => (
                         <div className={styles.buttonWrapper} key={knap.id}>
                             <Link href={`/${knap.adresse}`} passHref>
                                 <a className={styles.cta} onClick={isSmall ? toggleFunction : null}>

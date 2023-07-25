@@ -42,13 +42,13 @@ export default function Grid({props, index}) {
                                                 <a target='_blank' rel="noopener noreferrer" className={styles.icon}>
                                                     {column.columnButton.label}
                                                     {column.columnButton.ikon &&
-                                                        <FeatherIcon icon={column.columnButton.ikon} size={18} style={{color: 'var(--main)', marginLeft: '0.2rem'}}/>
+                                                        <FeatherIcon icon={column.columnButton.ikon} strokeWidth={1} size={18} style={{color: 'var(--main)', marginLeft: '0.2rem'}}/>
                                                     }
                                                 </a> :
                                                 <a className={styles.icon}>
                                                     {column.columnButton.label}
                                                     {column.columnButton.ikon &&
-                                                        <FeatherIcon icon={column.columnButton.ikon} size={18} style={{color: 'var(--main)', marginLeft: '0.2rem'}}/>
+                                                        <FeatherIcon icon={column.columnButton.ikon} strokeWidth={1} size={18} style={{color: 'var(--main)', marginLeft: '0.2rem'}}/>
                                                     }
                                                 </a>
                                             }

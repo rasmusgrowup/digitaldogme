@@ -76,7 +76,7 @@ function AltLogo({scrolling}) {
     )
 }
 
-export default function Header({ hasHero }) {
+export default function Header({ hasHero, menu }) {
     const router = useRouter()
     const [navClassList, setNavClassList] = useState([]);
     const [scrolling, setScrolling] = useState(false);
@@ -87,7 +87,7 @@ export default function Header({ hasHero }) {
     useEffect(() => {
         const _classList = [];
 
-        if (scroll.y < 1 && hasHero) {
+        if (scroll.y < 50 && hasHero) {
             _classList.push(`${styles.atTop}`)
             setScrolling(false)
         } else if (!hasHero) {
@@ -118,7 +118,7 @@ export default function Header({ hasHero }) {
             <header className={`${styles.header} ${navClassList.join(' ')}`}>
                 <div className={styles.inner}>
                     { isDevelopment ? <AltLogo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
-                    <Navigation scrolling={scrolling}/>
+                    <Navigation menu={menu} scrolling={scrolling}/>
                 </div>
             </header>
         </>

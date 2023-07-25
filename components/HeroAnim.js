@@ -23,6 +23,7 @@ const wordsList = [
 ]
 
 export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
+  const [loaded, setLoaded] = useState(false);
   const [words, setWords ] = useState(wordsList)
   const ref = useRef()
   const a = gsap.utils.selector(ref)
@@ -30,11 +31,17 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
   const tl = useRef()
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setLoaded(true)
+    }
+  }, []);
+
+  useEffect(() => {
     master.current = gsap.timeline({ repeat: -1, repaetRefresh: true, delay: 1})
 
     gsap.set(a('.word'), {
-      xPercent: 50,
-      yPercent: 100,
+      xPercent: 0,
+      yPercent: 120,
       x: 0,
       y: 0,
     })
@@ -68,16 +75,7 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
         ${styles.hero}
         ${ height === true ? `${styles.fullHeight}` : '' }
         `}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 3,
-            delay: 0.5,
-            ease: [0.22, 1, 0.36, 1]
-          }}
-          className={styles.image}
-          >
+        <div className={styles.image}>
           <Image
             src={url}
             layout='fill'
@@ -87,32 +85,26 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
             priority='true'
             alt={alt}
           />
-        </motion.div>
-        <div className={styles.content}>
+        </div>
+        <div className={styles.contentAnimated}>
           <div className={styles.wrapper}>
-            <motion.h1
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 3,
-                delay: 0.8,
-                ease: [0.22, 1, 0.36, 1]
-              }}
-              className={styles.animatedH1}
-              >
-                <span className={styles.staticWords}>
+            <h1 className={styles.animatedH1} style={ !loaded ? {display: 'none'} : {display: 'block'}}>
+                <span>Digital Dogme.</span>
+                <div className={styles.animatedWrapper}>
+                  <span className={styles.staticWords}>
                   Vi skaber
                 </span>
-                <span className={styles.dynamicWords} ref={ref}>
+                  <span className={styles.dynamicWords} ref={ref}>
                   { words.map((word, i) => (
-                    <div className={`word ${styles.wordWrapper}`} key={i}>
-                      {word}<span style={{ color: 'var(--red)' }}>.</span>
-                    </div>
+                      <div className={`word ${styles.wordWrapper}`} key={i}>
+                        {word}<span style={{ color: 'var(--red)' }}>.</span>
+                      </div>
                   ))}
                 </span>
-              </motion.h1>
+                </div>
+              </h1>
           </div>
-          <div className={styles.wrapper}>
+          {/* <div className={styles.wrapper}>
             <motion.p
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -141,7 +133,7 @@ export default function HeroAnim({ height, url, overskrift, tekst, alt }) {
               size={21}
               style={{ color: 'var(--bg)' }}
             />
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
     </>

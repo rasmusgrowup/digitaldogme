@@ -11,7 +11,7 @@ import styles from '../styles/hero.module.scss'
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
 
-export default function Hero({height, url, overskrift, tekst, alt}) {
+export default function Hero({height, url, overskrift, alt}) {
     return (
         <>
             <section className={`${styles.hero} ${height === true ? `${styles.fullHeight}` : ''}`}>
@@ -32,11 +32,6 @@ export default function Hero({height, url, overskrift, tekst, alt}) {
                             {overskrift}
                         </h1>
                     </div>
-                    {/* <div className={styles.wrapper}>
-                        <p className={styles.p}>
-                            {tekst}
-                        </p>
-                    </div> */}
                 </div>
             </section>
         </>

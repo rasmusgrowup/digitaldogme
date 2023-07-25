@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Manrope';
-  src: url('/Manrope[wght].woff2') format('woff2') tech('variations'),
-  url('/Manrope[wght].woff2') format('woff2-variations');
+  src: url('/fonts/Manrope[wght].woff2') format('woff2'),
+  url('/fonts/Manrope[wght].woff2') format('woff2-variations');
   font-weight: 100 1000;
   font-variant-ligatures: normal;
 }
@@ -9,13 +9,7 @@
 @font-face {
   font-family: 'Lora';
   font-weight: 100 1000;
-  src: url('/Lora-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Lora';
-  font-weight: 100 1000;
-  font-variant-ligatures: normal;
+  src: url('/fonts/Lora-VariableFont_wght.ttf') format('truetype');
 }
 
 html,
@@ -35,9 +29,10 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
+  font-variant-ligatures: normal;
   font-size: 16px;
   font-weight: 375;
-  line-height: 1.33;
+  line-height: 1.5;
   margin: 0;
   min-height: 100%;
   padding: 0;
@@ -64,7 +59,7 @@ h1 {
 
 h2,
 h3 {
-  font-weight: 400;
+  font-weight: 550;
   letter-spacing: -0.05rem;
 }
 

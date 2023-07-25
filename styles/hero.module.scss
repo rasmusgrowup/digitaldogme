@@ -29,9 +29,13 @@
 @media (max-width: $m) {
   .fullHeight,
   .hero {
-    height: $s * 1.2;
+    height: $s * 1.1;
     min-height: auto;
   }
+}
+
+@media (max-width: $s) {
+  .fullHeight, .hero { height: 90vh; }
 }
 
 .image {
@@ -40,7 +44,8 @@
   width: 100%;
 }
 
-.content {
+.content,
+.contentAnimated {
   left: 0;
   position: absolute;
   bottom: 7%;
@@ -63,8 +68,8 @@
   }
 
   .h1 {
-    font-size: 5rem;
-    font-weight: 400;
+    font-size: 4.75rem;
+    font-weight: 550;
     margin: 0;
     //text-transform: uppercase;
 
@@ -96,6 +101,11 @@
   }
 }
 
+.contentAnimated {
+  bottom: 0%;
+  max-width: 100%;
+}
+
 .mere {
   font-size: 0.8rem;
   margin-top: 2rem;
@@ -103,23 +113,52 @@
   text-transform: uppercase;
 }
 
+.animatedWrapper {
+  display: flex;
+}
+
 .animatedH1 {
-  text-transform: uppercase;
-  font-size: 4em;
+  //text-transform: uppercase;
+  font-size: 5.5em;
+  font-weight: 550;
+  line-height: 1.33;
+
+  @media (max-width: $l) {
+    font-size: 4.6em;
+  }
 
   @media (max-width: $m) {
-    font-size: 2.4em;
+    font-size: 3.5em;
+  }
+
+  @media (max-width: $s) {
+    font-size: 1.9em;
+    //font-weight: 600;
+    line-height: 1.33;
   }
 
   .dynamicWords {
-    display: block;
-    height: 1em;
+    display: inline-block;
+    margin-left: 0.25em;
     overflow: hidden;
     position: relative;
+    width: 570px;
+
+    @media (max-width: $l) {
+      width: 450px;
+    }
+
+    @media (max-width: $m) {
+      width: 330px;
+    }
+
+    @media (max-width: $s) {
+      width: 193px;
+    }
 
     .wordWrapper {
       position: absolute;
-      right: 49%;
+      left: 0;
       transform: translateX(50%);
     }
   }

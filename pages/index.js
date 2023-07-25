@@ -5,6 +5,7 @@ import Blocks from '../components/Blocks'
 //GraphCMS
 import Layout from "../components/Layout";
 import {getMenu, getPage} from "../lib/hygraph";
+import HeroAnim from "../components/HeroAnim";
 
 export async function getStaticProps() {
     const side = await getPage("forside-test")
@@ -22,7 +23,7 @@ export default function Home({side, menu}) {
 
     return (
         <Layout preview={'undefined'} menu={menu} hasHero='true'>
-            <Hero
+            <HeroAnim
                 height={side.topSektion.height}
                 url={side.topSektion.billede.url}
                 overskrift={side.topSektion.overskrift}
