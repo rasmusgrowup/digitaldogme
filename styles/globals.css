@@ -60,7 +60,7 @@ h1 {
 
 h2,
 h3 {
-  font-weight: 550;
+  font-weight: 660;
   letter-spacing: -0.05rem;
 }
 
@@ -143,6 +143,7 @@ p {
   --main: #080821;
   --black: #000410;
   --black: #000410;
+  --black: #09091a;
   --white: #fff;
   --link: #00CCBC;
   --linkBlue: blue;

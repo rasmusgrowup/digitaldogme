@@ -81,12 +81,13 @@
 }
 
 .link {
+  border-bottom: 0.1rem solid var(--red);
   font-size: 1.1em;
   //font-weight: 500;
-  text-decoration-line: underline;
-  text-underline-offset: 0.33em;
+  //text-decoration-line: underline;
+  //text-underline-offset: 0.33em;
 
   &:hover {
-    text-decoration-line: none;
+    border-bottom-color: transparent;
   }
 }

@@ -127,17 +127,12 @@
 
 .icon {
   align-items: center;
+  border-bottom: 0.1rem solid var(--red);
   display: inline-flex;
   font-size: 17px;
   margin-top: 1rem;
-  text-decoration-line: underline;
-  text-underline-offset: 0.33em;
-
-//  svg {
-//    margin-bottom: -1px;
-//  }
 
   &:hover {
-    text-decoration-line: none;
+    border-bottom-color: transparent;
   }
 }

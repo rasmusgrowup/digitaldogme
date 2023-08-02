@@ -12,6 +12,7 @@ import Grid from "./Grid";
 import Section from "./Section";
 import Testimonial from "../components/Testimonial";
 import CallToAction from "./CallToAction";
+import BackgroundSection from "./BackgroundSection";
 
 export default function Blocks({blokke, withHero}) {
 
@@ -40,6 +41,8 @@ export default function Blocks({blokke, withHero}) {
                             return <Testimonial section={blok} index={i} key={blok.id}/>
                         case 'CallToAction':
                             return <CallToAction section={blok} index={i} key={blok.id}/>
+                        case 'BackgroundSection':
+                            return <BackgroundSection section={blok} index={i} key={blok.id}/>
                         default:
                             return <></>
                     }

@@ -5,7 +5,7 @@ import Image from "next/image";
 import FeatherIcon from "feather-icons-react";
 
 function Heading({overskrift}) {
-    const punctuationMarks = ['.', '?'];
+    const punctuationMarks = ['.'];
 
     // Function to escape special characters in a regular expression
     const escapeRegExp = (str) => {

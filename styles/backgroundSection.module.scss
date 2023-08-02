@@ -1,0 +1,75 @@
+@import "core";
+
+.section {
+  background-position: top;
+  background-size: cover;
+  height: 50vw;
+  margin: 1.6rem;
+  position: relative;
+
+  @media (max-width: $m) {
+    margin: 1rem;
+  }
+
+  &:after {
+    background: var(--black);
+    bottom: 0;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0.25;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    //z-index: 9;
+  }
+}
+
+.inner {
+  align-items: center;
+  color: var(--white);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+
+  .h2,
+  .p,
+  .a {
+    max-width: $m;
+  }
+}
+
+.h2 {
+  font-size: 2.66em;
+  margin: 0;
+}
+
+.p, .a {font-size: 18px}
+
+.p {
+  margin: 2rem auto;
+}
+
+.a {
+  align-items: center;
+  border: 1px solid var(--white);
+  display: flex;
+  padding: 0.75rem 1.5rem;
+
+  svg {
+    margin-left: 0.5rem;
+  }
+
+  &:hover {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--black);
+  }
+}

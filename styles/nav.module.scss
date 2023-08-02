@@ -40,7 +40,7 @@
   @media (min-width: $m) {
     .li .active span {
       border-bottom: 1px solid var(--red);
-      color: var(--red);
+      //color: var(--red);
     }
 
     .li a {
@@ -137,7 +137,7 @@
   }
 
   &:hover {
-    color: var(--red);
+    border-bottom-color: transparent;
   }
 }
 
@@ -374,4 +374,8 @@
 
 .scrolling .inner .cta {
   border-bottom-color: var(--main);
+
+  &:hover {
+    border-bottom-color: transparent;
+  }
 }

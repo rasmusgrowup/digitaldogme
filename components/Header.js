@@ -117,7 +117,7 @@ export default function Header({ hasHero, menu }) {
         <>
             <header className={`${styles.header} ${navClassList.join(' ')}`}>
                 <div className={styles.inner}>
-                    { isDevelopment ? <AltLogo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
+                    { !isDevelopment ? <AltLogo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
                     <Navigation menu={menu} scrolling={scrolling}/>
                 </div>
             </header>
