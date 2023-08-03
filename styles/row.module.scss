@@ -1,0 +1,39 @@
+@import "core";
+
+.row {
+  //border-top: 1px solid var(--grey);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  width: 100%;
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 4rem;
+    padding-top: 1rem;
+
+    .item {
+      //flex: 1;
+      width: 20%;
+    }
+  }
+}
+
+.h3 {
+  border-bottom: 1px solid var(--black);
+  font-size: 1.33em;
+  width: fit-content;
+}
+
+.p {
+  display: flex;
+  margin: 0;
+
+  &:before {
+    color: var(--red);
+    display: block;
+    content: '—';
+    margin-right: 0.5rem;
+  }
+}

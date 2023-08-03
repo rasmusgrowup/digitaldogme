@@ -3,6 +3,7 @@ import Link from "next/link";
 import Karussel from "../components/Karussel";
 import Image from "next/image";
 import FeatherIcon from "feather-icons-react";
+import Row from "../components/Row";
 
 function Heading({overskrift}) {
     const punctuationMarks = ['.'];
@@ -77,6 +78,7 @@ export default function Section({section, topSection, index}) {
                 </header>
             }
             { section.blocks && section.blocks.__typename === 'Karussel' && <Karussel arr={section.blocks} /> }
+            { section.blocks && section.blocks.__typename === 'Row' && <Row row={section.blocks} /> }
         </section>
     )
 }
