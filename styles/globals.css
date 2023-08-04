@@ -1,9 +1,8 @@
 @font-face {
   font-family: 'Manrope';
-  src: url('/Manrope[wght].woff2') format('woff2') tech('variations'),
+  src: url('/Manrope[wght].woff2') format('woff2'),
   url('/Manrope[wght].woff2') format('woff2-variations');
   font-weight: 100 1000;
-  font-variant-ligatures: normal;
 }
 
 html,
@@ -24,6 +23,7 @@ body {
     Helvetica Neue,
     sans-serif;
   font-size: 18px;
+  font-variant-ligatures: normal;
   margin: 0;
   padding: 0;
 }
