@@ -45,7 +45,7 @@ a {
   padding-bottom: 5rem;
 }
 
-@media (min-width: $m) {
+@media (min-width: 844px) {
   .section:first-of-type {
     padding-top: 5rem;
   }
