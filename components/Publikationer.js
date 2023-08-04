@@ -14,7 +14,6 @@ export default function Publikationer({ arr, types }) {
   const [ kategorier, setKategorier ] = useState(types.enumValues);
   const [ filter, setFilter ] = useState(router.query.param || kategorier);
   const [ filteredArr, setFilteredArr] = useState(kategorier)
-  //const [ filter, setFilter ] = useState(kategorier);
   const [grid, setGrid] = useState(arr)
   const increaseBy = 8;
   const [itemsLoaded, setItemsLoaded] = useState(8);
@@ -46,9 +45,6 @@ export default function Publikationer({ arr, types }) {
     setGrid(filteredArr.slice(0, itemsLoaded));
     setFilteredArr(filteredArr)
   }, [filter, itemsLoaded]);
-
-  console.log(itemsLoaded)
-  console.log(grid.length)
 
   return (
     <>

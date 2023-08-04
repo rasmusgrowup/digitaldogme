@@ -19,8 +19,6 @@ export default function Events({arr, types}) {
         count[type] = (count[type] || 0) + 1;
     });
 
-    console.log(count)
-
     return (
         <>
             <section className={styles.events}>

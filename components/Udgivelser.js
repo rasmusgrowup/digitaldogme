@@ -47,8 +47,6 @@ export default function Publikationer({ arr, types }) {
     setFilteredArr(filteredArr)
   }, [filter, itemsLoaded]);
 
-  console.log(arr)
-
   return (
     <>
       <section className={styles.publikationer}>
