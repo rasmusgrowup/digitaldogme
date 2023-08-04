@@ -57,7 +57,7 @@ function Navigation({menu}) {
                     <div className={styles.titel}>{punkt.titel}</div>
                     { punkt.dropdownLinks.length === 0 ?
                         <li>
-                            <Link href={punkt.link.slug}>Overblik</Link>
+                            <Link href={`/${punkt.link.slug}`}>Overblik</Link>
                         </li> :
                         <ul className={styles.li} key={i}>
                             {punkt.dropdownLinks.map((dropdown, i) => (
@@ -90,7 +90,7 @@ function Address({children}) {
 function Info() {
     return (
         <div className={styles.info}>
-            <span className={styles.copyright}>©{new Date().getFullYear()} Digital Dogme</span>
+            <span className={styles.copyright}>Digital Dogme ©{new Date().getFullYear()}</span>
         </div>
     )
 }
@@ -135,7 +135,7 @@ export default function Footer({menu}) {
                         {isDevelopment ? <AltLogo/> : <Logo/>}
                         <div className={styles.bar}>
                             <Navigation menu={menu}/>
-                            <Address/>
+                            {/* <Address/> */}
                         </div>
                     </div>
                     <div className={styles.bottom}>

@@ -42,8 +42,8 @@ export default function Menupunkt({ slug, title, ikon, arr, isSmall }) {
             <ul className={styles.dropdownList} style={{ display: `${visible ? 'block' : 'none' }`}}>
               { arr && arr.map((a, i) => (
                   <li key={a.id} className={styles.li} onClick={() => {toggleDropdown(); isSmall? toggleMenu() : null}}>
-                    <Link href={a.scrollToSection ? `/${a.adresse}#${a.scrollToSection.id}` : `/${a.adresse}`} passHref>
-                      <a className={router.asPath === `/${a.adresse}` && !a.scrollToSection ? `${styles.active}` : ``}>
+                    <Link href={a.scrollToSection ? `/${a.adresse}#${a.scrollToSection.id}` : a.params ? `/${a.adresse}${a.params}` : `/${a.adresse}`} passHref>
+                      <a className={router.asPath === `${a.adresse}` && !a.scrollToSection ? `${styles.active}` : ``}>
                         <span>{a.titel}</span>
                       </a>
                     </Link>

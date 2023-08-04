@@ -12,7 +12,7 @@ export default function Button({ label, href, theme }) {
       <button
         type='button'
         className={`${styles.button} ${ theme === 'light' && `${styles.light}`}`}
-        onClick={ href ? `${() => router.push(`/${href}`)}` : null}
+        onClick={ href ? `${() => router.push(`${href}`)}` : null}
       >
         {label}
       </button>

@@ -11,7 +11,7 @@ const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 export async function getStaticProps() {
   const { side, events, __type } = await graphcms.request(`
     query viden {
-      side(where: {slug: "events"}) {
+      side(where: {slug: "events"}, stage: DRAFT) {
         id
         slug
         titel

@@ -42,27 +42,15 @@ export default function Case({data, menu}) {
                     alt={data.case.billede.alt}
                 />
                 <section className={styles.richWrapper}>
+                    <div className={styles.info}>
+                        <span className={styles.tilbage} onClick={router.back}>
+                            Tilbage til oversigten
+                        </span>
+                        <Moment locale='da' format='ll'>
+                            {data.case.dato.toString()}
+                        </Moment>
+                    </div>
                     <div className={styles.richInner}>
-          <span className={styles.tilbage}>
-            <Link href='/cases'>
-              <a>
-                <FeatherIcon
-                    className={styles.ikon}
-                    icon='chevron-left'
-                    size={10} style={{color: 'red'}}/>
-                Tilbage til oversigten
-              </a>
-            </Link>
-          </span>
-                        <div className={styles.info}>
-            <span>
-              <Moment locale='da' format='ll'>
-                {data.case.dato.toString()}
-              </Moment>
-            </span>
-                            <span>{data.case.kategori}</span>
-                            <span>{data.case.titel}</span>
-                        </div>
                         <h2 className={styles.h2}>
                             {data.case.resume}
                         </h2>

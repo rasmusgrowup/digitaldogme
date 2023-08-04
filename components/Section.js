@@ -39,7 +39,7 @@ export default function Section({section, topSection, index}) {
     const endsWithDot = section.sectionHeader.heading;
 
     return (
-        <section className={isDark ? `${styles.darkSection}` : `${styles.section}`} style={topSection ? {paddingTop: '0'} : {}}>
+        <section className={isDark ? `${styles.darkSection}` : `${styles.section}`} style={topSection ? {paddingTop: '0'} : {} && {scrollMarginTop: '50px'}} id={section.id}>
             {(section.sectionHeader.paragraph || section.richText) && section.sectionHeader ?
                 <header className={styles.header}
                         style={index === 0 || isDark ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>

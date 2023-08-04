@@ -11,7 +11,7 @@ import styles from '../styles/publikationer.module.scss'
 
 export default function Publikationer({ arr, types }) {
   const router = useRouter()
-  const [ kategorier, setKategorier ] = useState(types.enumValues);
+  const [ kategorier, setKategorier ] = useState([...types.enumValues, {name: "Case"}].sort((a, b) => a.name > b.name ? 1 : -1));
   const [ filter, setFilter ] = useState(router.query.param || kategorier);
   const [ filteredArr, setFilteredArr] = useState(kategorier)
   //const [ filter, setFilter ] = useState(kategorier);
@@ -47,8 +47,7 @@ export default function Publikationer({ arr, types }) {
     setFilteredArr(filteredArr)
   }, [filter, itemsLoaded]);
 
-  console.log(itemsLoaded)
-  console.log(grid.length)
+  console.log(arr)
 
   return (
     <>
@@ -62,14 +61,16 @@ export default function Publikationer({ arr, types }) {
               { kategorier.map((kategori, i) => (
                 <button key={i} className={`${styles.kategoriBtn} ${ kategori.name === filter && `${styles.selected}`}`} onClick={() => setFilter(kategori.name)}>
                   {
+                    kategori.name === 'Analyse' ?
+                    'Analyser' :
+                    kategori.name === 'Case' ?
+                    'Cases' :
+                    kategori.name === 'Debat' ?
+                    'Debatindlæg' :
                     kategori.name === 'Nyhed' ?
                     'Nyheder' :
                     kategori.name === 'Whitepaper' ?
-                    'Whitepapers' :
-                    kategori.name === 'Analyse' ?
-                    'Analyser' :
-                    kategori.name === 'Debat' ?
-                    'Debatindlæg' : null
+                    'Whitepapers' : null
                   }
                   {` `}{count[kategori.name] && <sup>({count[kategori.name]})</sup>}
                 </button>
@@ -80,7 +81,7 @@ export default function Publikationer({ arr, types }) {
             { grid.map((publikation, i) => {
               return (
                 <div className={styles.publikation} key={i}>
-                  <Link href={types === 'null' ? `${`/cases/${publikation.slug}`}` : `${`/viden/${publikation.slug}`}`} key={i} passHref>
+                  <Link href={publikation.__typename === "Case" ? `${`/cases/${publikation.slug}`}` : `${`/viden/${publikation.slug}`}`} key={i} passHref>
                     <a>
                       <div className={styles.wrapper}>
                         <Image

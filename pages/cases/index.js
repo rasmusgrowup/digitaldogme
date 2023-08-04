@@ -1,10 +1,11 @@
 //Components
 import Hero from '../../components/Hero'
-import Publikationer from '../../components/Publikationer'
+import styles from '../../styles/publikationer.module.scss'
 
 //GraphCMS
 import {getAllCases, getMenu, getPageTopSection} from "../../lib/hygraph";
 import Layout from "../../components/Layout";
+import Link from "next/link";
 
 export default function Cases({cases, page, menu}) {
     return (
@@ -16,7 +17,16 @@ export default function Cases({cases, page, menu}) {
                 tekst={page.topSektion.tekst}
                 alt={page.topSektion.billede.alt}
             />
-            <Publikationer arr={cases} types="null"/>
+            {/* <Publikationer arr={cases} types="null"/> */}
+            <section className={styles.indexOverview}>
+                { cases.map((item, i) => (
+                    <div key={item.id} className={styles.indexItem}>
+                        <div className={styles.indexDate}>{item.dato}</div>
+                        <div className={styles.indexTitel}>{item.titel}</div>
+                        <Link href={`cases/${item.slug}`}><a className={styles.indexLink}>Gå til cases</a></Link>
+                    </div>
+                ))}
+            </section>
         </Layout>
     )
 }

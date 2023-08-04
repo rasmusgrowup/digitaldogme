@@ -6,6 +6,8 @@ import Publikationer from '../../components/Publikationer'
 import { GraphQLClient, gql } from 'graphql-request';
 import {getMenu} from "../../lib/hygraph";
 import Layout from "../../components/Layout";
+import styles from "../../styles/publikationer.module.scss";
+import Link from "next/link";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps() {
@@ -80,7 +82,16 @@ export default function Viden({ side, publikationer, __type, menu }) {
         tekst={side.topSektion.tekst}
         alt={side.topSektion.billede.alt}
       />
-      <Publikationer arr={publikationer} types={__type}/>
+      {/* <Publikationer arr={publikationer} types={__type}/> */}
+      <section className={styles.indexOverview}>
+        { publikationer.map((item, i) => (
+            <div key={item.id} className={styles.indexItem}>
+              <div className={styles.indexDate}>{item.dato}</div>
+              <div className={styles.indexTitel}>{item.titel}</div>
+              <Link href={`cases/${item.slug}`}><a className={styles.indexLink}>Gå til publikationen</a></Link>
+            </div>
+        ))}
+      </section>
     </Layout>
   )
 }

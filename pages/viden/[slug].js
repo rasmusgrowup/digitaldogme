@@ -20,6 +20,7 @@ import { motion } from 'framer-motion';
 import { GraphQLClient, gql } from 'graphql-request';
 import {getMenu} from "../../lib/hygraph";
 import Layout from "../../components/Layout";
+import {useRouter} from "next/router";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
@@ -78,6 +79,7 @@ export async function getStaticPaths() {
 }
 
 export default function Publikation({ publikation, menu }) {
+  const router = useRouter();
 
   return (
     <Layout menu={menu} hasHero='true' key={publikation.id}>
@@ -89,27 +91,15 @@ export default function Publikation({ publikation, menu }) {
         alt={publikation.billede.alt}
       />
       <section className={styles.richWrapper}>
-        <div className={styles.richInner}>
-          <span className={styles.tilbage}>
-            <Link href='/viden'>
-              <a>
-                <FeatherIcon
-                  className={styles.ikon}
-                  icon='chevron-left'
-                  size={10} style={{ color: 'red' }} />
-                Tilbage til oversigten
-              </a>
-            </Link>
+        <div className={styles.info}>
+          <span className={styles.tilbage} onClick={router.back}>
+              Tilbage til oversigten
           </span>
-          <div className={styles.info}>
-            <span>
-              <Moment locale='da' format='ll'>
-                {publikation.dato.toString()}
-              </Moment>
-            </span>
-            <span>{publikation.kategori}</span>
-            <span>{publikation.titel}</span>
-          </div>
+          <Moment locale='da' format='ll'>
+            {publikation.dato.toString()}
+          </Moment>
+        </div>
+        <div className={styles.richInner}>
           <h2>
             {publikation.resume}
           </h2>
