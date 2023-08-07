@@ -15,7 +15,7 @@ import useScrollListener from '../lib/useScroll'
 import Image from "next/image";
 
 const itStyle = {
-    color: 'var(--red)',
+    color: 'var(--black)',
 }
 
 function Digital() {
@@ -117,7 +117,7 @@ export default function Header({ hasHero, menu }) {
         <>
             <header className={`${styles.header} ${navClassList.join(' ')}`}>
                 <div className={styles.inner}>
-                    { isDevelopment ? <AltLogo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
+                    { isDevelopment ? <Logo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
                     <Navigation menu={menu} scrolling={scrolling}/>
                 </div>
             </header>
