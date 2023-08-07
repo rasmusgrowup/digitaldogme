@@ -15,7 +15,7 @@ import useScrollListener from '../lib/useScroll'
 import Image from "next/image";
 
 const itStyle = {
-    color: 'var(--black)',
+    color: 'var(--strong-red)',
 }
 
 function Digital() {

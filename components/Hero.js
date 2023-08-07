@@ -45,6 +45,11 @@ export default function Hero({height, url, overskrift, alt}) {
     return (
         <>
             <section className={`${styles.hero} ${height === true ? `${styles.fullHeight}` : ''}`}>
+                <div className={styles.content}>
+                    <div className={styles.wrapper}>
+                        <Heading overskrift={overskrift}/>
+                    </div>
+                </div>
                 <div className={styles.image}>
                     <Image
                         src={url}
@@ -55,11 +60,6 @@ export default function Hero({height, url, overskrift, alt}) {
                         priority='true'
                         alt={alt}
                     />
-                </div>
-                <div className={styles.content}>
-                    <div className={styles.wrapper}>
-                        <Heading overskrift={overskrift}/>
-                    </div>
                 </div>
             </section>
         </>

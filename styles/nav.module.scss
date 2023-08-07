@@ -2,7 +2,7 @@
 
 .nav {
   align-items: center;
-  color: var(--strong-red);
+  color: var(--white);
   display: flex;
   font-weight: 400;
   z-index: 0;
@@ -93,7 +93,7 @@
 }
 
 .scrolling {
-  color: var(--strong-red);
+  color: var(--linkBlue);
 
   @media (min-width: $m) {
     .li .active span {

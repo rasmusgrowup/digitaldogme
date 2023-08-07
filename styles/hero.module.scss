@@ -1,8 +1,8 @@
 @import 'core.scss';
 
 .hero {
-  background-color: var(--sand);
-  color: var(--bg);
+  background-color: var(--linkBlue);
+  //color: var(--bg);
   height: 600px;
   position: relative;
 }
@@ -16,12 +16,12 @@
   .fullHeight,
   .hero {
     height: $s * 1.1;
-    min-height: auto;
+    //min-height: auto;
   }
 }
 
 @media (max-width: $s) {
-  .fullHeight, .hero { height: 90vh; }
+  //.fullHeight, .hero { height: 110vh; }
 }
 
 .image {
@@ -30,6 +30,12 @@
   position: absolute;
   right: 1.6rem;
   width: calc(50vw - 2.4rem);
+
+  @media (max-width: $m) {
+    height: calc(100vw - 2rem);
+    right: 1rem;
+    width: calc(100% - 2rem);
+  }
 }
 
 .content,
@@ -46,8 +52,10 @@
   width: 100%;
 
   @media (max-width: $m) {
-    bottom: 5%;
+    bottom: auto;
     padding: 1rem;
+    top: 14%;
+    max-width: none;
     //transform: translate(-50%, 55%);
   }
 
@@ -56,7 +64,7 @@
   }
 
   .h1 {
-    color: var(--strong-red);
+    color: var(--white);
     font-size: 4.2rem;
     font-weight: 600;
     margin: 0;
@@ -73,7 +81,7 @@
     }
 
     .redPunctuation {
-      color: var(--red);
+      color: var(--strong-red);
     }
   }
 
