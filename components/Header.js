@@ -1,7 +1,7 @@
 // Default imports
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
-import WhiteLogo from '/public/AltLogo_White_red.png'
+import WhiteLogo from '/public/AltLogo_White_strongRed.png'
 import DarkLogo from '/public/AltLogo_Dark_red.png'
 
 // SCSS Styling
@@ -70,8 +70,8 @@ function AltLogo({scrolling}) {
 
     return (
         <div className={styles.altLogo} onClick={click}>
-            {!scrolling && !toggle ? <Image src={WhiteLogo}/> : toggle ? <Image src={DarkLogo}/> :
-                <Image src={DarkLogo}/>}
+            {!scrolling && !toggle ? <Image src={WhiteLogo}/> : toggle ? <Image src={WhiteLogo}/> :
+                <Image src={WhiteLogo}/>}
         </div>
     )
 }

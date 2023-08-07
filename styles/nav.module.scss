@@ -2,7 +2,7 @@
 
 .nav {
   align-items: center;
-  color: var(--bg);
+  color: var(--strong-red);
   display: flex;
   font-weight: 400;
   z-index: 0;
@@ -39,7 +39,7 @@
 
   @media (min-width: $m) {
     .li .active span {
-      border-bottom: 1px solid var(--red);
+      border-bottom: 1px solid var(--strong-red);
       //color: var(--red);
     }
 
@@ -48,7 +48,7 @@
       position: relative;
 
       &:hover span {
-        border-bottom: 1px solid var(--bg);
+        border-bottom: 1px solid var(--strong-red);
         //color: var(--black);
       }
     }
@@ -93,7 +93,7 @@
 }
 
 .scrolling {
-  color: var(--main);
+  color: var(--strong-red);
 
   @media (min-width: $m) {
     .li .active span {

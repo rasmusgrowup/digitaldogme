@@ -1,28 +1,14 @@
 @import 'core.scss';
 
 .hero {
-  background-color: var(--white);
+  background-color: var(--sand);
   color: var(--bg);
   height: 600px;
   position: relative;
-
-  &::after {
-    bottom: 0;
-    background: rgb(0,0,0);
-    //background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.6) 100%);
-    content: '';
-    left: 0;
-    opacity: 0.25;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-  }
 }
 
 .fullHeight {
-  height: min(100vh, 67vw);
+  height: min(106vh, 67vw);
   min-height: 700px;
 }
 
@@ -39,21 +25,23 @@
 }
 
 .image {
-  height: 100%;
-  position: relative;
-  width: 100%;
+  bottom: 1.6rem;
+  height: calc(50vw - 1.6rem);
+  position: absolute;
+  right: 1.6rem;
+  width: calc(50vw - 2.4rem);
 }
 
 .content,
 .contentAnimated {
   left: 0;
   position: absolute;
-  bottom: 7%;
+  bottom: 8%;
   //transform: translate(-50%, 6%);
   //text-align: center;
   padding: 1.5rem;
   padding-right: 3rem;
-  max-width: $l;
+  max-width: 50vw;
   z-index: 1;
   width: 100%;
 
@@ -68,7 +56,8 @@
   }
 
   .h1 {
-    font-size: 4.75rem;
+    color: var(--strong-red);
+    font-size: 4.2rem;
     font-weight: 600;
     margin: 0;
     //text-transform: uppercase;
