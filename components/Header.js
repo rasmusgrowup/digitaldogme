@@ -1,7 +1,7 @@
 // Default imports
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
-import WhiteLogo from '/public/AltLogo_White_strongRed.png'
+import WhiteLogo from '/public/AltLogo_White_linkBlue.png'
 import DarkLogo from '/public/AltLogo_Dark_red.png'
 
 // SCSS Styling
@@ -15,7 +15,7 @@ import useScrollListener from '../lib/useScroll'
 import Image from "next/image";
 
 const itStyle = {
-    color: 'var(--strong-red)',
+    color: 'var(--red)',
 }
 
 function Digital() {
@@ -117,7 +117,7 @@ export default function Header({ hasHero, menu }) {
         <>
             <header className={`${styles.header} ${navClassList.join(' ')}`}>
                 <div className={styles.inner}>
-                    { isDevelopment ? <Logo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
+                    { isDevelopment ? <AltLogo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
                     <Navigation menu={menu} scrolling={scrolling}/>
                 </div>
             </header>

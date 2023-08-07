@@ -136,6 +136,7 @@ p {
   --peach: #FF6E62;
   --strong-red: #EB3132;
   --pink: #F9C3D3;
+  --pink: #c74e77;
   --turkis: #B8DFE2;
   --green: #0E7279;
   --blue: #082140;
@@ -148,6 +149,5 @@ p {
   --white: #fff;
   --link: #00CCBC;
   --linkBlue: blue;
-  --linkBlue: #1616e7;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
 }

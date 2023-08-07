@@ -1,7 +1,7 @@
 @import 'core.scss';
 
 .hero {
-  background-color: var(--linkBlue);
+  background-color: var(--sand);
   //color: var(--bg);
   height: 600px;
   position: relative;
@@ -64,7 +64,7 @@
   }
 
   .h1 {
-    color: var(--white);
+    color: var(--linkBlue);
     font-size: 4.2rem;
     font-weight: 600;
     margin: 0;
@@ -81,7 +81,7 @@
     }
 
     .redPunctuation {
-      color: var(--strong-red);
+      color: var(--red);
     }
   }
 

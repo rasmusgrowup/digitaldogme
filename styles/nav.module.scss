@@ -2,7 +2,7 @@
 
 .nav {
   align-items: center;
-  color: var(--white);
+  color: var(--linkBlue);
   display: flex;
   font-weight: 400;
   z-index: 0;
@@ -116,7 +116,7 @@
 }
 
 .buttonWrapper .cta {
-  border-bottom: 1px solid var(--bg);
+  border-bottom: 1px solid var(--linkBlue);
   display: block;
   //font-size: 0.9rem;
   height: auto;
@@ -277,7 +277,7 @@
     }
 
     .buttonWrapper .cta {
-      border: 1px solid var(--main);
+      border: 1px solid var(--linkBlue);
       padding: 0.5rem;
     }
   }
@@ -373,7 +373,7 @@
 }
 
 .scrolling .inner .cta {
-  border-bottom-color: var(--main);
+  border-bottom-color: var(--linkBlue);
 
   &:hover {
     border-bottom-color: transparent;
