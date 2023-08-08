@@ -149,5 +149,6 @@ p {
   --white: #fff;
   --link: #00CCBC;
   --linkBlue: blue;
+  --linkBlue: #1b1bff;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
 }

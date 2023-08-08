@@ -1,15 +1,17 @@
 @import 'core.scss';
 
 .hero {
-  background-color: var(--sand);
+  background-color: var(--curry);
+  padding-bottom: 1.6rem;
+  padding-top: 15vw;
   //color: var(--bg);
-  height: 600px;
-  position: relative;
+  //height: 600px;
+  //position: relative;
 }
 
 .fullHeight {
-  height: min(106vh, 67vw);
-  min-height: 700px;
+  //height: min(106vh, 67vw);
+  //min-height: 700px;
 }
 
 @media (max-width: $m) {
@@ -25,11 +27,11 @@
 }
 
 .image {
-  bottom: 1.6rem;
-  height: calc(50vw - 1.6rem);
-  position: absolute;
-  right: 1.6rem;
-  width: calc(50vw - 2.4rem);
+  display: block;
+  height: calc(54vw - 1.6rem);
+  margin: 3.2rem auto 0;
+  position: relative;
+  width: calc(100% - 3.2rem);
 
   @media (max-width: $m) {
     height: calc(100vw - 2rem);
@@ -40,14 +42,14 @@
 
 .content,
 .contentAnimated {
-  left: 0;
-  position: absolute;
-  bottom: 8%;
+  //left: 0;
+  //position: absolute;
+  //bottom: 8%;
   //transform: translate(-50%, 6%);
   //text-align: center;
   padding: 1.5rem;
   padding-right: 3rem;
-  max-width: 50vw;
+  //max-width: 50vw;
   z-index: 1;
   width: 100%;
 
@@ -60,12 +62,14 @@
   }
 
   .wrapper {
+    display: flex;
+    gap: 6rem;
     line-height: 1;
   }
 
   .h1 {
     color: var(--linkBlue);
-    font-size: 4.2rem;
+    font-size: 4rem;
     font-weight: 600;
     margin: 0;
     //text-transform: uppercase;
@@ -87,9 +91,11 @@
 
   .h2,
   .p {
-    font-size: 1.1rem;
+    color: var(--linkBlue);
+    font-size: 1.5rem;
     font-weight: normal;
-    line-height: 1.5;
+    line-height: 1.33;
+    margin: 0;
 
     @media (max-width: $m) {
       font-size: 16px;
@@ -97,7 +103,7 @@
   }
 
   .p {
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: 0.02em;
   }
 }
