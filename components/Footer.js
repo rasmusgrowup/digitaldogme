@@ -132,7 +132,7 @@ export default function Footer({menu}) {
                         Vær med til at gøre Danmark til digital frontløber
                     </div>
                     <div className={styles.top}>
-                        {isDevelopment ? <AltLogo/> : <Logo/>}
+                        {isDevelopment ? <Logo/> : <Logo/>}
                         <div className={styles.bar}>
                             <Navigation menu={menu}/>
                             {/* <Address/> */}

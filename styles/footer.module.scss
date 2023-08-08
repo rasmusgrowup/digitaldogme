@@ -1,8 +1,8 @@
 @import 'core.scss';
 
 .main {
-  background-color: var(--black);
-  color: var(--bg);
+  background-color: var(--curry);
+  color: var(--linkBlue);
   margin-top: 3rem;
   padding: 5rem 2rem;
   position: relative;
@@ -18,7 +18,7 @@
 }
 
 .tagline {
-  color: var(--bg);
+  color: var(--linkBlue);
   font-size: 2.6rem;
   font-weight: bold;
   line-height: 0.9;
@@ -39,7 +39,7 @@
 
 .bottom {
   align-items: center;
-  border-top: 1px solid var(--bg);
+  border-top: 1px solid var(--linkBlue);
   display: flex;
   padding-top: 1rem;
 }
@@ -62,7 +62,7 @@
 }
 
 .logo {
-  color: var(--bg);
+  color: var(--linkBlue);
   display: inline-block;
   flex: 2;
   font-size: 1.6em;
