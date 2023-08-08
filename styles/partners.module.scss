@@ -11,7 +11,7 @@
 }
 
 .header {
-  //display: flex;
+  display: flex;
   //margin-bottom: 3rem;
   padding-top: 1rem;
   width: 100%;
@@ -23,12 +23,12 @@
   }
 
   .column {
-    //padding: 0 0.8rem;
+    padding: 0 0.8rem;
   }
 
   .p p {
-    font-size: 1.75em;
-   // margin-top: 0;
+    font-size: 1.5em;
+    margin-top: 0;
     margin-bottom: 1.5rem;
     white-space: pre-wrap;
   }
