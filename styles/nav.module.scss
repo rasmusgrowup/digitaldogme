@@ -2,7 +2,7 @@
 
 .nav {
   align-items: center;
-  color: var(--linkBlue);
+  color: var(--black);
   display: flex;
   font-weight: 400;
   z-index: 0;
@@ -93,7 +93,7 @@
 }
 
 .scrolling {
-  color: var(--linkBlue);
+  color: var(--black);
 
   @media (min-width: $m) {
     .li .active span {
@@ -105,7 +105,7 @@
       position: relative;
 
       &:hover span {
-        border-bottom: 1px solid var(--main);
+        border-bottom: 1px solid var(--black);
       }
     }
   }
@@ -116,7 +116,7 @@
 }
 
 .buttonWrapper .cta {
-  border-bottom: 1px solid var(--linkBlue);
+  border-bottom: 1px solid var(--black);
   display: block;
   //font-size: 0.9rem;
   height: auto;
@@ -143,7 +143,7 @@
 
 @media (min-width: $m) {
   .scrolling .buttonWrapper {
-    border-bottom-color: var(--main);
+    border-bottom-color: var(--black);
   }
 }
 
@@ -160,12 +160,12 @@
 
   .scrolling .menuButton {
     //border: 1px solid var(--main);
-    color: var(--main);
+    color: var(--black);
   }
 
   .menuButton.dark {
     //border: 1px solid var(--main);
-    color: var(--main);
+    color: var(--black);
   }
 
   .buttonWrapper a {
@@ -183,7 +183,7 @@
   .nav {
     background-color: var(--bg);
     bottom: 0;
-    color: var(--main);
+    color: var(--black);
     display: block;
     height: 100vh;
     left: 0;
@@ -208,7 +208,7 @@
     }
 
     .li {
-      border-bottom: 1px solid var(--main);
+      border-bottom: 1px solid var(--black);
       display: block;
       line-height: 2;
       height: auto;
@@ -277,7 +277,7 @@
     }
 
     .buttonWrapper .cta {
-      border: 1px solid var(--linkBlue);
+      border: 1px solid var(--black);
       padding: 0.5rem;
     }
   }
@@ -293,7 +293,7 @@
 
 .button {
   align-items: center;
-  background-color: var(--main);
+  background-color: var(--black);
   border: none;
   border-radius: 1rem;
   color: var(--bg);
@@ -373,7 +373,7 @@
 }
 
 .scrolling .inner .cta {
-  border-bottom-color: var(--linkBlue);
+  border-bottom-color: var(--black);
 
   &:hover {
     border-bottom-color: transparent;

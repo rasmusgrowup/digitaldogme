@@ -44,11 +44,6 @@
   font-size: 2.5em;
   margin: 0;
   margin-top: 1rem;
-  //font-weight: normal;
-
-  .redPunctuation {
-    color: var(--red);
-  }
 
   @media (max-width: $m) {
     font-size: 1.75em;
@@ -113,6 +108,7 @@
 
 .columnTitle {
   font-size: 1.1em;
+  font-size: 1.75em;
   font-weight: 500;
   margin-bottom: 4px;
   margin-top: 4px;
@@ -127,7 +123,7 @@
 
 .icon {
   align-items: center;
-  border-bottom: 0.1rem solid var(--red);
+  border-bottom: 0.1rem solid var(--black);
   display: inline-flex;
   font-size: 17px;
   margin-top: 1rem;

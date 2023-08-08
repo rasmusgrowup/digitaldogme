@@ -18,7 +18,14 @@ export default function Partners({arr, index}) {
                 <header className={styles.header}
                         style={index === 0 ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
                     <h2 className={styles.h2}>{arr.overskrift}</h2>
-                    <div className={styles.p} dangerouslySetInnerHTML={{__html: `${arr.tekstPartner.html}`}}/>
+                    <div className={styles.column}>
+                        <div className={styles.p} dangerouslySetInnerHTML={{__html: `${arr.tekstPartner.html}`}}/>
+                        {arr.callToAction &&
+                            <Link href={arr.callToAction.link}>
+                                <a className={styles.link}>{arr.callToAction.label}</a>
+                            </Link>
+                        }
+                    </div>
                 </header>
                 <div className={styles.grid}>
                     {arr.partnere.map((partner, i) => (
@@ -39,18 +46,6 @@ export default function Partners({arr, index}) {
                         </div>
                     ))}
                 </div>
-                {arr.callToAction &&
-                    <div className={styles.cta} onClick={() => router.push(`${arr.callToAction.link}`)}>
-                      <span className={styles.icon}>
-                        <FeatherIcon
-                            icon={arr.callToAction.ikon}
-                            size={15}
-                            style={{color: 'var(--bg)'}}
-                        />
-                      </span>
-                        <span>{arr.callToAction.label}</span>
-                    </div>
-                }
             </section>
         </>
     )

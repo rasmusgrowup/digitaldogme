@@ -11,29 +11,38 @@
 }
 
 .inner {
-  display: flex;
+  //display: flex;
   width: 100%;
 
   @media (max-width: $l) {
     display: block;
   }
 
+  .header {
+    display: flex;
+    //margin-bottom: 3rem;
+    padding-top: 1rem;
+    position: relative;
+    width: 100%;
+  }
+
+  .h2,
   .column {
     margin: 0;
-    padding-right: 6rem;
     width: 50%;
   }
 
-  .column .h2 {
-    font-size: 2.5em;
-
-    .redPunctuation {
-      color: var(--red);
-    }
+  .column {
+    padding: 0 0.8rem;
   }
 
-  .column .p {
-    font-size: 1.1em;
+  .h2 {
+    font-size: 2.5em;
+  }
+
+  .p p {
+    font-size: 1.75em;
+    font-weight: 450;
     margin-top: 0;
     margin-bottom: 1.5rem;
     white-space: pre-wrap;
@@ -43,45 +52,35 @@
     display: block;
     padding-top: 0.5rem;
 
+    .h2,
     .column {
       width: 100%;
       padding: 0;
     }
 
-    .column .h2 {
-      width: 100%;
-      margin: 0;
-    }
-
-    .column .h2 {
+    .h2 {
       font-size: 1.75em;
       margin-bottom: 1rem;
     }
 
-    .column .p {
+    .p {
       font-size: 1.15em;
+    }
+
+    .richText {
+      font-size: 1em;
     }
   }
 }
 
 .imageContainer {
   flex: 1;
-  padding: 1.6rem 0 0 0.8rem;
-  width: 50%;
-
-  @media (max-width: $l) {
-    margin: 0 0 0 auto;
-    padding: 0;
-  }
-
-  @media (max-width: $s) {
-    margin: 2rem auto 0;
-    width: 100%;
-  }
+  margin-top: 4rem;
+  width: 100%;
 }
 
 .link {
-  border-bottom: 0.1rem solid var(--red);
+  border-bottom: 0.1rem solid var(--black);
   font-size: 1.1em;
   //font-weight: 500;
   //text-decoration-line: underline;
