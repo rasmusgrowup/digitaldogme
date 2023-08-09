@@ -24,12 +24,20 @@
     padding-top: 1rem;
     position: relative;
     width: 100%;
+
+    @media (max-width: $m) {
+      display: block;
+    }
   }
 
   .h2,
   .column {
     margin: 0;
     width: 50%;
+
+    @media (max-width: $m) {
+      width: 100%;
+    }
   }
 
   .column {
@@ -63,7 +71,7 @@
       margin-bottom: 1rem;
     }
 
-    .p {
+    .p p {
       font-size: 1.15em;
     }
 

@@ -8,6 +8,10 @@
   //color: var(--bg);
   //height: 600px;
   //position: relative;
+
+  @media (max-width: $m) {
+    padding-top: 7.5rem;
+  }
 }
 
 .fullHeight {
@@ -18,7 +22,7 @@
 @media (max-width: $m) {
   .fullHeight,
   .hero {
-    height: $s * 1.1;
+    //height: $s * 1.1;
     //min-height: auto;
   }
 }
@@ -36,7 +40,7 @@
 
   @media (max-width: $m) {
     height: calc(100vw - 2rem);
-    right: 1rem;
+    //right: 1rem;
     width: calc(100% - 2rem);
   }
 }
@@ -66,6 +70,10 @@
     display: flex;
     gap: 6rem;
     line-height: 1;
+
+    @media (max-width: $m) {
+      display: block;
+    }
   }
 
   .h1 {
@@ -81,9 +89,11 @@
       //-webkit-hyphens: auto;
       //-moz-hyphens: auto;
       //hyphens: auto;
-      font-size: 2.25rem;
+      font-size: 2rem;
       font-weight: 550;
-      padding-right: 2rem;
+      margin-bottom: 2rem;
+      //padding-right: 2rem;
+      width: 100%;
     }
 
     .redPunctuation {
@@ -102,6 +112,7 @@
 
     @media (max-width: $m) {
       font-size: 16px;
+      width: 100%;
     }
   }
 

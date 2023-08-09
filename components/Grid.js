@@ -42,11 +42,23 @@ export default function Grid({props, index}) {
             <section className={props.colorTheme === 'Dark' ? `${styles.dark}` : props.colorTheme === 'Grey' ? `${styles.grey}` : ''} id={props.id}
                      style={{scrollMarginTop: '50px'}}>
                 <div className={styles.inner}>
-                    {props.gridHeading &&
-                        <h2 className={styles.heading} style={index === 0 || !lightTheme ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
-                            {props.gridHeading}
-                        </h2>
-                    }
+                    <header className={styles.header} style={index === 0 || !lightTheme ? {border: 'none'} :  {borderTop: '1px solid var(--main)'}}>
+                        {props.gridHeading &&
+                            <h2 className={styles.h2}>
+                                {props.gridHeading}
+                            </h2>
+                        }
+                        <div className={styles.headerColumn}>
+                            {props.gridText &&
+                                <p className={styles.p}>{props.gridText}</p>
+                            }
+                            {props.gridLink &&
+                                <Link href={props.gridLink.adresse}>
+                                    <a className={styles.link}>{props.gridLink.titel}</a>
+                                </Link>
+                            }
+                        </div>
+                    </header>
                     <div className={props.stretchColumns ? `${styles.columns} ${styles.stretch}` : `${styles.columns}`}>
                         {props.columns && props.columns.map((column, i) => (
                             <div key={i} className={
