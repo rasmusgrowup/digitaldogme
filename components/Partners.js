@@ -39,7 +39,8 @@ export default function Partners({arr, index}) {
                                         height={partner.billede.height}
                                         width={partner.billede.width}
                                         alt={partner.billede.alt}
-                                        layout='responsive'
+                                        layout='fill'
+                                        objectFit='contain'
                                     />
                                 </a>
                             </Link>
