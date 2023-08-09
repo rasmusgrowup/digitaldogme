@@ -15,6 +15,7 @@
 .header {
   display: flex;
   margin-bottom: 3.2rem;
+  padding-top: 1rem;
 
   @media (max-width: $m) {
     display: block;
