@@ -157,7 +157,7 @@
 }
 
 .headerColumn .link {
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--main);
 
   &:hover {
     border-color: transparent;
@@ -166,7 +166,7 @@
 
 .icon {
   align-items: center;
-  border-bottom: 0.1rem solid var(--black);
+  border-bottom: 0.1rem solid var(--main);
   display: inline-flex;
   font-size: 17px;
   margin-top: 1rem;

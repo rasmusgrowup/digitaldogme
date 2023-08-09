@@ -33,7 +33,7 @@
 }
 
 .logo {
-  color: var(--linkBlue);
+  color: var(--blue);
   line-height: 0.8;
   font-size: 1.75rem;
   font-weight: 750;
@@ -51,12 +51,16 @@
 
 @media (max-width: $m) {
   .menuOpened {
-    color: var(--linkBlue);
+    color: var(--blue);
   }
 }
 
-.isScrolling {
-  color: var(--linkBlue);
+.light .logo {
+  color: var(--bg);
+}
+
+.isScrolling.logo {
+  color: var(--blue);
 }
 
 .atTop {

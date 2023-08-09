@@ -2,33 +2,13 @@
 
 .hero {
   background-color: var(--curry);
-  color: var(--linkBlue);
+  color: var(--blue);
   padding-bottom: 1.6rem;
-  padding-top: 15vw;
-  //color: var(--bg);
-  //height: 600px;
-  //position: relative;
+  padding-top: 12.5vw;
 
   @media (max-width: $m) {
     padding-top: 7.5rem;
   }
-}
-
-.fullHeight {
-  //height: min(106vh, 67vw);
-  //min-height: 700px;
-}
-
-@media (max-width: $m) {
-  .fullHeight,
-  .hero {
-    //height: $s * 1.1;
-    //min-height: auto;
-  }
-}
-
-@media (max-width: $s) {
-  //.fullHeight, .hero { height: 110vh; }
 }
 
 .image {
@@ -120,6 +100,57 @@
     font-weight: 500;
     letter-spacing: 0.02em;
   }
+}
+
+.fullHero {
+  height: 100vh;
+  position: relative;
+
+  &:after {
+    background-color: black;
+    bottom: 0;
+    content: '';
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    opacity: 0.25;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .content {
+    bottom: 1.6rem;
+    color: var(--bg);
+    position: absolute;
+  }
+
+  .h1 {
+    font-size: 4.5rem;
+  }
+
+  .image {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: $m) {
+  .fullHero {
+    height: $s * 1.1;
+    min-height: auto;
+  }
+}
+
+@media (max-width: $s) {
+  .fullHero { height: 110vh; }
 }
 
 .contentAnimated {

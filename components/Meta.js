@@ -8,7 +8,7 @@ function Meta({title, keywords, description}) {
             <meta name="description" content={description} key='description'/>
             <meta name="keywords" content={keywords} key='keywords'/>
             <meta name="og:title" content={title} key='title'/>
-            <meta name="theme-color" content="#09091a"/>
+            {/* <meta name="theme-color" content="#09091a"/> */}
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
             <title>{title}</title>
         </Head>

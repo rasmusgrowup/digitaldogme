@@ -76,7 +76,7 @@ function AltLogo({scrolling}) {
     )
 }
 
-export default function Header({ hasHero, menu }) {
+export default function Header({ hasHero, menu, navTheme }) {
     const router = useRouter()
     const [navClassList, setNavClassList] = useState([]);
     const [scrolling, setScrolling] = useState(false);
@@ -115,10 +115,10 @@ export default function Header({ hasHero, menu }) {
 
     return (
         <>
-            <header className={`${styles.header} ${navClassList.join(' ')}`}>
+            <header className={`${navTheme === 'light' ? `${styles.light}` : `${styles.dark}`} ${styles.header} ${navClassList.join(' ')}`}>
                 <div className={styles.inner}>
                     { isDevelopment ? <Logo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
-                    <Navigation menu={menu} scrolling={scrolling}/>
+                    <Navigation menu={menu} scrolling={scrolling} isLight={navTheme === 'light'}/>
                 </div>
             </header>
         </>

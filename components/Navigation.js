@@ -63,7 +63,7 @@ function DropdownLink({punkt, isSmall}) {
     )
 }
 
-export default function Navigation({scrolling, menu}) {
+export default function Navigation({scrolling, isLight, menu}) {
     const {toggle, toggleFunction} = useContext(MenuContext);
     const router = useRouter()
     const isSmall = useMediaQuery({
@@ -75,6 +75,7 @@ export default function Navigation({scrolling, menu}) {
     return (
         <>
             <nav className={`
+                ${isLight ? `${styles.light}` : `${styles.dark}`}
                 ${styles.nav}
                 ${toggle ? `${styles.openMenu}` : `${styles.closeMenu}`}
                 ${scrolling ? `${styles.scrolling}` : ''}

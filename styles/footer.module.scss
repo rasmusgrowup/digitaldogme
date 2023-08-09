@@ -2,7 +2,7 @@
 
 .main {
   background-color: var(--curry);
-  color: var(--linkBlue);
+  color: var(--blue);
   margin-top: 3rem;
   padding: 5rem 2rem;
   position: relative;
@@ -18,7 +18,7 @@
 }
 
 .tagline {
-  color: var(--linkBlue);
+  color: var(--blue);
   font-size: 2.6rem;
   font-weight: bold;
   line-height: 0.9;
@@ -39,7 +39,7 @@
 
 .bottom {
   align-items: center;
-  border-top: 1px solid var(--linkBlue);
+  border-top: 1px solid var(--blue);
   display: flex;
   padding-top: 1rem;
 }
@@ -62,7 +62,7 @@
 }
 
 .logo {
-  color: var(--linkBlue);
+  color: var(--blue);
   display: inline-block;
   flex: 2;
   font-size: 1.6em;

@@ -2,7 +2,7 @@
 
 .nav {
   align-items: center;
-  color: var(--linkBlue);
+  color: var(--blue);
   display: flex;
   font-weight: 400;
   z-index: 0;
@@ -92,31 +92,12 @@
   }
 }
 
-.scrolling {
-  color: var(--linkBlue);
-
-  @media (min-width: $m) {
-    .li .active span {
-      //border-bottom: 1px solid var(--main);
-    }
-
-    .li a {
-      display: inline-flex;
-      position: relative;
-
-      &:hover span {
-        border-bottom: 1px solid var(--linkBlue);
-      }
-    }
-  }
-}
-
 .buttonWrapper {
   display: flex;
 }
 
 .buttonWrapper .cta {
-  border-bottom: 1px solid var(--linkBlue);
+  border-bottom: 1px solid var(--blue);
   display: block;
   //font-size: 0.9rem;
   height: auto;
@@ -141,9 +122,36 @@
   }
 }
 
+.light {
+  color: var(--bg);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--bg);
+  }
+}
+
+.scrolling {
+  color: var(--blue);
+
+  @media (min-width: $m) {
+    .li .active span {
+      //border-bottom: 1px solid var(--main);
+    }
+
+    .li a {
+      display: inline-flex;
+      position: relative;
+
+      &:hover span {
+        border-bottom: 1px solid var(--blue);
+      }
+    }
+  }
+}
+
 @media (min-width: $m) {
   .scrolling .buttonWrapper {
-    border-bottom-color: var(--linkBlue);
+    border-bottom-color: var(--blue);
   }
 }
 
@@ -152,7 +160,7 @@
     background-color: transparent;
     //border: 1px solid var(--bg);
     border: none;
-    color: var(--linkBlue);
+    color: var(--blue);
     font-size: 1em;
     padding: 0.25rem;
     z-index: 1;
@@ -160,12 +168,12 @@
 
   .scrolling .menuButton {
     //border: 1px solid var(--main);
-    color: var(--linkBlue);
+    color: var(--blue);
   }
 
   .menuButton.dark {
     //border: 1px solid var(--main);
-    color: var(--linkBlue);
+    color: var(--blue);
   }
 
   .buttonWrapper a {
@@ -183,7 +191,7 @@
   .nav {
     background-color: var(--bg);
     bottom: 0;
-    color: var(--linkBlue);
+    color: var(--blue);
     display: block;
     height: 100vh;
     left: 0;
@@ -208,7 +216,7 @@
     }
 
     .li {
-      border-bottom: 1px solid var(--linkBlue);
+      border-bottom: 1px solid var(--blue);
       display: block;
       line-height: 2;
       height: auto;
@@ -277,7 +285,7 @@
     }
 
     .buttonWrapper .cta {
-      border: 1px solid var(--linkBlue);
+      border: 1px solid var(--blue);
       padding: 0.5rem;
     }
   }
@@ -293,7 +301,7 @@
 
 .button {
   align-items: center;
-  background-color: var(--linkBlue);
+  background-color: var(--blue);
   border: none;
   border-radius: 1rem;
   color: var(--bg);
@@ -373,7 +381,7 @@
 }
 
 .scrolling .inner .cta {
-  border-bottom-color: var(--linkBlue);
+  border-bottom-color: var(--blue);
 
   &:hover {
     border-bottom-color: transparent;
