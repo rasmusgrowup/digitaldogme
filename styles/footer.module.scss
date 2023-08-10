@@ -19,11 +19,37 @@
 
 .sand {
   background-color: var(--sand);
+  color: var(--linkBlue);
+}
+
+.curry {
+  background-color: var(--curry);
+  color: var(--main);
 }
 
 .green {
   background-color: var(--green);
   color: var(--curry);
+}
+
+.grey {
+  background-color: var(--grey);
+  color: var(--strong-red);
+}
+
+.turquoise {
+  background-color: var(--turkis);
+  color: var(--brown);
+}
+
+.light {
+  background-color: var(--grey);
+  color: var(--main);
+}
+
+.dark {
+  background-color: var(--black);
+  color: var(--bg);
 }
 
 .light {
@@ -62,8 +88,28 @@
   border-color: var(--curry);
 }
 
+.sand .bottom {
+  border-color: var(--linkBlue);
+}
+
+.curry .bottom {
+  border-color: var(--main);
+}
+
 .light .bottom {
-  border-color: var(--white);
+  border-color: var(--main);
+}
+
+.dark .bottom {
+  border-color: var(--bg);
+}
+
+.grey .bottom {
+  border-color: var(--strong-red);
+}
+
+.turquoise .bottom {
+  border-color: var(--brown);
 }
 
 @media (max-width: $m) {
@@ -107,8 +153,28 @@
   color: var(--curry);
 }
 
+.sand .logo {
+  color: var(--linkBlue);
+}
+
+.curry .logo {
+  color: var(--main);
+}
+
 .light .logo {
-  color: var(--white);
+  color: var(--main);
+}
+
+.dark .logo {
+  color: var(--bg);
+}
+
+.grey .logo {
+  color: var(--strong-red);
+}
+
+.turquoise .logo {
+  color: var(--brown);
 }
 
 .bar,

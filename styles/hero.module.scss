@@ -11,6 +11,16 @@
   }
 }
 
+.light {
+  background-color: var(--sand);
+  color: var(--main);
+}
+
+.dark {
+  background-color: var(--black);
+  color: var(--bg);
+}
+
 .curry {
   background-color: var(--curry);
   color: var(--blue);
@@ -23,7 +33,17 @@
 
 .sand {
   background-color: var(--sand);
-  color: var(--blue);
+  color: var(--linkBlue);
+}
+
+.turquoise {
+  background-color: var(--turkis);
+  color: var(--brown);
+}
+
+.grey {
+  background-color: var(--grey);
+  color: var(--strong-red);
 }
 
 .image {
@@ -118,6 +138,7 @@
 }
 
 .fullHero {
+  background-color: var(--black);
   height: 100vh;
   position: relative;
 

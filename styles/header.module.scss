@@ -56,14 +56,29 @@
 }
 
 .light .logo {
+  color: var(--main);
+}
+
+.dark .logo {
   color: var(--bg);
+}
+
+.grey .logo {
+  color: var(--strong-red)
+}
+
+.turquoise .logo {
+  color: var(--brown);
 }
 
 .green .logo {
   color: var(--curry)
 }
 
-.sand .logo,
+.sand .logo {
+  color: var(--linkBlue);
+}
+
 .curry .logo {
   color: var(--blue)
 }

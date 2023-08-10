@@ -10,7 +10,7 @@ export default function Hero({height, tekst, url, overskrift, alt, theme}) {
     return (
         <>
             <section className={`
-                ${theme === 'curry' ? `${styles.curry}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.base}`}
+                ${theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
                 ${styles.hero} ${height === true ? `${styles.fullHeight}` : ''}
                 `}>
                 <div className={styles.content}>

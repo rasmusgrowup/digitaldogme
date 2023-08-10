@@ -16,6 +16,7 @@ export async function getStaticProps() {
         slug
         titel
         type
+        colorTheme
         topSektion {
           ... on Hero {
             id
@@ -72,7 +73,8 @@ export async function getStaticProps() {
 }
 
 export default function Viden({ side, events, __type, menu }) {
-  let theme = 'sand'
+  let theme = side.colorTheme && side.colorTheme.toLowerCase() || 'dark';
+
   return (
     <Layout menu={menu} hasHero='true' key={side.id} theme={theme}>
       <Hero

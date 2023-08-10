@@ -123,10 +123,34 @@
 }
 
 .light {
+  color: var(--main);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--main);
+  }
+}
+
+.dark {
   color: var(--bg);
 
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--bg);
+  }
+}
+
+.grey {
+  color: var(--strong-red);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--strong-red);
+  }
+}
+
+.turquoise {
+  color: var(--brown);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--brown);
   }
 }
 
@@ -138,7 +162,14 @@
   }
 }
 
-.sand,
+.sand {
+  color: var(--linkBlue);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--linkBlue);
+  }
+}
+
 .curry {
   color: var(--blue);
 

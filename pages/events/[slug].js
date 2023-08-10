@@ -102,15 +102,17 @@ export async function getStaticPaths() {
 }
 
 export default function event({ event, menu }) {
+  let theme = 'curry'
 
   return (
-    <Layout menu={menu} hasHero='true' key={event.id}>
+    <Layout menu={menu} hasHero='true' key={event.id} theme={theme}>
       <Hero
         height={true}
         url={event.billede.url}
         overskrift={event.titel}
         tekst={event.resume}
         alt={event.billede.alt}
+        theme={theme}
       />
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>
