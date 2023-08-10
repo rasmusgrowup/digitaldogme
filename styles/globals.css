@@ -126,8 +126,9 @@ p {
 
 :root {
   --bg: #FAF8F2;
+  --bg: white;
   /*--bg: #fAf8f4;*/
-  --grey: #eeeeee;
+  --grey: #e1e1e1;
   --light: #FFDD91;
   --sand: #F4EDDC;
   --yellow: #FFC63C;
