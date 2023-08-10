@@ -130,6 +130,23 @@
   }
 }
 
+.green {
+  color: var(--curry);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--curry);
+  }
+}
+
+.sand,
+.curry {
+  color: var(--blue);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--blue);
+  }
+}
+
 .scrolling {
   color: var(--blue);
 

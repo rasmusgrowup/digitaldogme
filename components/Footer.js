@@ -121,12 +121,15 @@ function Policies() {
     )
 }
 
-export default function Footer({menu}) {
+export default function Footer({menu, theme}) {
     const isDevelopment = process.env.NODE_ENV === 'development';
 
     return (
         <>
-            <footer className={styles.main}>
+            <footer className={`
+                ${theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : theme === 'green' ? `${styles.green}` : theme === 'light' ? `${styles.light}` : `${styles.base}`}
+                ${styles.main}
+                `}>
                 <div className={styles.inner}>
                     <div className={styles.tagline} style={{display: 'none'}}>
                         Vær med til at gøre Danmark til digital frontløber

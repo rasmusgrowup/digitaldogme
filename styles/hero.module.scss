@@ -11,6 +11,21 @@
   }
 }
 
+.curry {
+  background-color: var(--curry);
+  color: var(--blue);
+}
+
+.green {
+  background-color: var(--green);
+  color: var(--curry);
+}
+
+.sand {
+  background-color: var(--sand);
+  color: var(--blue);
+}
+
 .image {
   display: block;
   height: calc(54vw - 1.6rem);

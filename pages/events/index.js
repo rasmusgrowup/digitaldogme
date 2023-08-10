@@ -72,14 +72,16 @@ export async function getStaticProps() {
 }
 
 export default function Viden({ side, events, __type, menu }) {
+  let theme = 'sand'
   return (
-    <Layout menu={menu} hasHero='true' key={side.id}>
+    <Layout menu={menu} hasHero='true' key={side.id} theme={theme}>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}
         overskrift={side.topSektion.overskrift}
         tekst={side.topSektion.tekst}
         alt={side.topSektion.billede.alt}
+        theme={theme}
       />
       <Events arr={events} types={__type}/>
     </Layout>

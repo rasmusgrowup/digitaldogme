@@ -15,13 +15,14 @@ export default function Cases({cases, hero, publikationer, types, menu}) {
     const [arr, setArr] = useState([...updatedCases, ...publikationer])
     const [sortedArray, setSortedArray] = useState(arr.sort((a,b) => a.dato < b.dato ? 1 : -1))
     return (
-        <Layout menu={menu} hasHero='true' key={hero.id}>
+        <Layout menu={menu} hasHero='true' key={hero.id} theme='green'>
             <Hero
                 height={hero.topSektion.height}
                 url={hero.topSektion.billede.url}
                 overskrift={hero.topSektion.overskrift}
                 tekst={hero.topSektion.tekst}
                 alt={hero.topSektion.billede.alt}
+                theme='green'
             />
             <Udgivelser arr={sortedArray} types={types}/>
         </Layout>

@@ -17,6 +17,20 @@
   position: relative;
 }
 
+.sand {
+  background-color: var(--sand);
+}
+
+.green {
+  background-color: var(--green);
+  color: var(--curry);
+}
+
+.light {
+  background-color: var(--black);
+  color: var(--white);
+}
+
 .tagline {
   color: var(--blue);
   font-size: 2.6rem;
@@ -42,6 +56,14 @@
   border-top: 1px solid var(--blue);
   display: flex;
   padding-top: 1rem;
+}
+
+.green .bottom {
+  border-color: var(--curry);
+}
+
+.light .bottom {
+  border-color: var(--white);
 }
 
 @media (max-width: $m) {
@@ -79,6 +101,14 @@
     display: inline-block;
     margin-right: 0.25em;
   }
+}
+
+.green .logo {
+  color: var(--curry);
+}
+
+.light .logo {
+  color: var(--white);
 }
 
 .bar,

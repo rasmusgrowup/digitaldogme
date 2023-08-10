@@ -35,20 +35,44 @@ const items = {
     }
 }
 
-function NumberArrayMapping({item}) {
-    const digitArray = item.tal.toString().split('');
+function NumberArrayMapping({ item }) {
+    const numberWithDots = (number) => {
+        const strNumber = number.toString();
+        const parts = [];
+        let i = strNumber.length;
+
+        while (i > 0) {
+            parts.unshift(strNumber.substring(Math.max(0, i - 3), i));
+            i -= 3;
+        }
+
+        return parts.join('.');
+    };
+
+    const formattedNumber = numberWithDots(item.tal);
 
     return (
-        <motion.div className={styles.talWrapper} whileInView='visible' variants={variants} initial='hidden'
-                    viewport={{once: true, amount: "all"}}>
-            {digitArray.map((digit, index) => (
-                <motion.span className={styles.digit} variants={items} key={index}>{digit}</motion.span>
+        <motion.div
+            className={styles.talWrapper}
+            whileInView="visible"
+            variants={variants}
+            initial="hidden"
+            viewport={{ once: true, amount: "all" }}
+        >
+            {formattedNumber.split('').map((digit, index) => (
+                <motion.span className={styles.digit} variants={items} key={index}>
+                    {digit}
+                </motion.span>
             ))}
-            {item.enhed && <motion.span variants={items} className={styles.enhed}>{item.enhed}</motion.span>
-            }
+            {item.enhed && (
+                <motion.span variants={items} className={styles.enhed}>
+                    {item.enhed}
+                </motion.span>
+            )}
         </motion.div>
     );
 }
+
 
 export default function Animeret({arr, index}) {
     return (

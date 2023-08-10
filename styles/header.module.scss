@@ -59,6 +59,15 @@
   color: var(--bg);
 }
 
+.green .logo {
+  color: var(--curry)
+}
+
+.sand .logo,
+.curry .logo {
+  color: var(--blue)
+}
+
 .isScrolling.logo {
   color: var(--blue);
 }

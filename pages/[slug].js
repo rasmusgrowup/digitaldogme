@@ -35,15 +35,18 @@ export async function getStaticPaths() {
 
 export default function Landingsside({side, menu}) {
     const heroExists = !!side.topSektion
+    let theme = 'curry'
 
     return (
-        <Layout preview={'undefined'} menu={menu} hasHero={heroExists} key={side.id}>
-            { side.topSektion ? <Hero
-                height={side.topSektion.height}
-                url={side.topSektion.billede.url}
-                overskrift={side.topSektion.overskrift}
-                tekst={side.topSektion.tekst}
-                alt={side.topSektion.billede.alt}
+        <Layout preview={'undefined'} menu={menu} hasHero={heroExists} key={side.id} theme={theme}>
+            { side.topSektion ?
+                <Hero
+                    height={side.topSektion.height}
+                    url={side.topSektion.billede.url}
+                    overskrift={side.topSektion.overskrift}
+                    tekst={side.topSektion.tekst}
+                    alt={side.topSektion.billede.alt}
+                    theme={theme}
                 /> :
                 <div className={styles.titel}>
                     <h1 className={styles.h1}>{side.titel}</h1>

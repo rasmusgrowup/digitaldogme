@@ -6,15 +6,15 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Meta from '../components/Meta'
 
-export default function Layout({ children, menu, hasHero, navTheme }) {
+export default function Layout({ children, menu, hasHero, theme }) {
     return (
         <>
             <Meta/>
-            <Header menu={menu} hasHero={hasHero} navTheme={navTheme}/>
+            <Header menu={menu} hasHero={hasHero} theme={theme}/>
             <main className={styles.main}>
                 {children}
             </main>
-            <Footer menu={menu}/>
+            <Footer menu={menu} theme={theme}/>
         </>
     )
 }

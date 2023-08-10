@@ -5,11 +5,14 @@ import Link from "next/link"
 // SCSS Styling
 import styles from '../styles/hero.module.scss'
 
-export default function Hero({height, tekst, url, overskrift, alt}) {
+export default function Hero({height, tekst, url, overskrift, alt, theme}) {
 
     return (
         <>
-            <section className={`${styles.hero} ${height === true ? `${styles.fullHeight}` : ''}`}>
+            <section className={`
+                ${theme === 'curry' ? `${styles.curry}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.base}`}
+                ${styles.hero} ${height === true ? `${styles.fullHeight}` : ''}
+                `}>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
                         <h1 className={styles.h1}>
