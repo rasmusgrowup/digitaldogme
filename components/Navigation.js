@@ -75,7 +75,7 @@ export default function Navigation({scrolling, theme, menu}) {
     return (
         <>
             <nav className={`
-                ${theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
                 ${styles.nav}
                 ${toggle ? `${styles.openMenu}` : `${styles.closeMenu}`}
                 ${scrolling ? `${styles.scrolling}` : ''}

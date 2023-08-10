@@ -146,6 +146,14 @@
   }
 }
 
+.blue {
+  color: var(--white);
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--white);
+  }
+}
+
 .turquoise {
   color: var(--brown);
 
@@ -171,10 +179,10 @@
 }
 
 .curry {
-  color: var(--blue);
+  color: var(--green);
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--blue);
+    border-bottom: 1px solid var(--green);
   }
 }
 

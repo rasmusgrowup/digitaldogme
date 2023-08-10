@@ -33,13 +33,14 @@ export default function Case({data, menu}) {
 
     return (
         <>
-            {data && <Layout menu={menu} hasHero='true' key={data.id}>
+            {data && <Layout menu={menu} hasHero='true' key={data.id} theme={'light'}>
                 <Hero
                     height={true}
                     url={data.case.billede.url}
                     overskrift={data.case.titel}
                     tekst={data.case.resume}
                     alt={data.case.billede.alt}
+                    theme={'light'}
                 />
                 <section className={styles.richWrapper}>
                     <div className={styles.info}>

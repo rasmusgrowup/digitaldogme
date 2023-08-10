@@ -82,13 +82,14 @@ export default function Publikation({ publikation, menu }) {
   const router = useRouter();
 
   return (
-    <Layout menu={menu} hasHero='true' key={publikation.id}>
+    <Layout menu={menu} hasHero='true' key={publikation.id} theme={'light'}>
       <Hero
         height={true}
         url={publikation.billede.url}
         overskrift={publikation.titel}
         tekst={publikation.resume}
         alt={publikation.billede.alt}
+        theme={'light'}
       />
       <section className={styles.richWrapper}>
         <div className={styles.info}>

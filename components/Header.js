@@ -116,7 +116,7 @@ export default function Header({ hasHero, menu, theme }) {
     return (
         <>
             <header className={`
-                ${theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'sand' ? `${styles.sand}` : theme === 'curry' ? `${styles.curry}` : theme === 'green' ? `${styles.green}` : `${styles.dark}`}
+                ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'sand' ? `${styles.sand}` : theme === 'curry' ? `${styles.curry}` : theme === 'green' ? `${styles.green}` : `${styles.dark}`}
                 ${styles.header} ${navClassList.join(' ')}
                 `}>
                 <div className={styles.inner}>

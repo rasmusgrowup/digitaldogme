@@ -127,7 +127,7 @@ export default function Footer({menu, theme}) {
     return (
         <>
             <footer className={`
-                ${theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
                 ${styles.main}
                 `}>
                 <div className={styles.inner}>
