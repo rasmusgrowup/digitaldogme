@@ -16,6 +16,7 @@ export default function Cases({cases, page, menu}) {
                 overskrift={page.topSektion.overskrift}
                 tekst={page.topSektion.tekst}
                 alt={page.topSektion.billede.alt}
+
             />
             {/* <Publikationer arr={cases} types="null"/> */}
             <section className={styles.indexOverview}>

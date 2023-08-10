@@ -15,7 +15,7 @@
 html,
 body {
   background-color: var(--bg);
-  color: var(--main);
+  color: var(--black);
   font-family:
     'Manrope',
     -apple-system,
@@ -130,13 +130,13 @@ p {
   --grey: #e1e1e1;
   --light: #FFDD91;
   --sand: #F4EDDC;
+  --sand: rgb(255, 241, 214);
   --yellow: #FFC63C;
   --curry: #FFDD91;
   --red: #FF6E62;
   --peach: #FF6E62;
   --strong-red: #EB3132;
   --pink: #F9C3D3;
-  --pink: #c74e77;
   --brown: #963124;
   --turkis: #baf1f6;
   --green: #0E7279;
@@ -149,6 +149,5 @@ p {
   --white: #fff;
   --link: #00CCBC;
   --linkBlue: blue;
-  --linkBlue: #1b1bff;
   --ease: cubic-bezier(0.83, 0, 0.17, 1);
 }
