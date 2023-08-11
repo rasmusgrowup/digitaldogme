@@ -15,7 +15,9 @@ export default function FullHero({height, tekst, url, overskrift, alt}) {
                         <h1 className={styles.h1}>
                             {overskrift}
                         </h1>
-                        <p className={styles.p}>{tekst}</p>
+                        <div className={styles.column}>
+                            <p className={styles.p}>{tekst}</p>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.image}>

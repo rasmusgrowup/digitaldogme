@@ -90,6 +90,7 @@ export default function Publikation({ publikation, menu }) {
         tekst={publikation.resume}
         alt={publikation.billede.alt}
         theme={'light'}
+        cta={publikation.pdf[0]}
       />
       <section className={styles.richWrapper}>
         <div className={styles.info}>
@@ -112,13 +113,10 @@ export default function Publikation({ publikation, menu }) {
           { publikation.pdf.map((pdf, i) => (
             <Link href={pdf.url} passHref key={i}>
               <a target='_blank'>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98}}
-                  className={styles.pdfLink}>
+                <div className={styles.pdfLink}>
                   <span>{pdf.fileName}</span>
-                  <span>Læs</span>
-                </motion.div>
+                  <span>Åben <FeatherIcon icon={'arrow-up-right'} size={16} strokeWidth={'1.5'}/> </span>
+                </div>
               </a>
             </Link>
           ))}

@@ -234,12 +234,15 @@
 
 .info {
   font-size: 1em;
-  left: 1.6rem;
+  //left: 1.6rem;
+  max-width: 200px;
   position: absolute;
+  right: 3.2rem;
 
   .tilbage {
     cursor: pointer;
     display: block;
+    margin-bottom: 1rem;
 
     &:hover {
       text-decoration: underline;
@@ -250,13 +253,18 @@
 
 .pdfLink {
   align-items: center;
-  background-color: var(--white);
-  border: 1px solid #ededed;
-  border-radius: 12px;
+  background-color: transparent;
+  border: 1px solid var(--black);
+  //border-radius: 12px;
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
   padding: 1rem 1.2rem;
+
+  &:hover {
+    background-color: var(--black);
+    color: var(--bg);
+  }
 }
 
 // Index pages styling

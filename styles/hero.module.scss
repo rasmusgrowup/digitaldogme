@@ -122,7 +122,7 @@
   }
 
   .h2,
-  .p {
+  .column {
     //color: var(--linkBlue);
     font-size: 1.5rem;
     font-weight: normal;
@@ -139,6 +139,19 @@
   .p {
     font-weight: 500;
     letter-spacing: 0.02em;
+    margin: 0.5rem 0 0;
+  }
+
+  .cta {
+    border-bottom: 1px solid var(--black);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    padding: 0.25rem 0;
+    width: fit-content;
+
+    &:hover {
+      border-color: transparent;
+    }
   }
 }
 
@@ -155,7 +168,7 @@
     left: 0;
     margin: 0;
     position: absolute;
-    opacity: 0.25;
+    opacity: 0.15;
     right: 0;
     top: 0;
     width: 100%;
@@ -168,7 +181,7 @@
   }
 
   .h1 {
-    font-size: 4.5rem;
+    font-size: 4.25rem;
 
     @media (max-width: $m) {
       font-size: 3rem;

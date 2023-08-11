@@ -116,29 +116,27 @@ export default function event({ event, menu }) {
       />
       <section className={styles.richWrapper}>
         <div className={styles.richInner}>
-          <span className={styles.tilbage}>
-            <Link href='/events'>
-              <a>
-                <FeatherIcon
-                  className={styles.ikon}
-                  icon='chevron-left'
-                  size={10} style={{ color: 'red' }} />
-                Tilbage til events
-              </a>
-            </Link>
-          </span>
           <div className={styles.info}>
-            <span>
+            {/*<div className={styles.tilbage}>
+              <Link href='/events'>
+                <a>
+                  <FeatherIcon
+                      className={styles.ikon}
+                      icon='chevron-left'
+                      size={10} style={{ color: 'red' }} />
+                  Tilbage til events
+                </a>
+              </Link>
+            </div> */}
+            <div>
               <Moment locale='da' format='ll'>
                 {event.dato.toString()}
               </Moment>
-            </span>
-            <span>
-            {event.tidspunktSlut
-              ? <>{event.tidspunktStart}-{event.tidspunktSlut}</>
-              : <>{event.tidspunktStart}</>
-            }
-            </span>
+              {', '}{event.tidspunktSlut
+                  ? <>{event.tidspunktStart}-{event.tidspunktSlut}</>
+                  : <>{event.tidspunktStart}</>
+              }
+            </div>
             <span>{event.lokation}</span>
           </div>
           <h2>
