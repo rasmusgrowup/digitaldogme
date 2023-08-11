@@ -4,7 +4,8 @@ import FeatherIcon from "feather-icons-react";
 
 export default function BackgroundSection({section}) {
     return (
-        <section className={styles.section} style={{backgroundImage: `url(${section.backgroundImage.url})`}}>
+        <section className={styles.section}
+                 style={section.backgroundImage ? {backgroundImage: `url(${section.backgroundImage.url})`} : section.backgroundColor === 'Green' ? {backgroundColor: 'var(--green)'} : {}}>
             <div className={styles.inner}>
                 <h2 className={styles.h2}>{section.titel}</h2>
                 <p className={styles.p}>{section.text}</p>

@@ -36,8 +36,6 @@ export default function Partners({arr, index}) {
                                 <a target='_blank'>
                                     <Image
                                         src={partner.billede.url}
-                                        height={partner.billede.height}
-                                        width={partner.billede.width}
                                         alt={partner.billede.alt}
                                         layout='fill'
                                         objectFit='contain'

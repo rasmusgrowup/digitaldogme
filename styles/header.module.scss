@@ -49,12 +49,6 @@
   }
 }
 
-@media (max-width: $m) {
-  .menuOpened {
-    color: var(--blue);
-  }
-}
-
 .light .logo {
   color: var(--main);
 }
@@ -64,7 +58,7 @@
 }
 
 .blue .logo {
-  color: var(--white);
+  color: var(--turkis);
 }
 
 .grey .logo {
@@ -85,6 +79,12 @@
 
 .curry .logo {
   color: var(--green)
+}
+
+@media (max-width: $m) {
+  .menuOpened.logo {
+    color: var(--blue);
+  }
 }
 
 .isScrolling.logo {

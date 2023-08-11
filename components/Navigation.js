@@ -17,13 +17,14 @@ import useSWR from 'swr'
 
 const fetcher = query => request('https://api-eu-central-1.graphcms.com/v2/cl41227n82mr701xjefvp5ghq/master', query)
 
-function MenuButton({scrolling}) {
+function MenuButton({scrolling, theme}) {
     const {toggle, toggleFunction} = useContext(MenuContext);
 
     return (
         <button
             onClick={toggleFunction}
             className={`
+                ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
               ${styles.menuButton}
               ${toggle || scrolling ? `${styles.dark}` : ''}
             `}>
@@ -117,7 +118,7 @@ export default function Navigation({scrolling, theme, menu}) {
                     </div>
                 </div>
             </nav>
-            <MenuButton scrolling={scrolling}/>
+            <MenuButton scrolling={scrolling} theme={theme}/>
         </>
     )
 }

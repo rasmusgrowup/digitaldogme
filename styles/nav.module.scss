@@ -125,6 +125,11 @@
 .light {
   color: var(--main);
 
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--main);
+  }
+
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--main);
   }
@@ -132,6 +137,11 @@
 
 .dark {
   color: var(--bg);
+
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--bg);
+  }
 
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--bg);
@@ -141,21 +151,36 @@
 .grey {
   color: var(--brown);
 
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--brown);
+  }
+
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--brown);
   }
 }
 
 .blue {
-  color: var(--white);
+  color: var(--turkis);
+
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--turkis);
+  }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--white);
+    border-bottom: 1px solid var(--turkis);
   }
 }
 
 .turquoise {
   color: var(--brown);
+
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--brown);
+  }
 
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--brown);
@@ -165,6 +190,11 @@
 .green {
   color: var(--curry);
 
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--curry);
+  }
+
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--curry);
   }
@@ -173,6 +203,11 @@
 .sand {
   color: var(--linkBlue);
 
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--linkBlue);
+  }
+
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--linkBlue);
   }
@@ -180,6 +215,11 @@
 
 .curry {
   color: var(--green);
+
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--green);
+  }
 
   .buttonWrapper .cta {
     border-bottom: 1px solid var(--green);
@@ -222,6 +262,34 @@
     z-index: 1;
   }
 
+  .green.menuButton {
+    color: var(--curry)
+  }
+
+  .turquoise.menuButton {
+    color: var(--brown)
+  }
+
+  .grey.menuButton {
+    color: var(--brown)
+  }
+
+  .sand.menuButton {
+    color: var(--linkBlue)
+  }
+
+  .curry.menuButton {
+    color: var(--green)
+  }
+
+  .light.menuButton {
+    color: var(--blue)
+  }
+
+  .dark.menuButton {
+    color: var(--white)
+  }
+
   .scrolling .menuButton {
     //border: 1px solid var(--main);
     color: var(--blue);
@@ -229,7 +297,7 @@
 
   .menuButton.dark {
     //border: 1px solid var(--main);
-    color: var(--blue);
+    //color: var(--blue);
   }
 
   .buttonWrapper a {

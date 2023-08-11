@@ -33,7 +33,7 @@
 
 .blue {
   background-color: var(--blue);
-  color: white;
+  color: var(--turkis);
 }
 
 .sand {
@@ -169,6 +169,10 @@
 
   .h1 {
     font-size: 4.5rem;
+
+    @media (max-width: $m) {
+      font-size: 3rem;
+    }
   }
 
   .image {
@@ -181,6 +185,12 @@
     top: 0;
     width: 100%;
   }
+
+  @media (max-width: $m) {
+    .content {
+      top: auto;
+    }
+  }
 }
 
 @media (max-width: $m) {
@@ -191,7 +201,7 @@
 }
 
 @media (max-width: $s) {
-  .fullHero { height: 110vh; }
+  .fullHero { height: 90vh; }
 }
 
 .contentAnimated {
