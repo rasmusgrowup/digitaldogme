@@ -9,6 +9,7 @@ import styles from '../styles/main.module.scss'
 import Layout from "../components/Layout";
 import {getLandingPages, getMenu, getPage} from "../lib/hygraph";
 import Moment from "react-moment";
+import Head from "next/head";
 
 export async function getStaticProps({params}) {
     const side = await getPage(params.slug)
@@ -39,6 +40,13 @@ export default function Landingsside({side, menu}) {
 
     return (
         <Layout preview={'undefined'} menu={menu} hasHero={heroExists} key={side.id} theme={theme}>
+            <Head>
+                <meta name="description" content={side.topSektion.tekst} key='description'/>
+                <meta name="og:title" content={side.topSektion.overskrift} key='title'/>
+                <meta property="og:image" content={side.topSektion.billede.url}/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
+                <title>Digital Dogme | {side.topSektion.overskrift}</title>
+            </Head>
             { side.topSektion ?
                 <Hero
                     height={side.topSektion.height}

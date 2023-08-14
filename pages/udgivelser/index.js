@@ -13,6 +13,7 @@ import {
 } from "../../lib/hygraph";
 import Layout from "../../components/Layout";
 import {useState} from "react";
+import Head from "next/head";
 
 export default function Cases({cases, hero, publikationer, types, menu, side}) {
     const updatedCases = cases.map(item => ({
@@ -25,6 +26,14 @@ export default function Cases({cases, hero, publikationer, types, menu, side}) {
 
     return (
         <Layout menu={menu} hasHero='true' key={hero.id} theme={theme}>
+            <Head>
+                <meta name="description" content={side.topSektion.tekst} key='description'/>
+                <meta name="og:title" content={side.topSektion.overskrift} key='title'/>
+                <meta property="og:image" content={side.topSektion.billede.url}/>
+                <meta name="viewport"
+                      content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"/>
+                <title>Digital Dogme | {side.topSektion.overskrift}</title>
+            </Head>
             <Hero
                 height={hero.topSektion.height}
                 url={hero.topSektion.billede.url}

@@ -6,6 +6,7 @@ import Events from '../../components/Events'
 import { GraphQLClient, gql } from 'graphql-request';
 import Layout from "../../components/Layout";
 import {getMenu} from "../../lib/hygraph";
+import Head from "next/head";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps() {
@@ -77,6 +78,14 @@ export default function Viden({ side, events, __type, menu }) {
 
   return (
     <Layout menu={menu} hasHero='true' key={side.id} theme={theme}>
+      <Head>
+        <meta name="description" content={side.topSektion.tekst} key='description'/>
+        <meta name="og:title" content={side.topSektion.overskrift} key='title'/>
+        <meta property="og:image" content={side.topSektion.billede.url}/>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"/>
+        <title>Digital Dogme | {side.topSektion.overskrift}</title>
+      </Head>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}
