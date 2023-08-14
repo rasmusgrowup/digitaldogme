@@ -1,6 +1,7 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
+import {motion} from "framer-motion";
 
 // SCSS Styling
 import styles from '../styles/hero.module.scss'
@@ -16,20 +17,20 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta}) 
                 `}>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
-                        <h1 className={styles.h1}>
+                        <motion.h1 initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.25 }} className={styles.h1}>
                             {overskrift}
-                        </h1>
-                        <div className={styles.column}>
+                        </motion.h1>
+                        <motion.div className={styles.column} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.36 }}>
                             <p className={styles.p}>{tekst}</p>
                             { cta &&
                                 <div className={styles.cta}>
                                     <Link href={cta.url} passHref><a target={"_blank"}>Åben {`'${cta.fileName}'`} <FeatherIcon icon={'arrow-up-right'} size={16} strokeWidth={'1.5'}/></a></Link>
                                 </div>
                             }
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-                <div className={styles.image}>
+                <motion.div className={styles.image} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.4 }}>
                     <Image
                         src={url}
                         layout='fill'
@@ -39,7 +40,7 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta}) 
                         priority='true'
                         alt={alt}
                     />
-                </div>
+                </motion.div>
             </section>
         </>
     )

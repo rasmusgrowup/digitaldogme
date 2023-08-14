@@ -1,6 +1,6 @@
 // Default imports
 import Image from "next/image"
-import Link from "next/link"
+import {motion} from "framer-motion";
 
 // SCSS Styling
 import styles from '../styles/hero.module.scss'
@@ -12,15 +12,15 @@ export default function FullHero({height, tekst, url, overskrift, alt}) {
             <section className={styles.fullHero}>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
-                        <h1 className={styles.h1}>
+                        <motion.h1 className={styles.h1} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.5 }}>
                             {overskrift}
-                        </h1>
-                        <div className={styles.column}>
+                        </motion.h1>
+                        <motion.div className={styles.column} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.66 }}>
                             <p className={styles.p}>{tekst}</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-                <div className={styles.image}>
+                <motion.div className={styles.image} initial={{opacity: 0}} animate={{opacity: 1}} transition={{ delay: 0.25 }}>
                     <Image
                         src={url}
                         layout='fill'
@@ -30,7 +30,7 @@ export default function FullHero({height, tekst, url, overskrift, alt}) {
                         priority='true'
                         alt={alt}
                     />
-                </div>
+                </motion.div>
             </section>
         </>
     )
