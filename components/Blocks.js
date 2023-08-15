@@ -13,8 +13,9 @@ import Section from "./Section";
 import Testimonial from "../components/Testimonial";
 import CallToAction from "./CallToAction";
 import BackgroundSection from "./BackgroundSection";
+import TaskForce from "./TaskForce";
 
-export default function Blocks({blokke, withHero}) {
+export default function Blocks({blokke, withHero, theme}) {
 
     return (
         <>
@@ -43,6 +44,8 @@ export default function Blocks({blokke, withHero}) {
                             return <CallToAction section={blok} index={i} key={blok.id}/>
                         case 'BackgroundSection':
                             return <BackgroundSection section={blok} index={i} key={blok.id}/>
+                        case 'TaskForce':
+                            return <TaskForce section={blok} theme={theme} index={i} key={blok.id}/>
                         default:
                             return <></>
                     }

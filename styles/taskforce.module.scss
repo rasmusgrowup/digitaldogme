@@ -1,0 +1,140 @@
+@import "core";
+
+.section {
+  display: block;
+}
+
+.info {
+  padding: 1.6rem;
+
+  @media (max-width: $m) {
+    padding: 1rem;
+  }
+
+  .inner {
+    border-top: 1px solid var(--linkBlue);
+    display: flex;
+
+    @media (max-width: $m) {
+      display: block;
+    }
+
+    .events,
+    .goals {
+      flex: 1;
+    }
+
+    .outcome {
+      flex: 2;
+
+      @media (max-width: $m) {
+        margin: 2rem auto;
+      }
+    }
+
+    .events {
+      line-height: 2;
+
+      a {
+        text-decoration-line: underline;
+        text-underline: var(--linkBlue);
+        text-underline-offset: 0.4rem;
+
+        &:hover {
+          text-decoration-line: none;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  //display: flex;
+  font-size: 1.05em;
+  line-height: 1.75;
+  justify-content: space-between;
+  padding: 3rem 1.6rem;
+
+  .richText {
+    margin: 2rem auto;
+    max-width: $sm;
+  }
+
+  .persons {
+    border-top: 1px solid var(--black);
+    margin: 4rem auto 2rem;
+    max-width: $sm;
+  }
+}
+
+.sand {
+  background-color: var(--sand);
+  color: var(--linkBlue);
+
+  .inner {
+    border-top: 1px solid var(--linkBlue);
+  }
+}
+
+.light {
+  background-color: var(--sand);
+  color: var(--main);
+
+  .inner {
+    border-top: 1px solid var(--main);
+  }
+}
+
+.green {
+  background-color: var(--green);
+  color: var(--curry);
+
+  .inner {
+    border-top: 1px solid var(--curry);
+  }
+}
+
+.curry {
+  background-color: var(--curry);
+  color: var(--green);
+
+  .inner {
+    border-top: 1px solid var(--green);
+  }
+}
+
+.turquoise {
+  background-color: var(--turkis);
+  color: var(--brown);
+
+  .inner {
+    border-top: 1px solid var(--brown);
+  }
+}
+
+.grey {
+  background-color: var(--grey);
+  color: var(--brown);
+
+  .inner {
+    border-top: 1px solid var(--brown);
+  }
+}
+
+.blue {
+  background-color: var(--blue);
+  color: var(--turkis);
+
+  .inner {
+    border-top: 1px solid var(--turkis);
+  }
+}
+
+.dark {
+  background-color: var(--black);
+  color: var(--white);
+
+  .inner {
+    border-top: 1px solid var(--white);
+  }
+}

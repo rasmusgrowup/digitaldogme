@@ -59,7 +59,8 @@
   width: calc(100% - 3.2rem);
 
   @media (max-width: $m) {
-    height: calc(100vw - 2rem);
+    height: auto;
+    min-height: calc(100vw - 2rem);
     //right: 1rem;
     width: calc(100% - 2rem);
   }
@@ -67,14 +68,8 @@
 
 .content,
 .contentAnimated {
-  //left: 0;
-  //position: absolute;
-  //bottom: 8%;
-  //transform: translate(-50%, 6%);
-  //text-align: center;
   padding: 1.5rem;
   padding-right: 3rem;
-  //max-width: 50vw;
   z-index: 1;
   width: 100%;
 
@@ -83,7 +78,6 @@
     padding: 1rem;
     top: 14%;
     max-width: none;
-    //transform: translate(-50%, 55%);
   }
 
   .wrapper {
@@ -144,7 +138,7 @@
 
   .cta {
     border-bottom: 1px solid var(--black);
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: 1rem;
     padding: 0.25rem 0;
     width: fit-content;
@@ -217,16 +211,43 @@
   .fullHero { height: 90vh; }
 }
 
-.contentAnimated {
-  bottom: 0%;
-  max-width: 100%;
+@media (min-width: $m) {
+  .halfHero {
+    display: flex;
+    justify-content: space-between;
+
+    .content {
+      width: 44%;
+    }
+
+    .image {
+      width: 56%;
+    }
+
+    .content .wrapper {
+      display: block;
+
+      .h1,
+      .column {
+        width: 100%;
+      }
+
+      .h1 {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .image {
+      height: auto;
+      margin: 0;
+      padding: 1.6rem;
+    }
+  }
 }
 
-.mere {
-  font-size: 0.8rem;
-  margin-top: 2rem;
-  //opacity: 0.25;
-  text-transform: uppercase;
+.contentAnimated {
+  bottom: 0;
+  max-width: 100%;
 }
 
 .animatedWrapper {
@@ -234,7 +255,6 @@
 }
 
 .animatedH1 {
-  //text-transform: uppercase;
   font-size: 5.5em;
   font-weight: 550;
   line-height: 1.33;

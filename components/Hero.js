@@ -7,13 +7,14 @@ import {motion} from "framer-motion";
 import styles from '../styles/hero.module.scss'
 import FeatherIcon from "feather-icons-react";
 
-export default function Hero({height, tekst, url, overskrift, alt, theme, cta}) {
+export default function Hero({height, tekst, url, overskrift, alt, theme, cta, layout}) {
 
     return (
         <>
             <section className={`
                 ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
-                ${styles.hero} ${height === true ? `${styles.fullHeight}` : ''}
+                ${styles.hero}
+                ${layout === 'childPage' || !height ? `${styles.halfHero}` : `${styles.fullHeight}`}
                 `}>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
@@ -31,15 +32,27 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta}) 
                     </div>
                 </div>
                 <motion.div className={styles.image} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.4 }}>
-                    <Image
-                        src={url}
-                        layout='fill'
-                        objectFit='cover'
-                        objectPosition='center'
-                        quality='100'
-                        priority='true'
-                        alt={alt}
-                    />
+                    {layout === 'childPage' || !height ?
+                        <Image
+                            src={url}
+                            height={'500'}
+                            width={'700'}
+                            objectFit={'cover'}
+                            layout={'responsive'}
+                            quality='100'
+                            priority='true'
+                            alt={alt}
+                        /> :
+                        <Image
+                            src={url}
+                            layout='fill'
+                            objectFit='cover'
+                            objectPosition='center'
+                            quality='100'
+                            priority='true'
+                            alt={alt}
+                        />
+                    }
                 </motion.div>
             </section>
         </>

@@ -287,7 +287,11 @@
   }
 
   .dark.menuButton {
-    color: var(--white)
+    color: var(--white);
+
+    @media (max-width: $m) {
+      color: var(--black);
+    }
   }
 
   .scrolling .menuButton {
