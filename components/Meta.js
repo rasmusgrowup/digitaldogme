@@ -4,11 +4,11 @@ function Meta({title, keywords, description}) {
     return (
         <Head>
             <link rel="icon" type="image/png" href="/favicon.ico"/>
-            <meta name="theme-color" content="#ffffff"/>
+            {/* <meta name="theme-color" content="#ffffff"/> */}
             <meta name="description" content={description} key='description'/>
             <meta name="keywords" content={keywords} key='keywords'/>
             <meta name="og:title" content={title} key='title'/>
-            {/* <meta name="theme-color" content="#09091a"/> */}
+            <meta name="theme-color" content="inherit"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
             <title>{title}</title>
         </Head>

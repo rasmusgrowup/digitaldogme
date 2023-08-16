@@ -34,15 +34,17 @@ function Heading({overskrift, lightTheme, index}) {
     );
 }
 
-export default function Grid({props, index}) {
-    const lightTheme = props.colorTheme === 'Light';
+export default function Grid({props, index, shouldHaveLine}) {
+    const lightTheme = !props.gridTheme === 'blue' || !props.gridTheme === 'dark';
+    let theme = props.gridTheme ? props.gridTheme.toLowerCase() : ''
+    console.log('Grid ' + index + ' should have line: ' + shouldHaveLine)
 
     return (
         <>
-            <section className={props.colorTheme === 'Dark' ? `${styles.dark}` : props.colorTheme === 'Grey' ? `${styles.grey}` : ''} id={props.id}
+            <section className={`${theme === 'dark' ? `${styles.dark}` : theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.bg}`}`} id={props.id}
                      style={{scrollMarginTop: '50px'}}>
                 <div className={styles.inner}>
-                    <header className={styles.header} style={index === 0 || !lightTheme ? {border: 'none'} :  {borderTop: '1px solid var(--main)'}}>
+                    <header className={styles.header} style={index === 0 || props.gridTheme !== null || !shouldHaveLine ? {border: 'none'} :  {borderTop: '1px solid var(--main)'}}>
                         {props.gridHeading &&
                             <h2 className={styles.h2}>
                                 {props.gridHeading}

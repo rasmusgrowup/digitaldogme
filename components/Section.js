@@ -34,15 +34,20 @@ function Heading({overskrift}) {
     );
 }
 
-export default function Section({section, topSection, index}) {
-    const isDark = section.colorTheme === 'Dark';
+export default function Section({section, topSection, index, shouldHaveLine}) {
+    const lightTheme = !section.sectionTheme === 'blue' || !section.sectionTheme === 'dark';
+    let theme = section.sectionTheme ? section.sectionTheme.toLowerCase() : ''
     const endsWithDot = section.sectionHeader.heading;
+    console.log('Section ' + index + ' should have line: ' + shouldHaveLine)
 
     return (
-        <section className={isDark ? `${styles.darkSection}` : `${styles.section}`} style={topSection ? {paddingTop: '0'} : {} && {scrollMarginTop: '50px'}} id={section.id}>
+        <section className={`
+            ${theme === 'dark' ? `${styles.dark}` : theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.bg}`}
+            ${styles.section}
+            `} style={topSection ? {paddingTop: '0'} : {} && {scrollMarginTop: '50px'}} id={section.id}>
             {(section.sectionHeader.paragraph || section.richText) && section.sectionHeader ?
                 <header className={styles.header}
-                        style={index === 0 || isDark ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+                        style={index === 0 || section.sectionTheme !== null || !shouldHaveLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
                     {section.sectionHeader.heading && <h2 className={styles.h2}>{section.sectionHeader.heading}</h2>}
                     <div className={styles.column}>
                         {section.sectionHeader.paragraph && <p className={styles.p}>{section.sectionHeader.paragraph}</p>}
