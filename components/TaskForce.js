@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export default function TaskForce({section, theme, index}) {
     let currentYear = new Date().getFullYear();
+    console.log(section.events)
     return (
         <section className={styles.section}>
             <div className={styles.inner}>
@@ -26,8 +27,11 @@ export default function TaskForce({section, theme, index}) {
                         ))}
                     </div> */}
                 </div>
-                <div className={styles.info}>
-                    {section.events &&
+                <div className={`
+                    ${styles.info}
+                    ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                    `}>
+                    {section.events.length > 0 &&
                         <div className={styles.events}>
                             <p><strong>Relaterede events</strong></p>
                             {section.events.map((e, i) => (

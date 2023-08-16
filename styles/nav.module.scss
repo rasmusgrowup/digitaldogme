@@ -240,15 +240,15 @@
 }
 
 .curry {
-  color: var(--green);
+  color: var(--darkcyan);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--green);
+    border-color: var(--darkcyan);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--green);
+    border-bottom: 1px solid var(--darkcyan);
   }
 }
 
@@ -282,7 +282,7 @@
     background-color: transparent;
     //border: 1px solid var(--bg);
     border: none;
-    color: var(--blue);
+    color: var(--white);
     font-size: 1em;
     padding: 0.25rem;
     z-index: 1;
@@ -313,7 +313,7 @@
   }
 
   .curry.menuButton {
-    color: var(--green)
+    color: var(--darkcyan)
   }
 
   .light.menuButton {

@@ -3,6 +3,10 @@
 .section {
   display: block;
   padding: 3rem 1.6rem;
+
+  @media (max-width: $m) {
+    padding: 1rem;
+  }
 }
 
 .inner {
@@ -10,6 +14,10 @@
   display: flex;
   justify-content: space-between;
   padding: 3.2rem 0;
+
+  @media (max-width: $m) {
+    display: block;
+  }
 }
 
 .content {
@@ -20,6 +28,11 @@
 
   .richText {
     max-width: $sm;
+
+    h2 {
+      font-size: 2em;
+      line-height: 1.2;
+    }
   }
 
   .persons {
@@ -35,6 +48,11 @@
   flex: 1;
   flex-direction: column;
   padding: 1.6rem 3.2rem 3.2rem;
+
+  @media (max-width: $m) {
+    display: block;
+    padding: 1.6rem;
+  }
 
   .events {
     line-height: 2;
@@ -55,7 +73,7 @@
     margin: 1rem auto;
 
     a {
-      color: var(--linkBlue);
+      //color: var(--linkBlue);
       text-decoration-line: underline;
       text-underline-offset: 0.4rem;
 
@@ -64,4 +82,54 @@
       }
     }
   }
+}
+
+.sky {
+  background-color: var(--weak-blue);
+  color: var(--faded-blue);
+}
+
+.sand {
+  background-color: var(--greenLight);
+  color: var(--green);
+}
+
+.curry {
+  background-color: var(--curry);
+  color: var(--green);
+}
+
+.green {
+  background-color: var(--green);
+  color: var(--greenLight);
+}
+
+.grey {
+  background-color: var(--weak-pink);
+  color: var(--strong-blue);
+}
+
+.pink {
+  background-color: var(--pink);
+  color: var(--strong-blue);
+}
+
+.blue {
+  background-color: var(--dark-blue);
+  color: var(--pink);
+}
+
+.turquoise {
+  background-color: var(--turkis);
+  color: var(--purple);
+}
+
+.light {
+  background-color: var(--sand);
+  color: var(--orange);
+}
+
+.dark {
+  background-color: var(--black);
+  color: var(--bg);
 }
