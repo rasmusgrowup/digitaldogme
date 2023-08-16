@@ -13,7 +13,7 @@
 
 .light {
   background-color: var(--sand);
-  color: var(--main);
+  color: var(--orange);
 }
 
 .dark {
@@ -28,27 +28,37 @@
 
 .green {
   background-color: var(--green);
-  color: var(--curry);
+  color: var(--greenLight);
 }
 
 .blue {
-  background-color: var(--blue);
-  color: var(--turkis);
+  background-color: var(--dark-blue);
+  color: var(--pink);
 }
 
 .sand {
-  background-color: var(--sand);
-  color: var(--linkBlue);
+  background-color: var(--greenLight);
+  color: var(--green);
 }
 
 .turquoise {
   background-color: var(--turkis);
-  color: var(--brown);
+  color: var(--purple);
 }
 
 .grey {
-  background-color: var(--grey);
-  color: var(--brown);
+  background-color: var(--pink);
+  color: var(--strong-blue);
+}
+
+.pink {
+  background-color: var(--pink);
+  color: var(--strong-blue);
+}
+
+.sky {
+  background-color: var(--weak-blue);
+  color: var(--faded-blue)
 }
 
 .image {
@@ -137,14 +147,18 @@
   }
 
   .cta {
-    border-bottom: 1px solid var(--black);
     font-size: 1rem;
     margin-top: 1rem;
     padding: 0.25rem 0;
     width: fit-content;
 
-    &:hover {
-      border-color: transparent;
+    a {
+      text-decoration-line: underline;
+      text-underline-offset: 0.4rem;
+
+      &:hover {
+        text-decoration-line: none;
+      }
     }
   }
 }

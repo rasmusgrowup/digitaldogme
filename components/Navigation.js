@@ -24,7 +24,7 @@ function MenuButton({scrolling, theme}) {
         <button
             onClick={toggleFunction}
             className={`
-                ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
               ${styles.menuButton}
               ${toggle || scrolling ? `${styles.dark}` : ''}
             `}>
@@ -76,7 +76,7 @@ export default function Navigation({scrolling, theme, menu}) {
     return (
         <>
             <nav className={`
-                ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
                 ${styles.nav}
                 ${toggle ? `${styles.openMenu}` : `${styles.closeMenu}`}
                 ${scrolling ? `${styles.scrolling}` : ''}

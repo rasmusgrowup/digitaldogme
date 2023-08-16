@@ -61,7 +61,7 @@ function Navigation({menu}) {
                         </li> :
                         <ul className={styles.li} key={i}>
                             {punkt.dropdownLinks.map((dropdown, i) => (
-                                <li key={i}><Link href={dropdown.scrollToSection ? `/${dropdown.adresse}#${dropdown.scrollToSection.id}` : `/${dropdown.adresse}`}>{dropdown.titel}</Link></li>
+                                <li key={i}><Link href={dropdown.scrollToSection ? `/${dropdown.adresse}#${dropdown.scrollToSection.id}` : dropdown.params ? `/${dropdown.adresse}${dropdown.params}` : `/${dropdown.adresse}`}>{dropdown.titel}</Link></li>
                             ))}
                         </ul>
                     }
@@ -127,7 +127,7 @@ export default function Footer({menu, theme}) {
     return (
         <>
             <footer className={`
-                ${theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'curry' ? `${styles.curry}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
                 ${styles.main}
                 `}>
                 <div className={styles.inner}>
@@ -138,7 +138,7 @@ export default function Footer({menu, theme}) {
                         {isDevelopment ? <Logo/> : <Logo/>}
                         <div className={styles.bar}>
                             <Navigation menu={menu}/>
-                            {/* <Address/> */}
+                            <Address/>
                         </div>
                     </div>
                     <div className={styles.bottom}>

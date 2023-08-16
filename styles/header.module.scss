@@ -50,7 +50,7 @@
 }
 
 .light .logo {
-  color: var(--main);
+  color: var(--orange);
 }
 
 .dark .logo {
@@ -58,27 +58,35 @@
 }
 
 .blue .logo {
-  color: var(--turkis);
+  color: var(--pink);
 }
 
 .grey .logo {
-  color: var(--brown)
+  color: var(--strong-blue)
+}
+
+.pink .logo {
+  color: var(--strong-blue)
 }
 
 .turquoise .logo {
-  color: var(--brown);
+  color: var(--purple);
 }
 
 .green .logo {
-  color: var(--curry)
+  color: var(--greenLight)
 }
 
 .sand .logo {
-  color: var(--linkBlue);
+  color: var(--green);
 }
 
 .curry .logo {
   color: var(--green)
+}
+
+.sky .logo {
+  color: var(--faded-blue);
 }
 
 @media (max-width: $m) {

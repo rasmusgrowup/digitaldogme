@@ -23,6 +23,7 @@ import Head from "next/head";
 export default function Case({data, menu}) {
     const [loaded, setLoaded] = useState(false)
     const router = useRouter()
+    let theme = 'sky';
 
     useEffect(() => {
         setLoaded(true)
@@ -35,7 +36,7 @@ export default function Case({data, menu}) {
     return (
         <>
             {data &&
-                <Layout menu={menu} hasHero='true' key={data.id} theme={'light'}>
+                <Layout menu={menu} hasHero='true' key={data.id} theme={theme}>
                     <Head>
                         <meta name="description" content={data.case.resume} key='description'/>
                         <meta name="og:title" content={data.case.titel} key='title'/>
@@ -50,7 +51,7 @@ export default function Case({data, menu}) {
                         overskrift={data.case.titel}
                         tekst={data.case.resume}
                         alt={data.case.billede.alt}
-                        theme={'light'}
+                        theme={theme}
                     />
                     <section className={styles.richWrapper}>
                         <div className={styles.info}>

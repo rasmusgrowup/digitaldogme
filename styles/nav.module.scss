@@ -122,16 +122,29 @@
   }
 }
 
-.light {
-  color: var(--main);
+.sky {
+  color: var(--faded-blue);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--main);
+    border-color: var(--faded-blue);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--main);
+    border-bottom: 1px solid var(--faded-blue);
+  }
+}
+
+.light {
+  color: var(--orange);
+
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--orange);
+  }
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--orange);
   }
 }
 
@@ -149,67 +162,80 @@
 }
 
 .grey {
-  color: var(--brown);
+  color: var(--strong-blue);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--brown);
+    border-color: var(--strong-blue);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--brown);
+    border-bottom: 1px solid var(--strong-blue);
+  }
+}
+
+.pink {
+  color: var(--strong-blue);
+
+  .li .active span,
+  .li a:hover span {
+    border-color: var(--strong-blue);
+  }
+
+  .buttonWrapper .cta {
+    border-bottom: 1px solid var(--strong-blue);
   }
 }
 
 .blue {
-  color: var(--turkis);
+  color: var(--pink);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--turkis);
+    border-color: var(--pink);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--turkis);
+    border-bottom: 1px solid var(--pink);
   }
 }
 
 .turquoise {
-  color: var(--brown);
+  color: var(--purple);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--brown);
+    border-color: var(--purple);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--brown);
+    border-bottom: 1px solid var(--purple);
   }
 }
 
 .green {
-  color: var(--curry);
+  color: var(--greenLight);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--curry);
+    border-color: var(--greenLight);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--curry);
+    border-bottom: 1px solid var(--greenLight);
   }
 }
 
 .sand {
-  color: var(--linkBlue);
+  color: var(--green);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--linkBlue);
+    border-color: var(--green);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--linkBlue);
+    border-bottom: 1px solid var(--green);
   }
 }
 
@@ -262,20 +288,28 @@
     z-index: 1;
   }
 
+  .sky.menuButton {
+    color: var(--faded-blue)
+  }
+
   .green.menuButton {
-    color: var(--curry)
+    color: var(--greenLight)
   }
 
   .turquoise.menuButton {
-    color: var(--brown)
+    color: var(--purple)
   }
 
   .grey.menuButton {
-    color: var(--brown)
+    color: var(--strong-blue)
+  }
+
+  .pink.menuButton {
+    color: var(--strong-blue)
   }
 
   .sand.menuButton {
-    color: var(--linkBlue)
+    color: var(--green)
   }
 
   .curry.menuButton {
@@ -283,7 +317,7 @@
   }
 
   .light.menuButton {
-    color: var(--blue)
+    color: var(--orange)
   }
 
   .dark.menuButton {
