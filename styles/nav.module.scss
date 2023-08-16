@@ -188,15 +188,15 @@
 }
 
 .blue {
-  color: var(--pink);
+  color: var(--weak-blue);
 
   .li .active span,
   .li a:hover span {
-    border-color: var(--pink);
+    border-color: var(--weak-blue);
   }
 
   .buttonWrapper .cta {
-    border-bottom: 1px solid var(--pink);
+    border-bottom: 1px solid var(--weak-blue);
   }
 }
 
@@ -318,6 +318,10 @@
 
   .light.menuButton {
     color: var(--orange)
+  }
+
+  .blue.menuButton {
+    color: var(--weak-blue)
   }
 
   .dark.menuButton {
