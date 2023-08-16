@@ -12,15 +12,15 @@ export default function FullHero({height, tekst, url, overskrift, alt}) {
             <section className={styles.fullHero}>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
-                        <motion.h1 className={styles.h1} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.5 }}>
+                        <motion.h1 className={styles.h1} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 1 }}>
                             {overskrift}
                         </motion.h1>
-                        <motion.div className={styles.column} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.66 }}>
+                        <motion.div className={styles.column} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 1.15 }}>
                             <p className={styles.p}>{tekst}</p>
                         </motion.div>
                     </div>
                 </div>
-                <motion.div className={styles.image} initial={{opacity: 0}} animate={{opacity: 1}} transition={{ delay: 0.25 }}>
+                <motion.div className={styles.image} initial={{opacity: 0}} animate={{opacity: 1}} transition={{ delay: 0.8 }}>
                     <Image
                         src={url}
                         layout='fill'

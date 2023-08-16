@@ -18,10 +18,10 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta, l
                 `}>
                 <div className={styles.content}>
                     <div className={styles.wrapper}>
-                        <motion.h1 initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.25 }} className={styles.h1}>
+                        <motion.h1 initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.75 }} className={styles.h1}>
                             {overskrift}
                         </motion.h1>
-                        <motion.div className={styles.column} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.36 }}>
+                        <motion.div className={styles.column} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.9 }}>
                             <p className={styles.p}>{tekst}</p>
                             { cta &&
                                 <div className={styles.cta}>
@@ -31,7 +31,7 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta, l
                         </motion.div>
                     </div>
                 </div>
-                <motion.div className={styles.image} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.4 }}>
+                <motion.div className={styles.image} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 1 }}>
                     {layout === 'childPage' || !height ?
                         <Image
                             src={url}
