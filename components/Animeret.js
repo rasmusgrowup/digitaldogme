@@ -29,7 +29,7 @@ const items = {
     visible: {
         y: 0,
         transition: {
-            duration: 2.5,
+            duration: 3,
             ease: [0.22, 1, 0.36, 1]
         }
     }
@@ -57,7 +57,7 @@ function NumberArrayMapping({ item }) {
             whileInView="visible"
             variants={variants}
             initial="hidden"
-            viewport={{ once: true, amount: "all" }}
+            viewport={{ once: true }}
         >
             {formattedNumber.split('').map((digit, index) => (
                 <motion.span className={styles.digit} variants={items} key={index}>

@@ -106,6 +106,8 @@
     font-weight: 600;
     margin: 0;
     width: 50%;
+    //word-break: break-all;
+    hyphens: manual;
     //text-transform: uppercase;
 
     @media (max-width: $m) {
