@@ -1,7 +1,7 @@
 // Default imports
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
-import WhiteLogo from '/public/AltLogo_White_linkBlue.png'
+import WhiteLogo from '/public/AltLogo_White.png'
 import DarkLogo from '/public/AltLogo_Dark_red.png'
 
 // SCSS Styling
@@ -20,9 +20,7 @@ const itStyle = {
 
 function Digital() {
     return (
-        <span className={styles.digital}>
-      Dig<span style={itStyle}>it</span>al<br/>
-    </span>
+        <span className={styles.digital}>Digital<br/></span>
     )
 }
 
@@ -70,8 +68,8 @@ function AltLogo({scrolling}) {
 
     return (
         <div className={styles.altLogo} onClick={click}>
-            {!scrolling && !toggle ? <Image src={WhiteLogo}/> : toggle ? <Image src={WhiteLogo}/> :
-                <Image src={WhiteLogo}/>}
+            {!scrolling && !toggle ? <Image src={WhiteLogo}/> : toggle ? <Image src={DarkLogo}/> :
+                <Image src={DarkLogo}/>}
         </div>
     )
 }
@@ -120,7 +118,7 @@ export default function Header({ hasHero, menu, theme }) {
                 ${styles.header} ${navClassList.join(' ')}
                 `}>
                 <div className={styles.inner}>
-                    { isDevelopment ? <Logo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
+                    { isDevelopment ? <AltLogo scrolling={scrolling}/> : <Logo scrolling={scrolling}/>}
                     <Navigation menu={menu} scrolling={scrolling} theme={theme}/>
                 </div>
             </header>
