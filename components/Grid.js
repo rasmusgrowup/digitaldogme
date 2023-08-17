@@ -60,7 +60,7 @@ export default function Grid({props, index, shouldHaveLine}) {
                             }
                         </div>
                     </header>
-                    <div className={props.stretchColumns ? `${styles.columns} ${styles.stretch}` : `${styles.columns}`}>
+                    {props.columns.length > 0 && <div className={props.stretchColumns ? `${styles.columns} ${styles.stretch}` : `${styles.columns}`}>
                         {props.columns && props.columns.map((column, i) => (
                             <div key={i} className={
                                 props.columns.length === 1 || !column.columnImage ? `${styles.column} ${styles.singleColumn}` : `${styles.column}`
@@ -103,7 +103,7 @@ export default function Grid({props, index, shouldHaveLine}) {
                                 }
                             </div>
                         ))}
-                    </div>
+                    </div>}
                 </div>
             </section>
         </>

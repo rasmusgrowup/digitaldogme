@@ -14,6 +14,7 @@ import {
 import Layout from "../../components/Layout";
 import {useState} from "react";
 import Head from "next/head";
+import Blocks from "../../components/Blocks";
 
 export default function Cases({cases, hero, publikationer, types, menu, side}) {
     const updatedCases = cases.map(item => ({
@@ -42,7 +43,8 @@ export default function Cases({cases, hero, publikationer, types, menu, side}) {
                 alt={hero.topSektion.billede.alt}
                 theme={theme}
             />
-            <Udgivelser arr={sortedArray} types={types}/>
+            <Udgivelser arr={sortedArray} types={types} shouldHaveLine={side.blokke}/>
+            {side.blokke && <Blocks blokke={side.blokke}/>}
         </Layout>
     )
 }
