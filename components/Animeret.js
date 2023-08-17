@@ -74,12 +74,12 @@ function NumberArrayMapping({ item }) {
 }
 
 
-export default function Animeret({arr, index}) {
+export default function Animeret({arr, index, shouldHaveLine}) {
     return (
         <>
             <section className={styles.section}>
                 <div className={styles.inner}
-                     style={index === 0 ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+                     style={index === 0 || !shouldHaveLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
                     <div className={styles.column}>
                         <div className={styles.innerColumn}>
                             <h2 className={styles.h2}>

@@ -16,7 +16,7 @@ import BackgroundSection from "./BackgroundSection";
 import TaskForce from "./TaskForce";
 
 export default function Blocks({blokke, withHero, theme}) {
-    
+
     return (
         <>
             <div className={styles.content}>
@@ -36,17 +36,17 @@ export default function Blocks({blokke, withHero, theme}) {
 
                     switch (blok.__typename) {
                         case 'Sektion':
-                            return <Sektion arr={blok} key={blok.id} index={i}/>
+                            return <Sektion arr={blok} key={blok.id} index={i} shouldHaveLine={shouldHaveLine}/>
                         case 'Animeret':
-                            return <Animeret arr={blok} key={blok.id} index={i}/>
+                            return <Animeret arr={blok} key={blok.id} index={i} shouldHaveLine={shouldHaveLine}/>
                         case 'Partner':
-                            return <Partners arr={blok} index={i} key={blok.id}/>
+                            return <Partners arr={blok} index={i} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'Karussel':
-                            return <Karussel arr={blok} key={blok.id}/>
+                            return <Karussel arr={blok} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'Team':
-                            return <Team arr={blok} key={blok.id}/>
+                            return <Team arr={blok} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'USP':
-                            return <Usp arr={blok} key={blok.id}/>
+                            return <Usp arr={blok} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'Grid':
                             return <Grid props={blok} index={i} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'Section':
@@ -54,11 +54,11 @@ export default function Blocks({blokke, withHero, theme}) {
                         case 'Testimonial':
                             return <Testimonial section={blok} index={i} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'CallToAction':
-                            return <CallToAction section={blok} index={i} key={blok.id}/>
+                            return <CallToAction section={blok} index={i} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'BackgroundSection':
-                            return <BackgroundSection section={blok} index={i} key={blok.id}/>
+                            return <BackgroundSection section={blok} index={i} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         case 'TaskForce':
-                            return <TaskForce section={blok} theme={theme} index={i} key={blok.id}/>
+                            return <TaskForce section={blok} theme={theme} index={i} key={blok.id} shouldHaveLine={shouldHaveLine}/>
                         default:
                             return <></>
                     }

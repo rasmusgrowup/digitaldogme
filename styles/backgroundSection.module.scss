@@ -5,11 +5,12 @@
   background-size: cover;
   height: 50vw;
   margin: 1.6rem;
+  margin: 1.6rem 0 0;
   position: relative;
 
   @media (max-width: $m) {
     height: 90vh;
-    margin: 0;
+    //margin: 0;
   }
 
   &:after {

@@ -9,14 +9,14 @@ import styles from '../styles/partners.module.scss'
 // Feather icons
 import FeatherIcon from 'feather-icons-react';
 
-export default function Partners({arr, index}) {
+export default function Partners({arr, index, shouldHaveLine}) {
     const router = useRouter()
 
     return (
         <>
             <section className={styles.section}>
                 <header className={styles.header}
-                        style={index === 0 ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+                        style={index === 0 || !shouldHaveLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
                     <h2 className={styles.h2}>{arr.overskrift}</h2>
                     <div className={styles.column}>
                         <div className={styles.p} dangerouslySetInnerHTML={{__html: `${arr.tekstPartner.html}`}}/>
