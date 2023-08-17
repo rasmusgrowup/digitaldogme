@@ -38,7 +38,6 @@ export default function Section({section, topSection, index, shouldHaveLine}) {
     const lightTheme = !section.sectionTheme === 'blue' || !section.sectionTheme === 'dark';
     let theme = section.sectionTheme ? section.sectionTheme.toLowerCase() : ''
     const endsWithDot = section.sectionHeader.heading;
-    console.log('Section ' + index + ' should have line: ' + shouldHaveLine)
 
     return (
         <section className={`

@@ -37,7 +37,6 @@ function Heading({overskrift, lightTheme, index}) {
 export default function Grid({props, index, shouldHaveLine}) {
     const lightTheme = !props.gridTheme === 'blue' || !props.gridTheme === 'dark';
     let theme = props.gridTheme ? props.gridTheme.toLowerCase() : ''
-    console.log('Grid ' + index + ' should have line: ' + shouldHaveLine)
 
     return (
         <>
