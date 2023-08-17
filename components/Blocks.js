@@ -16,6 +16,7 @@ import BackgroundSection from "./BackgroundSection";
 import TaskForce from "./TaskForce";
 
 export default function Blocks({blokke, withHero, theme}) {
+    
     return (
         <>
             <div className={styles.content}>
