@@ -32,7 +32,6 @@ export default function Blocks({blokke, withHero, theme}) {
                     } else {
                         shouldHaveLine = true;
                     }
-                    
 
                     switch (blok.__typename) {
                         case 'Sektion':
