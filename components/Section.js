@@ -82,7 +82,9 @@ export default function Section({section, topSection, index, shouldHaveLine}) {
                 </header>
             }
             { section.blocks && section.blocks.__typename === 'Karussel' && <Karussel arr={section.blocks} /> }
-            { section.blocks && section.blocks.__typename === 'Row' && <Row row={section.blocks} /> }
+            { section.rows && section.rows.map((row, i) => (
+                <Row row={row} key={row.id}/>
+            ))}
         </section>
     )
 }

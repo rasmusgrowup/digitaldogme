@@ -16,17 +16,13 @@ const itStyle = {
 
 function Digital() {
     return (
-        <span className={styles.digital}>
-      Dig<span style={itStyle}>it</span>al<br/>
-    </span>
+        <span className={styles.digital}>Digital<br/></span>
     )
 }
 
 function Dogme() {
     return (
-        <span className={styles.dogme}>
-      Dogme
-    </span>
+        <span className={styles.dogme}>Dogme</span>
     )
 }
 

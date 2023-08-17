@@ -1,33 +1,45 @@
 @import "core";
 
 .row {
+  display: flex;
   //border-top: 1px solid var(--grey);
   //margin-top: 2rem;
+  justify-content: space-between;
   margin-bottom: 2rem;
   padding-top: 2rem;
   width: 100%;
+
+  @media (max-width: $m) {
+    display: block;
+  }
 
   .items {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem 4rem;
-    padding-top: 1rem;
+    width: 75%;
+    //padding-top: 1rem;
+
+    @media (max-width: $m) {
+      width: 100%;
+    }
 
     .item {
-      //flex: 1;
-      width: 20%;
+      flex: 1;
     }
   }
 }
 
 .h3 {
   border-bottom: 1px solid var(--black);
-  font-size: 1.33em;
+  font-size: 1.5em;
+  margin: 0;
   width: fit-content;
 }
 
 .h4 {
   font-size: 1.33em;
+  margin: 0;
 }
 
 .p {
@@ -38,7 +50,7 @@
   &:before {
     color: var(--red);
     display: block;
-    content: '—';
+    //content: '—';
     margin-right: 0.5rem;
   }
 }
