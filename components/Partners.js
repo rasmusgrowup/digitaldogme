@@ -19,7 +19,7 @@ export default function Partners({arr, index, shouldHaveLine}) {
                         style={index === 0 || !shouldHaveLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
                     <h2 className={styles.h2}>{arr.overskrift}</h2>
                     <div className={styles.column}>
-                        <div className={styles.p} dangerouslySetInnerHTML={{__html: `${arr.tekstPartner.html}`}}/>
+                        {arr.tekstPartner && <div className={styles.p} dangerouslySetInnerHTML={{__html: `${arr.tekstPartner.html}`}}/>}
                         {arr.callToAction &&
                             <Link href={arr.callToAction.link}>
                                 <a className={styles.link}>{arr.callToAction.label}</a>
