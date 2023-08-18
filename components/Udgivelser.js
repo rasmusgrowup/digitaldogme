@@ -94,12 +94,12 @@ export default function Publikationer({ arr, types }) {
                         />
                       </div>
                       <h3 className={styles.titel}>{publikation.titel}</h3>
-                      {/* <p className={styles.resume}>{publikation.resume}</p> */}
                       <span className={styles.dato}>
                         <Moment locale='da' format='ll'>
                             {publikation.dato.toString()}
                         </Moment>
                       </span>
+                      <span>- {publikation.kategori}</span>
                     </a>
                   </Link>
                 </div>

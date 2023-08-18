@@ -23,7 +23,6 @@ export async function getStaticProps() {
 export default function Home({side, menu}) {
     let theme = side.colorTheme && side.colorTheme.toLowerCase() || 'dark';
 
-
     return (
         <Layout preview={'undefined'} menu={menu} hasHero='true' theme={theme}>
             <Head>

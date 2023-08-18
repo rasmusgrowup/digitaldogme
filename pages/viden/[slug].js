@@ -18,47 +18,25 @@ import {motion} from 'framer-motion';
 
 //GraphCMS
 import {GraphQLClient, gql} from 'graphql-request';
-import {getMenu} from "../../lib/hygraph";
+import {getCaseBySlug, getLatestCases, getLatestPublications, getMenu, getPublicationBySlug} from "../../lib/hygraph";
 import Layout from "../../components/Layout";
 import {useRouter} from "next/router";
 import Head from "next/head";
+import Karussel from "../../components/Karussel";
+import React, {useState} from "react";
 
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({params}) {
-    const {publikation} = await graphcms.request(`
-    query publikation($slug: String!) {
-      publikation(
-        where: {slug: $slug}
-        ) {
-        id
-        slug
-        titel
-        resume
-        billede {
-          alt
-          url
-        }
-        dato
-        indhold {
-          html
-        }
-        kategori
-        pdf {
-          url
-          fileName
-        }
-      }
-    }
-  `, {
-        slug: params.slug
-    });
+    const {publikation} = await getPublicationBySlug(params.slug)
     const menu = await getMenu("dev")
+    const latestPublications = (await getLatestPublications(params.slug)) || []
 
     return {
         props: {
             publikation,
-            menu
+            menu,
+            latestPublications
         }
     }
 }
@@ -80,8 +58,18 @@ export async function getStaticPaths() {
     }
 }
 
-export default function Publikation({publikation, menu}) {
+export default function Publikation({publikation, menu, latestPublications}) {
     const router = useRouter();
+    let items = latestPublications
+    if (latestPublications) {
+        items = items.map((item) => ({
+            ...item,
+            __typename: 'Publikation',
+        }));
+    }
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [arr, setArr] = useState({items})
+    let theme = 'light'
 
     return (
         <Layout menu={menu} hasHero='true' key={publikation.id} theme={'light'}>
@@ -99,27 +87,15 @@ export default function Publikation({publikation, menu}) {
                 overskrift={publikation.titel}
                 tekst={publikation.resume}
                 alt={publikation.billede.alt}
-                theme={'light'}
+                theme={theme}
                 cta={publikation.pdf[0]}
             />
             <section className={styles.richWrapper}>
-                <div className={styles.info}>
-                    <span className={styles.tilbage} onClick={router.back}>
-                        Tilbage til oversigten
-                    </span>
-                    <Moment locale='da' format='ll'>
-                        {publikation.dato.toString()}
-                    </Moment>
-                </div>
                 <div className={styles.richInner}>
                     <h2>
                         {publikation.resume}
                     </h2>
-                    <div
-                        className={styles.rich}
-                        dangerouslySetInnerHTML={{__html: `${publikation.indhold.html}`}}
-                    >
-                    </div>
+                    <div className={styles.rich} dangerouslySetInnerHTML={{__html: `${publikation.indhold.html}`}}></div>
                     {publikation.pdf.map((pdf, i) => (
                         <Link href={pdf.url} passHref key={i}>
                             <a target='_blank'>
@@ -132,7 +108,22 @@ export default function Publikation({publikation, menu}) {
                         </Link>
                     ))}
                 </div>
+                <div className={`
+                    ${styles.info}
+                    ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                    `}>
+                    <p><strong>Udgivelsesdato</strong></p>
+                    <p><Moment locale='da' format='ll'>{publikation.dato.toString()}</Moment></p>
+                    {publikation.cases.length > 0 && <p><strong>Tilhørende cases</strong></p>}
+                    {publikation.cases.map((o, i) => (
+                        <Link key={i} href={`/${o.slug}`}><a className={styles.link}>{o.titel}<FeatherIcon icon={'arrow-up-right'} strokeWidth={'1.5'} size={'14'}/></a></Link>
+                    ))}
+                </div>
             </section>
+            <div className={styles.latest}>
+                <h4>Andre udgivelser</h4>
+                {latestPublications && <Karussel arr={arr}/>}
+            </div>
         </Layout>
     )
 }

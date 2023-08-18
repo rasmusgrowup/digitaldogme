@@ -5,7 +5,6 @@ import Image from "next/image";
 
 export default function TaskForce({section, theme, index}) {
     let currentYear = new Date().getFullYear();
-    console.log(section.events)
     return (
         <section className={styles.section}>
             <div className={styles.inner}>

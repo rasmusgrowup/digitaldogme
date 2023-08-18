@@ -1,7 +1,7 @@
 // Default imports
 import Image from "next/image"
 import Link from "next/link"
-import {useState} from 'react'
+import React, {useState} from 'react'
 import Moment from 'react-moment'
 import 'moment/locale/da';
 
@@ -37,17 +37,19 @@ export default function Events({arr, types}) {
                                         kategori.name === 'Network' ?
                                             'Netværk' :
                                             kategori.name === 'Konference' ?
-                                                'Konferencer' :
-                                                kategori.name === 'Medlemsevent' ?
-                                                    'Medlemsevents' : null
+                                                'Konferencer' : null
                                 }
                                 {` `}{count[kategori.name] && <sup>({count[kategori.name]})</sup>}
                             </button>
                         ))}
                     </div>
                     <div className={styles.grid}>
-                        {arr.map((event, i) => (
-                            <div className={`${styles.event} ${filter === kategorier || event.type === filter ? `${styles.show}` : `${styles.hide}`}`} key={i}>
+                        {arr.map((event, i) => {
+                            const location = event.lokation ? event.lokation : '';
+                            const [firstPartOfLocation] = location.split(',')
+                            return <div
+                                className={`${styles.event} ${filter === kategorier || event.type === filter ? `${styles.show}` : `${styles.hide}`}`}
+                                key={i}>
                                 <Link href={`/events/${event.slug}`} passHref>
                                     <a>
                                         <div className={styles.wrapper}>
@@ -64,11 +66,19 @@ export default function Events({arr, types}) {
                                         </div>
                                         <h3 className={styles.titel}>{event.titel}</h3>
                                         <span className={styles.dato}><Moment locale='da' format='ll'>{event.dato.toString()}</Moment></span>
-                                        { /* <p className={styles.resume}>{event.resume}</p> */}
+                                        <span>- {firstPartOfLocation.trim()}</span>
+                                        <div>{
+                                            event.type === 'Workshop' ?
+                                                'Workshop' :
+                                                event.type === 'Network' ?
+                                                    'Netværk' :
+                                                    event.type === 'Konference' ?
+                                                        'Konference' : null
+                                        }</div>
                                     </a>
                                 </Link>
                             </div>
-                        ))}
+                        })}
                     </div>
                 </div>
             </section>

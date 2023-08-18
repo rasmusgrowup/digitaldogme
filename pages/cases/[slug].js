@@ -15,15 +15,25 @@ import FeatherIcon from 'feather-icons-react';
 import styles from '../../styles/publikationer.module.scss'
 
 //Hygraph
-import {getCaseBySlug, getAllCasesWithSlug, getMenu} from "../../lib/hygraph";
+import {getCaseBySlug, getAllCasesWithSlug, getMenu, getLatestEvents, getLatestCases} from "../../lib/hygraph";
 import {useRouter} from "next/router";
 import Layout from "../../components/Layout";
 import Head from "next/head";
+import Karussel from "../../components/Karussel";
 
-export default function Case({data, menu}) {
+export default function Case({data, menu, latestCases}) {
     const [loaded, setLoaded] = useState(false)
     const router = useRouter()
     let theme = 'sky';
+    let items = latestCases
+    if (latestCases) {
+        items = items.map((item) => ({
+            ...item,
+            __typename: 'Case',
+        }));
+    }
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [arr, setArr] = useState({items})
 
     useEffect(() => {
         setLoaded(true)
@@ -54,14 +64,6 @@ export default function Case({data, menu}) {
                         theme={theme}
                     />
                     <section className={styles.richWrapper}>
-                        <div className={styles.info}>
-                        <span className={styles.tilbage} onClick={router.back}>
-                            Tilbage til oversigten
-                        </span>
-                            <Moment locale='da' format='ll'>
-                                {data.case.dato.toString()}
-                            </Moment>
-                        </div>
                         <div className={styles.richInner}>
                             <h2 className={styles.h2}>
                                 {data.case.resume}
@@ -71,30 +73,48 @@ export default function Case({data, menu}) {
                                 dangerouslySetInnerHTML={{__html: `${data.case.indhold.html}`}}
                             >
                             </div>
+                        </div>
+                        <div className={`
+                            ${styles.info}
+                            ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                            `}>
+                            {/* <p><strong>Tematikker</strong></p>
+                            <p>Opkvalificering, digitalisering</p> */}
+                            <p><strong>Udgivelsesdato</strong></p>
+                            <p><Moment locale='da' format='ll'>{data.case.dato.toString()}</Moment></p>
+                            {data.case.originates.length > 0 && <p><strong>Udgivelsespapir</strong></p>}
+                            {data.case.originates && data.case.originates.map((o, i) => (
+                                <Link key={i} href={`/${o.slug}`}><a className={styles.link}>{o.titel}<FeatherIcon icon={'arrow-up-right'} strokeWidth={'1.5'} size={'14'}/></a></Link>
+                            ))}
                             {data.case.faktabox &&
                                 <div className={styles.factWrapper}>
-                                    <h3>{data.case.faktabox.titel}</h3>
+                                    <p><strong>{data.case.faktabox.titel}</strong></p>
                                     {loaded &&
                                         <div dangerouslySetInnerHTML={{__html: `${data.case.faktabox.tekst.html}`}}/>}
                                 </div>
                             }
                         </div>
                     </section>
+                    <div className={styles.latest}>
+                        <h4>Andre casehistorier</h4>
+                        {latestCases && <Karussel arr={arr}/>}
+                    </div>
                 </Layout>
             }
         </>
     )
 }
 
-export async function getStaticProps({params, preview = false}) {
-    const data = await getCaseBySlug(params.slug, preview)
+export async function getStaticProps({params}) {
+    const data = await getCaseBySlug(params.slug)
     const menu = await getMenu("dev")
+    const latestCases = (await getLatestCases(params.slug)) || []
 
     return {
         props: {
-            preview,
             data,
-            menu
+            menu,
+            latestCases
         },
     }
 }

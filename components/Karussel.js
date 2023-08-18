@@ -20,7 +20,7 @@ export default function Karussel({arr}) {
                         <Link href={
                             item.__typename === "Publikation" ? `${`/viden/${item.slug}`}` :
                             item.__typename === "Case" ? `${`/cases/${item.slug}`}` :
-                            item.__typename === "Event" ? `${`/events/${item.slug}`}` : null
+                            item.__typename === "Event" ? `${`/events/${item.slug}`}` : '/'
                         }
                               passHref>
                             <a>

@@ -18,70 +18,23 @@ import styles from '../../styles/publikationer.module.scss'
 import {GraphQLClient, gql} from 'graphql-request';
 import {motion} from "framer-motion";
 import Layout from "../../components/Layout";
-import {getMenu} from "../../lib/hygraph";
+import {getEventBySlug, getLatestEvents, getMenu} from "../../lib/hygraph";
 import Head from "next/head";
+import Karussel from "../../components/Karussel";
+import React, {useState} from "react";
 
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({params}) {
-    const {event} = await graphcms.request(`
-    query event($slug: String!) {
-      event(where: {slug: $slug}) {
-        id
-        slug
-        titel
-        resume
-        lokation
-        billede {
-          alt
-          url
-        }
-        dato
-        tidspunktStart
-        tidspunktSlut
-        beskrivelse {
-          html
-        }
-        type
-        attachedMedia {
-          url
-          fileName
-        }
-        sektioner {
-          id
-          billede {
-            alt
-            caption
-            id
-            url
-            width
-            height
-          }
-          maxBredde
-          baggrundsfarve
-          align
-          titel
-          tekst {
-            html
-          }
-          cta {
-            id
-            ikon
-            label
-            link
-          }
-        }
-      }
-    }
-  `, {
-        slug: params.slug
-    });
+    const {event} = await getEventBySlug(params.slug)
     const menu = await getMenu("dev")
+    const latestEvents = (await getLatestEvents(params.slug)) || []
 
     return {
         props: {
             event,
-            menu
+            menu,
+            latestEvents
         }
     }
 }
@@ -103,8 +56,17 @@ export async function getStaticPaths() {
     }
 }
 
-export default function event({event, menu}) {
+export default function event({event, menu, latestEvents}) {
     let theme = 'curry'
+    let items = latestEvents
+    if (latestEvents) {
+        items = items.map((item) => ({
+            ...item,
+            __typename: 'Event',
+        }));
+    }
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [arr, setArr] = useState({items})
 
     return (
         <Layout menu={menu} hasHero='true' key={event.id} theme={theme}>
@@ -126,29 +88,6 @@ export default function event({event, menu}) {
             />
             <section className={styles.richWrapper}>
                 <div className={styles.richInner}>
-                    <div className={styles.info}>
-                        {/*<div className={styles.tilbage}>
-              <Link href='/events'>
-                <a>
-                  <FeatherIcon
-                      className={styles.ikon}
-                      icon='chevron-left'
-                      size={10} style={{ color: 'red' }} />
-                  Tilbage til events
-                </a>
-              </Link>
-            </div> */}
-                        <div>
-                            <Moment locale='da' format='ll'>
-                                {event.dato.toString()}
-                            </Moment>
-                            {', '}{event.tidspunktSlut
-                            ? <>{event.tidspunktStart}-{event.tidspunktSlut}</>
-                            : <>{event.tidspunktStart}</>
-                        }
-                        </div>
-                        <span>{event.lokation}</span>
-                    </div>
                     <h2>
                         {event.resume}
                     </h2>
@@ -171,7 +110,25 @@ export default function event({event, menu}) {
                         </Link>
                     }
                 </div>
+                <div className={`
+                    ${styles.info}
+                    ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
+                    `}>
+                    {/* <p><strong>Tematikker</strong></p>
+                    <p>Opkvalificering, digitalisering</p> */}
+                    <p><strong>Tidspunkt</strong></p>
+                    <p>
+                        <Moment locale='da' format='ll'>{event.dato.toString()}</Moment>
+                        {', '}{event.tidspunktSlut ? <>{event.tidspunktStart}-{event.tidspunktSlut}</> : <>{event.tidspunktStart}</>}
+                    </p>
+                    <p><strong>Lokation</strong></p>
+                    <p>{event.lokation}</p>
+                </div>
             </section>
+            <div className={styles.latest}>
+                <h4>Andre events</h4>
+                {latestEvents && <Karussel arr={arr}/>}
+            </div>
             {event.sektioner.map((sektion, i) => (
                 <Sektion arr={sektion} key={i}/>
             ))}

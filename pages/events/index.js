@@ -5,7 +5,7 @@ import Events from '../../components/Events'
 //GraphCMS
 import {GraphQLClient, gql} from 'graphql-request';
 import Layout from "../../components/Layout";
-import {getMenu, getPage} from "../../lib/hygraph";
+import {getAllCases, getAllEvents, getAllEventTypes, getAllPublicationTypes, getMenu, getPage} from "../../lib/hygraph";
 import Head from "next/head";
 import Blocks from "../../components/Blocks";
 
@@ -13,35 +13,8 @@ const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps() {
     const side = await getPage("events");
-    const {events, __type} = await graphcms.request(`
-    query viden {
-      events(orderBy: dato_DESC) {
-        id
-        billede {
-          id
-          height
-          url
-          width
-        }
-        type
-        dato
-        tidspunktStart
-        tidspunktSlut
-        titel
-        resume
-        lokation
-        beskrivelse {
-          html
-        }
-        slug
-      }
-      __type(name: "Eventtype") {
-        enumValues {
-          name
-        }
-      }
-    }
-  `);
+    const events = (await getAllEvents()) || []
+    const __type = (await getAllEventTypes()) || []
     const menu = await getMenu("dev")
 
     return {
