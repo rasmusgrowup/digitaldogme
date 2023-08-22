@@ -131,6 +131,17 @@
   }
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  .columnCaption {
+    min-height: 48px;
+  }
+}
+
 .column.singleColumn {
   grid-column-end: span 1;
 }
@@ -149,11 +160,16 @@
   margin-top: 4px;
 }
 
-.columnText {
+.columnText,
+.richText p {
   margin-top: 0;
   word-break: break-word;
   hyphens: auto;
   white-space: pre-wrap;
+}
+
+.richText ul {
+  padding: 1.2em;
 }
 
 .headerColumn .link {

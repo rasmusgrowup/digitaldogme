@@ -65,42 +65,48 @@ export default function Grid({props, index, shouldHaveLine}) {
                             <div key={i} className={
                                 props.columns.length === 1 || !column.columnImage ? `${styles.column} ${styles.singleColumn}` : `${styles.column}`
                             }>
-                                {column.columnImage &&
-                                    <div className={styles.imageContainer}
-                                                                style={column.columnImage && column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
-                                        <Image
-                                            src={column.columnImage.url}
-                                            alt={column.columnImage.alt}
-                                            height={ column.keepAspectRatio ? column.columnImage.height : '400'}
-                                            width={ column.keepAspectRatio ? column.columnImage.width :'400'}
-                                            objectFit='cover'
-                                            objectPosition='top'
-                                            quality='100'
-                                        />
-                                    </div>
-                                }
-                                {column.title && <h3 className={styles.columnTitle}>{column.title}</h3>}
-                                {column.columnText && <p className={styles.columnText}>{column.columnText}</p>}
-                                {column.columnButton &&
-                                    <>
-                                        <Link href={column.columnButton.adresse}>
-                                            {column.columnButton.adresse.includes('https://') ?
-                                                <a target='_blank' rel="noopener noreferrer" className={styles.icon}>
-                                                    {column.columnButton.label}
-                                                    {column.columnButton.ikon &&
-                                                        <FeatherIcon icon={column.columnButton.ikon} strokeWidth={1} size={18} style={{color: 'var(--main)', marginLeft: '0.1rem'}}/>
-                                                    }
-                                                </a> :
-                                                <a className={styles.icon}>
-                                                    {column.columnButton.label}
-                                                    {column.columnButton.ikon &&
-                                                        <FeatherIcon icon={column.columnButton.ikon} strokeWidth={1} size={18} style={{color: 'var(--main)', marginLeft: '0.1rem'}}/>
-                                                    }
-                                                </a>
-                                            }
-                                        </Link>
-                                    </>
-                                }
+                                <div className={styles.columnInner}>
+                                    {column.columnImage &&
+                                        <div className={styles.imageContainer}
+                                                                    style={column.columnImage && column.columnImage.backgroundColor ? {backgroundColor: column.columnImage.backgroundColor.css} : {}}>
+                                            <Image
+                                                src={column.columnImage.url}
+                                                alt={column.columnImage.alt}
+                                                height={ column.keepAspectRatio ? column.columnImage.height : '400'}
+                                                width={ column.keepAspectRatio ? column.columnImage.width :'400'}
+                                                objectFit='cover'
+                                                objectPosition='top'
+                                                quality='100'
+                                            />
+                                        </div>
+                                    }
+                                    {column.title && <h3 className={styles.columnTitle}>{column.title}</h3>}
+                                    {/* column.columnText && <p className={styles.columnText}>{column.columnText}</p> */}
+                                    {column.columnContent &&
+                                        <div className={styles.richText} dangerouslySetInnerHTML={{__html: `${column.columnContent.html}`}}/>
+                                    }
+                                    {column.columnButton &&
+                                        <>
+                                            <Link href={column.columnButton.adresse}>
+                                                {column.columnButton.adresse.includes('https://') ?
+                                                    <a target='_blank' rel="noopener noreferrer" className={styles.icon}>
+                                                        {column.columnButton.label}
+                                                        {column.columnButton.ikon &&
+                                                            <FeatherIcon icon={column.columnButton.ikon} strokeWidth={1} size={18} style={{color: 'var(--main)', marginLeft: '0.1rem'}}/>
+                                                        }
+                                                    </a> :
+                                                    <a className={styles.icon}>
+                                                        {column.columnButton.label}
+                                                        {column.columnButton.ikon &&
+                                                            <FeatherIcon icon={column.columnButton.ikon} strokeWidth={1} size={18} style={{color: 'var(--main)', marginLeft: '0.1rem'}}/>
+                                                        }
+                                                    </a>
+                                                }
+                                            </Link>
+                                        </>
+                                    }
+                                </div>
+                                {column.caption && <p className={styles.columnCaption}>{column.caption}</p>}
                             </div>
                         ))}
                     </div>}
