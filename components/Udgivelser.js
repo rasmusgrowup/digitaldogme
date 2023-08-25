@@ -107,7 +107,7 @@ export default function Publikationer({ arr, types }) {
           </div>
           {itemsLoaded < filteredArr.length &&
               <div className={styles.loaderBtn}>
-                <button onClick={() => setItemsLoaded(itemsLoaded + increaseBy)}>Indlæs flere</button>
+                <button onClick={() => setItemsLoaded(itemsLoaded + increaseBy)}>Vis flere <sup>({itemsLoaded}/{filteredArr.length})</sup></button>
               </div>
           }
         </div>
