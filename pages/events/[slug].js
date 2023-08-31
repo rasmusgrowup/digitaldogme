@@ -137,7 +137,7 @@ export default function event({ event }) {
             <span>{event.lokation}</span>
           </div>
           <h2>
-            {event.resume}
+            {event.titel}
           </h2>
           <div
             className={styles.rich}
