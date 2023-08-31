@@ -246,13 +246,23 @@
   }
 }
 
-.pdfLink {
+.pdfLink,
+.registerBtn {
   align-items: center;
-  background-color: var(--white);
-  border: 1px solid #ededed;
-  border-radius: 12px;
+  background-color: transparent;
+  border: 1px solid var(--main);
+  //border-radius: 12px;
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
   padding: 1rem 1.2rem;
+
+  &:hover {
+    background-color: var(--main);
+    color: var(--bg)
+  }
+}
+
+.registerBtn {
+  margin-top: 0.5rem;
 }

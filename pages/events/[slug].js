@@ -43,6 +43,7 @@ export async function getStaticProps({ params }) {
           url
           fileName
         }
+        register
         sektioner {
           id
           billede {
@@ -143,19 +144,29 @@ export default function event({ event }) {
             dangerouslySetInnerHTML={{ __html: `${event.beskrivelse.html}` }}
           >
           </div>
-          { event.attachedMedia &&
-              <Link href={event.attachedMedia.url} passHref>
-                <a target='_blank'>
-                  <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98}}
-                      className={styles.pdfLink}>
-                    <span>{event.attachedMedia.fileName}</span>
-                    <span>Læs</span>
-                  </motion.div>
-                </a>
-              </Link>
-          }
+            <div>
+              {event.attachedMedia || event.register ? <h3>Links</h3> : <></>}
+              {event.attachedMedia &&
+                  <Link href={event.attachedMedia.url} passHref>
+                    <a target='_blank'>
+                      <div className={styles.pdfLink}>
+                        <span>{event.attachedMedia.fileName}</span>
+                        <FeatherIcon icon={'arrow-up-right'} strokeWidth={'1'}/>
+                      </div>
+                    </a>
+                  </Link>
+              }
+              {event.register &&
+                <Link href={{pathname: '/events/register', query: `id=${event.id}`}}>
+                  <a>
+                    <div className={styles.registerBtn}>
+                      <span>Tilmeld dig eventet</span>
+                      <FeatherIcon icon={'arrow-up-right'} strokeWidth={'1'}/>
+                    </div>
+                  </a>
+                </Link>
+              }
+            </div>
         </div>
       </section>
       { event.sektioner.map((sektion, i) => (
