@@ -4,6 +4,7 @@ import Blocks from '../components/Blocks'
 
 //GraphCMS
 import { GraphQLClient, gql } from 'graphql-request';
+import Head from "next/head";
 const graphcms = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
 
 export async function getStaticProps({ params }) {
@@ -253,6 +254,12 @@ export default function Landingsside({ side }) {
 
   return (
     <>
+      <Head>
+        <meta property="og:image" content={`http://localhost:3000/api/og?title=${side.topSektion.overskrift}&url=${side.topSektion.billede.url}`} />
+        <meta property="og:image:type" content="image/jpg" />
+        <meta property="og:image:width" content={side.topSektion.height} />
+        <meta property="og:image:height" content={side.topSektion.width} />
+      </Head>
       <Hero
         height={side.topSektion.height}
         url={side.topSektion.billede.url}
