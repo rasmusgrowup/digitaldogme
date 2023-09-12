@@ -47,7 +47,7 @@ export default function Home({side, menu, latestCase}) {
                 layout={'childPage'}
             />
             <section style={{ padding: '5rem 1.8rem 0' }}>
-                <h1 style={{ fontSize: '4.5rem', margin: '0', maxWidth: '900px', lineHeight: '1' }}>I Digital Dogme står vi sammen om at øge digital kompetence i dansk erhvervsliv</h1>
+                <h1 style={{ fontSize: '4.5rem', margin: '0', maxWidth: '1000px', lineHeight: '1' }}>I Digital Dogme står vi sammen om at øge digital kompetence i dansk erhvervsliv</h1>
             </section>
             <Blocks blokke={side.blokke}/>
         </Layout>
