@@ -88,7 +88,7 @@ export default function Publikation({publikation, menu, latestPublications}) {
                 tekst={publikation.resume}
                 alt={publikation.billede.alt}
                 theme={theme}
-                cta={publikation.pdf[0]}
+                pdf={publikation.pdf[0]}
             />
             <section className={styles.richWrapper}>
                 <div className={styles.richInner}>

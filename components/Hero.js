@@ -7,7 +7,7 @@ import {motion} from "framer-motion";
 import styles from '../styles/hero.module.scss'
 import FeatherIcon from "feather-icons-react";
 
-export default function Hero({height, tekst, url, overskrift, alt, theme, cta, layout}) {
+export default function Hero({height, tekst, url, overskrift, alt, theme, cta, pdf, layout}) {
 
     return (
         <>
@@ -23,9 +23,13 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta, l
                         </motion.h1>
                         <motion.div className={styles.column} initial={{y: 30, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{ delay: 0.9 }}>
                             <p className={styles.p}>{tekst}</p>
-                            { cta &&
+                            { cta && cta ?
                                 <div className={styles.cta}>
-                                    <Link href={cta.url} passHref><a target={"_blank"}>Åben {`'${cta.fileName}'`} <FeatherIcon icon={'arrow-up-right'} size={16} strokeWidth={'1.5'}/></a></Link>
+                                    <Link href={cta.slug} passHref><a>Læs historien<FeatherIcon icon={'arrow-up-right'} size={16} strokeWidth={'1.5'}/></a></Link>
+                                </div>
+                              : pdf &&
+                                <div className={styles.cta}>
+                                    <Link href={pdf.url} passHref><a target={"_blank"}>Åben {`'${pdf.fileName}'`} <FeatherIcon icon={'arrow-up-right'} size={16} strokeWidth={'1.5'}/></a></Link>
                                 </div>
                             }
                         </motion.div>
@@ -35,7 +39,7 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta, l
                     {layout === 'childPage' || !height ?
                         <Image
                             src={url}
-                            height={'500'}
+                            height={'700'}
                             width={'700'}
                             objectFit={'cover'}
                             layout={'responsive'}

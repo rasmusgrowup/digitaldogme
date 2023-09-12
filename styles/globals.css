@@ -17,6 +17,7 @@ body {
   background-color: var(--bg);
   color: var(--black);
   font-family:
+    neue-haas-grotesk-display,
     'Manrope',
     -apple-system,
     BlinkMacSystemFont,
@@ -39,7 +40,7 @@ body {
   position: relative;
   overscroll-behavior-y: none;
   text-rendering: optimizeLegibility;
-  text-rendering: geometricPrecision;
+  /*text-rendering: geometricPrecision;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -55,13 +56,15 @@ a {
 
 h1 {
   font-weight: 700;
+  font-weight: normal;
 }
 
 
 h2,
 h3 {
   font-weight: 660;
-  letter-spacing: -0.05rem;
+  font-weight: normal;
+  /*letter-spacing: -0.05rem;*/
 }
 
 @media (max-width: 440px) {
@@ -72,7 +75,7 @@ h3 {
 }
 
 p {
-  letter-spacing: -0.033rem;
+  /*letter-spacing: -0.033rem;*/
 }
 
 .section:first-of-type {

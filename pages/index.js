@@ -4,25 +4,29 @@ import FullHero from "../components/FullHero";
 
 //GraphCMS
 import Layout from "../components/Layout";
-import {getMenu, getPage} from "../lib/hygraph";
+import {getLatestCase, getMenu, getPage} from "../lib/hygraph";
 import Meta from "../components/Meta";
 import Head from "next/head";
+import Hero from "../components/Hero";
 
 export async function getStaticProps() {
-    const side = await getPage("forside-test")
-    const menu = await getMenu("dev")
+    const side = await getPage("forside-test");
+    const menu = await getMenu("dev");
+    const latestCase = await getLatestCase();
 
     return {
         props: {
             side,
-            menu
+            menu,
+            latestCase
         },
     }
 }
 
-export default function Home({side, menu}) {
+export default function Home({side, menu, latestCase}) {
     let theme = side.colorTheme && side.colorTheme.toLowerCase() || 'dark';
-
+    let caseStory = latestCase.cases[0];
+    console.log(latestCase)
     return (
         <Layout preview={'undefined'} menu={menu} hasHero='true' theme={theme}>
             <Head>
@@ -32,12 +36,15 @@ export default function Home({side, menu}) {
                 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
                 <title>Digital Dogme | {side.topSektion.overskrift}</title>
             </Head>
-            <FullHero
-                height={side.topSektion.height}
-                url={side.topSektion.billede.url}
+            <Hero
+                height={caseStory.billede.height}
+                url={caseStory.billede.url}
                 overskrift={side.topSektion.overskrift}
-                tekst={side.topSektion.tekst}
+                tekst={caseStory.resume}
                 alt={side.topSektion.billede.alt}
+                theme={theme}
+                cta={caseStory}
+                layout={'childPage'}
             />
             <Blocks blokke={side.blokke}/>
         </Layout>
