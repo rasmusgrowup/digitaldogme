@@ -25,7 +25,7 @@ export default function Hero({height, tekst, url, overskrift, alt, theme, cta, p
                             <p className={styles.p}>{tekst}</p>
                             { cta && cta ?
                                 <div className={styles.cta}>
-                                    <Link href={cta.slug} passHref><a>Læs historien<FeatherIcon icon={'arrow-up-right'} size={16} strokeWidth={'1.5'}/></a></Link>
+                                    <Link href={`/cases/${cta.slug}`} passHref><a>Læs historien<FeatherIcon icon={'arrow-up-right'} size={16} strokeWidth={'1.5'}/></a></Link>
                                 </div>
                               : pdf &&
                                 <div className={styles.cta}>
