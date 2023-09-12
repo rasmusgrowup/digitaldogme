@@ -21,6 +21,13 @@
   font-variant-ligatures: normal;
 }
 
+@font-face {
+  font-family: 'Formula';
+  src: url('/fonts/PPFormula-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-variant-ligatures: normal;
+}
+
 
 @font-face {
   font-family: 'Lora';
@@ -33,7 +40,9 @@ body {
   background-color: var(--bg);
   color: var(--black);
   font-family:
+    'Radio',
     'Montreal',
+    neue-haas-grotesk-display,
     'Manrope',
     -apple-system,
     BlinkMacSystemFont,

@@ -39,7 +39,7 @@ export default function Home({side, menu, latestCase}) {
             <Hero
                 height={caseStory.billede.height}
                 url={caseStory.billede.url}
-                overskrift={side.topSektion.overskrift}
+                overskrift={caseStory.titel}
                 tekst={caseStory.resume}
                 alt={side.topSektion.billede.alt}
                 theme={theme}
