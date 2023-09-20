@@ -1,6 +1,6 @@
 //Components
 import Hero from '../../components/Hero'
-import Publikationer from '../../components/Publikationer'
+import Udgivelser from '../../components/Udgivelser'
 
 //GraphCMS
 import {GraphQLClient, gql} from 'graphql-request';
@@ -92,8 +92,8 @@ export default function Viden({side, publikationer, __type, menu}) {
                 tekst={side.topSektion.tekst}
                 alt={side.topSektion.billede.alt}
             />
-            {/* <Publikationer arr={publikationer} types={__type}/> */}
-            <section className={styles.indexOverview}>
+            <Udgivelser arr={publikationer} types={__type}/>
+            {/* <section className={styles.indexOverview}>
                 {publikationer.map((item, i) => (
                     <div key={item.id} className={styles.indexItem}>
                         <div className={styles.indexDate}>{item.dato}</div>
@@ -102,7 +102,7 @@ export default function Viden({side, publikationer, __type, menu}) {
                             publikationen</a></Link>
                     </div>
                 ))}
-            </section>
+            </section> */}
         </Layout>
     )
 }

@@ -7,6 +7,7 @@ import {getAllCases, getMenu, getPageTopSection} from "../../lib/hygraph";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Head from "next/head";
+import Publikationer from "../../components/Publikationer";
 
 export default function Cases({cases, page, menu}) {
     return (
@@ -26,8 +27,8 @@ export default function Cases({cases, page, menu}) {
                 tekst={page.topSektion.tekst}
                 alt={page.topSektion.billede.alt}
             />
-            {/* <Publikationer arr={cases} types="null"/> */}
-            <section className={styles.indexOverview}>
+            <Publikationer arr={cases} types="null"/>
+            {/* <section className={styles.indexOverview}>
                 { cases.map((item, i) => (
                     <div key={item.id} className={styles.indexItem}>
                         <div className={styles.indexDate}>{item.dato}</div>
@@ -35,7 +36,7 @@ export default function Cases({cases, page, menu}) {
                         <Link href={`cases/${item.slug}`}><a className={styles.indexLink}>Gå til cases</a></Link>
                     </div>
                 ))}
-            </section>
+            </section> */}
         </Layout>
     )
 }

@@ -46,9 +46,6 @@ export default function Home({side, menu, latestCase}) {
                 cta={caseStory}
                 layout={'childPage'}
             />
-            <section style={{ padding: '5rem 1.8rem 0' }}>
-                <h2 style={{ fontSize: '4.2rem', margin: '0', maxWidth: '900px', lineHeight: '1' }}>I Digital Dogme står vi sammen om at øge digital kompetence i dansk erhvervsliv</h2>
-            </section>
             <Blocks blokke={side.blokke}/>
         </Layout>
     )

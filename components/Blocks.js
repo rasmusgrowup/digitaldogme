@@ -14,6 +14,7 @@ import Testimonial from "../components/Testimonial";
 import CallToAction from "./CallToAction";
 import BackgroundSection from "./BackgroundSection";
 import TaskForce from "./TaskForce";
+import Title from "./TItle";
 
 export default function Blocks({blokke, withHero, theme}) {
 
@@ -28,13 +29,15 @@ export default function Blocks({blokke, withHero, theme}) {
                         shouldHaveLine = !previousBlok.gridTheme;
                     } else if (i > 0 && previousBlok.__typename === 'Section') {
                         shouldHaveLine = !previousBlok.sectionTheme;
-                    } else if (i > 0 && previousBlok.__typename === 'BackgroundSection') {
+                    } else if (i > 0 && (previousBlok.__typename === 'BackgroundSection' || previousBlok.__typename === 'Title')) {
                         shouldHaveLine = false;
                     } else {
                         shouldHaveLine = true;
                     }
 
                     switch (blok.__typename) {
+                        case 'Title':
+                            return <Title section={blok} key={blok.id} index={i} shouldHaveLine={shouldHaveLine}/>
                         case 'Sektion':
                             return <Sektion arr={blok} key={blok.id} index={i} shouldHaveLine={shouldHaveLine}/>
                         case 'Animeret':

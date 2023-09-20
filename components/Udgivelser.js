@@ -11,7 +11,8 @@ import styles from '../styles/publikationer.module.scss'
 
 export default function Publikationer({ arr, types }) {
   const router = useRouter()
-  const [ kategorier, setKategorier ] = useState([...types.enumValues, {name: "Case"}].sort((a, b) => a.name > b.name ? 1 : -1));
+  const [ kategorier, setKategorier ] = useState(types.enumValues);
+  //const [ kategorier, setKategorier ] = useState([...types.enumValues, {name: "Case"}].sort((a, b) => a.name > b.name ? 1 : -1));
   const [ filter, setFilter ] = useState(router.query.param || kategorier);
   const [ filteredArr, setFilteredArr] = useState(kategorier)
   //const [ filter, setFilter ] = useState(kategorier);

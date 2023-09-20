@@ -5,39 +5,9 @@ import Image from "next/image";
 import FeatherIcon from "feather-icons-react";
 import Row from "../components/Row";
 
-function Heading({overskrift}) {
-    const punctuationMarks = ['.'];
-
-    // Function to escape special characters in a regular expression
-    const escapeRegExp = (str) => {
-        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape all special characters
-    };
-
-    const splitStringWithPunctuation = (str) => {
-        const regex = new RegExp(
-            `(${punctuationMarks.map((mark) => escapeRegExp(mark)).join('|')})`
-        );
-        return str.split(regex);
-    };
-
-    return (
-        <h2 className={styles.h2}>
-            {splitStringWithPunctuation(overskrift).map((word, index) => {
-                // Check if the word is a punctuation mark
-                if (punctuationMarks.includes(word)) {
-                    return (<span key={index} className={styles.redPunctuation}>{word}</span>);
-                } else {
-                    return word;
-                }
-            })}
-        </h2>
-    );
-}
-
 export default function Section({section, topSection, index, shouldHaveLine}) {
     const lightTheme = !section.sectionTheme === 'blue' || !section.sectionTheme === 'dark';
     let theme = section.sectionTheme ? section.sectionTheme.toLowerCase() : ''
-    const endsWithDot = section.sectionHeader.heading;
 
     return (
         <section className={`
