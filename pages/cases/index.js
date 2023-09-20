@@ -3,29 +3,33 @@ import Hero from '../../components/Hero'
 import styles from '../../styles/publikationer.module.scss'
 
 //GraphCMS
-import {getAllCases, getMenu, getPageTopSection} from "../../lib/hygraph";
+import {getAllCases, getMenu, getPage, getPageTopSection} from "../../lib/hygraph";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Head from "next/head";
 import Publikationer from "../../components/Publikationer";
+import Blocks from "../../components/Blocks";
 
-export default function Cases({cases, page, menu}) {
+export default function Cases({cases, hero, side, menu}) {
+    let theme = side.colorTheme.toLowerCase()
+
     return (
-        <Layout menu={menu} hasHero='true' key={page.id}>
+        <Layout menu={menu} hasHero='true' key={hero.id} theme={theme}>
             <Head>
-                <meta name="description" content={page.topSektion.tekst} key='description'/>
-                <meta name="og:title" content={page.topSektion.overskrift} key='title'/>
-                <meta property="og:image" content={page.topSektion.billede.url}/>
+                <meta name="description" content={hero.topSektion.tekst} key='description'/>
+                <meta name="og:title" content={hero.topSektion.overskrift} key='title'/>
+                <meta property="og:image" content={hero.topSektion.billede.url}/>
                 <meta name="viewport"
                       content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover"/>
-                <title>Digital Dogme | {page.topSektion.overskrift}</title>
+                <title>Digital Dogme | {hero.topSektion.overskrift}</title>
             </Head>
             <Hero
-                height={page.topSektion.height}
-                url={page.topSektion.billede.url}
-                overskrift={page.topSektion.overskrift}
-                tekst={page.topSektion.tekst}
-                alt={page.topSektion.billede.alt}
+                height={hero.topSektion.height}
+                url={hero.topSektion.billede.url}
+                overskrift={hero.topSektion.overskrift}
+                tekst={hero.topSektion.tekst}
+                alt={hero.topSektion.billede.alt}
+                theme={theme}
             />
             <Publikationer arr={cases} types="null"/>
             {/* <section className={styles.indexOverview}>
@@ -37,20 +41,23 @@ export default function Cases({cases, page, menu}) {
                     </div>
                 ))}
             </section> */}
+            {side.blokke && <Blocks blokke={side.blokke}/>}
         </Layout>
     )
 }
 
 export async function getStaticProps() {
     const cases = (await getAllCases()) || []
-    const page = await getPageTopSection("cases")
+    const hero = await getPageTopSection("cases")
     const menu = await getMenu("dev")
+    const side = await getPage("cases");
 
     return {
         props: {
             cases,
-            page,
-            menu
+            hero,
+            menu,
+            side
         },
     }
 }
