@@ -15,7 +15,8 @@ export default function Partners({arr, index, shouldHaveLine}) {
     return (
         <>
             <section className={styles.section}>
-                <header className={styles.header}>
+                <header className={styles.header}
+                        style={index === 0 || !shouldHaveLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
                     <h2 className={styles.h2}>{arr.overskrift}</h2>
                     <div className={styles.column}>
                         {arr.tekstPartner && <div className={styles.p} dangerouslySetInnerHTML={{__html: `${arr.tekstPartner.html}`}}/>}
