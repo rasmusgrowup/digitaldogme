@@ -14,7 +14,7 @@ import Testimonial from "../components/Testimonial";
 import CallToAction from "./CallToAction";
 import BackgroundSection from "./BackgroundSection";
 import TaskForce from "./TaskForce";
-import Title from "./TItle";
+import Title from "./Title";
 
 export default function Blocks({blokke, withHero, theme}) {
 

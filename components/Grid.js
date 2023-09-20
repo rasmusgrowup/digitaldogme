@@ -20,8 +20,7 @@ function Heading({overskrift, lightTheme, index}) {
     };
 
     return (
-        <h2 className={styles.heading}
-            style={index === 0 || !lightTheme ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+        <h2 className={styles.heading}>
             {splitStringWithPunctuation(overskrift).map((word, index) => {
                 // Check if the word is a punctuation mark
                 if (punctuationMarks.includes(word)) {
@@ -43,7 +42,7 @@ export default function Grid({props, index, shouldHaveLine}) {
             <section className={`${theme === 'dark' ? `${styles.dark}` : theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.bg}`}`} id={props.id}
                      style={{scrollMarginTop: '50px'}}>
                 <div className={styles.inner}>
-                    <header className={styles.header} style={index === 0 || props.gridTheme !== null || !shouldHaveLine ? {border: 'none'} :  {borderTop: '1px solid var(--main)'}}>
+                    <header className={styles.header}>
                         {props.gridHeading &&
                             <h2 className={styles.h2}>
                                 {props.gridHeading}

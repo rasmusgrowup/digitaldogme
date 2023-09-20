@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Testimonial({ section, index, shouldHaveLine }) {
     return (
         <section className={styles.section}>
-            <div className={styles.inner} style={index === 0 || !shouldHaveLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+            <div className={styles.inner} >
                 <figure className={styles.figure}>
                     <blockquote className={styles.blockquote}>
                         <p className={styles.quote}>{`“`}{section.quote}{`”`}</p>
