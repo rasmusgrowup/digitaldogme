@@ -17,7 +17,7 @@ export default function Sektion({arr, index}) {
                     <div className={styles.column}>
                         <div className={styles.p} dangerouslySetInnerHTML={{__html: `${arr.tekst.html}`}}/>
                         {arr.cta &&
-                            <Link href={arr.cta.link}>
+                            <Link href={`${arr.cta.params ? `${arr.cta.link}${arr.cta.params}` : `${arr.cta.link}`}`}>
                                 <a className={styles.link}>{arr.cta.label}</a>
                             </Link>
                         }
