@@ -36,6 +36,12 @@
 
   .h2 {
     font-size: 3.5em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    padding-right: 2rem;
   }
 
   .p {
