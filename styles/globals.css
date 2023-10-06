@@ -3,7 +3,6 @@
   src: url('/fonts/Manrope[wght].woff2') format('woff2'),
   url('/fonts/Manrope[wght].woff2') format('woff2-variations');
   font-weight: 100 1000;
-  font-variant-ligatures: normal;
 }
 
 @font-face {

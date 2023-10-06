@@ -283,7 +283,8 @@
   }
 }
 
-.pdfLink {
+.pdfLink,
+.registerBtn {
   align-items: center;
   background-color: transparent;
   border: 1px solid var(--black);
@@ -297,6 +298,14 @@
   &:hover {
     background-color: var(--black);
     color: var(--bg);
+  }
+}
+
+.registerBtn {
+  border-color: inherit;
+
+  &:hover {
+    border-color: var(--black);
   }
 }
 
@@ -396,4 +405,8 @@
       width: 66%;
     }
   }
+}
+
+.registerBtn {
+  margin-top: 0.5rem;
 }

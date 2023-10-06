@@ -96,16 +96,14 @@ export default function event({event, menu, latestEvents}) {
                         dangerouslySetInnerHTML={{__html: `${event.beskrivelse.html}`}}
                     >
                     </div>
+                    {event.attachedMedia ? <h3>Links</h3> : <></>}
                     {event.attachedMedia &&
                         <Link href={event.attachedMedia.url} passHref>
                             <a target='_blank'>
-                                <motion.div
-                                    whileHover={{scale: 1.02}}
-                                    whileTap={{scale: 0.98}}
-                                    className={styles.pdfLink}>
+                                <div className={styles.pdfLink}>
                                     <span>{event.attachedMedia.fileName}</span>
-                                    <span>Læs</span>
-                                </motion.div>
+                                    <FeatherIcon icon={'arrow-up-right'} strokeWidth={'1'}/>
+                                </div>
                             </a>
                         </Link>
                     }
@@ -123,6 +121,16 @@ export default function event({event, menu, latestEvents}) {
                     </p>
                     <p><strong>Lokation</strong></p>
                     <p>{event.lokation}</p>
+                    {event.register &&
+                        <Link href={{pathname: '/events/register', query: `id=${event.id}`}}>
+                            <a>
+                                <div className={styles.registerBtn}>
+                                    <span>Tilmeld dig eventet</span>
+                                    <FeatherIcon icon={'arrow-up-right'} size={'17'} strokeWidth={'1'}/>
+                                </div>
+                            </a>
+                        </Link>
+                    }
                 </div>
             </section>
             <div className={styles.latest}>

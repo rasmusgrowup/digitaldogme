@@ -1,0 +1,74 @@
+@import "core";
+
+.section {
+  background-color: var(--main);
+  color: var(--bg);
+  min-height: 100vh;
+  padding: 6rem 2rem;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: $s;
+}
+
+.formContainer {
+  //border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.form {
+  color: var(--bg);
+
+  label,
+  input {
+    display: block;
+    margin-bottom: 0.25rem;
+    width: 100%;
+  }
+
+  div {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-size: 0.8rem;
+
+    &:after {
+      color: var(--red);
+      content: ' *'
+    }
+  }
+
+  input {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: var(--bg);
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .submitBtn {
+    background-color: transparent;
+    border: 1px solid var(--bg);
+    color: var(--bg);
+    cursor: pointer;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 1rem;
+
+    &:hover {
+      background-color: var(--bg);
+      color: var(--main)
+    }
+  }
+
+  .submitBtn:disabled {
+    background-color: var(--main);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.1);
+    cursor: not-allowed;
+  }
+}
