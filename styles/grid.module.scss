@@ -156,7 +156,7 @@
 .columnTitle {
   font-size: 1.5em;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 0.5rem;
   margin-top: 4px;
 }
 
@@ -169,7 +169,8 @@
 }
 
 .richText ul {
-  padding: 1.2em;
+  padding: 0 1.2em;
+  margin: 0;
 }
 
 .headerColumn .link {
