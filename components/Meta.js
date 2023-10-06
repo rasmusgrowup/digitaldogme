@@ -4,8 +4,6 @@ function Meta({title, keywords, description}) {
     return (
         <Head>
             <link rel="icon" type="image/png" href="/favicon.ico"/>
-            <link rel="stylesheet" href="https://use.typekit.net/pgi5uro.css" />
-            {/* <meta name="theme-color" content="#ffffff"/> */}
             <meta name="description" content={description} key='description'/>
             <meta name="keywords" content={keywords} key='keywords'/>
             <meta name="og:title" content={title} key='title'/>

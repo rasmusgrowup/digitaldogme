@@ -10,7 +10,7 @@ import Head from "next/head";
 import Hero from "../components/Hero";
 
 export async function getStaticProps() {
-    const side = await getPage("forside-test");
+    const side = await getPage("forside");
     const menu = await getMenu("dev");
     const latestCase = await getLatestCase();
 
@@ -26,7 +26,7 @@ export async function getStaticProps() {
 export default function Home({side, menu, latestCase}) {
     let theme = side.colorTheme && side.colorTheme.toLowerCase() || 'dark';
     let caseStory = latestCase.cases[0];
-    console.log(latestCase)
+
     return (
         <Layout preview={'undefined'} menu={menu} hasHero='true' theme={theme}>
             <Head>
