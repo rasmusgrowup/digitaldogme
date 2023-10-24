@@ -37,6 +37,7 @@ export async function getStaticPaths() {
 export default function Landingsside({side, menu}) {
     const heroExists = !!side.topSektion;
     let theme = side.colorTheme && side.colorTheme.toLowerCase() || 'dark';
+    console.log(theme, heroExists)
 
     return (
         <Layout preview={'undefined'} menu={menu} hasHero={heroExists} key={side.id} theme={theme}>

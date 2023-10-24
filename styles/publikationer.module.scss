@@ -247,12 +247,24 @@
   }
 }
 
-.info {
-  background-color: var(--weak-blue);
-  color: var(--faded-blue);
+.faktaboxTekst a {
+  text-decoration: underline;
+  text-underline-offset: 0.33rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.rightColumn {
   display: inline-flex;
   flex: 1;
   flex-direction: column;
+}
+
+.info {
+  background-color: var(--weak-blue);
+  color: var(--faded-blue);
   padding: 1.6rem 1.6rem 3.2rem;
 
   @media (max-width: $m) {
@@ -280,6 +292,20 @@
     &:hover {
       text-decoration-line: none;
     }
+  }
+}
+
+.keynotes {
+
+  margin-top: 2rem;
+  .h3 {
+    border-bottom: 1px solid var(--black);
+  }
+
+  .persons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 

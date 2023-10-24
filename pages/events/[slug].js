@@ -67,6 +67,7 @@ export default function event({event, menu, latestEvents}) {
     }
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [arr, setArr] = useState({items})
+    console.log(event.personer)
 
     return (
         <Layout menu={menu} hasHero='true' key={event.id} theme={theme}>
@@ -85,6 +86,7 @@ export default function event({event, menu, latestEvents}) {
                 tekst={event.resume}
                 alt={event.billede.alt}
                 theme={theme}
+                layout={'childPage'}
             />
             <section className={styles.richWrapper}>
                 <div className={styles.richInner}>
@@ -108,28 +110,46 @@ export default function event({event, menu, latestEvents}) {
                         </Link>
                     }
                 </div>
-                <div className={`
+                <div className={styles.rightColumn}>
+                    <div className={`
                     ${styles.info}
                     ${theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.dark}`}
                     `}>
-                    {/* <p><strong>Tematikker</strong></p>
+                        {/* <p><strong>Tematikker</strong></p>
                     <p>Opkvalificering, digitalisering</p> */}
-                    <p><strong>Tidspunkt</strong></p>
-                    <p>
-                        <Moment locale='da' format='ll'>{event.dato.toString()}</Moment>
-                        {', '}{event.tidspunktSlut ? <>{event.tidspunktStart}-{event.tidspunktSlut}</> : <>{event.tidspunktStart}</>}
-                    </p>
-                    <p><strong>Lokation</strong></p>
-                    <p>{event.lokation}</p>
-                    {event.register &&
-                        <Link href={{pathname: '/events/register', query: `id=${event.id}`}}>
-                            <a>
-                                <div className={styles.registerBtn}>
-                                    <span>Tilmeld dig eventet</span>
-                                    <FeatherIcon icon={'arrow-up-right'} size={'17'} strokeWidth={'1'}/>
-                                </div>
-                            </a>
-                        </Link>
+                        <p><strong>Tidspunkt</strong></p>
+                        <p>
+                            <Moment locale='da' format='ll'>{event.dato.toString()}</Moment>
+                            {', '}{event.tidspunktSlut ? <>{event.tidspunktStart}-{event.tidspunktSlut}</> : <>{event.tidspunktStart}</>}
+                        </p>
+                        <p><strong>Lokation</strong></p>
+                        <p>{event.lokation}</p>
+                        {event.register &&
+                            <Link href={{pathname: '/events/register', query: `id=${event.id}`}}>
+                                <a>
+                                    <div className={styles.registerBtn}>
+                                        <span>Tilmeld dig eventet</span>
+                                        <FeatherIcon icon={'arrow-up-right'} size={'17'} strokeWidth={'1'}/>
+                                    </div>
+                                </a>
+                            </Link>
+                        }
+                        {event.faktabox && <p><strong>{event.faktabox.titel}</strong></p>}
+                        {event.faktabox && <div className={styles.faktaboxTekst} dangerouslySetInnerHTML={{__html: `${event.faktabox.tekst.html}`}}/>}
+                    </div>
+                    {event.personer.length > 0 &&
+                        <div className={styles.keynotes}>
+                            <h3 className={styles.h3}>Dem kan du møde på scenen</h3>
+                            <div className={styles.persons}>
+                                {event.personer.map((person, i)=> (
+                                    <div key={i}>
+                                        <Image src={person.billedePerson.url} width={'300'} height={'300'} alt={person.navn} objectFit={'cover'} objectPosition={'top'}/>
+                                        <div>{person.navn}</div>
+                                        <div>{person.jobtitel}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     }
                 </div>
             </section>

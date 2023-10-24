@@ -28,3 +28,11 @@
   border-bottom: 1px solid var(--black);
   padding-bottom: 1rem;
 }
+
+.div {
+  padding: 1.6rem;
+
+  @media (max-width: $m) {
+    padding: 1rem;
+  }
+}
