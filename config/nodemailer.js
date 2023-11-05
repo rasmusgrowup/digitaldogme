@@ -15,3 +15,8 @@ export const mailOptions = {
     from: email,
     to: [email, "mette@digitaldogme.dk"],
 };
+
+export const mailOptionsForIndstilVirksomhed = {
+    from: email,
+    to: [email, "mette@digitaldogme.dk", "jakob@digitaldogme.dk"],
+};

@@ -34,11 +34,11 @@
 
   label {
     font-size: 0.8rem;
+  }
 
-    &:after {
-      color: var(--red);
-      content: ' *'
-    }
+  label.required:after {
+    color: var(--red);
+    content: ' *'
   }
 
   input {
