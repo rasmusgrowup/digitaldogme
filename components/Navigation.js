@@ -68,7 +68,7 @@ export default function Navigation({scrolling, theme, menu}) {
     const {toggle, toggleFunction} = useContext(MenuContext);
     const router = useRouter()
     const isSmall = useMediaQuery({
-        query: '(max-width: 834px)'
+        query: '(max-width: 1024px)'
     })
 
     //console.log(data)
