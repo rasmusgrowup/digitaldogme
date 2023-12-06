@@ -53,9 +53,9 @@ export async function getStaticProps() {
     const cases = (await getAllCases()) || []
     const publikationer = (await getAllPublications()) || []
     const types = (await getAllPublicationTypes()) || []
-    const hero = await getPageTopSection("udgivelser")
+    const hero = await getPageTopSection("videnshub")
     const menu = await getMenu("dev")
-    const side = await getPage("udgivelser");
+    const side = await getPage("videnshub");
 
     return {
         props: {
