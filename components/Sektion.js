@@ -10,8 +10,8 @@ export default function Sektion({arr, index}) {
     const router = useRouter()
     return (
         <section className={styles.section}>
-            <div className={`${styles.inner} ${arr.align === 'center' ? `${styles.centerAligned}` : ''}`}
-                 style={index === 0 ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
+            <div className={`${styles.inner} ${arr.align === 'center' ? `${styles.centerAligned}` : arr.align === 'left' ? `${styles.leftAligned}` : `${styles.rightAligned}`}`}
+                 style={index === 0 || !arr.topLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
                 <header className={styles.header}>
                     {arr.titel && <h2 className={styles.h2}>{arr.titel}</h2>}
                     <div className={styles.column}>
