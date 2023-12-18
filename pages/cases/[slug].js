@@ -62,6 +62,7 @@ export default function Case({data, menu, latestCases}) {
                         tekst={data.case.resume}
                         alt={data.case.billede.alt}
                         theme={theme}
+                        layout={'childPage'}
                     />
                     <section className={styles.richWrapper}>
                         <div className={styles.richInner}>
