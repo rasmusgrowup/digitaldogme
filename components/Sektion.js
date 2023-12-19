@@ -8,6 +8,7 @@ import styles from '../styles/sektion.module.scss'
 
 export default function Sektion({arr, index}) {
     const router = useRouter()
+    console.log(arr.topLine)
     return (
         <section className={styles.section}>
             <div className={`${styles.inner} ${arr.align === 'center' ? `${styles.centerAligned}` : arr.align === 'left' ? `${styles.leftAligned}` : `${styles.rightAligned}`}`}
