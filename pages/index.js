@@ -40,7 +40,7 @@ export default function Home({side, menu, latestCase}) {
                 height={side.topSektion.billede.height}
                 url={side.topSektion.billede.url}
                 overskrift={side.topSektion.overskrift}
-                tekst={side.topSektion.overskrift}
+                tekst={side.topSektion.tekst}
                 alt={side.topSektion.billede.alt}
                 theme={theme}
                 cta={side.topSektion.link}
