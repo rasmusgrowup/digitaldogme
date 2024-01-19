@@ -37,13 +37,13 @@ export default function Home({side, menu, latestCase}) {
                 <title>Digital Dogme | {side.topSektion.overskrift}</title>
             </Head>
             <Hero
-                height={caseStory.billede.height}
-                url={caseStory.billede.url}
+                height={side.topSektion.billede.height}
+                url={side.topSektion.billede.url}
                 overskrift={side.topSektion.overskrift}
-                tekst={caseStory.resume}
+                tekst={side.topSektion.overskrift}
                 alt={side.topSektion.billede.alt}
                 theme={theme}
-                cta={caseStory}
+                cta={side.topSektion.link}
                 layout={'childPage'}
             />
             <Blocks blokke={side.blokke}/>
