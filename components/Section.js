@@ -14,12 +14,12 @@ export default function Section({section, topSection, index, shouldHaveLine}) {
             ${theme === 'dark' ? `${styles.dark}` : theme === 'sky' ? `${styles.sky}` : theme === 'blue' ? `${styles.blue}` : theme === 'light' ? `${styles.light}` : theme === 'curry' ? `${styles.curry}` : theme === 'turquoise' ? `${styles.turquoise}` : theme === 'grey' ? `${styles.grey}` : theme === 'green' ? `${styles.green}` : theme === 'sand' ? `${styles.sand}` : `${styles.bg}`}
             ${styles.section}
             `} style={topSection ? {paddingTop: '0'} : {} && {scrollMarginTop: '50px'}} id={section.id}>
-            {(section.sectionHeader.paragraph || section.richText) && section.sectionHeader ?
+            {section.sectionHeader || section.richText ?
                 <header className={styles.header}
                         style={index === 0 || section.sectionTheme !== null || !shouldHaveLine ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
-                    {section.sectionHeader.heading && <h2 className={styles.h2}>{section.sectionHeader.heading}</h2>}
+                    {section.sectionHeader && <h2 className={styles.h2}>{section.sectionHeader.heading}</h2>}
                     <div className={styles.column}>
-                        {section.sectionHeader.paragraph && <p className={styles.p}>{section.sectionHeader.paragraph}</p>}
+                        {section.sectionHeader && <p className={styles.p}>{section.sectionHeader.paragraph}</p>}
                         {section.richText &&
                             <div className={styles.richText} dangerouslySetInnerHTML={{__html: `${section.richText.html}`}}/>
                         }
@@ -43,7 +43,7 @@ export default function Section({section, topSection, index, shouldHaveLine}) {
                     </div>
                 </header> :
                 <header className={`${styles.header} ${styles.spaceBetween}`} style={index === 0 ? {border: 'none'} : {borderTop: '1px solid var(--main)'}}>
-                    <h2 className={styles.h2}>{section.sectionHeader.heading}</h2>
+                    {section.sectionHeader && <h2 className={styles.h2}>{section.sectionHeader.heading}</h2>}
                     {section.sectionLink &&
                         <div className={styles.link}>
                             <Link href={section.sectionLink.adresse}>{section.sectionLink.titel}</Link>

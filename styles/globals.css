@@ -91,6 +91,13 @@ h3 {
   /*letter-spacing: -0.05rem;*/
 }
 
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
+
 @media (max-width: 440px) {
   h2,
   h3 {
